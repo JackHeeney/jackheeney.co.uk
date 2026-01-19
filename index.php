@@ -1,9 +1,9 @@
 <?php
 // Basic PHP config – extend later (e.g. contact form, routing)
 $yourName      = "Jack Heeney";
-$emailAddress  = "your.email@example.com";
-$linkedinUrl   = "https://www.linkedin.com/in/yourprofile";
-$githubUrl     = "https://github.com/yourusername";
+$emailAddress  = "your.jackheeney1@googlemail.com";
+$linkedinUrl   = "https://www.linkedin.com/in/jack-heeney/";
+$githubUrl     = "https://github.com/JackHeeney";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +51,12 @@ $githubUrl     = "https://github.com/yourusername";
                 <div class="desktop-icon__label">Snake Game</div>
             </div>
 
-            <div class="desktop-icon" data-app="browser" style="left:140px;top:140px;">
+            <div class="desktop-icon" data-app="invaders" style="left:140px;top:140px;">
+                <div class="desktop-icon__icon">🚀</div>
+                <div class="desktop-icon__label">Space Invaders</div>
+            </div>
+
+            <div class="desktop-icon" data-app="browser" style="left:140px;top:260px;">
                 <div class="desktop-icon__icon">🌐</div>
                 <div class="desktop-icon__label">Browser</div>
             </div>
@@ -65,6 +70,7 @@ $githubUrl     = "https://github.com/yourusername";
             <?php include 'assets/inc/window-contact.php'; ?>
             <?php include 'assets/inc/window-files.php'; ?>
             <?php include 'assets/inc/window-game.php'; ?>
+            <?php include 'assets/inc/window-invaders.php'; ?>
             <?php include 'assets/inc/window-browser.php'; ?>
         </div>
 
@@ -115,6 +121,10 @@ $githubUrl     = "https://github.com/yourusername";
                         <button class="start-menu__app" data-app="game">
                             <div class="start-menu__app-icon">🎮</div>
                             <div class="start-menu__app-label">Snake Game</div>
+                        </button>
+                        <button class="start-menu__app" data-app="invaders">
+                            <div class="start-menu__app-icon">🚀</div>
+                            <div class="start-menu__app-label">Space Invaders</div>
                         </button>
                         <button class="start-menu__app" data-app="browser">
                             <div class="start-menu__app-icon">🌐</div>

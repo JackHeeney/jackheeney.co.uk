@@ -303,9 +303,10 @@ const SnakeGame = (() => {
         }
         if (!gameWindow || gameWindow.classList.contains("window--hidden")) return;
 
-        if (!isFullScreen) {
-            goFullScreen();
-        }
+        // Don't go full screen - keep window at reasonable size
+        // if (!isFullScreen) {
+        //     goFullScreen();
+        // }
 
         // Give the window a moment to render before showing loading animation
         setTimeout(() => {

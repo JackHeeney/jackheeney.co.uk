@@ -2301,4 +2301,539 @@ body {
     margin-top: 5px;
 }
 
+/* Space Invaders */
+.window__body.invaders {
+    padding: 20px;
+    background: #0f172a;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.invaders__loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    flex-direction: column;
+}
+
+.invaders__loading-content {
+    text-align: center;
+    color: #e5e7eb;
+}
+
+.invaders__loading-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.invaders__loading-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.invaders__loading-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.invaders__loading-text {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #cbd5e1;
+}
+
+.invaders__loading-bar {
+    width: 300px;
+    height: 8px;
+    background: #1e293b;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #334155;
+    margin: 0 auto;
+}
+
+.invaders__loading-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 50%, #3b82f6 100%);
+    background-size: 200% 100%;
+    animation: loading-progress 1s linear infinite, progress-fill 2s ease-out forwards;
+    border-radius: 4px;
+    width: 0%;
+}
+
+.invaders__game-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
+}
+
+.invaders__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #1e293b;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    color: #e5e7eb;
+    font-weight: 600;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.invaders__reset {
+    background: #334155;
+    border: 1px solid #475569;
+    color: #e5e7eb;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.invaders__reset:hover {
+    background: #475569;
+    border-color: #64748b;
+}
+
+.invaders__canvas-container {
+    flex: 1 1 0;
+    min-height: 0;
+    background: #020617;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#invaders-canvas {
+    display: block;
+    border-radius: 4px;
+    max-width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+    object-fit: contain;
+}
+
+.invaders__info {
+    text-align: center;
+    padding: 15px;
+    color: #e5e7eb;
+    flex-shrink: 0;
+}
+
+.invaders__info-main {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.invaders__info-main--danger {
+    color: #ef4444;
+}
+
+.invaders__info-main--success {
+    color: #16a34a;
+}
+
+.invaders__info-sub {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.invaders__sub {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.invaders__mobile-controls {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 15px;
+    flex-shrink: 0;
+}
+
+.invaders__controls-row {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.invaders__control-btn {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #334155;
+    background: #1e293b;
+    color: #e5e7eb;
+    font-size: 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.invaders__control-btn--shoot {
+    width: 90px;
+    background: #3b82f6;
+    border-color: #60a5fa;
+}
+
+.invaders__control-btn:active {
+    background: #3b82f6;
+    border-color: #60a5fa;
+    transform: scale(0.95);
+}
+
+.invaders__control-btn:hover {
+    background: #334155;
+    border-color: #475569;
+}
+
+.invaders__control-btn--shoot:hover {
+    background: #2563eb;
+    border-color: #3b82f6;
+}
+
+@media (max-width: 768px) {
+    .invaders__mobile-controls {
+        display: flex;
+    }
+}
+
+/* Menu Screen */
+.invaders__menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    flex-direction: column;
+}
+
+.invaders__menu-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.3;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#invaders-menu-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.invaders__menu-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #e5e7eb;
+}
+
+.invaders__menu-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    color: #60a5fa;
+    letter-spacing: 4px;
+}
+
+.invaders__menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.invaders__menu-btn {
+    padding: 16px 48px;
+    background: linear-gradient(90deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 200px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.invaders__menu-btn:hover {
+    background: linear-gradient(90deg, #1d4ed8, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.invaders__menu-btn:active {
+    transform: translateY(0);
+}
+
+/* High Score Modal */
+.invaders__hiscore-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.invaders__hiscore-content {
+    background: #1e293b;
+    border: 2px solid #334155;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.invaders__hiscore-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #60a5fa;
+    text-align: center;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.invaders__hiscore-list {
+    margin-bottom: 20px;
+}
+
+.invaders__hiscore-header {
+    display: grid;
+    grid-template-columns: 60px 1fr 120px 80px;
+    gap: 12px;
+    padding: 12px;
+    background: #0f172a;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #94a3b8;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.invaders__hiscore-item {
+    display: grid;
+    grid-template-columns: 60px 1fr 120px 80px;
+    gap: 12px;
+    padding: 12px;
+    background: #0f172a;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    color: #e5e7eb;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.invaders__hiscore-item:hover {
+    background: #1e293b;
+}
+
+.invaders__hiscore-item span:first-child {
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+.invaders__hiscore-item span:nth-child(2) {
+    font-weight: 600;
+    color: #fbbf24;
+}
+
+.invaders__hiscore-item span:nth-child(3) {
+    text-align: right;
+    color: #4ade80;
+}
+
+.invaders__hiscore-item span:nth-child(4) {
+    text-align: right;
+    color: #94a3b8;
+}
+
+.invaders__hiscore-empty {
+    text-align: center;
+    color: #94a3b8;
+    padding: 40px;
+    font-size: 16px;
+}
+
+.invaders__hiscore-close {
+    width: 100%;
+    padding: 12px;
+    background: #334155;
+    border: 1px solid #475569;
+    color: #e5e7eb;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.invaders__hiscore-close:hover {
+    background: #475569;
+    border-color: #64748b;
+}
+
+/* Name Entry */
+.invaders__name-entry {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.invaders__name-entry-content {
+    background: #1e293b;
+    border: 2px solid #334155;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    min-width: 300px;
+}
+
+.invaders__name-entry-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #4ade80;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.invaders__name-entry-subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+.invaders__name-entry-input {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.invaders__name-char {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    background: #0f172a;
+    border: 2px solid #334155;
+    border-radius: 8px;
+    color: #60a5fa;
+    text-transform: uppercase;
+    font-family: monospace;
+    transition: all 0.2s;
+}
+
+.invaders__name-char:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+    background: #1e293b;
+}
+
+.invaders__name-entry-score {
+    font-size: 18px;
+    color: #e5e7eb;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.invaders__name-entry-score span {
+    color: #4ade80;
+    font-size: 24px;
+}
+
+.invaders__name-entry-submit {
+    padding: 12px 32px;
+    background: linear-gradient(90deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.invaders__name-entry-submit:hover {
+    background: linear-gradient(90deg, #1d4ed8, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
 /* etc… */

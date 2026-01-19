@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         await loadComponent('./assets/js/components/file-explorer.js');
         await loadComponent('./assets/js/components/snake.js');
+        await loadComponent('./assets/js/components/invaders.js');
 
         // Initialize after components are loaded
         Desktop.init();
@@ -24,6 +25,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         if (typeof SnakeGame !== 'undefined') {
             SnakeGame.init();
+        }
+        if (typeof SpaceInvaders !== 'undefined') {
+            SpaceInvaders.init();
         }
         Browser.init();
     } catch (error) {
@@ -34,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 /* ------------------ Desktop + Windows + Taskbar ------------------ */
 
 const Desktop = (() => {
-    const appIds = ["about", "projects", "skills", "contact", "files", "game", "browser"];
+    const appIds = ["about", "projects", "skills", "contact", "files", "game", "invaders", "browser"];
     const windows = {};
     const taskButtons = {};
     let nextZ = 10;
@@ -346,9 +350,9 @@ const Desktop = (() => {
         const wasHidden = win.classList.contains("window--hidden");
         win.classList.remove("window--hidden", "window--minimised");
 
-        // Special handling for game window - skip constrainWindowToViewport
-        // as it will be handled by SnakeGame to go full screen
-        if (id !== "game") {
+        // Special handling for game windows - skip constrainWindowToViewport
+        // as they may handle their own sizing
+        if (id !== "game" && id !== "invaders") {
             // Ensure window fits within viewport
             constrainWindowToViewport(win);
         }
@@ -402,6 +406,10 @@ const Desktop = (() => {
         if (id === "game" && wasHidden && window.SnakeGameApp && typeof window.SnakeGameApp.handleWindowOpen === "function") {
             window.SnakeGameApp.handleWindowOpen();
         }
+        
+        if (id === "invaders" && wasHidden && window.SpaceInvadersApp && typeof window.SpaceInvadersApp.handleWindowOpen === "function") {
+            window.SpaceInvadersApp.handleWindowOpen();
+        }
     }
 
     function titleForApp(id) {
@@ -412,6 +420,7 @@ const Desktop = (() => {
             contact: "Contact",
             files: "My Files",
             game: "Snake Game",
+            invaders: "Space Invaders",
             browser: "Browser"
         };
         return map[id] || id;
@@ -425,6 +434,7 @@ const Desktop = (() => {
             contact: "📧",
             files: "📁",
             game: "🎮",
+            invaders: "🚀",
             browser: "🌐"
         };
         return map[id] || "📦";
@@ -636,8 +646,8 @@ const Desktop = (() => {
                 appIds.forEach(id => {
                     const win = windows[id];
                     if (win && !win.classList.contains("window--hidden") && !win.classList.contains("window--minimised")) {
-                        // Skip game window if it's in full screen mode
-                        if (id === "game" && win.classList.contains("window--maximised")) {
+                        // Skip game windows if they're in full screen mode
+                        if ((id === "game" || id === "invaders") && win.classList.contains("window--maximised")) {
                             return;
                         }
                         constrainWindowToViewport(win);
