@@ -303,12 +303,12 @@ const SnakeGame = (() => {
         }
         if (!gameWindow || gameWindow.classList.contains("window--hidden")) return;
 
-        // Don't go full screen - keep window at reasonable size
-        // if (!isFullScreen) {
-        //     goFullScreen();
-        // }
+        if (window.DesktopApp && typeof window.DesktopApp.fitGameWindow === "function") {
+            window.DesktopApp.fitGameWindow(gameWindow);
+        } else if (isMobile() && !isFullScreen) {
+            goFullScreen();
+        }
 
-        // Give the window a moment to render before showing loading animation
         setTimeout(() => {
             if (!isLoading) {
                 showLoadingAnimation();

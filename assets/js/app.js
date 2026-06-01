@@ -11,12 +11,71 @@ function loadComponent(src) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+/* --------------------------- Login Screen --------------------------- */
+
+const LoginScreen = (() => {
+    let loginScreen = null;
+    let desktop = null;
+    let appsInitialised = false;
+
+    function completeLogin(onLogin, event) {
+        if (event) {
+            event.preventDefault();
+        }
+        if (!loginScreen || !desktop) return;
+
+        desktop.classList.remove("desktop--locked");
+        desktop.classList.add("desktop--unlocked");
+
+        loginScreen.classList.add("login-screen--hidden");
+
+        if (typeof onLogin === "function" && !appsInitialised) {
+            appsInitialised = true;
+            onLogin();
+        }
+    }
+
+    function init(onLogin) {
+        loginScreen = document.getElementById("login-screen");
+        desktop = document.getElementById("desktop");
+
+        // If there is no login screen, just start immediately
+        if (!loginScreen || !desktop) {
+            if (typeof onLogin === "function") {
+                onLogin();
+            }
+            return;
+        }
+
+        const loginButton = document.getElementById("login-button");
+        const form = loginScreen.querySelector(".login-screen__form");
+
+        if (loginButton) {
+            loginButton.addEventListener("click", (event) => completeLogin(onLogin, event));
+        }
+
+        if (form) {
+            form.addEventListener("submit", (event) => completeLogin(onLogin, event));
+        }
+    }
+
+    function show() {
+        if (!loginScreen || !desktop) return;
+        desktop.classList.remove("desktop--unlocked");
+        desktop.classList.add("desktop--locked");
+        loginScreen.classList.remove("login-screen--hidden");
+    }
+
+    return { init, show };
+})();
+
+async function startDesktopApps() {
     // Load components dynamically
     try {
         await loadComponent('./assets/js/components/file-explorer.js');
         await loadComponent('./assets/js/components/snake.js');
         await loadComponent('./assets/js/components/invaders.js');
+        await loadComponent('./assets/js/components/clippy.js');
 
         // Initialize after components are loaded
         Desktop.init();
@@ -30,9 +89,17 @@ document.addEventListener("DOMContentLoaded", async () => {
             SpaceInvaders.init();
         }
         Browser.init();
+        Projects.init();
+        if (typeof Clippy !== 'undefined') {
+            Clippy.init();
+        }
     } catch (error) {
         console.error('Error loading components:', error);
     }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    LoginScreen.init(startDesktopApps);
 });
 
 /* ------------------ Desktop + Windows + Taskbar ------------------ */
@@ -306,6 +373,26 @@ const Desktop = (() => {
         win.style.zIndex = nextZ;
     }
 
+    function isMobileViewport() {
+        return window.innerWidth <= 768;
+    }
+
+    function fitGameWindow(win) {
+        if (!win) return;
+
+        const btnMax = win.querySelector(".window__btn--max");
+
+        if (isMobileViewport()) {
+            if (!win.classList.contains("window--maximised") && btnMax) {
+                btnMax.click();
+            }
+        } else if (win.classList.contains("window--maximised") && btnMax) {
+            btnMax.click();
+        } else {
+            constrainWindowToViewport(win);
+        }
+    }
+
     function constrainWindowToViewport(win) {
         const winRect = win.getBoundingClientRect();
         const viewportWidth = window.innerWidth;
@@ -350,10 +437,9 @@ const Desktop = (() => {
         const wasHidden = win.classList.contains("window--hidden");
         win.classList.remove("window--hidden", "window--minimised");
 
-        // Special handling for game windows - skip constrainWindowToViewport
-        // as they may handle their own sizing
-        if (id !== "game" && id !== "invaders") {
-            // Ensure window fits within viewport
+        if (id === "game" || id === "invaders") {
+            fitGameWindow(win);
+        } else {
             constrainWindowToViewport(win);
         }
 
@@ -389,7 +475,11 @@ const Desktop = (() => {
                 if (win.classList.contains("window--minimised")) {
                     win.classList.remove("window--minimised");
                     btn.classList.remove("taskbar-item--minimised");
-                    constrainWindowToViewport(win);
+                    if (id === "game" || id === "invaders") {
+                        fitGameWindow(win);
+                    } else {
+                        constrainWindowToViewport(win);
+                    }
                     bringToFront(id);
                 } else {
                     bringToFront(id);
@@ -406,7 +496,7 @@ const Desktop = (() => {
         if (id === "game" && wasHidden && window.SnakeGameApp && typeof window.SnakeGameApp.handleWindowOpen === "function") {
             window.SnakeGameApp.handleWindowOpen();
         }
-        
+
         if (id === "invaders" && wasHidden && window.SpaceInvadersApp && typeof window.SpaceInvadersApp.handleWindowOpen === "function") {
             window.SpaceInvadersApp.handleWindowOpen();
         }
@@ -604,16 +694,28 @@ const Desktop = (() => {
             });
         });
 
-        // Handle recommended file clicks
-        document.querySelectorAll(".start-menu__file").forEach(file => {
+        // Handle recommended file clicks — open PDF directly in the viewer
+        document.querySelectorAll(".start-menu__file[data-pdf-url]").forEach(file => {
             file.addEventListener("click", () => {
-                const fileType = file.dataset.file;
-                // Open files window and potentially navigate to specific file
+                const url = file.dataset.pdfUrl;
+                const name = file.dataset.pdfName;
                 openWindow("files");
+                if (typeof FileExplorer !== "undefined" && typeof FileExplorer.openPdf === "function") {
+                    FileExplorer.openPdf(url, name);
+                }
                 startMenu.classList.add("start-menu--hidden");
-                // You can extend this to open specific files if needed
             });
         });
+
+        const logoutBtn = document.getElementById("start-logout");
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", () => {
+                startMenu.classList.add("start-menu--hidden");
+                if (typeof LoginScreen !== "undefined" && LoginScreen && typeof LoginScreen.show === "function") {
+                    LoginScreen.show();
+                }
+            });
+        }
 
         desktop.addEventListener("click", e => {
             if (!e.target.closest("#start-menu") && !e.target.closest("#start-button")) {
@@ -646,18 +748,18 @@ const Desktop = (() => {
                 appIds.forEach(id => {
                     const win = windows[id];
                     if (win && !win.classList.contains("window--hidden") && !win.classList.contains("window--minimised")) {
-                        // Skip game windows if they're in full screen mode
-                        if ((id === "game" || id === "invaders") && win.classList.contains("window--maximised")) {
-                            return;
+                        if (id === "game" || id === "invaders") {
+                            fitGameWindow(win);
+                        } else {
+                            constrainWindowToViewport(win);
                         }
-                        constrainWindowToViewport(win);
                     }
                 });
             }, 100);
         });
 
         // expose if you want to trigger from elsewhere
-        window.DesktopApp = { openWindow };
+        window.DesktopApp = { openWindow, fitGameWindow };
     }
 
     return { init, openWindow };
@@ -670,6 +772,33 @@ const Browser = (() => {
     let currentPage = 'home';
     const history = ['home'];
     let historyIndex = 0;
+    const caseStudyPages = new Set([
+        'case-study-it-training-route',
+        'case-study-webinar-marketing',
+        'case-study-bindertrader',
+        'case-study-digital-ops',
+        'case-study-mock-exam',
+        'case-study-social-creative',
+        'case-study-event-design',
+        'case-study-deep-dissonance'
+    ]);
+
+    function pageToUrl(pageName) {
+        if (pageName === 'home') {
+            return 'https://jackheeney.dev/';
+        }
+        if (caseStudyPages.has(pageName)) {
+            return `https://jackheeney.dev/projects/${pageName}`;
+        }
+        return `https://jackheeney.dev/${pageName}`;
+    }
+
+    function navigateToPage(pageName) {
+        historyIndex++;
+        history.splice(historyIndex);
+        history.push(pageName);
+        showPage(pageName);
+    }
 
     function showPage(pageName) {
         // Hide all pages
@@ -686,7 +815,7 @@ const Browser = (() => {
             // Update URL
             const urlInput = document.getElementById('browser-url');
             if (urlInput) {
-                urlInput.value = `https://jackheeney.dev/${pageName === 'home' ? '' : pageName}`;
+                urlInput.value = pageToUrl(pageName);
             }
 
             // Update active nav link
@@ -702,6 +831,14 @@ const Browser = (() => {
             const content = document.getElementById('browser-content');
             if (content) {
                 content.scrollTop = 0;
+                content.classList.remove('browser__content--scroll-locked');
+                delete content.dataset.scrollTop;
+            }
+
+            const lightbox = document.getElementById('portfolio-site-lightbox');
+            if (lightbox) {
+                lightbox.classList.remove('portfolio-site__lightbox--open');
+                lightbox.setAttribute('aria-hidden', 'true');
             }
         }
     }
@@ -745,30 +882,15 @@ const Browser = (() => {
         resizeObserver.observe(browserWindow);
 
         // Navigation link handlers
-        document.querySelectorAll('.portfolio-site__top-nav-link').forEach(link => {
+        document.querySelectorAll('[data-page]').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const page = link.getAttribute('data-page');
                 if (page) {
-                    // Add to history
-                    historyIndex++;
-                    history.splice(historyIndex);
-                    history.push(page);
-                    showPage(page);
+                    navigateToPage(page);
                 }
             });
         });
-
-        // Contact button in hero
-        const heroButton = document.querySelector('.portfolio-site__hero-button');
-        if (heroButton) {
-            heroButton.addEventListener('click', () => {
-                historyIndex++;
-                history.splice(historyIndex);
-                history.push('contact');
-                showPage('contact');
-            });
-        }
 
         // Browser navigation buttons
         if (backBtn) {
@@ -798,12 +920,122 @@ const Browser = (() => {
             });
         }
 
+        initMediaLightbox(browserWindow);
+
         // Initialize to home page
         showPage('home');
     }
 
-    return { init };
+    function initMediaLightbox(browserWindow) {
+        const lightbox = document.getElementById('portfolio-site-lightbox');
+        const lightboxImg = document.getElementById('portfolio-site-lightbox-img');
+        const lightboxCaption = document.getElementById('portfolio-site-lightbox-caption');
+        const browserContent = document.getElementById('browser-content');
+        const browserStage = browserWindow?.querySelector('.browser__stage');
+        if (!lightbox || !lightboxImg || !lightboxCaption || !browserWindow) return;
+
+        if (browserContent) {
+            browserContent.classList.remove('browser__content--scroll-locked');
+            browserContent.style.overflow = '';
+        }
+
+        function setLightboxImageMaxHeight() {
+            const stageHeight = browserStage?.clientHeight || browserContent?.clientHeight || 0;
+            if (!stageHeight) return;
+            const maxImageHeight = Math.max(200, stageHeight - 96);
+            lightboxImg.style.maxHeight = `${maxImageHeight}px`;
+        }
+
+        function openLightbox(src, alt, caption) {
+            lightboxImg.src = src;
+            lightboxImg.alt = alt || '';
+            lightboxCaption.textContent = caption || '';
+            lightbox.setAttribute('aria-hidden', 'false');
+            lightbox.classList.add('portfolio-site__lightbox--open');
+            setLightboxImageMaxHeight();
+            if (browserContent) {
+                browserContent.dataset.scrollTop = String(browserContent.scrollTop);
+                browserContent.classList.add('browser__content--scroll-locked');
+            }
+        }
+
+        function closeLightbox() {
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightbox.classList.remove('portfolio-site__lightbox--open');
+            lightboxImg.removeAttribute('src');
+            lightboxImg.style.maxHeight = '';
+            lightboxImg.alt = '';
+            lightboxCaption.textContent = '';
+            if (browserContent) {
+                browserContent.classList.remove('browser__content--scroll-locked');
+                if (browserContent.dataset.scrollTop) {
+                    browserContent.scrollTop = Number(browserContent.dataset.scrollTop);
+                    delete browserContent.dataset.scrollTop;
+                }
+            }
+        }
+
+        browserWindow.addEventListener('click', (e) => {
+            const figure = e.target.closest('.portfolio-site__case-section--showcase .portfolio-site__media-figure');
+            if (!figure) return;
+
+            const img = figure.querySelector('img');
+            if (!img || !e.target.closest('img, figcaption')) return;
+
+            e.preventDefault();
+            const caption = figure.querySelector('figcaption')?.textContent?.trim() || img.alt;
+            openLightbox(img.currentSrc || img.src, img.alt, caption);
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        lightbox.querySelectorAll('[data-lightbox-close]').forEach((el) => {
+            el.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeLightbox();
+            });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('portfolio-site__lightbox--open')) {
+                closeLightbox();
+            }
+        });
+    }
+
+    return { init, navigateToPage, showPage };
 })();
+
+/* --------------------------- Projects (case study launcher) --------------------------- */
+
+const Projects = (() => {
+    function openCaseStudy(pageName) {
+        if (window.DesktopApp && typeof window.DesktopApp.openWindow === 'function') {
+            window.DesktopApp.openWindow('browser');
+        }
+        if (window.BrowserApp && typeof window.BrowserApp.navigateToPage === 'function') {
+            window.BrowserApp.navigateToPage(pageName);
+        }
+    }
+
+    function init() {
+        const projectsWindow = document.getElementById('window-projects');
+        if (!projectsWindow) return;
+
+        projectsWindow.querySelectorAll('[data-open-case-study]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const page = btn.getAttribute('data-open-case-study');
+                if (page) openCaseStudy(page);
+            });
+        });
+    }
+
+    return { init, openCaseStudy };
+})();
+
+window.BrowserApp = Browser;
 
 /* --------------------------- File Explorer --------------------------- */
 // FileExplorer is now loaded from ./assets/js/components/file-explorer.js

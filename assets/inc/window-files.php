@@ -1,3 +1,9 @@
+<?php
+if (!function_exists('portfolio_get_documents')) {
+    require_once __DIR__ . '/docs-helper.php';
+}
+$documents = portfolio_get_documents();
+?>
 <div class="window window--hidden" id="window-files" style="left:280px;top:150px;width:700px;height:460px;">
     <div class="window__titlebar" data-app-drag>
         <div class="window__title">My Files</div>
@@ -107,23 +113,20 @@
                 <h3>My Documents</h3>
             </div>
             <div class="docs-list">
-                <!-- Replace the PDF URLs below with your actual PDF file URLs -->
-                <!-- Option 1: Direct PDF URL (if hosted on your server): -->
-                <!-- data-pdf-url="https://yourdomain.com/path/to/cv.pdf" -->
-                <!-- Option 2: Using PDF.js viewer (for external URLs or CORS issues): -->
-                <!-- data-pdf-url="https://mozilla.github.io/pdf.js/web/viewer.html?file=YOUR_PDF_URL" -->
-                <div class="doc" data-pdf-url="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" data-pdf-name="CV">
-                    <h3>CV</h3>
-                    <p>CV.pdf</p>
-                </div>
-                <div class="doc" data-pdf-url="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" data-pdf-name="Resume">
-                    <h3>Resume</h3>
-                    <p>Resume.pdf</p>
-                </div>
-                <div class="doc" data-pdf-url="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" data-pdf-name="Cover Letter">
-                    <h3>Cover Letter</h3>
-                    <p>Cover Letter.pdf</p>
-                </div>
+                <?php if (empty($documents)) : ?>
+                    <p class="docs-list__empty">No documents in this folder yet.</p>
+                <?php else : ?>
+                    <?php foreach ($documents as $doc) : ?>
+                        <div
+                            class="doc"
+                            data-pdf-url="<?php echo htmlspecialchars($doc['url'], ENT_QUOTES, 'UTF-8'); ?>"
+                            data-pdf-name="<?php echo htmlspecialchars($doc['name'], ENT_QUOTES, 'UTF-8'); ?>"
+                        >
+                            <h3><?php echo htmlspecialchars($doc['name'], ENT_QUOTES, 'UTF-8'); ?></h3>
+                            <p><?php echo htmlspecialchars($doc['filename'], ENT_QUOTES, 'UTF-8'); ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
         </div>
 

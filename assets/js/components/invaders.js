@@ -970,7 +970,11 @@ const SpaceInvaders = (() => {
             gameWindow = document.getElementById("window-invaders");
         }
         if (!gameWindow || gameWindow.classList.contains("window--hidden")) return;
-        
+
+        if (window.DesktopApp && typeof window.DesktopApp.fitGameWindow === "function") {
+            window.DesktopApp.fitGameWindow(gameWindow);
+        }
+
         setTimeout(() => {
             showLoadingAnimation();
         }, 120);
