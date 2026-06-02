@@ -1,6 +1,7 @@
 /* ------------------------------ Space Invaders ------------------------------ */
 
 const SpaceInvaders = (() => {
+    const HIGH_SCORE_API_URL = "./assets/api/invaders-highscores.php";
     let canvas, ctx, menuCanvas, menuCtx, gameWindow, loadingEl, gameContentEl, menuEl, mobileControlsEl;
     let scoreEl, livesEl, levelEl, infoEl, resetBtn, startBtn, hiscoreBtn, hiscoreModal, hiscoreList, hiscoreClose;
     let nameEntryEl, nameInputs, nameSubmitBtn, nameScoreEl;
@@ -51,31 +52,100 @@ const SpaceInvaders = (() => {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
             (window.innerWidth <= 768);
     }
-    
-    function loadHighScores() {
-        try {
-            const stored = localStorage.getItem('spaceInvadersHighScores');
-            if (stored) {
-                highScores = JSON.parse(stored);
-            } else {
-                highScores = [];
-            }
-            // Sort by score descending
-            highScores.sort((a, b) => b.score - a.score);
-        } catch (e) {
-            highScores = [];
+
+    function setMobileActionState(action, isPressed) {
+        if (action === 'left') {
+            keys['ArrowLeft'] = isPressed;
+        } else if (action === 'right') {
+            keys['ArrowRight'] = isPressed;
+        } else if (action === 'shoot') {
+            keys[' '] = isPressed;
         }
     }
     
-    function saveHighScore(name, score, level) {
-        highScores.push({ name: name.toUpperCase(), score, level, date: new Date().toISOString() });
-        highScores.sort((a, b) => b.score - a.score);
-        highScores = highScores.slice(0, 10); // Keep top 10
+    function normaliseHighScores(entries) {
+        if (!Array.isArray(entries)) {
+            return [];
+        }
+        return entries
+            .map((entry) => {
+                const rawName = String(entry?.name || '').toUpperCase().replace(/[^A-Z]/g, '');
+                const name = rawName.padEnd(3, 'A').slice(0, 3);
+                const scoreValue = Number(entry?.score);
+                const levelValue = Number(entry?.level);
+                return {
+                    name,
+                    score: Number.isFinite(scoreValue) ? Math.max(0, Math.floor(scoreValue)) : 0,
+                    level: Number.isFinite(levelValue) ? Math.max(1, Math.floor(levelValue)) : 1,
+                    date: entry?.date || new Date().toISOString()
+                };
+            })
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 10);
+    }
+
+    async function loadHighScores() {
+        try {
+            const response = await fetch(HIGH_SCORE_API_URL, {
+                headers: { Accept: "application/json" }
+            });
+            const payload = await response.json();
+            if (!response.ok || !payload.ok) {
+                throw new Error(payload.error || "Could not load highscores.");
+            }
+            highScores = normaliseHighScores(payload.highScores || []);
+            return highScores;
+        } catch (error) {
+            console.error('Failed to load shared highscores:', error);
+        }
+
+        try {
+            const stored = localStorage.getItem('spaceInvadersHighScores');
+            if (stored) {
+                highScores = normaliseHighScores(JSON.parse(stored));
+            } else {
+                highScores = [];
+            }
+        } catch (e) {
+            highScores = [];
+        }
+        return highScores;
+    }
+    
+    async function saveHighScore(name, score, level) {
+        const highScoreEntry = {
+            name: String(name || '').toUpperCase().replace(/[^A-Z]/g, '').padEnd(3, 'A').slice(0, 3),
+            score: Math.max(0, Math.floor(Number(score) || 0)),
+            level: Math.max(1, Math.floor(Number(level) || 1))
+        };
+
+        try {
+            const response = await fetch(HIGH_SCORE_API_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify(highScoreEntry)
+            });
+            const payload = await response.json();
+            if (!response.ok || !payload.ok) {
+                throw new Error(payload.error || "Could not save high score.");
+            }
+            highScores = normaliseHighScores(payload.highScores || []);
+            return true;
+        } catch (error) {
+            console.error('Failed to save shared high score:', error);
+        }
+
+        highScores.push({ ...highScoreEntry, date: new Date().toISOString() });
+        highScores = normaliseHighScores(highScores);
         try {
             localStorage.setItem('spaceInvadersHighScores', JSON.stringify(highScores));
         } catch (e) {
             console.error('Failed to save high score:', e);
         }
+        return false;
     }
     
     function checkHighScore(score) {
@@ -434,17 +504,31 @@ const SpaceInvaders = (() => {
     
     function initEnemies() {
         enemies = [];
-        const startX = 50;
-        const startY = 50;
-        const spacing = 10;
+        const spacing = isMobile() ? 6 : 10;
+        const topPadding = isMobile() ? 20 : 50;
+        const sidePadding = isMobile() ? 16 : 50;
+        const bottomReserve = isMobile() ? 96 : 120;
+        const availableWidth = Math.max(220, canvas.width - sidePadding * 2);
+        const availableHeight = Math.max(140, canvas.height - topPadding - bottomReserve);
+        const cols = Math.min(
+            enemyCols,
+            Math.max(5, Math.floor((availableWidth + spacing) / (enemyWidth + spacing)))
+        );
+        const rows = Math.min(
+            enemyRows,
+            Math.max(3, Math.floor((availableHeight + spacing) / (enemyHeight + spacing)))
+        );
+        const formationWidth = cols * enemyWidth + (cols - 1) * spacing;
+        const startX = Math.max(8, (canvas.width - formationWidth) / 2);
+        const startY = topPadding;
         
         const difficulty = getLevelDifficulty(currentLevel);
         enemySpeed = difficulty.speed;
         enemyShootChance = difficulty.shootChance;
         shotCooldown = difficulty.shotCooldown;
         
-        for (let row = 0; row < enemyRows; row++) {
-            for (let col = 0; col < enemyCols; col++) {
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
                 enemies.push({
                     x: startX + col * (enemyWidth + spacing),
                     y: startY + row * (enemyHeight + spacing),
@@ -775,7 +859,8 @@ const SpaceInvaders = (() => {
         checkAndShowHighScore();
     }
     
-    function checkAndShowHighScore() {
+    async function checkAndShowHighScore() {
+        await loadHighScores();
         if (checkHighScore(score)) {
             showNameEntry();
         }
@@ -804,7 +889,7 @@ const SpaceInvaders = (() => {
         nameEntryEl.style.display = "none";
     }
     
-    function submitName() {
+    async function submitName() {
         if (!nameInputs || nameInputs.length < 3) return;
         
         const name = (nameInputs[0].value || 'A') + 
@@ -812,17 +897,23 @@ const SpaceInvaders = (() => {
                      (nameInputs[2].value || 'A');
         
         if (name.length === 3) {
-            saveHighScore(name, score, currentLevel);
+            if (nameSubmitBtn) {
+                nameSubmitBtn.disabled = true;
+            }
+            await saveHighScore(name, score, currentLevel);
             hideNameEntry();
-            updateHighScoreList();
+            await updateHighScoreList();
+            if (nameSubmitBtn) {
+                nameSubmitBtn.disabled = false;
+            }
         }
     }
     
-    function showHighScores() {
+    async function showHighScores() {
         if (!hiscoreModal) return;
         
         gameState = 'highScores';
-        updateHighScoreList();
+        await updateHighScoreList();
         hiscoreModal.style.display = "flex";
     }
     
@@ -834,10 +925,10 @@ const SpaceInvaders = (() => {
         }
     }
     
-    function updateHighScoreList() {
+    async function updateHighScoreList() {
         if (!hiscoreList) return;
         
-        loadHighScores();
+        await loadHighScores();
         
         if (highScores.length === 0) {
             hiscoreList.innerHTML = '<div class="invaders__hiscore-empty">No high scores yet!</div>';
@@ -1044,8 +1135,8 @@ const SpaceInvaders = (() => {
         }
         
         if (hiscoreBtn) {
-            hiscoreBtn.addEventListener("click", () => {
-                showHighScores();
+            hiscoreBtn.addEventListener("click", async () => {
+                await showHighScores();
             });
         }
         
@@ -1078,7 +1169,9 @@ const SpaceInvaders = (() => {
         }
         
         if (nameSubmitBtn) {
-            nameSubmitBtn.addEventListener("click", submitName);
+            nameSubmitBtn.addEventListener("click", async () => {
+                await submitName();
+            });
         }
         
         if (gameWindow) {
@@ -1118,51 +1211,36 @@ const SpaceInvaders = (() => {
         
         if (mobileControlsEl) {
             mobileControlsEl.querySelectorAll(".invaders__control-btn").forEach(btn => {
-                btn.addEventListener("touchstart", (e) => {
+                const action = btn.dataset.action;
+                if (!action) return;
+
+                const press = (e) => {
                     e.preventDefault();
-                    const action = btn.dataset.action;
-                    if (action === 'left') {
-                        keys['ArrowLeft'] = true;
-                    } else if (action === 'right') {
-                        keys['ArrowRight'] = true;
-                    } else if (action === 'shoot') {
-                        keys[' '] = true;
-                    }
-                });
-                
-                btn.addEventListener("touchend", (e) => {
+                    setMobileActionState(action, true);
+                };
+                const release = (e) => {
                     e.preventDefault();
-                    const action = btn.dataset.action;
-                    if (action === 'left') {
-                        keys['ArrowLeft'] = false;
-                    } else if (action === 'right') {
-                        keys['ArrowRight'] = false;
-                    } else if (action === 'shoot') {
-                        keys[' '] = false;
-                    }
-                });
-                
-                btn.addEventListener("mousedown", (e) => {
+                    setMobileActionState(action, false);
+                };
+
+                btn.addEventListener("touchstart", press, { passive: false });
+                btn.addEventListener("touchend", release, { passive: false });
+                btn.addEventListener("touchcancel", release, { passive: false });
+                btn.addEventListener("pointerdown", press);
+                btn.addEventListener("pointerup", release);
+                btn.addEventListener("pointercancel", release);
+                btn.addEventListener("mousedown", press);
+                btn.addEventListener("mouseup", release);
+                btn.addEventListener("mouseleave", release);
+                btn.addEventListener("click", (e) => {
                     e.preventDefault();
-                    const action = btn.dataset.action;
-                    if (action === 'left') {
-                        keys['ArrowLeft'] = true;
-                    } else if (action === 'right') {
-                        keys['ArrowRight'] = true;
-                    } else if (action === 'shoot') {
-                        keys[' '] = true;
-                    }
-                });
-                
-                btn.addEventListener("mouseup", (e) => {
-                    e.preventDefault();
-                    const action = btn.dataset.action;
-                    if (action === 'left') {
-                        keys['ArrowLeft'] = false;
-                    } else if (action === 'right') {
-                        keys['ArrowRight'] = false;
-                    } else if (action === 'shoot') {
-                        keys[' '] = false;
+                    if (action === "shoot") {
+                        // Ensure quick taps still fire on browsers that suppress touch key state.
+                        const now = Date.now();
+                        if (now - lastShot > shotCooldown) {
+                            shoot();
+                            lastShot = now;
+                        }
                     }
                 });
             });

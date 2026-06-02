@@ -8,8 +8,8 @@
     </div>
     <div class="window__body">
         <h2>About Me</h2>
-        <p>Hello! I'm a passionate developer and creative professional dedicated to building innovative digital experiences.</p>
-        <p>With expertise in modern web technologies, I create seamless, user-friendly applications that solve real-world problems.</p>
-        <p>I believe in continuous learning and pushing the boundaries of what's possible with code.</p>
+        <p>Digital Product, Growth &amp; UX professional with 8+ years of experience leading website platforms, user journeys, digital campaigns, and operational systems across education and technology-focused environments.</p>
+        <p>Experienced in improving conversion, engagement, and usability through UX-led thinking, analytics, experimentation, and hands-on implementation. Strong background bridging product, marketing, design, and technical teams to deliver scalable digital experiences and business improvements.</p>
+        <p>Technically hands-on with strong HTML/CSS and web implementation experience, supported by working knowledge of PHP, SQL, JavaScript, APIs, and React. Comfortable managing projects end-to-end, from discovery and UX planning through to launch, optimisation, and ongoing iteration.</p>
     </div>
 </div>

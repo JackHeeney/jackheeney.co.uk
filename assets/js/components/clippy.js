@@ -23,21 +23,21 @@ const Clippy = (() => {
         {
             id: "about",
             message:
-                "<strong>About Me</strong> is at the top of the left column. Open it for a quick intro to who Jack is and what he does.",
+                "<strong>About Me</strong> is at the top of the left column. Open it in the browser for a quick intro to who Jack is and what he does.",
             highlight: '[data-app="about"]',
             action: { label: "Open About Me", app: "about" }
         },
         {
             id: "skills",
             message:
-                "Technical skills and tools are in the <strong>Skills</strong> window — look for the laptop icon below About Me.",
+                "Technical skills and tools are in the <strong>Skills</strong> section — open the laptop icon below About Me to view them in the browser.",
             highlight: '[data-app="skills"]',
             action: { label: "Open Skills", app: "skills" }
         },
         {
             id: "contact",
             message:
-                "Need to get in touch? The <strong>Contact</strong> app has email and social links ready to copy.",
+                "Need to get in touch? The <strong>Contact</strong> icon opens email and social links in the browser, ready to copy.",
             highlight: '[data-app="contact"]',
             action: { label: "Open Contact", app: "contact" }
         },
@@ -86,6 +86,30 @@ const Clippy = (() => {
     let cycleTimer = null;
     let highlightedEl = null;
     let isMinimised = false;
+    let tourComplete = false;
+
+    function clampToViewport() {
+        if (!root) return;
+        const taskbar = 56;
+        const pad = 8;
+        const rect = root.getBoundingClientRect();
+        const computed = window.getComputedStyle(root);
+
+        let right = Number.parseFloat(computed.right);
+        let bottom = Number.parseFloat(computed.bottom);
+        if (!Number.isFinite(right)) right = 24;
+        if (!Number.isFinite(bottom)) bottom = 58;
+
+        const maxRight = Math.max(pad, window.innerWidth - rect.width - pad);
+        const maxBottom = Math.max(taskbar, window.innerHeight - rect.height - pad);
+        right = Math.max(pad, Math.min(right, maxRight));
+        bottom = Math.max(taskbar, Math.min(bottom, maxBottom));
+
+        root.style.right = `${right}px`;
+        root.style.bottom = `${bottom}px`;
+        root.style.left = "auto";
+        root.style.top = "auto";
+    }
 
     function isDismissed() {
         try {
@@ -131,10 +155,44 @@ const Clippy = (() => {
         }
     }
 
+    function renderTourComplete() {
+        if (!messageEl) return;
+        clearHighlight();
+        messageEl.innerHTML =
+            "That's the full tour! If you want another look around the desktop, you can start the tour again anytime.";
+        const actions = bubble.querySelector(".clippy__actions");
+        actions.innerHTML = "";
+
+        const restartBtn = document.createElement("button");
+        restartBtn.type = "button";
+        restartBtn.className = "clippy__btn clippy__btn--primary";
+        restartBtn.textContent = "Take tour again";
+        restartBtn.addEventListener("click", () => restartTour());
+        actions.appendChild(restartBtn);
+
+        const closeBtn = document.createElement("button");
+        closeBtn.type = "button";
+        closeBtn.className = "clippy__btn clippy__btn--secondary";
+        closeBtn.textContent = "Got it";
+        closeBtn.addEventListener("click", () => hideBubble());
+        actions.appendChild(closeBtn);
+    }
+
+    function restartTour() {
+        tourComplete = false;
+        showTip(0);
+    }
+
+    function finishTour() {
+        tourComplete = true;
+        renderTourComplete();
+    }
+
     function renderTip(index) {
         const tip = tips[index];
         if (!tip || !messageEl) return;
 
+        tourComplete = false;
         tipIndex = index;
         messageEl.innerHTML = tip.message;
         applyHighlight(tip.highlight);
@@ -150,7 +208,7 @@ const Clippy = (() => {
             if (index < tips.length - 1) {
                 showTip(index + 1);
             } else {
-                hideBubble();
+                finishTour();
             }
         });
         actions.appendChild(nextBtn);
@@ -187,6 +245,7 @@ const Clippy = (() => {
         isMinimised = false;
         root.classList.remove("clippy--minimised");
         bubble.classList.remove("clippy__bubble--hidden");
+        clampToViewport();
         renderTip(index);
     }
 
@@ -202,7 +261,12 @@ const Clippy = (() => {
         isMinimised = false;
         root.classList.remove("clippy--minimised");
         bubble.classList.remove("clippy__bubble--hidden");
-        renderTip(tipIndex);
+        clampToViewport();
+        if (tourComplete) {
+            renderTourComplete();
+        } else {
+            renderTip(tipIndex);
+        }
     }
 
     function dismissForever() {
@@ -227,7 +291,7 @@ const Clippy = (() => {
 
     function scheduleTipCycle() {
         cycleTimer = setInterval(() => {
-            if (isDismissed() || !isMinimised) return;
+            if (isDismissed() || !isMinimised || tourComplete) return;
             const next = (tipIndex + 1) % tips.length;
             showTip(next);
         }, BETWEEN_TIPS_MS);
@@ -332,6 +396,12 @@ const Clippy = (() => {
         dismissBtn.addEventListener("click", () => dismissForever());
 
         initDrag();
+        clampToViewport();
+
+        window.addEventListener("resize", () => {
+            // Keep Clippy visible after rotation/orientation/layout changes on mobile.
+            clampToViewport();
+        });
         scheduleWelcome();
         scheduleTipCycle();
 
@@ -342,5 +412,5 @@ const Clippy = (() => {
         });
     }
 
-    return { init, showTip, dismissForever };
+    return { init, showTip, restartTour, dismissForever };
 })();

@@ -48,7 +48,7 @@ const FileExplorer = (() => {
         // video list
         const videoTitle = document.getElementById("files-video-title");
         const videoPlayer = document.getElementById("files-video-player");
-        filesWindow.querySelectorAll(".files__view--videos .files__table-row").forEach(row => {
+        filesWindow.querySelectorAll(".files__view--videos .files__table-row[data-video-url]").forEach(row => {
             row.addEventListener("click", () => {
                 const src = row.dataset.videoUrl;
                 const name = row.dataset.videoName;
@@ -63,7 +63,7 @@ const FileExplorer = (() => {
         // image list
         const imgTitle = document.getElementById("files-image-title");
         const imgViewer = document.getElementById("files-image-viewer");
-        filesWindow.querySelectorAll(".files__view--images .files__table-row").forEach(row => {
+        filesWindow.querySelectorAll(".files__view--images .files__table-row[data-image-url]").forEach(row => {
             row.addEventListener("click", () => {
                 const src = row.dataset.imageUrl;
                 const name = row.dataset.imageName;

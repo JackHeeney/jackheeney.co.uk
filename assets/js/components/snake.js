@@ -18,6 +18,12 @@ const SnakeGame = (() => {
             (window.innerWidth <= 768);
     }
 
+    function getTaskbarHeight() {
+        const taskbar = document.querySelector(".taskbar");
+        if (!taskbar) return 46;
+        return Math.max(46, Math.round(taskbar.getBoundingClientRect().height));
+    }
+
     function showLoadingAnimation() {
         if (isLoading) return;
         isLoading = true;
@@ -89,7 +95,7 @@ const SnakeGame = (() => {
         // Maximize to full screen
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
-        const taskbarHeight = 46;
+        const taskbarHeight = getTaskbarHeight();
 
         // Set full screen dimensions
         gameWindow.style.left = "0px";
@@ -389,18 +395,15 @@ const SnakeGame = (() => {
         // Mobile touch controls
         if (mobileControlsEl) {
             mobileControlsEl.querySelectorAll(".snake__control-btn").forEach(btn => {
-                btn.addEventListener("click", (e) => {
+                const triggerDirectionChange = (e) => {
                     e.preventDefault();
                     const dir = btn.dataset.direction;
                     changeDirection(dir);
-                });
+                };
 
-                // Prevent default touch behaviour
-                btn.addEventListener("touchstart", (e) => {
-                    e.preventDefault();
-                    const dir = btn.dataset.direction;
-                    changeDirection(dir);
-                });
+                btn.addEventListener("click", triggerDirectionChange);
+                btn.addEventListener("touchstart", triggerDirectionChange, { passive: false });
+                btn.addEventListener("pointerdown", triggerDirectionChange);
             });
         }
 

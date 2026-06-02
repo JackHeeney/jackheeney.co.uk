@@ -2,7 +2,11 @@
 if (!function_exists('portfolio_get_documents')) {
     require_once __DIR__ . '/docs-helper.php';
 }
+if (!function_exists('portfolio_get_project_images')) {
+    require_once __DIR__ . '/images-helper.php';
+}
 $documents = portfolio_get_documents();
+$images = portfolio_get_project_images();
 ?>
 <div class="window window--hidden" id="window-files" style="left:280px;top:150px;width:700px;height:460px;">
     <div class="window__titlebar" data-app-drag>
@@ -76,24 +80,19 @@ $documents = portfolio_get_documents();
                 <div class="files__table-row files__table-row--head">
                     <span>Name</span><span>Type</span>
                 </div>
-                <button class="files__table-row"
-                    data-image-url="https://via.placeholder.com/400x300/3b82f6/ffffff?text=Profile+Photo"
-                    data-image-name="Profile.jpg">
-                    <span><span class="files__icon">🖼️</span>Profile.jpg</span>
-                    <span>Image File</span>
-                </button>
-                <button class="files__table-row"
-                    data-image-url="https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Project+Screenshot"
-                    data-image-name="Project Screenshot.png">
-                    <span><span class="files__icon">🖼️</span>Project Screenshot.png</span>
-                    <span>Image File</span>
-                </button>
-                <button class="files__table-row"
-                    data-image-url="https://via.placeholder.com/400x300/ec4899/ffffff?text=Design+Mockup"
-                    data-image-name="Design Mockup.jpg">
-                    <span><span class="files__icon">🖼️</span>Design Mockup.jpg</span>
-                    <span>Image File</span>
-                </button>
+                <?php if (empty($images)) : ?>
+                    <p class="docs-list__empty">No images in assets/img/projects yet.</p>
+                <?php else : ?>
+                    <?php foreach ($images as $image) : ?>
+                        <button
+                            class="files__table-row"
+                            data-image-url="<?php echo htmlspecialchars($image['url'], ENT_QUOTES, 'UTF-8'); ?>"
+                            data-image-name="<?php echo htmlspecialchars($image['name'], ENT_QUOTES, 'UTF-8'); ?>">
+                            <span><span class="files__icon">🖼️</span><?php echo htmlspecialchars($image['filename'], ENT_QUOTES, 'UTF-8'); ?></span>
+                            <span>Image File</span>
+                        </button>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
         </div>
 

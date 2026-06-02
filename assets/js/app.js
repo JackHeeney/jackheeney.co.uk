@@ -76,6 +76,7 @@ async function startDesktopApps() {
         await loadComponent('./assets/js/components/snake.js');
         await loadComponent('./assets/js/components/invaders.js');
         await loadComponent('./assets/js/components/clippy.js');
+        await loadComponent('./assets/js/components/sticky-notes.js');
 
         // Initialize after components are loaded
         Desktop.init();
@@ -93,6 +94,9 @@ async function startDesktopApps() {
         if (typeof Clippy !== 'undefined') {
             Clippy.init();
         }
+        if (typeof StickyNotes !== 'undefined') {
+            StickyNotes.init();
+        }
     } catch (error) {
         console.error('Error loading components:', error);
     }
@@ -106,9 +110,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const Desktop = (() => {
     const appIds = ["about", "projects", "skills", "contact", "files", "game", "invaders", "browser"];
+    const externalAppLinks = {
+        "runescape-hiscores": "https://secure.runescape.com/m=hiscore_oldschool/hiscorepersonal?user1=IM_KOFI"
+    };
+    /** Desktop apps that open a portfolio page inside the browser window */
+    const portfolioBrowserPages = {
+        about: "about",
+        skills: "skills",
+        contact: "contact"
+    };
     const windows = {};
     const taskButtons = {};
-    let nextZ = 10;
+    let nextZ = 100;
 
     const taskbarWindows = document.getElementById("taskbar-windows");
     const startBtn = document.getElementById("start-button");
@@ -195,7 +208,7 @@ const Desktop = (() => {
                 const winRect = win.getBoundingClientRect();
                 const viewportWidth = window.innerWidth;
                 const viewportHeight = window.innerHeight;
-                const taskbarHeight = 46;
+                const taskbarHeight = getTaskbarHeight();
 
                 // Constrain X position
                 let constrainedX = newX;
@@ -227,17 +240,21 @@ const Desktop = (() => {
             titlebar.addEventListener("mousedown", startDrag);
             titlebar.addEventListener("touchstart", startDrag, { passive: false });
 
-            // minimise
-            btnMin.addEventListener("click", () => {
-                win.classList.add("window--minimised");
-                win.classList.remove("window--maximised");
-                if (taskButtons[id]) taskButtons[id].classList.add("taskbar-item--minimised");
-            });
+            function bindControlTap(button, handler) {
+                if (!button) return;
+                button.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    handler();
+                });
+                button.addEventListener("touchend", (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handler();
+                });
+            }
 
-            // maximize/restore
-            btnMax.addEventListener("click", () => {
+            function toggleMaximise() {
                 if (win.classList.contains("window--maximised")) {
-                    // Restore
                     win.classList.remove("window--maximised");
                     if (originalState.left !== null) {
                         win.style.left = `${originalState.left}px`;
@@ -247,7 +264,6 @@ const Desktop = (() => {
                     }
                     btnMax.textContent = "□";
                 } else {
-                    // Maximize
                     originalState.left = parseInt(win.style.left) || win.offsetLeft;
                     originalState.top = parseInt(win.style.top) || win.offsetTop;
                     originalState.width = parseInt(win.style.width) || win.offsetWidth;
@@ -257,16 +273,25 @@ const Desktop = (() => {
                     btnMax.textContent = "❐";
                 }
                 constrainWindowToViewport(win);
-            });
+            }
 
-            // close
-            btnClose.addEventListener("click", () => {
+            bindControlTap(btnMax, toggleMaximise);
+
+            function closeWindow() {
                 win.classList.add("window--hidden");
                 win.classList.remove("window--minimised", "window--maximised");
                 if (taskButtons[id]) {
                     taskButtons[id].remove();
                     delete taskButtons[id];
                 }
+            }
+
+            bindControlTap(btnClose, closeWindow);
+
+            bindControlTap(btnMin, () => {
+                win.classList.add("window--minimised");
+                win.classList.remove("window--maximised");
+                if (taskButtons[id]) taskButtons[id].classList.add("taskbar-item--minimised");
             });
 
             // Resize functionality
@@ -304,7 +329,7 @@ const Desktop = (() => {
                 const deltaY = e.clientY - startY;
                 const viewportWidth = window.innerWidth;
                 const viewportHeight = window.innerHeight;
-                const taskbarHeight = 46;
+                const taskbarHeight = getTaskbarHeight();
                 const minWidth = 300;
                 const minHeight = 200;
 
@@ -377,6 +402,12 @@ const Desktop = (() => {
         return window.innerWidth <= 768;
     }
 
+    function getTaskbarHeight() {
+        const taskbar = document.querySelector(".taskbar");
+        if (!taskbar) return 46;
+        return Math.max(46, Math.round(taskbar.getBoundingClientRect().height));
+    }
+
     function fitGameWindow(win) {
         if (!win) return;
 
@@ -397,7 +428,7 @@ const Desktop = (() => {
         const winRect = win.getBoundingClientRect();
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
-        const taskbarHeight = 46;
+        const taskbarHeight = getTaskbarHeight();
         const currentLeft = parseInt(win.style.left) || win.offsetLeft;
         const currentTop = parseInt(win.style.top) || win.offsetTop;
 
@@ -430,7 +461,29 @@ const Desktop = (() => {
         win.style.top = `${newTop}px`;
     }
 
+    function openPortfolioInBrowser(pageName) {
+        openWindow("browser");
+        if (window.BrowserApp && typeof window.BrowserApp.navigateToPage === "function") {
+            window.BrowserApp.navigateToPage(pageName);
+        }
+    }
+
     function openWindow(id) {
+        if (portfolioBrowserPages[id]) {
+            openPortfolioInBrowser(portfolioBrowserPages[id]);
+            return;
+        }
+
+        if (externalAppLinks[id]) {
+            const externalUrl = externalAppLinks[id];
+            const externalLink = document.createElement("a");
+            externalLink.href = externalUrl;
+            externalLink.target = "_blank";
+            externalLink.rel = "noopener noreferrer";
+            externalLink.click();
+            return;
+        }
+
         const win = windows[id];
         if (!win) return;
 
@@ -493,6 +546,10 @@ const Desktop = (() => {
 
         bringToFront(id);
 
+        if (isMobileViewport() && typeof StickyNotes !== "undefined" && typeof StickyNotes.collapse === "function") {
+            StickyNotes.collapse();
+        }
+
         if (id === "game" && wasHidden && window.SnakeGameApp && typeof window.SnakeGameApp.handleWindowOpen === "function") {
             window.SnakeGameApp.handleWindowOpen();
         }
@@ -533,9 +590,20 @@ const Desktop = (() => {
     function initDesktopIcons() {
         document.querySelectorAll(".desktop-icon").forEach(icon => {
             const appId = icon.dataset.app;
+            const isExternalApp = Boolean(externalAppLinks[appId]);
 
             // Desktop: double-click to open
             icon.addEventListener("dblclick", () => openWindow(appId));
+
+            // External links also support single-click open for convenience
+            if (isExternalApp) {
+                icon.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    openWindow(appId);
+                });
+                return;
+            }
 
             // Mobile: single tap to open (handled in touch events)
             let dragging = false;
@@ -557,7 +625,7 @@ const Desktop = (() => {
                     const iconRect = icon.getBoundingClientRect();
                     const viewportWidth = window.innerWidth;
                     const viewportHeight = window.innerHeight;
-                    const taskbarHeight = 46;
+                    const taskbarHeight = getTaskbarHeight();
                     const iconWidth = iconRect.width;
                     const iconHeight = iconRect.height;
                     let newLeft = parseInt(icon.style.left) || icon.offsetLeft;
@@ -622,7 +690,7 @@ const Desktop = (() => {
                     const iconRect = icon.getBoundingClientRect();
                     const viewportWidth = window.innerWidth;
                     const viewportHeight = window.innerHeight;
-                    const taskbarHeight = 46;
+                    const taskbarHeight = getTaskbarHeight();
                     const iconWidth = iconRect.width;
                     const iconHeight = iconRect.height;
                     let newLeft = parseInt(icon.style.left) || icon.offsetLeft;
@@ -759,7 +827,7 @@ const Desktop = (() => {
         });
 
         // expose if you want to trigger from elsewhere
-        window.DesktopApp = { openWindow, fitGameWindow };
+        window.DesktopApp = { openWindow, openPortfolioInBrowser, fitGameWindow };
     }
 
     return { init, openWindow };
