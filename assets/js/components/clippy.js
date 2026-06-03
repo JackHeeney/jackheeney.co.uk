@@ -70,6 +70,13 @@ const Clippy = (() => {
             action: null
         },
         {
+            id: "osrs-hiscore",
+            message:
+                "One for fun outside work: click the <strong>OSRS Hiscores</strong> icon to open Jack's Old School RuneScape profile and stats.",
+            highlight: '[data-app="runescape-hiscores"]',
+            action: { label: "Open OSRS Hiscores", app: "runescape-hiscores" }
+        },
+        {
             id: "taskbar",
             message:
                 "When you open apps, they appear on the taskbar at the bottom. Click a button to bring a minimised window back, or use the × to close it.",

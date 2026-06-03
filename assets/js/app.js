@@ -77,6 +77,7 @@ async function startDesktopApps() {
         await loadComponent('./assets/js/components/invaders.js');
         await loadComponent('./assets/js/components/clippy.js');
         await loadComponent('./assets/js/components/sticky-notes.js');
+        await loadComponent('./assets/js/components/osrs-hiscores.js');
 
         // Initialize after components are loaded
         Desktop.init();
@@ -90,6 +91,9 @@ async function startDesktopApps() {
             SpaceInvaders.init();
         }
         Browser.init();
+        if (typeof OsrsHiscores !== 'undefined') {
+            OsrsHiscores.init();
+        }
         Projects.init();
         if (typeof Clippy !== 'undefined') {
             Clippy.init();
@@ -102,7 +106,28 @@ async function startDesktopApps() {
     }
 }
 
+function initMobileZoomLock() {
+    if (!window.matchMedia("(max-width: 768px)").matches) return;
+
+    const blockGesture = (event) => event.preventDefault();
+
+    document.addEventListener("gesturestart", blockGesture, { passive: false });
+    document.addEventListener("gesturechange", blockGesture, { passive: false });
+    document.addEventListener("gestureend", blockGesture, { passive: false });
+
+    document.addEventListener(
+        "touchmove",
+        (event) => {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        },
+        { passive: false }
+    );
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    initMobileZoomLock();
     LoginScreen.init(startDesktopApps);
 });
 
@@ -111,13 +136,20 @@ document.addEventListener("DOMContentLoaded", () => {
 const Desktop = (() => {
     const appIds = ["about", "projects", "skills", "contact", "files", "game", "invaders", "browser"];
     const externalAppLinks = {
-        "runescape-hiscores": "https://secure.runescape.com/m=hiscore_oldschool/hiscorepersonal?user1=IM_KOFI"
+        "azure-webinar": "https://azure-webinar.com/",
+        "cyber-webinar": "https://cyber-webinar.com/",
+        "data-webinar": "https://data-webinar.org/",
+        "ai-webinar": "https://ai-webinar.co.uk/",
+        "robustittraining": "https://www.robustittraining.com/",
+        "getglitched": "https://www.getglitched.co.uk/",
+        "bindertrader-live": "https://bindertrader.vercel.app/"
     };
     /** Desktop apps that open a portfolio page inside the browser window */
     const portfolioBrowserPages = {
         about: "about",
         skills: "skills",
-        contact: "contact"
+        contact: "contact",
+        "runescape-hiscores": "osrs-hiscores"
     };
     const windows = {};
     const taskButtons = {};
@@ -424,6 +456,15 @@ const Desktop = (() => {
         }
     }
 
+    function fitBrowserWindow(win) {
+        if (!win) return;
+
+        const btnMax = win.querySelector(".window__btn--max");
+        if (!win.classList.contains("window--maximised") && btnMax) {
+            btnMax.click();
+        }
+    }
+
     function constrainWindowToViewport(win) {
         const winRect = win.getBoundingClientRect();
         const viewportWidth = window.innerWidth;
@@ -476,11 +517,10 @@ const Desktop = (() => {
 
         if (externalAppLinks[id]) {
             const externalUrl = externalAppLinks[id];
-            const externalLink = document.createElement("a");
-            externalLink.href = externalUrl;
-            externalLink.target = "_blank";
-            externalLink.rel = "noopener noreferrer";
-            externalLink.click();
+            openWindow("browser");
+            if (window.BrowserApp && typeof window.BrowserApp.navigateToExternalUrl === "function") {
+                window.BrowserApp.navigateToExternalUrl(externalUrl);
+            }
             return;
         }
 
@@ -492,6 +532,8 @@ const Desktop = (() => {
 
         if (id === "game" || id === "invaders") {
             fitGameWindow(win);
+        } else if (id === "browser") {
+            fitBrowserWindow(win);
         } else {
             constrainWindowToViewport(win);
         }
@@ -530,6 +572,8 @@ const Desktop = (() => {
                     btn.classList.remove("taskbar-item--minimised");
                     if (id === "game" || id === "invaders") {
                         fitGameWindow(win);
+                    } else if (id === "browser") {
+                        fitBrowserWindow(win);
                     } else {
                         constrainWindowToViewport(win);
                     }
@@ -587,13 +631,28 @@ const Desktop = (() => {
         return map[id] || "📦";
     }
 
+    function openPdfDocument(url, name) {
+        openWindow("files");
+        if (typeof FileExplorer !== "undefined" && typeof FileExplorer.openPdf === "function") {
+            FileExplorer.openPdf(url, name);
+        }
+    }
+
+    function openDesktopIcon(icon) {
+        if (icon.dataset.pdfUrl) {
+            openPdfDocument(icon.dataset.pdfUrl, icon.dataset.pdfName);
+            return;
+        }
+        openWindow(icon.dataset.app);
+    }
+
     function initDesktopIcons() {
         document.querySelectorAll(".desktop-icon").forEach(icon => {
             const appId = icon.dataset.app;
             const isExternalApp = Boolean(externalAppLinks[appId]);
 
             // Desktop: double-click to open
-            icon.addEventListener("dblclick", () => openWindow(appId));
+            icon.addEventListener("dblclick", () => openDesktopIcon(icon));
 
             // External links also support single-click open for convenience
             if (isExternalApp) {
@@ -661,7 +720,7 @@ const Desktop = (() => {
                 function onUp() {
                     if (!hasMoved) {
                         // Single click on desktop (if not dragging)
-                        openWindow(appId);
+                        openDesktopIcon(icon);
                     }
                     dragging = false;
                     hasMoved = false;
@@ -732,7 +791,7 @@ const Desktop = (() => {
                     const touchTime = Date.now() - touchStartTime;
                     // If it was a quick tap without movement, open the app
                     if (!hasMoved && touchTime < 300) {
-                        openWindow(appId);
+                        openDesktopIcon(icon);
                     }
                     dragging = false;
                     hasMoved = false;
@@ -765,12 +824,7 @@ const Desktop = (() => {
         // Handle recommended file clicks — open PDF directly in the viewer
         document.querySelectorAll(".start-menu__file[data-pdf-url]").forEach(file => {
             file.addEventListener("click", () => {
-                const url = file.dataset.pdfUrl;
-                const name = file.dataset.pdfName;
-                openWindow("files");
-                if (typeof FileExplorer !== "undefined" && typeof FileExplorer.openPdf === "function") {
-                    FileExplorer.openPdf(url, name);
-                }
+                openPdfDocument(file.dataset.pdfUrl, file.dataset.pdfName);
                 startMenu.classList.add("start-menu--hidden");
             });
         });
@@ -818,6 +872,8 @@ const Desktop = (() => {
                     if (win && !win.classList.contains("window--hidden") && !win.classList.contains("window--minimised")) {
                         if (id === "game" || id === "invaders") {
                             fitGameWindow(win);
+                        } else if (id === "browser") {
+                            fitBrowserWindow(win);
                         } else {
                             constrainWindowToViewport(win);
                         }
@@ -838,7 +894,8 @@ const Desktop = (() => {
 
 const Browser = (() => {
     let currentPage = 'home';
-    const history = ['home'];
+    let currentView = { type: 'internal', pageName: 'home' };
+    const history = [{ type: 'internal', pageName: 'home' }];
     let historyIndex = 0;
     const caseStudyPages = new Set([
         'case-study-it-training-route',
@@ -855,20 +912,65 @@ const Browser = (() => {
         if (pageName === 'home') {
             return 'https://jackheeney.dev/';
         }
+        if (pageName === 'osrs-hiscores') {
+            return 'https://secure.runescape.com/m=hiscore_oldschool/hiscorepersonal?user1=IM_KOFI';
+        }
         if (caseStudyPages.has(pageName)) {
             return `https://jackheeney.dev/projects/${pageName}`;
         }
         return `https://jackheeney.dev/${pageName}`;
     }
 
-    function navigateToPage(pageName) {
-        historyIndex++;
-        history.splice(historyIndex);
-        history.push(pageName);
-        showPage(pageName);
+    function setAddressBarValue(value) {
+        const urlInput = document.getElementById('browser-url');
+        if (urlInput) {
+            urlInput.value = value;
+        }
     }
 
-    function showPage(pageName) {
+    function setInternalViewVisible() {
+        const content = document.getElementById('browser-content');
+        const externalView = document.getElementById('browser-external');
+        if (content) {
+            content.style.display = '';
+        }
+        if (externalView) {
+            externalView.classList.add('browser__external--hidden');
+        }
+    }
+
+    function setExternalViewVisible() {
+        const content = document.getElementById('browser-content');
+        const externalView = document.getElementById('browser-external');
+        if (content) {
+            content.style.display = 'none';
+        }
+        if (externalView) {
+            externalView.classList.remove('browser__external--hidden');
+        }
+    }
+
+    function pushHistory(entry) {
+        historyIndex++;
+        history.splice(historyIndex);
+        history.push(entry);
+    }
+
+    function navigateToPage(pageName) {
+        const nextEntry = { type: 'internal', pageName };
+        pushHistory(nextEntry);
+        showHistoryEntry(nextEntry);
+    }
+
+    function navigateToExternalUrl(url) {
+        const nextEntry = { type: 'external', url };
+        pushHistory(nextEntry);
+        showHistoryEntry(nextEntry);
+    }
+
+    function showInternalPage(pageName) {
+        setInternalViewVisible();
+
         // Hide all pages
         document.querySelectorAll('.portfolio-site__page').forEach(page => {
             page.classList.remove('portfolio-site__page--active');
@@ -879,12 +981,10 @@ const Browser = (() => {
         if (page) {
             page.classList.add('portfolio-site__page--active');
             currentPage = pageName;
+            currentView = { type: 'internal', pageName };
 
             // Update URL
-            const urlInput = document.getElementById('browser-url');
-            if (urlInput) {
-                urlInput.value = pageToUrl(pageName);
-            }
+            setAddressBarValue(pageToUrl(pageName));
 
             // Update active nav link
             document.querySelectorAll('.portfolio-site__top-nav-link').forEach(link => {
@@ -908,7 +1008,32 @@ const Browser = (() => {
                 lightbox.classList.remove('portfolio-site__lightbox--open');
                 lightbox.setAttribute('aria-hidden', 'true');
             }
+
+            if (pageName === 'osrs-hiscores' && typeof OsrsHiscores !== 'undefined') {
+                OsrsHiscores.load(OsrsHiscores.DEFAULT_PLAYER);
+            }
         }
+    }
+
+    function showExternalPage(url) {
+        const externalFrame = document.getElementById('browser-external-frame');
+        if (!externalFrame) return;
+
+        setExternalViewVisible();
+        externalFrame.src = url;
+        setAddressBarValue(url);
+        currentView = { type: 'external', url };
+    }
+
+    function showHistoryEntry(entry) {
+        if (!entry || !entry.type) return;
+
+        if (entry.type === 'external') {
+            showExternalPage(entry.url);
+            return;
+        }
+
+        showInternalPage(entry.pageName);
     }
 
     function updateResponsiveClasses() {
@@ -960,12 +1085,22 @@ const Browser = (() => {
             });
         });
 
+        document.querySelectorAll('[data-external-url]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const externalUrl = link.getAttribute('data-external-url');
+                if (externalUrl) {
+                    navigateToExternalUrl(externalUrl);
+                }
+            });
+        });
+
         // Browser navigation buttons
         if (backBtn) {
             backBtn.addEventListener("click", () => {
                 if (historyIndex > 0) {
                     historyIndex--;
-                    showPage(history[historyIndex]);
+                    showHistoryEntry(history[historyIndex]);
                 }
             });
         }
@@ -974,13 +1109,26 @@ const Browser = (() => {
             forwardBtn.addEventListener("click", () => {
                 if (historyIndex < history.length - 1) {
                     historyIndex++;
-                    showPage(history[historyIndex]);
+                    showHistoryEntry(history[historyIndex]);
                 }
             });
         }
 
         if (refreshBtn) {
             refreshBtn.addEventListener("click", () => {
+                if (currentView.type === 'external') {
+                    const externalFrame = document.getElementById('browser-external-frame');
+                    if (externalFrame && currentView.url) {
+                        externalFrame.src = currentView.url;
+                    }
+                    return;
+                }
+
+                if (currentView.type === 'internal' && currentView.pageName === 'osrs-hiscores' && typeof OsrsHiscores !== 'undefined') {
+                    OsrsHiscores.load(OsrsHiscores.DEFAULT_PLAYER);
+                    return;
+                }
+
                 const content = document.getElementById("browser-content");
                 if (content) {
                     content.scrollTop = 0;
@@ -991,16 +1139,22 @@ const Browser = (() => {
         initMediaLightbox(browserWindow);
 
         // Initialize to home page
-        showPage('home');
+        showInternalPage('home');
     }
 
     function initMediaLightbox(browserWindow) {
         const lightbox = document.getElementById('portfolio-site-lightbox');
         const lightboxImg = document.getElementById('portfolio-site-lightbox-img');
         const lightboxCaption = document.getElementById('portfolio-site-lightbox-caption');
+        const lightboxCounter = document.getElementById('portfolio-site-lightbox-counter');
+        const lightboxPrev = document.getElementById('portfolio-site-lightbox-prev');
+        const lightboxNext = document.getElementById('portfolio-site-lightbox-next');
         const browserContent = document.getElementById('browser-content');
         const browserStage = browserWindow?.querySelector('.browser__stage');
         if (!lightbox || !lightboxImg || !lightboxCaption || !browserWindow) return;
+
+        let galleryItems = [];
+        let galleryIndex = 0;
 
         if (browserContent) {
             browserContent.classList.remove('browser__content--scroll-locked');
@@ -1010,17 +1164,69 @@ const Browser = (() => {
         function setLightboxImageMaxHeight() {
             const stageHeight = browserStage?.clientHeight || browserContent?.clientHeight || 0;
             if (!stageHeight) return;
-            const maxImageHeight = Math.max(200, stageHeight - 96);
+            const maxImageHeight = Math.max(200, stageHeight - 120);
             lightboxImg.style.maxHeight = `${maxImageHeight}px`;
         }
 
-        function openLightbox(src, alt, caption) {
-            lightboxImg.src = src;
-            lightboxImg.alt = alt || '';
-            lightboxCaption.textContent = caption || '';
+        function getGalleryItems(section) {
+            if (!section) return [];
+
+            return Array.from(section.querySelectorAll('.portfolio-site__media-figure')).map((figure) => {
+                const img = figure.querySelector('img');
+                if (!img) return null;
+
+                return {
+                    src: img.currentSrc || img.src,
+                    alt: img.alt || '',
+                    caption: figure.querySelector('figcaption')?.textContent?.trim() || img.alt || ''
+                };
+            }).filter(Boolean);
+        }
+
+        function updateGalleryNav() {
+            const hasMultiple = galleryItems.length > 1;
+
+            if (lightboxPrev) {
+                lightboxPrev.hidden = !hasMultiple;
+                lightboxPrev.disabled = galleryIndex <= 0;
+            }
+
+            if (lightboxNext) {
+                lightboxNext.hidden = !hasMultiple;
+                lightboxNext.disabled = galleryIndex >= galleryItems.length - 1;
+            }
+
+            if (lightboxCounter) {
+                if (hasMultiple) {
+                    lightboxCounter.textContent = `${galleryIndex + 1} / ${galleryItems.length}`;
+                    lightboxCounter.removeAttribute('aria-hidden');
+                } else {
+                    lightboxCounter.textContent = '';
+                    lightboxCounter.setAttribute('aria-hidden', 'true');
+                }
+            }
+        }
+
+        function showGalleryItem(index) {
+            const item = galleryItems[index];
+            if (!item) return;
+
+            galleryIndex = index;
+            lightboxImg.src = item.src;
+            lightboxImg.alt = item.alt;
+            lightboxCaption.textContent = item.caption;
+            setLightboxImageMaxHeight();
+            updateGalleryNav();
+        }
+
+        function openLightbox(items, startIndex) {
+            galleryItems = items;
+            galleryIndex = startIndex;
+
             lightbox.setAttribute('aria-hidden', 'false');
             lightbox.classList.add('portfolio-site__lightbox--open');
-            setLightboxImageMaxHeight();
+            showGalleryItem(startIndex);
+
             if (browserContent) {
                 browserContent.dataset.scrollTop = String(browserContent.scrollTop);
                 browserContent.classList.add('browser__content--scroll-locked');
@@ -1034,6 +1240,10 @@ const Browser = (() => {
             lightboxImg.style.maxHeight = '';
             lightboxImg.alt = '';
             lightboxCaption.textContent = '';
+            galleryItems = [];
+            galleryIndex = 0;
+            updateGalleryNav();
+
             if (browserContent) {
                 browserContent.classList.remove('browser__content--scroll-locked');
                 if (browserContent.dataset.scrollTop) {
@@ -1043,16 +1253,31 @@ const Browser = (() => {
             }
         }
 
+        function stepGallery(direction) {
+            if (galleryItems.length <= 1) return;
+
+            const nextIndex = galleryIndex + direction;
+            if (nextIndex < 0 || nextIndex >= galleryItems.length) return;
+
+            showGalleryItem(nextIndex);
+        }
+
         browserWindow.addEventListener('click', (e) => {
-            const figure = e.target.closest('.portfolio-site__case-section--showcase .portfolio-site__media-figure');
+            const figure = e.target.closest('.portfolio-site__case-study .portfolio-site__media-figure');
             if (!figure) return;
 
             const img = figure.querySelector('img');
             if (!img || !e.target.closest('img, figcaption')) return;
 
             e.preventDefault();
-            const caption = figure.querySelector('figcaption')?.textContent?.trim() || img.alt;
-            openLightbox(img.currentSrc || img.src, img.alt, caption);
+
+            const section = figure.closest('.portfolio-site__case-section');
+            const items = getGalleryItems(section);
+            const startIndex = Math.max(0, Array.from(section.querySelectorAll('.portfolio-site__media-figure')).indexOf(figure));
+
+            if (!items.length) return;
+
+            openLightbox(items, startIndex);
         });
 
         lightbox.addEventListener('click', (e) => {
@@ -1066,14 +1291,40 @@ const Browser = (() => {
             });
         });
 
+        lightboxPrev?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            stepGallery(-1);
+        });
+
+        lightboxNext?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            stepGallery(1);
+        });
+
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('portfolio-site__lightbox--open')) {
+            if (!lightbox.classList.contains('portfolio-site__lightbox--open')) return;
+
+            if (e.key === 'Escape') {
                 closeLightbox();
+                return;
+            }
+
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                stepGallery(-1);
+                return;
+            }
+
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                stepGallery(1);
             }
         });
+
+        updateGalleryNav();
     }
 
-    return { init, navigateToPage, showPage };
+    return { init, navigateToPage, navigateToExternalUrl, showPage: showInternalPage };
 })();
 
 /* --------------------------- Projects (case study launcher) --------------------------- */

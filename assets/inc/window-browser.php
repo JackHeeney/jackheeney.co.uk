@@ -31,7 +31,7 @@
                             <a href="#home" class="portfolio-site__top-nav-link portfolio-site__top-nav-link--active" data-page="home">Home</a>
                             <a href="#about" class="portfolio-site__top-nav-link" data-page="about">About</a>
                             <a href="#skills" class="portfolio-site__top-nav-link" data-page="skills">Skills</a>
-                            <a href="#projects" class="portfolio-site__top-nav-link" data-page="projects">Works</a>
+                            <a href="#projects" class="portfolio-site__top-nav-link" data-page="projects">Projects</a>
                             <a href="#contact" class="portfolio-site__top-nav-link" data-page="contact">Contact</a>
                         </nav>
                     </header>
@@ -111,8 +111,29 @@
                     <!-- Projects Page -->
                     <div class="portfolio-site__page" id="page-projects">
                         <main class="portfolio-site__main">
+                            <section class="portfolio-site__section portfolio-site__projects-intro">
+                                <h2 class="portfolio-site__section-title">Projects</h2>
+                                <p class="portfolio-site__case-studies-lead">
+                                    Case studies and live websites from product, growth, engineering, and creative work.
+                                </p>
+                            </section>
+
+                            <section class="portfolio-site__section portfolio-site__external-websites">
+                                <h3 class="portfolio-site__subsection-title">Live Websites</h3>
+                                <p class="portfolio-site__external-websites-copy">Websites and landing pages I have worked on — open in the browser to explore:</p>
+                                <div class="portfolio-site__external-websites-list">
+                                    <a href="https://azure-webinar.com/" class="portfolio-site__external-link" data-external-url="https://azure-webinar.com/">azure-webinar.com</a>
+                                    <a href="https://cyber-webinar.com/" class="portfolio-site__external-link" data-external-url="https://cyber-webinar.com/">cyber-webinar.com</a>
+                                    <a href="https://data-webinar.org/" class="portfolio-site__external-link" data-external-url="https://data-webinar.org/">data-webinar.org</a>
+                                    <a href="https://ai-webinar.co.uk/" class="portfolio-site__external-link" data-external-url="https://ai-webinar.co.uk/">ai-webinar.co.uk</a>
+                                    <a href="https://www.robustittraining.com/" class="portfolio-site__external-link" data-external-url="https://www.robustittraining.com/">robustittraining.com</a>
+                                    <a href="https://www.getglitched.co.uk/" class="portfolio-site__external-link" data-external-url="https://www.getglitched.co.uk/">getglitched.co.uk</a>
+                                    <a href="https://bindertrader.vercel.app/" class="portfolio-site__external-link" data-external-url="https://bindertrader.vercel.app/">bindertrader.vercel.app</a>
+                                </div>
+                            </section>
+
                             <section class="portfolio-site__section portfolio-site__case-studies-intro">
-                                <h2 class="portfolio-site__section-title">Case Studies</h2>
+                                <h3 class="portfolio-site__subsection-title">Case Studies</h3>
                                 <p class="portfolio-site__case-studies-lead">
                                     A focused collection of digital product, growth, and creative projects delivered across technical implementation,
                                     operational systems, and conversion-led marketing.
@@ -344,7 +365,7 @@
                                         <li>Improved trust through clearer trade status and confirmations</li>
                                     </ul>
                                 </section>
-                                <section class="portfolio-site__case-section">
+                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
                                     <h3>Visual Showcase</h3>
                                     <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
                                     <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
@@ -766,6 +787,36 @@
                             </section>
                         </main>
                     </div>
+
+                    <div class="portfolio-site__page" id="page-osrs-hiscores">
+                        <main class="portfolio-site__main osrs-hiscores">
+                            <section class="portfolio-site__section">
+                                <header class="osrs-hiscores__header">
+                                    <h2 class="portfolio-site__section-title osrs-hiscores__title">Old School RuneScape Hiscores</h2>
+                                    <p class="osrs-hiscores__player-name" aria-live="polite">IM_KOFI</p>
+                                    <div class="osrs-hiscores__overall-meta" aria-live="polite"></div>
+                                    <p class="osrs-hiscores__notice">
+                                        Jagex no longer allows this site to be embedded in a frame. Stats are loaded from the official API instead.
+                                        <a class="osrs-hiscores__official-link" href="https://secure.runescape.com/m=hiscore_oldschool/hiscorepersonal?user1=IM_KOFI" target="_blank" rel="noopener noreferrer">Open full profile on runescape.com</a>
+                                    </p>
+                                </header>
+                                <p class="osrs-hiscores__status" role="status"></p>
+                                <div class="osrs-hiscores__table-wrap">
+                                    <table class="osrs-hiscores__table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Skill</th>
+                                                <th scope="col">Rank</th>
+                                                <th scope="col">Level</th>
+                                                <th scope="col">XP</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </section>
+                        </main>
+                    </div>
                 </div>
             </div>
 
@@ -773,9 +824,18 @@
                 <button type="button" class="portfolio-site__lightbox-backdrop" data-lightbox-close aria-label="Close enlarged image"></button>
                 <div class="portfolio-site__lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="portfolio-site-lightbox-caption">
                     <button type="button" class="portfolio-site__lightbox-close" data-lightbox-close aria-label="Close">×</button>
-                    <img class="portfolio-site__lightbox-img" id="portfolio-site-lightbox-img" alt="">
+                    <div class="portfolio-site__lightbox-stage">
+                        <button type="button" class="portfolio-site__lightbox-nav portfolio-site__lightbox-nav--prev" id="portfolio-site-lightbox-prev" aria-label="Previous image" hidden>‹</button>
+                        <img class="portfolio-site__lightbox-img" id="portfolio-site-lightbox-img" alt="">
+                        <button type="button" class="portfolio-site__lightbox-nav portfolio-site__lightbox-nav--next" id="portfolio-site-lightbox-next" aria-label="Next image" hidden>›</button>
+                    </div>
                     <p class="portfolio-site__lightbox-caption" id="portfolio-site-lightbox-caption"></p>
+                    <p class="portfolio-site__lightbox-counter" id="portfolio-site-lightbox-counter" aria-hidden="true"></p>
                 </div>
+            </div>
+
+            <div class="browser__external browser__external--hidden" id="browser-external">
+                <iframe class="browser__external-frame" id="browser-external-frame" title="External website preview" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>

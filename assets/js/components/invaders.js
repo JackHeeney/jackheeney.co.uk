@@ -2,6 +2,16 @@
 
 const SpaceInvaders = (() => {
     const HIGH_SCORE_API_URL = "./assets/api/invaders-highscores.php";
+    const MIN_CANVAS_WIDTH = 220;
+    const MIN_CANVAS_HEIGHT = 120;
+    const MAX_CANVAS_INIT_RETRIES = 12;
+    const TARGET_ENEMY_DROPS = 9;
+    const MIN_ENEMY_DROP = 8;
+    const MAX_ENEMY_DROP = 22;
+    const MOBILE_SPEED_FACTOR = 0.5;
+    const MOBILE_TARGET_DROPS = 12;
+    const MOBILE_MIN_ENEMY_DROP = 6;
+    const MOBILE_MAX_ENEMY_DROP = 14;
     let canvas, ctx, menuCanvas, menuCtx, gameWindow, loadingEl, gameContentEl, menuEl, mobileControlsEl;
     let scoreEl, livesEl, levelEl, infoEl, resetBtn, startBtn, hiscoreBtn, hiscoreModal, hiscoreList, hiscoreClose;
     let nameEntryEl, nameInputs, nameSubmitBtn, nameScoreEl;
@@ -46,11 +56,30 @@ const SpaceInvaders = (() => {
     
     // Input
     let keys = {};
+    let mobileHoldTimers = {
+        left: null,
+        right: null,
+        shoot: null
+    };
     let nameEntryIndex = 0;
     
     function isMobile() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
-            (window.innerWidth <= 768);
+        if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) {
+            return true;
+        }
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(navigator.userAgent) ||
+            window.innerWidth <= 768;
+    }
+
+    function updateMobileControlsVisibility() {
+        const body = gameWindow?.querySelector(".window__body.invaders");
+        if (!body) return;
+
+        if (isMobile()) {
+            body.classList.add("invaders--touch");
+        } else {
+            body.classList.remove("invaders--touch");
+        }
     }
 
     function setMobileActionState(action, isPressed) {
@@ -60,6 +89,50 @@ const SpaceInvaders = (() => {
             keys['ArrowRight'] = isPressed;
         } else if (action === 'shoot') {
             keys[' '] = isPressed;
+        }
+    }
+
+    function runMobileAction(action) {
+        if (gameState !== 'playing' || !canvas) return;
+        if (action === 'left') {
+            player.x = Math.max(0, player.x - player.speed);
+        } else if (action === 'right') {
+            player.x = Math.min(canvas.width - player.width, player.x + player.speed);
+        } else if (action === 'shoot') {
+            const now = Date.now();
+            if (now - lastShot > shotCooldown) {
+                shoot();
+                lastShot = now;
+            }
+        }
+    }
+
+    function clearMobileHoldTimer(action) {
+        if (!mobileHoldTimers[action]) return;
+        clearInterval(mobileHoldTimers[action]);
+        mobileHoldTimers[action] = null;
+    }
+
+    function clearAllMobileInputs() {
+        setMobileActionState('left', false);
+        setMobileActionState('right', false);
+        setMobileActionState('shoot', false);
+        clearMobileHoldTimer('left');
+        clearMobileHoldTimer('right');
+        clearMobileHoldTimer('shoot');
+    }
+
+    function ensureGameplayStarted() {
+        if (gameState === 'playing') return;
+        if (gameState === 'loading' || gameState === 'nameEntry' || gameState === 'highScores') return;
+
+        if (menuEl && menuEl.style.display !== "none") {
+            hideMenu();
+            return;
+        }
+
+        if (gameContentEl && gameContentEl.style.display !== "none") {
+            startGame();
         }
     }
     
@@ -154,12 +227,8 @@ const SpaceInvaders = (() => {
     }
     
     function calculateScore(enemy) {
-        // Find which row the enemy is in
-        const startY = 50;
-        const spacing = 10;
-        const rowHeight = enemyHeight + spacing;
-        const row = Math.floor((enemy.y - startY) / rowHeight);
-        
+        const row = Number.isFinite(enemy?.row) ? enemy.row : 0;
+
         // Top 2 rows (red): 30 points
         if (row < 2) return 30;
         // Middle 2 rows (orange): 20 points
@@ -169,11 +238,43 @@ const SpaceInvaders = (() => {
     }
     
     function getLevelDifficulty(level) {
-        return {
-            speed: 0.5 + (level - 1) * 0.2,
-            shootChance: 0.002 + (level - 1) * 0.001,
-            shotCooldown: Math.max(100, 300 - (level - 1) * 10)
-        };
+        const speed = 0.5 + (level - 1) * 0.2;
+        const shootChance = 0.002 + (level - 1) * 0.001;
+        const shotCooldown = Math.max(100, 300 - (level - 1) * 10);
+
+        if (isMobile()) {
+            return {
+                speed: speed * MOBILE_SPEED_FACTOR,
+                shootChance: shootChance * 0.75,
+                shotCooldown: Math.min(450, shotCooldown + 80)
+            };
+        }
+
+        return { speed, shootChance, shotCooldown };
+    }
+
+    function getTargetEnemyDrops() {
+        return isMobile() ? MOBILE_TARGET_DROPS : TARGET_ENEMY_DROPS;
+    }
+
+    function getEnemyDropBounds() {
+        if (isMobile()) {
+            return { min: MOBILE_MIN_ENEMY_DROP, max: MOBILE_MAX_ENEMY_DROP };
+        }
+        return { min: MIN_ENEMY_DROP, max: MAX_ENEMY_DROP };
+    }
+
+    function calculateEnemyDropDistance(runway) {
+        const { min, max } = getEnemyDropBounds();
+
+        if (runway <= 0) {
+            return min;
+        }
+
+        return Math.max(
+            min,
+            Math.min(max, Math.round(runway / getTargetEnemyDrops()))
+        );
     }
     
     function showLoadingAnimation() {
@@ -245,10 +346,11 @@ const SpaceInvaders = (() => {
             gameContentEl.style.display = "flex";
         }
         
-        // Start actual game after a brief delay to ensure DOM updates
-        setTimeout(() => {
-            startGame();
-        }, 150);
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                startGame();
+            });
+        });
     }
     
     function initMenuCanvas() {
@@ -451,81 +553,196 @@ const SpaceInvaders = (() => {
         });
     }
     
+    function measureCanvasContainer() {
+        const container = canvas?.parentElement;
+        if (!container) return null;
+
+        container.offsetHeight;
+
+        const rect = container.getBoundingClientRect();
+        let width = container.clientWidth;
+        let height = container.clientHeight;
+
+        if (width <= 0) width = rect.width;
+        if (height <= 0) height = rect.height;
+
+        return {
+            width: Math.floor(Math.max(1, width)),
+            height: Math.floor(Math.max(1, height))
+        };
+    }
+
     function initCanvas() {
-        if (!canvas) return;
-        
-        const container = canvas.parentElement;
-        if (!container) {
+        if (!canvas) return false;
+
+        const measured = measureCanvasContainer();
+        if (!measured) {
             console.error('Canvas container not found');
+            return false;
+        }
+
+        let finalWidth = measured.width;
+        let finalHeight = measured.height;
+
+        if (isMobile()) {
+            finalWidth = Math.max(finalWidth, Math.floor(window.innerWidth * 0.94));
+            finalHeight = Math.max(finalHeight, estimatePlayfieldHeight());
+        }
+
+        if (finalWidth < MIN_CANVAS_WIDTH || finalHeight < MIN_CANVAS_HEIGHT) {
+            const body = gameWindow?.querySelector(".window__body");
+            const bodyRect = body?.getBoundingClientRect();
+            if (bodyRect) {
+                finalWidth = Math.max(finalWidth, Math.floor(bodyRect.width * (isMobile() ? 0.96 : 0.9)));
+                finalHeight = Math.max(
+                    finalHeight,
+                    isMobile() ? estimatePlayfieldHeight() : Math.floor(bodyRect.height * 0.55)
+                );
+            }
+        }
+
+        finalWidth = Math.max(MIN_CANVAS_WIDTH, finalWidth);
+        finalHeight = Math.max(MIN_CANVAS_HEIGHT, finalHeight);
+
+        if (finalWidth <= 0 || finalHeight <= 0) {
+            console.error('Invalid canvas dimensions:', finalWidth, finalHeight);
+            return false;
+        }
+
+        canvas.width = finalWidth;
+        canvas.height = finalHeight;
+        canvas.style.width = `${finalWidth}px`;
+        canvas.style.height = `${finalHeight}px`;
+        canvas.style.maxWidth = "100%";
+        canvas.style.maxHeight = "100%";
+        return true;
+    }
+
+    function ensureCanvasReady(attempt, onReady) {
+        if (initCanvas()) {
+            onReady?.();
             return;
         }
-        
-        // Force reflow to ensure dimensions are calculated
-        container.offsetHeight;
-        
-        // Get container dimensions
-        const rect = container.getBoundingClientRect();
-        const computedStyle = window.getComputedStyle(container);
-        const paddingX = parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight) || 0;
-        const paddingY = parseFloat(computedStyle.paddingTop) + parseFloat(computedStyle.paddingBottom) || 0;
-        
-        // Calculate available space INSIDE the padding (clientWidth/Height already excludes padding)
-        // clientWidth/clientHeight already account for padding, so use them directly
-        let availableWidth = container.clientWidth;
-        let availableHeight = container.clientHeight;
-        
-        // Fallback if clientWidth/Height are 0 or invalid
-        if (availableWidth <= 0) {
-            availableWidth = Math.max(rect.width - paddingX, 300);
+
+        if (attempt >= MAX_CANVAS_INIT_RETRIES) {
+            const fallbackWidth = Math.max(
+                MIN_CANVAS_WIDTH,
+                Math.floor(window.innerWidth * (isMobile() ? 0.94 : 0.88))
+            );
+            const fallbackHeight = Math.max(
+                MIN_CANVAS_HEIGHT,
+                isMobile()
+                    ? estimatePlayfieldHeight()
+                    : Math.floor((window.innerHeight - getTaskbarHeightEstimate()) * 0.55)
+            );
+            canvas.width = fallbackWidth;
+            canvas.height = fallbackHeight;
+            canvas.style.width = `${fallbackWidth}px`;
+            canvas.style.height = `${fallbackHeight}px`;
+            onReady?.();
+            return;
         }
-        if (availableHeight <= 0) {
-            availableHeight = Math.max(rect.height - paddingY, 200);
-        }
-        
-        // Ensure minimum dimensions
-        const finalWidth = Math.max(availableWidth, 300);
-        const finalHeight = Math.max(availableHeight, 200);
-        
-        if (finalWidth > 0 && finalHeight > 0) {
-            // Set canvas internal resolution (this is the drawing area)
-            canvas.width = finalWidth;
-            canvas.height = finalHeight;
-            
-            // Set CSS size to match exactly (ensures it fits within container padding)
-            // The container is now properly sized by flexbox, so use calculated dimensions
-            canvas.style.width = `${finalWidth}px`;
-            canvas.style.height = `${finalHeight}px`;
-            canvas.style.maxWidth = '100%';
-            canvas.style.maxHeight = '100%';
-        } else {
-            console.error('Invalid canvas dimensions:', finalWidth, finalHeight);
-        }
+
+        requestAnimationFrame(() => ensureCanvasReady(attempt + 1, onReady));
+    }
+
+    function getTaskbarHeightEstimate() {
+        const taskbar = document.querySelector(".taskbar");
+        if (!taskbar) return 46;
+        return Math.max(46, Math.round(taskbar.getBoundingClientRect().height));
     }
     
-    function initEnemies() {
-        enemies = [];
-        const spacing = isMobile() ? 6 : 10;
-        const topPadding = isMobile() ? 20 : 50;
-        const sidePadding = isMobile() ? 16 : 50;
-        const bottomReserve = isMobile() ? 96 : 120;
-        const availableWidth = Math.max(220, canvas.width - sidePadding * 2);
-        const availableHeight = Math.max(140, canvas.height - topPadding - bottomReserve);
+    function getLayoutMetrics() {
+        return {
+            topPadding: isMobile() ? 8 : 12,
+            sidePadding: isMobile() ? 12 : 24,
+            bottomMargin: isMobile() ? 4 : 8,
+            spacing: isMobile() ? 6 : 10
+        };
+    }
+
+    function estimatePlayfieldHeight() {
+        const taskbar = getTaskbarHeightEstimate();
+        const viewportHeight = Math.max(window.innerHeight, document.documentElement.clientHeight || 0);
+        const titlebar = gameWindow?.querySelector(".window__titlebar")?.getBoundingClientRect().height ?? 40;
+        const header = gameContentEl?.querySelector(".invaders__header")?.getBoundingClientRect().height ?? 48;
+        const info = infoEl?.getBoundingClientRect().height ?? 44;
+        const controls = (isMobile() && mobileControlsEl)
+            ? mobileControlsEl.getBoundingClientRect().height
+            : 0;
+        const bodyPadding = isMobile() ? 16 : 40;
+        const containerPadding = isMobile() ? 8 : 20;
+
+        return Math.max(
+            MIN_CANVAS_HEIGHT,
+            Math.floor(viewportHeight - taskbar - titlebar - header - info - controls - bodyPadding - containerPadding)
+        );
+    }
+
+    function updateEnemyDropDistance(rows, startY, spacing) {
+        if (!canvas || rows < 1) {
+            enemyDropDistance = 20;
+            return;
+        }
+
+        const { bottomMargin } = getLayoutMetrics();
+        const playerY = canvas.height - player.height - bottomMargin;
+        const lastEnemyBottom = startY + (rows - 1) * (enemyHeight + spacing) + enemyHeight;
+        const runway = Math.max(0, playerY - lastEnemyBottom);
+
+        enemyDropDistance = calculateEnemyDropDistance(runway);
+    }
+
+    function refreshEnemyDropDistanceFromState() {
+        if (!canvas || enemies.length === 0) return;
+
+        const aliveEnemies = enemies.filter((enemy) => enemy.alive);
+        if (aliveEnemies.length === 0) return;
+
+        const lowestEnemyBottom = aliveEnemies.reduce(
+            (lowest, enemy) => Math.max(lowest, enemy.y + enemy.height),
+            0
+        );
+        const { bottomMargin } = getLayoutMetrics();
+        const playerY = canvas.height - player.height - bottomMargin;
+        const runway = Math.max(0, playerY - lowestEnemyBottom);
+
+        enemyDropDistance = calculateEnemyDropDistance(runway);
+    }
+
+    function getFormationLayout() {
+        const { topPadding, sidePadding, bottomMargin, spacing } = getLayoutMetrics();
+        const minGapAbovePlayer = isMobile() ? 32 : 48;
+        const playerY = canvas.height - player.height - bottomMargin;
+        const maxEnemyBottom = playerY - minGapAbovePlayer;
+        const availableWidth = Math.max(160, canvas.width - sidePadding * 2);
+        const availableHeight = Math.max(40, maxEnemyBottom - topPadding);
+        const rowStride = enemyHeight + spacing;
+
         const cols = Math.min(
             enemyCols,
-            Math.max(5, Math.floor((availableWidth + spacing) / (enemyWidth + spacing)))
+            Math.max(4, Math.floor((availableWidth + spacing) / (enemyWidth + spacing)))
         );
         const rows = Math.min(
             enemyRows,
-            Math.max(3, Math.floor((availableHeight + spacing) / (enemyHeight + spacing)))
+            Math.max(1, Math.floor((availableHeight + spacing) / rowStride))
         );
         const formationWidth = cols * enemyWidth + (cols - 1) * spacing;
         const startX = Math.max(8, (canvas.width - formationWidth) / 2);
         const startY = topPadding;
+
+        return { cols, rows, spacing, startX, startY };
+    }
+
+    function initEnemies() {
+        enemies = [];
+        const { cols, rows, spacing, startX, startY } = getFormationLayout();
         
         const difficulty = getLevelDifficulty(currentLevel);
         enemySpeed = difficulty.speed;
         enemyShootChance = difficulty.shootChance;
         shotCooldown = difficulty.shotCooldown;
+        updateEnemyDropDistance(rows, startY, spacing);
         
         for (let row = 0; row < rows; row++) {
             for (let col = 0; col < cols; col++) {
@@ -576,63 +793,16 @@ const SpaceInvaders = (() => {
             menuEl.style.display = "none";
         }
         
-        // Initialize canvas - wait a bit for DOM to update
-        setTimeout(() => {
-            initCanvas();
-            
-            // Double-check canvas has valid dimensions
-            if (canvas.width <= 0 || canvas.height <= 0) {
-                console.error('Canvas dimensions invalid:', canvas.width, canvas.height);
-                // Try again with a delay
-                setTimeout(() => {
-                    initCanvas();
-                    if (canvas.width > 0 && canvas.height > 0) {
-                        initEnemies();
-                        setupPlayer();
-                        // Verify player and enemies don't overlap before starting
-                        if (verifyGameSetup()) {
-                            updateUI();
-                            gameLoop();
-                        }
-                    }
-                }, 200);
-                return;
-            }
-            
-            initEnemies();
-            setupPlayer();
-            
-            // Verify game setup is valid before starting
-            if (verifyGameSetup()) {
-                updateUI();
-                gameLoop();
-            } else {
-                console.error('Game setup invalid - enemies and player overlapping');
-                // Retry initialization
-                setTimeout(() => {
-                    initCanvas();
-                    initEnemies();
-                    setupPlayer();
-                    if (verifyGameSetup()) {
-                        updateUI();
-                        gameLoop();
-                    }
-                }, 100);
-            }
-        }, 100);
+        requestAnimationFrame(() => {
+            ensureCanvasReady(0, launchPlayingState);
+        });
     }
     
     function setupPlayer() {
         if (canvas && canvas.width > 0 && canvas.height > 0) {
-            // Position player near bottom but ensure it's visible within canvas bounds
-            const bottomMargin = 20;
+            const { bottomMargin } = getLayoutMetrics();
             player.x = Math.max(0, Math.min(canvas.width / 2 - player.width / 2, canvas.width - player.width));
             player.y = Math.max(0, canvas.height - player.height - bottomMargin);
-            
-            // Ensure player is always visible and well above the bottom
-            if (player.y + player.height > canvas.height - 10) {
-                player.y = canvas.height - player.height - 10;
-            }
         }
     }
     
@@ -640,19 +810,28 @@ const SpaceInvaders = (() => {
         if (!canvas || canvas.width <= 0 || canvas.height <= 0) return false;
         if (player.y <= 0) return false;
         if (enemies.length === 0) return false;
-        
-        // Check that no enemies are overlapping with player position
-        // Enemies should be well above the player
-        const minSafeDistance = 50; // Minimum safe distance between enemies and player
-        for (let enemy of enemies) {
+
+        const minSafeDistance = isMobile() ? 28 : 40;
+        for (const enemy of enemies) {
             if (enemy.alive && enemy.y + enemy.height >= player.y - minSafeDistance) {
-                // Enemy too close to player - this shouldn't happen at game start
-                console.warn('Enemy too close to player at start:', enemy.y, player.y);
                 return false;
             }
         }
-        
+
         return true;
+    }
+
+    function launchPlayingState() {
+        setupPlayer();
+        initEnemies();
+
+        if (!verifyGameSetup()) {
+            console.warn("Invaders layout still tight; continuing with current formation.");
+        }
+
+        updateUI();
+        draw();
+        gameLoop();
     }
     
     function nextLevel() {
@@ -690,8 +869,9 @@ const SpaceInvaders = (() => {
             updateUI();
             
             if (canvas.width > 0 && canvas.height > 0) {
+                const { bottomMargin } = getLayoutMetrics();
                 player.x = Math.max(0, Math.min(canvas.width / 2 - player.width / 2, canvas.width - player.width));
-                player.y = canvas.height - player.height - 20;
+                player.y = canvas.height - player.height - bottomMargin;
             }
             
             gameState = 'playing';
@@ -1066,9 +1246,13 @@ const SpaceInvaders = (() => {
             window.DesktopApp.fitGameWindow(gameWindow);
         }
 
-        setTimeout(() => {
-            showLoadingAnimation();
-        }, 120);
+        updateMobileControlsVisibility();
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                showLoadingAnimation();
+            });
+        });
     }
     
     window.SpaceInvadersApp = window.SpaceInvadersApp || {};
@@ -1119,13 +1303,7 @@ const SpaceInvaders = (() => {
             gameContentEl.style.display = "none";
         }
         
-        if (mobileControlsEl) {
-            if (isMobile()) {
-                mobileControlsEl.style.display = "flex";
-            } else {
-                mobileControlsEl.style.display = "none";
-            }
-        }
+        updateMobileControlsVisibility();
         
         // Menu buttons
         if (startBtn) {
@@ -1216,11 +1394,24 @@ const SpaceInvaders = (() => {
 
                 const press = (e) => {
                     e.preventDefault();
+                    e.stopPropagation();
+                    if (btn.dataset.pressed === "1") return;
+                    ensureGameplayStarted();
+                    btn.dataset.pressed = "1";
                     setMobileActionState(action, true);
+                    runMobileAction(action);
+                    clearMobileHoldTimer(action);
+                    const repeatDelay = action === "shoot" ? 140 : 45;
+                    mobileHoldTimers[action] = setInterval(() => {
+                        runMobileAction(action);
+                    }, repeatDelay);
                 };
                 const release = (e) => {
                     e.preventDefault();
+                    e.stopPropagation();
+                    btn.dataset.pressed = "0";
                     setMobileActionState(action, false);
+                    clearMobileHoldTimer(action);
                 };
 
                 btn.addEventListener("touchstart", press, { passive: false });
@@ -1234,16 +1425,38 @@ const SpaceInvaders = (() => {
                 btn.addEventListener("mouseleave", release);
                 btn.addEventListener("click", (e) => {
                     e.preventDefault();
+                    ensureGameplayStarted();
                     if (action === "shoot") {
-                        // Ensure quick taps still fire on browsers that suppress touch key state.
-                        const now = Date.now();
-                        if (now - lastShot > shotCooldown) {
-                            shoot();
-                            lastShot = now;
-                        }
+                        runMobileAction(action);
                     }
                 });
             });
+        }
+
+        document.addEventListener("touchend", () => {
+            clearAllMobileInputs();
+            if (mobileControlsEl) {
+                mobileControlsEl.querySelectorAll(".invaders__control-btn").forEach((btn) => {
+                    btn.dataset.pressed = "0";
+                });
+            }
+        }, { passive: true });
+
+        document.addEventListener("pointerup", clearAllMobileInputs);
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                clearAllMobileInputs();
+            }
+        });
+        window.addEventListener("blur", clearAllMobileInputs);
+
+        if (canvas) {
+            const wakeUpGame = () => {
+                ensureGameplayStarted();
+            };
+            canvas.addEventListener("touchstart", wakeUpGame, { passive: true });
+            canvas.addEventListener("pointerdown", wakeUpGame);
+            canvas.addEventListener("mousedown", wakeUpGame);
         }
         
         if (resetBtn) {
@@ -1253,6 +1466,7 @@ const SpaceInvaders = (() => {
         let resizeTimeout;
         const handleResize = () => {
             if (gameWindow?.classList.contains("window--hidden")) return;
+            updateMobileControlsVisibility();
             clearTimeout(resizeTimeout);
             isResizing = true;
             resizeTimeout = setTimeout(() => {
@@ -1271,8 +1485,9 @@ const SpaceInvaders = (() => {
                     initCanvas();
                     
                     if (canvas.width !== oldWidth || canvas.height !== oldHeight) {
+                        const { bottomMargin } = getLayoutMetrics();
                         player.x = Math.min(canvas.width - player.width, Math.max(0, player.x));
-                        player.y = Math.min(canvas.height - player.height - 20, Math.max(0, player.y));
+                        player.y = Math.min(canvas.height - player.height - bottomMargin, Math.max(0, player.y));
                         
                         if (oldWidth > 0 && oldHeight > 0) {
                             const scaleX = canvas.width / oldWidth;
@@ -1294,6 +1509,8 @@ const SpaceInvaders = (() => {
                                 bullet.y >= 0 && bullet.y < canvas.height
                             );
                         }
+
+                        refreshEnemyDropDistanceFromState();
                     }
                 }
                 isResizing = false;

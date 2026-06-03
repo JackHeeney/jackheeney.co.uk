@@ -117,8 +117,26 @@ body {
 .login-screen__username {
     font-size: 22px;
     font-weight: 600;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.login-screen__hint {
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 10px 12px;
+    font-size: 13px;
+    line-height: 1.45;
+    text-align: center;
+    color: #e2e8f0;
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(147, 197, 253, 0.45);
+    border-radius: 8px;
+}
+
+.login-screen__hint strong {
+    font-weight: 600;
+    color: #f8fafc;
 }
 
 .login-screen__form {
@@ -222,6 +240,18 @@ body {
 }
 
 @media (max-width: 768px) {
+    html {
+        touch-action: manipulation;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
     .login-screen__content {
         padding: 24px 20px;
     }
@@ -245,7 +275,13 @@ body {
 
     .login-screen__username {
         font-size: 18px;
-        margin-bottom: 18px;
+        margin-bottom: 10px;
+    }
+
+    .login-screen__hint {
+        font-size: 12px;
+        margin-bottom: 16px;
+        padding: 8px 10px;
     }
 
     .login-screen__bottom-bar {
@@ -848,6 +884,8 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    flex: 1;
+    min-height: 0;
 }
 
 .files {
@@ -1539,6 +1577,111 @@ body {
     overflow: hidden;
 }
 
+.browser__external {
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+}
+
+.browser__external--hidden {
+    display: none;
+}
+
+.browser__external-frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #ffffff;
+}
+
+/* OSRS Hiscores (in-browser, API-backed) */
+.osrs-hiscores__header {
+    margin-bottom: 1rem;
+}
+
+.osrs-hiscores__title {
+    margin-bottom: 0.35rem;
+}
+
+.osrs-hiscores__player-name {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #1a4d1a;
+}
+
+.osrs-hiscores__overall-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.osrs-hiscores__notice {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.45;
+}
+
+.osrs-hiscores__official-link {
+    color: #0b4ea2;
+    text-decoration: underline;
+}
+
+.osrs-hiscores__status {
+    min-height: 1.25rem;
+    margin: 0 0 0.75rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.osrs-hiscores__status--loading {
+    color: #333;
+}
+
+.osrs-hiscores__status--error {
+    color: #a11;
+}
+
+.osrs-hiscores__table-wrap {
+    overflow: auto;
+    border: 1px solid #c0c0c0;
+    background: #f4f0e6;
+}
+
+.osrs-hiscores__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.osrs-hiscores__table th,
+.osrs-hiscores__table td {
+    padding: 0.4rem 0.65rem;
+    text-align: left;
+    border-bottom: 1px solid #d8d0c0;
+}
+
+.osrs-hiscores__table th {
+    background: #e8e0d0;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.osrs-hiscores__table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.osrs-hiscores__table td:nth-child(n + 2) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
 /* Portfolio Website Inside Browser */
 .portfolio-site {
     min-height: 100%;
@@ -1763,12 +1906,83 @@ body {
     flex-shrink: 0;
 }
 
+.portfolio-site__projects-intro {
+    margin-bottom: 0;
+}
+
+.portfolio-site__projects-intro.portfolio-site__section {
+    margin-bottom: 28px;
+}
+
+.portfolio-site__subsection-title {
+    margin: 0 0 12px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+    text-align: center;
+}
+
+.portfolio-site__external-websites {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+.portfolio-site__external-websites.portfolio-site__section {
+    margin-bottom: 36px;
+}
+
+.portfolio-site__external-websites-copy {
+    margin: 0 0 16px;
+    color: #4b5563;
+    text-align: center;
+    width: 100%;
+}
+
+.portfolio-site__external-websites-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    width: 100%;
+}
+
+.portfolio-site__external-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 40px;
+    padding: 8px 14px;
+    box-sizing: border-box;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #1f2937;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.portfolio-site__external-link:hover {
+    border-color: #2563eb;
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
 .portfolio-site__main {
     flex: 1 1 auto;
     padding: 60px 40px;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    box-sizing: border-box;
+}
+
+#page-projects .portfolio-site__main {
+    max-width: none;
 }
 
 /* About Page */
@@ -1827,6 +2041,10 @@ body {
 /* Case Studies */
 .portfolio-site__case-studies-intro {
     margin-bottom: 24px;
+}
+
+.portfolio-site__case-studies-intro.portfolio-site__section {
+    margin-bottom: 20px;
 }
 
 .portfolio-site__case-studies-lead {
@@ -2067,13 +2285,13 @@ body {
     background: #ffffff;
 }
 
-.portfolio-site__case-section--showcase .portfolio-site__media-figure {
+.portfolio-site__case-study .portfolio-site__media-figure {
     cursor: zoom-in;
     transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.portfolio-site__case-section--showcase .portfolio-site__media-figure:hover,
-.portfolio-site__case-section--showcase .portfolio-site__media-figure:focus-within {
+.portfolio-site__case-study .portfolio-site__media-figure:hover,
+.portfolio-site__case-study .portfolio-site__media-figure:focus-within {
     border-color: #93c5fd;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
 }
@@ -2085,7 +2303,7 @@ body {
     vertical-align: middle;
 }
 
-.portfolio-site__case-section--showcase .portfolio-site__media-figure img {
+.portfolio-site__case-study .portfolio-site__media-figure img {
     cursor: zoom-in;
 }
 
@@ -2138,8 +2356,43 @@ body {
     overflow: auto;
 }
 
+.portfolio-site__lightbox-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.portfolio-site__lightbox-nav {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #0f172a;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.portfolio-site__lightbox-nav:hover:not(:disabled) {
+    background: #f1f5f9;
+}
+
+.portfolio-site__lightbox-nav:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
 .portfolio-site__lightbox-img {
     display: block;
+    flex: 1 1 auto;
+    min-width: 0;
     max-width: 100%;
     max-height: min(72vh, 640px);
     width: auto;
@@ -2159,6 +2412,14 @@ body {
     color: #f8fafc;
     text-align: center;
     line-height: 1.4;
+}
+
+.portfolio-site__lightbox-counter {
+    margin: -4px 0 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #cbd5e1;
+    text-align: center;
 }
 
 .portfolio-site__lightbox-close {
@@ -2286,10 +2547,9 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
-    max-width: 720px;
 }
 
 .portfolio-site__core-skill {
@@ -2495,6 +2755,16 @@ body {
     justify-content: center;
 }
 
+.portfolio-site--tablet .portfolio-site__external-websites,
+.portfolio-site--mobile .portfolio-site__external-websites {
+    margin-top: 36px;
+}
+
+.portfolio-site--tablet .portfolio-site__subsection-title,
+.portfolio-site--mobile .portfolio-site__subsection-title {
+    font-size: 24px;
+}
+
 .portfolio-site--tablet .portfolio-site__main,
 .portfolio-site--mobile .portfolio-site__main {
     padding: 40px 20px;
@@ -2618,6 +2888,20 @@ body {
 
 .portfolio-site--mobile .portfolio-site__case-section--showcase .portfolio-site__media-grid+.portfolio-site__media-grid {
     margin-top: 24px;
+}
+
+.portfolio-site--mobile .portfolio-site__lightbox {
+    padding: 16px;
+}
+
+.portfolio-site--mobile .portfolio-site__lightbox-stage {
+    gap: 8px;
+}
+
+.portfolio-site--mobile .portfolio-site__lightbox-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
 }
 
 .portfolio-site--mobile .portfolio-site__section {
@@ -2943,42 +3227,23 @@ body {
     }
 }
 
+.snake__board-wrap {
+    flex: 1 1 0;
+    min-height: 120px;
+    min-width: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
 .snake__board {
+    display: block;
     background: #020617;
     border-radius: 8px;
-    padding: 10px;
-    display: grid;
-    grid-template-columns: repeat(20, 15px);
-    grid-auto-rows: 15px;
-    gap: 1px;
-    flex: 1;
-    min-height: 0;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-}
-
-.snake__cell {
-    width: 100%;
-    height: 100%;
-    min-width: 0;
-    min-height: 0;
-    border-radius: 2px;
-    background: #020617;
-    aspect-ratio: 1;
-}
-
-.snake__cell--body {
-    background: #16a34a;
-}
-
-.snake__cell--head {
-    background: #4ade80;
-}
-
-.snake__cell--food {
-    background: #ef4444;
-    border-radius: 50%;
+    touch-action: none;
+    flex-shrink: 0;
 }
 
 /* Snake Loading Screen */
@@ -3088,8 +3353,9 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    margin-top: 20px;
-    padding: 15px;
+    margin-top: 12px;
+    padding: 10px 8px 4px;
+    flex-shrink: 0;
 }
 
 .snake__controls-row {
@@ -3127,6 +3393,11 @@ body {
     border-color: #475569;
 }
 
+.window__body.snake--touch .snake__mobile-controls,
+.window__body.invaders--touch .invaders__mobile-controls {
+    display: flex;
+}
+
 @media (max-width: 768px) {
 
     #window-game,
@@ -3152,10 +3423,36 @@ body {
         padding: 0 12px;
     }
 
-    .snake__mobile-controls {
+    .window__body.invaders {
+        flex: 1;
+        min-height: 0;
+    }
+
+    .invaders__canvas-container {
+        width: 100%;
+        min-height: 180px;
+        flex: 1 1 auto;
+        padding: 4px;
+    }
+
+    .snake__info,
+    .invaders__info {
+        padding: 6px 8px;
+    }
+
+    .invaders__info-main {
+        font-size: 13px;
+        margin-bottom: 2px;
+    }
+
+    .invaders__info-sub {
+        font-size: 11px;
+    }
+
+    .invaders__mobile-controls {
         display: flex;
-        margin-top: 12px;
-        padding: 10px 8px 4px;
+        margin-top: 4px;
+        padding: 6px 8px 2px;
     }
 
     .snake__control-btn {
@@ -3169,40 +3466,32 @@ body {
         gap: 8px;
         padding: 8px 10px;
         font-size: 13px;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     .snake__game-content,
     .invaders__game-content {
         min-height: 0;
+        overflow: hidden;
+        gap: 6px;
     }
 
-    .snake__board {
-        grid-template-columns: repeat(20, minmax(0, 1fr));
-        grid-auto-rows: minmax(0, 1fr);
-        padding: 8px;
+    .snake__game-content {
+        justify-content: flex-start;
     }
 
-    .snake__cell {
-        width: 100%;
-        height: 100%;
-        aspect-ratio: 1;
+    .snake__board-wrap {
+        min-height: 0;
     }
 
-    .snake__info,
-    .invaders__info {
-        padding: 10px 8px;
+    .snake__info {
+        flex-shrink: 0;
     }
 
-    .invaders__canvas-container {
-        width: 100%;
-        padding: 6px;
-    }
-
-    .invaders__mobile-controls {
+    .snake__mobile-controls {
         display: flex;
-        margin-top: 12px;
-        padding: 10px 8px 4px;
+        margin-top: 8px;
+        padding: 8px 8px 2px;
     }
 
     .invaders__control-btn {
@@ -3227,9 +3516,14 @@ body {
 /* Snake Game Content */
 .snake__game-content {
     position: relative;
+    flex: 1;
+    min-height: 0;
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    align-items: stretch;
+    outline: none;
 }
 
 .snake__header {
@@ -3242,6 +3536,7 @@ body {
     margin-bottom: 15px;
     color: #e5e7eb;
     font-weight: 600;
+    flex-shrink: 0;
 }
 
 .snake__reset {
@@ -3264,6 +3559,7 @@ body {
     text-align: center;
     padding: 15px;
     color: #e5e7eb;
+    flex-shrink: 0;
 }
 
 .snake__info-main {

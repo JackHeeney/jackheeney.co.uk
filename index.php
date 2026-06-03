@@ -9,6 +9,13 @@ $instagramUrl  = "https://www.instagram.com/heeneyog/";
 
 require_once __DIR__ . '/assets/inc/docs-helper.php';
 $recentDocuments = portfolio_get_recent_documents(3);
+$cvDocument = null;
+foreach (portfolio_get_documents() as $doc) {
+    if (stripos($doc['name'], 'cv') !== false || stripos($doc['filename'], 'cv') !== false) {
+        $cvDocument = $doc;
+        break;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +23,7 @@ $recentDocuments = portfolio_get_recent_documents(3);
 <head>
     <meta charset="UTF-8">
     <title><?php echo $yourName; ?> – Desktop Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -36,6 +43,8 @@ $recentDocuments = portfolio_get_recent_documents(3);
                     <span class="login-screen__avatar-icon">🔒</span>
                 </div>
                 <div class="login-screen__username">JackHeeney</div>
+
+                <p class="login-screen__hint">Click <strong>Log-in</strong> to view the portfolio.</p>
 
                 <form class="login-screen__form">
                     <label class="login-screen__field">
@@ -125,6 +134,17 @@ $recentDocuments = portfolio_get_recent_documents(3);
                 </div>
                 <div class="desktop-icon__label">OSRS Hiscores</div>
             </div>
+
+            <?php if ($cvDocument) : ?>
+                <div
+                    class="desktop-icon desktop-icon--file"
+                    data-pdf-url="<?php echo htmlspecialchars($cvDocument['url'], ENT_QUOTES, 'UTF-8'); ?>"
+                    data-pdf-name="<?php echo htmlspecialchars($cvDocument['name'], ENT_QUOTES, 'UTF-8'); ?>"
+                    style="left:260px;top:140px;">
+                    <div class="desktop-icon__icon">📄</div>
+                    <div class="desktop-icon__label"><?php echo htmlspecialchars($cvDocument['name'], ENT_QUOTES, 'UTF-8'); ?></div>
+                </div>
+            <?php endif; ?>
         </div>
 
         <!-- Windows (modular, via includes) -->
