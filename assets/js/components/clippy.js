@@ -9,77 +9,99 @@ const Clippy = (() => {
         {
             id: "welcome",
             message:
-                "It looks like you're trying to explore a portfolio! I'm Clippy, and I can point you to everything on this desktop.",
+                "It looks like you're trying to explore a portfolio! I'm Clippy — I'll walk you across the desktop, column by column.",
             highlight: null,
             action: { label: "Show me around", next: true }
         },
         {
-            id: "projects",
-            message:
-                "Want to see Jack's work? Double-click the <strong>My Projects</strong> icon on the left — that's where case studies and project details live.",
-            highlight: '[data-app="projects"]',
-            action: { label: "Open My Projects", app: "projects" }
-        },
-        {
             id: "about",
             message:
-                "<strong>About Me</strong> is at the top of the left column. Open it in the browser for a quick intro to who Jack is and what he does.",
+                "We'll start on the <strong>left column</strong>. At the top is <strong>About Me</strong> — open it in the browser for a quick intro.",
             highlight: '[data-app="about"]',
             action: { label: "Open About Me", app: "about" }
         },
         {
+            id: "projects",
+            message:
+                "Next down the same column: <strong>My Projects</strong> — case studies and project write-ups live here.",
+            highlight: '[data-app="projects"]',
+            action: { label: "Open My Projects", app: "projects" }
+        },
+        {
             id: "skills",
             message:
-                "Technical skills and tools are in the <strong>Skills</strong> section — open the laptop icon below About Me to view them in the browser.",
+                "Below that, <strong>Skills</strong> lists the tech and tools Jack works with, also in the browser window.",
             highlight: '[data-app="skills"]',
             action: { label: "Open Skills", app: "skills" }
         },
         {
             id: "contact",
             message:
-                "Need to get in touch? The <strong>Contact</strong> icon opens email and social links in the browser, ready to copy.",
+                "Last on the left column: <strong>Contact</strong> — email and social links, ready to copy.",
             highlight: '[data-app="contact"]',
             action: { label: "Open Contact", app: "contact" }
         },
         {
-            id: "files",
+            id: "game",
             message:
-                "<strong>My Files</strong> is like a mini file explorer — your CV and other documents are in there (and in the Start menu under Recommended).",
-            highlight: '[data-app="files"]',
-            action: { label: "Open My Files", app: "files" }
+                "Moving to the <strong>middle column</strong> — <strong>Snake Game</strong> at the top. Double-click for a quick break.",
+            highlight: '[data-app="game"]',
+            action: { label: "Open Snake Game", app: "game" }
         },
         {
-            id: "start-menu",
+            id: "invaders",
             message:
-                "You can launch any app from the <strong>Start</strong> button on the taskbar — same icons as the desktop, plus quick access to PDFs.",
-            highlight: "#start-button",
-            action: { label: "Open Start menu", startMenu: true }
+                "Under Snake, <strong>Space Invaders</strong> is another arcade-style distraction on the desktop.",
+            highlight: '[data-app="invaders"]',
+            action: { label: "Open Space Invaders", app: "invaders" }
         },
         {
             id: "browser",
             message:
-                "The <strong>Browser</strong> icon opens Jack's full portfolio site inside a window — great for browsing case studies without leaving the desktop.",
+                "Mid-column: the <strong>Browser</strong> opens Jack's full portfolio site inside a window.",
             highlight: '[data-app="browser"]',
             action: { label: "Open Browser", app: "browser" }
         },
         {
-            id: "games",
+            id: "files",
             message:
-                "Fancy a break? <strong>Snake Game</strong> and <strong>Space Invaders</strong> are on the right side of the desktop — double-click to play.",
-            highlight: '[data-app="game"]',
-            action: null
+                "At the bottom of this column, <strong>My Files</strong> is a mini explorer for documents and PDFs.",
+            highlight: '[data-app="files"]',
+            action: { label: "Open My Files", app: "files" }
         },
         {
             id: "osrs-hiscore",
             message:
-                "One for fun outside work: click the <strong>OSRS Hiscores</strong> icon to open Jack's Old School RuneScape profile and stats.",
+                "On the <strong>right column</strong>, <strong>OSRS Hiscores</strong> opens Jack's Old School RuneScape stats — a bit of fun off the clock.",
             highlight: '[data-app="runescape-hiscores"]',
             action: { label: "Open OSRS Hiscores", app: "runescape-hiscores" }
         },
         {
+            id: "cv",
+            message:
+                "This <strong>CV</strong> icon opens Jack's résumé in My Files — double-click to view or download.",
+            highlight: ".desktop-icon--file",
+            optional: true,
+            action: null
+        },
+        {
+            id: "notes",
+            message:
+                "Down in the corner, <strong>Notes</strong> is a guestbook — leave a short message for the next visitor (up to three notes at a time).",
+            highlight: ".sticky-notes__peek",
+            action: { label: "Open Notes", notes: true }
+        },
+        {
+            id: "start-menu",
+            message:
+                "The <strong>Start</strong> button launches every app from one menu, plus quick links to PDFs and favourites.",
+            highlight: "#start-button",
+            action: { label: "Open Start menu", startMenu: true }
+        },
+        {
             id: "taskbar",
             message:
-                "When you open apps, they appear on the taskbar at the bottom. Click a button to bring a minimised window back, or use the × to close it.",
+                "Finally, the <strong>taskbar</strong> — open apps show up here. Click to restore a window, or × to close one. You're all set!",
             highlight: "#taskbar",
             action: null
         }
@@ -94,6 +116,7 @@ const Clippy = (() => {
     let highlightedEl = null;
     let isMinimised = false;
     let tourComplete = false;
+    let windowObserver = null;
 
     function clampToViewport() {
         if (!root) return;
@@ -150,9 +173,29 @@ const Clippy = (() => {
         return true;
     }
 
+    function hasVisibleWindow() {
+        return !!document.querySelector(".window:not(.window--hidden):not(.window--minimised)");
+    }
+
+    function currentTipHighlight() {
+        const tip = tips[tipIndex];
+        return tip && tip.highlight ? tip.highlight : null;
+    }
+
+    function tipTargetExists(tip) {
+        if (!tip || !tip.highlight) return true;
+        return !!document.querySelector(tip.highlight);
+    }
+
+    function normalizeTipIndex(index) {
+        let i = Math.max(0, Math.min(index, tips.length - 1));
+        while (i < tips.length && tips[i].optional && !tipTargetExists(tips[i])) i++;
+        return Math.min(i, tips.length - 1);
+    }
+
     function applyHighlight(selector) {
         clearHighlight();
-        if (!selector) return;
+        if (!selector || hasVisibleWindow()) return;
         const el = document.querySelector(selector);
         if (!el) return;
         highlightedEl = el;
@@ -160,6 +203,27 @@ const Clippy = (() => {
         if (shouldScrollToHighlight(el)) {
             el.scrollIntoView({ block: "nearest", behavior: "smooth" });
         }
+    }
+
+    function refreshHighlight() {
+        applyHighlight(currentTipHighlight());
+    }
+
+    function watchWindows() {
+        const container = document.getElementById("windows-container");
+        if (!container) return;
+        windowObserver = new MutationObserver(() => {
+            if (hasVisibleWindow()) {
+                clearHighlight();
+            } else {
+                refreshHighlight();
+            }
+        });
+        windowObserver.observe(container, {
+            attributes: true,
+            subtree: true,
+            attributeFilter: ["class"]
+        });
     }
 
     function renderTourComplete() {
@@ -213,7 +277,7 @@ const Clippy = (() => {
         nextBtn.textContent = index < tips.length - 1 ? "Next tip" : "Got it";
         nextBtn.addEventListener("click", () => {
             if (index < tips.length - 1) {
-                showTip(index + 1);
+                showTip(normalizeTipIndex(index + 1));
             } else {
                 finishTour();
             }
@@ -234,6 +298,9 @@ const Clippy = (() => {
                     const menu = document.getElementById("start-menu");
                     if (menu) menu.classList.remove("start-menu--hidden");
                 }
+                if (tip.action.notes) {
+                    document.querySelector(".sticky-notes__peek")?.click();
+                }
                 if (tip.action.next) {
                     showTip(1);
                     return;
@@ -253,7 +320,7 @@ const Clippy = (() => {
         root.classList.remove("clippy--minimised");
         bubble.classList.remove("clippy__bubble--hidden");
         clampToViewport();
-        renderTip(index);
+        renderTip(normalizeTipIndex(index));
     }
 
     function hideBubble() {
@@ -403,6 +470,7 @@ const Clippy = (() => {
         dismissBtn.addEventListener("click", () => dismissForever());
 
         initDrag();
+        watchWindows();
         clampToViewport();
 
         window.addEventListener("resize", () => {

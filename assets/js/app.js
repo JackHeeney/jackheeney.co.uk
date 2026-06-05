@@ -905,7 +905,9 @@ const Browser = (() => {
         'case-study-mock-exam',
         'case-study-social-creative',
         'case-study-event-design',
-        'case-study-deep-dissonance'
+        'case-study-deep-dissonance',
+        'case-study-audiogrooves',
+        'case-study-kengai-records'
     ]);
 
     function pageToUrl(pageName) {
@@ -1137,9 +1139,127 @@ const Browser = (() => {
         }
 
         initMediaLightbox(browserWindow);
+        initMediaCarousels(browserWindow);
 
         // Initialize to home page
         showInternalPage('home');
+    }
+
+    function initMediaCarousels(browserWindow) {
+        if (!browserWindow) return;
+
+        browserWindow.querySelectorAll('[data-media-carousel]').forEach((carousel) => {
+            const viewport = carousel.querySelector('[data-carousel-viewport]');
+            const track = carousel.querySelector('[data-carousel-track]');
+            const slides = Array.from(carousel.querySelectorAll('[data-carousel-slide]'));
+            const prevBtn = carousel.querySelector('[data-carousel-prev]');
+            const nextBtn = carousel.querySelector('[data-carousel-next]');
+            const dotsContainer = carousel.querySelector('[data-carousel-dots]');
+            const counter = carousel.querySelector('[data-carousel-counter]');
+
+            if (!viewport || !track || !slides.length) return;
+
+            let activeIndex = 0;
+
+            function getSlideOffsets() {
+                return slides.map((slide) => slide.offsetLeft);
+            }
+
+            function getActiveIndex() {
+                const offsets = getSlideOffsets();
+                const scrollLeft = viewport.scrollLeft;
+                let closestIndex = 0;
+                let closestDistance = Number.POSITIVE_INFINITY;
+
+                offsets.forEach((offset, index) => {
+                    const distance = Math.abs(offset - scrollLeft);
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestIndex = index;
+                    }
+                });
+
+                return closestIndex;
+            }
+
+            function updateCarouselState() {
+                activeIndex = getActiveIndex();
+
+                if (prevBtn) {
+                    prevBtn.disabled = activeIndex <= 0;
+                }
+
+                if (nextBtn) {
+                    nextBtn.disabled = activeIndex >= slides.length - 1;
+                }
+
+                if (dotsContainer) {
+                    dotsContainer.querySelectorAll('[data-carousel-dot]').forEach((dot, index) => {
+                        const isActive = index === activeIndex;
+                        dot.classList.toggle('portfolio-site__insta-carousel-dot--active', isActive);
+                        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                        dot.setAttribute('tabindex', isActive ? '0' : '-1');
+                    });
+                }
+
+                if (counter) {
+                    counter.textContent = `${activeIndex + 1} / ${slides.length}`;
+                }
+            }
+
+            function scrollToSlide(index) {
+                const target = slides[index];
+                if (!target) return;
+
+                viewport.scrollTo({
+                    left: target.offsetLeft,
+                    behavior: 'smooth'
+                });
+            }
+
+            if (dotsContainer) {
+                dotsContainer.innerHTML = '';
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.type = 'button';
+                    dot.className = 'portfolio-site__insta-carousel-dot';
+                    dot.dataset.carouselDot = String(index);
+                    dot.setAttribute('role', 'tab');
+                    dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                    dot.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+                    dot.setAttribute('tabindex', index === 0 ? '0' : '-1');
+                    dot.addEventListener('click', () => scrollToSlide(index));
+                    dotsContainer.appendChild(dot);
+                });
+            }
+
+            prevBtn?.addEventListener('click', () => {
+                scrollToSlide(Math.max(0, getActiveIndex() - 1));
+            });
+
+            nextBtn?.addEventListener('click', () => {
+                scrollToSlide(Math.min(slides.length - 1, getActiveIndex() + 1));
+            });
+
+            viewport.addEventListener('scroll', () => {
+                window.requestAnimationFrame(updateCarouselState);
+            }, { passive: true });
+
+            viewport.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    scrollToSlide(Math.max(0, getActiveIndex() - 1));
+                    return;
+                }
+
+                if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    scrollToSlide(Math.min(slides.length - 1, getActiveIndex() + 1));
+                }
+            });
+
+            updateCarouselState();
+        });
     }
 
     function initMediaLightbox(browserWindow) {

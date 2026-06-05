@@ -290,6 +290,11 @@ body {
     }
 }
 
+#windows-container {
+    position: relative;
+    z-index: 100;
+}
+
 .desktop {
     position: relative;
     z-index: 1;
@@ -2183,8 +2188,60 @@ body {
     font-weight: 600;
 }
 
+.portfolio-site__case-star {
+    margin-bottom: 22px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
 .portfolio-site__case-section {
     margin-bottom: 22px;
+}
+
+.portfolio-site__case-star .portfolio-site__case-section--star {
+    margin-bottom: 0;
+    padding: 18px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.portfolio-site__case-star .portfolio-site__case-section--star:last-child {
+    border-bottom: none;
+}
+
+.portfolio-site__case-star-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.portfolio-site__case-star-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.portfolio-site__case-section--learned {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px 20px;
+}
+
+.portfolio-site__case-section--learned h3 {
+    font-size: 17px;
+    color: #1e40af;
 }
 
 .portfolio-site__case-section h3 {
@@ -2273,6 +2330,45 @@ body {
     grid-template-columns: 1fr;
 }
 
+.portfolio-site__case-section--showcase-bento .portfolio-site__media-grid--bento-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-items: start;
+}
+
+.portfolio-site__media-bento-heading {
+    grid-column: 1 / -1;
+    margin: 28px 0 4px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.portfolio-site__media-bento-heading:first-child {
+    margin-top: 0;
+}
+
+.portfolio-site__case-section--showcase-bento .portfolio-site__media-figure--span-full {
+    grid-column: 1 / -1;
+}
+
+.portfolio-site__case-section--showcase-bento .portfolio-site__media-figure--span-rows {
+    grid-row: span 2;
+}
+
+.portfolio-site__case-section--showcase-bento .portfolio-site__media-figure--span-full.portfolio-site__media-figure--dark-bg img {
+    max-height: 220px;
+    width: auto;
+    max-width: 100%;
+    margin-inline: auto;
+}
+
+.portfolio-site__case-section--showcase-bento .portfolio-site__media-figure--span-full.portfolio-site__media-figure--dark-bg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .portfolio-site__media-grid--compare {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -2296,11 +2392,35 @@ body {
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
 }
 
-.portfolio-site__media-figure img {
+.portfolio-site__media-figure img,
+.portfolio-site__media-figure video {
     display: block;
     width: 100%;
     height: auto;
     vertical-align: middle;
+}
+
+.portfolio-site__media-figure--dark-bg {
+    background: #0f172a;
+}
+
+.portfolio-site__media-figure--dark-bg img {
+    background: #0f172a;
+    padding: 32px 24px;
+}
+
+.portfolio-site__media-figure--video {
+    cursor: default;
+}
+
+.portfolio-site__case-study .portfolio-site__media-figure--video {
+    cursor: default;
+}
+
+.portfolio-site__case-study .portfolio-site__media-figure--video:hover,
+.portfolio-site__case-study .portfolio-site__media-figure--video:focus-within {
+    border-color: #e2e8f0;
+    box-shadow: none;
 }
 
 .portfolio-site__case-study .portfolio-site__media-figure img {
@@ -2314,6 +2434,153 @@ body {
     color: #475569;
     background: #f8fafc;
     border-top: 1px solid #e2e8f0;
+    line-height: 1.4;
+}
+
+.portfolio-site__insta-carousel {
+    grid-column: 1 / -1;
+    margin: 0 0 8px;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.portfolio-site__insta-carousel-hint {
+    margin: 0 0 16px;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.portfolio-site__insta-carousel-frame {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 420px;
+    margin-inline: auto;
+}
+
+.portfolio-site__insta-carousel-viewport {
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    background: #0f172a;
+    scrollbar-width: none;
+    outline: none;
+}
+
+.portfolio-site__insta-carousel-viewport:focus-visible {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
+}
+
+.portfolio-site__insta-carousel-viewport::-webkit-scrollbar {
+    display: none;
+}
+
+.portfolio-site__insta-carousel-track {
+    display: flex;
+    align-items: stretch;
+}
+
+.portfolio-site__insta-carousel-slide {
+    flex: 0 0 100%;
+    margin: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.portfolio-site__insta-carousel-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.portfolio-site__insta-carousel-nav {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #1e293b;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.portfolio-site__insta-carousel-nav:hover:not(:disabled) {
+    background: #eff6ff;
+    border-color: #93c5fd;
+}
+
+.portfolio-site__insta-carousel-nav:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.portfolio-site__insta-carousel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 14px;
+}
+
+.portfolio-site__insta-carousel-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.portfolio-site__insta-carousel-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: #cbd5e1;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.portfolio-site__insta-carousel-dot:hover {
+    background: #94a3b8;
+}
+
+.portfolio-site__insta-carousel-dot--active {
+    background: #3b82f6;
+    transform: scale(1.2);
+}
+
+.portfolio-site__insta-carousel-counter {
+    margin: 0;
+    min-width: 3.5em;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    text-align: right;
+}
+
+.portfolio-site__insta-carousel-caption {
+    margin: 14px 0 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+    text-align: center;
     line-height: 1.4;
 }
 
@@ -2882,12 +3149,34 @@ body {
     grid-template-columns: 1fr;
 }
 
+.portfolio-site--mobile .portfolio-site__case-section--showcase-bento .portfolio-site__media-grid--bento-2 {
+    grid-template-columns: 1fr;
+}
+
+.portfolio-site--mobile .portfolio-site__case-section--showcase-bento .portfolio-site__media-figure--span-rows {
+    grid-row: span 1;
+}
+
 .portfolio-site--mobile .portfolio-site__media-subsection {
     margin-top: 36px;
 }
 
 .portfolio-site--mobile .portfolio-site__case-section--showcase .portfolio-site__media-grid+.portfolio-site__media-grid {
     margin-top: 24px;
+}
+
+.portfolio-site--mobile .portfolio-site__insta-carousel {
+    padding: 16px;
+}
+
+.portfolio-site--mobile .portfolio-site__insta-carousel-frame {
+    max-width: 100%;
+}
+
+.portfolio-site--mobile .portfolio-site__insta-carousel-nav {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
 }
 
 .portfolio-site--mobile .portfolio-site__lightbox {
@@ -4725,12 +5014,16 @@ body {
 
 .clippy-target--highlight {
     /* Do not change position — fixed/absolute targets (taskbar, icons) jump if set to relative */
-    z-index: 860 !important;
     outline: 3px solid #fbbf24 !important;
     outline-offset: 4px;
     border-radius: 8px;
     animation: clippy-pulse 1.2s ease-in-out infinite;
     box-shadow: 0 0 0 6px rgba(251, 191, 36, 0.35);
+}
+
+/* Above wallpaper/desktop, below #windows-container (z-index 100) */
+.desktop-icon.clippy-target--highlight {
+    z-index: 15 !important;
 }
 
 @keyframes clippy-pulse {

@@ -135,8 +135,8 @@
                             <section class="portfolio-site__section portfolio-site__case-studies-intro">
                                 <h3 class="portfolio-site__subsection-title">Case Studies</h3>
                                 <p class="portfolio-site__case-studies-lead">
-                                    A focused collection of digital product, growth, and creative projects delivered across technical implementation,
-                                    operational systems, and conversion-led marketing.
+                                    Each write-up follows a Google-style STAR structure — Situation, Task, Action, and Result —
+                                    with measurable impact, stakeholder context, and key learnings where relevant.
                                 </p>
                             </section>
 
@@ -146,7 +146,7 @@
                                         <div class="portfolio-site__case-card-tag">Digital Product + Growth</div>
                                         <h3 class="portfolio-site__case-card-title">IT Training Route Decision Platform & Conversion Funnel</h3>
                                         <p class="portfolio-site__case-card-meta">Role: Digital Product & Growth Lead</p>
-                                        <p class="portfolio-site__case-card-desc">Restructured route-selection and webinar funnels to reduce friction, improve clarity, and strengthen lead intent.</p>
+                                        <p class="portfolio-site__case-card-desc">STAR: clarified Cloud, Cyber, Data, and AI pathways to reduce confusion and improve enquiry quality.</p>
                                         <button class="portfolio-site__case-card-btn" data-page="case-study-it-training-route">Open case study</button>
                                     </article>
 
@@ -154,7 +154,7 @@
                                         <div class="portfolio-site__case-card-tag">Marketing Systems</div>
                                         <h3 class="portfolio-site__case-card-title">Webinar Marketing System & Email Campaign Optimisation</h3>
                                         <p class="portfolio-site__case-card-meta">Role: Marketing Strategy & Campaign Lead</p>
-                                        <p class="portfolio-site__case-card-desc">Built a repeatable webinar and email system with segmentation and performance-led iteration.</p>
+                                        <p class="portfolio-site__case-card-desc">STAR: diagnosed mobile funnel drop-off and improved webinar registrations without extra ad spend.</p>
                                         <button class="portfolio-site__case-card-btn" data-page="case-study-webinar-marketing">Open case study</button>
                                     </article>
 
@@ -170,15 +170,15 @@
                                         <div class="portfolio-site__case-card-tag">Operations + Delivery</div>
                                         <h3 class="portfolio-site__case-card-title">Digital Operations & Cross-Department Systems Management</h3>
                                         <p class="portfolio-site__case-card-meta">Role: Digital Product & Operations Lead</p>
-                                        <p class="portfolio-site__case-card-desc">Improved organisational execution by bridging technical implementation with operational workflows.</p>
+                                        <p class="portfolio-site__case-card-desc">STAR: streamlined operations during restructuring while preserving revenue-critical digital work.</p>
                                         <button class="portfolio-site__case-card-btn" data-page="case-study-digital-ops">Open case study</button>
                                     </article>
 
                                     <article class="portfolio-site__case-card">
                                         <div class="portfolio-site__case-card-tag">Education Product</div>
-                                        <h3 class="portfolio-site__case-card-title">Student Mock Exam Platform Redesign & System Modernisation</h3>
+                                        <h3 class="portfolio-site__case-card-title">Student Training Portal & Platform Modernisation</h3>
                                         <p class="portfolio-site__case-card-meta">Role: Product Lead, UX Designer, Frontend Developer</p>
-                                        <p class="portfolio-site__case-card-desc">Modernised an internal exam platform with cleaner UX, better structure, and stronger long-term scalability.</p>
+                                        <p class="portfolio-site__case-card-desc">STAR: led cross-functional delivery of a scalable student platform replacing legacy manual processes.</p>
                                         <button class="portfolio-site__case-card-btn" data-page="case-study-mock-exam">Open case study</button>
                                     </article>
 
@@ -205,6 +205,22 @@
                                         <p class="portfolio-site__case-card-desc">Created a complete visual identity system for a drum and bass podcast concept with scalable social applications.</p>
                                         <button class="portfolio-site__case-card-btn" data-page="case-study-deep-dissonance">Open case study</button>
                                     </article>
+
+                                    <article class="portfolio-site__case-card">
+                                        <div class="portfolio-site__case-card-tag">Music + Events</div>
+                                        <h3 class="portfolio-site__case-card-title">AudioGrooves Event Marketing, Creative Design & After-Party Content</h3>
+                                        <p class="portfolio-site__case-card-meta">Role: Graphic Designer & Marketing & Creative Lead</p>
+                                        <p class="portfolio-site__case-card-desc">STAR: designed the label logo and produced event advertising, posters, social graphics, and after-party films.</p>
+                                        <button class="portfolio-site__case-card-btn" data-page="case-study-audiogrooves">Open case study</button>
+                                    </article>
+
+                                    <article class="portfolio-site__case-card">
+                                        <div class="portfolio-site__case-card-tag">Music + Events</div>
+                                        <h3 class="portfolio-site__case-card-title">Kengai Records Label Release Art, Event Creative & Social Campaigns</h3>
+                                        <p class="portfolio-site__case-card-meta">Role: Graphic Designer & Creative Lead</p>
+                                        <p class="portfolio-site__case-card-desc">STAR: release artwork, event flyers, and connected Instagram carousel posts for label campaigns.</p>
+                                        <button class="portfolio-site__case-card-btn" data-page="case-study-kengai-records">Open case study</button>
+                                    </article>
                                 </div>
                             </section>
                         </main>
@@ -216,47 +232,66 @@
                                 <header class="portfolio-site__case-hero">
                                     <p class="portfolio-site__case-kicker">Case Study 1</p>
                                     <h2 class="portfolio-site__case-title">IT Training Route Decision Platform & Conversion Funnel</h2>
-                                    <p class="portfolio-site__case-subtitle">Designed and implemented a conversion-focused route decision journey for an IT training provider.</p>
+                                    <p class="portfolio-site__case-subtitle">Product and UX improvement across Cloud, Cyber, Data, and AI training pathways.</p>
                                     <div class="portfolio-site__case-chips">
                                         <span class="portfolio-site__case-chip">Role: Digital Product & Growth Lead</span>
-                                        <span class="portfolio-site__case-chip">Focus: UX strategy + conversion optimisation</span>
-                                        <span class="portfolio-site__case-chip">Delivery: Funnel architecture + analytics</span>
+                                        <span class="portfolio-site__case-chip">Stakeholders: sales, marketing, content, development</span>
+                                        <span class="portfolio-site__case-chip">Scale: full ad-to-enquiry journey</span>
                                     </div>
                                 </header>
-                                <section class="portfolio-site__case-section">
-                                    <h3>The Challenge</h3>
-                                    <p>Users were struggling to choose the right training route, pages were dense, and webinar sign-up paths lacked strong intent structure, especially on mobile.</p>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Responsibilities</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>UX strategy and landing page architecture</li>
-                                        <li>Conversion optimisation and CTA hierarchy testing</li>
-                                        <li>Analytics and attribution setup across GA4 and campaign channels</li>
-                                    </ul>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Approach</h3>
-                                    <p>Reframed content around user intent with guided route selection, comparison modules, simplified calls to action, and above-the-fold webinar prompts.</p>
-                                </section>
+                                <div class="portfolio-site__case-star">
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
+                                        <p>Prospective students were struggling to understand the differences between Cloud, Cyber, Data, and AI training pathways, leading to confusion and lower conversion rates.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
+                                        <p>I was responsible for improving the user journey and helping visitors identify the most suitable pathway.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
+                                        <p>I redesigned the information architecture, created clearer pathway positioning, simplified navigation, and introduced comparison content focused on outcomes, certifications, and career opportunities.</p>
+                                        <p>I worked across content, UX design, development, and marketing functions to ensure a consistent experience from advertisement through to enquiry.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
+                                        <p>Users were able to navigate the pathways more easily, reducing confusion and improving the quality of enquiries received by the sales team.</p>
+                                    </section>
+                                </div>
                                 <section class="portfolio-site__case-section">
                                     <h3>Tools & Technologies</h3>
                                     <p>GA4, GTM, MailerLite, Ahrefs, Hotjar, Microsoft Clarity, HTML, CSS, JavaScript, WordPress.</p>
                                 </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Results & Impact</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>Higher engagement with route selectors and comparison blocks</li>
-                                        <li>Improved mobile landing-page interaction quality</li>
-                                        <li>Better visibility into behavioural drop-off patterns</li>
-                                    </ul>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--learned">
+                                    <h3>What I Learned</h3>
+                                    <p>Conversion gains came from resolving ambiguity early — comparison-led content and cross-functional alignment mattered as much as layout changes.</p>
                                 </section>
-                                <section class="portfolio-site__case-section">
+                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
                                     <h3>Visual Showcase</h3>
-                                    <div class="portfolio-site__media-grid">
-                                        <div class="portfolio-site__media-placeholder">Landing page before/after</div>
-                                        <div class="portfolio-site__media-placeholder">Funnel decision flow</div>
-                                        <div class="portfolio-site__media-placeholder">Mobile CTA placement</div>
+                                    <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
+
+                                    <div class="portfolio-site__media-subsection">
+                                        <h4>Training landing pages</h4>
+                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--compare">
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/route-selector/route-selector-case-study-old-landing.png" alt="Previous IT training landing page before route decision redesign" loading="lazy">
+                                                <figcaption>Previous landing page</figcaption>
+                                            </figure>
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/route-selector/route-selector-case-study-updated-landing.png" alt="Redesigned IT training landing page with clearer pathway positioning" loading="lazy">
+                                                <figcaption>Redesigned landing page</figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+
+                                    <div class="portfolio-site__media-subsection">
+                                        <h4>Route decision funnel</h4>
+                                        <div class="portfolio-site__media-grid">
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/route-selector/route-selector-case-study-funnel.png" alt="IT training route decision funnel guiding visitors from pathway choice to enquiry" loading="lazy">
+                                                <figcaption>Pathway decision and enquiry funnel</figcaption>
+                                            </figure>
+                                        </div>
                                     </div>
                                 </section>
                                 <footer class="portfolio-site__case-footer">
@@ -273,47 +308,92 @@
                                 <header class="portfolio-site__case-hero">
                                     <p class="portfolio-site__case-kicker">Case Study 2</p>
                                     <h2 class="portfolio-site__case-title">Webinar Marketing System & Email Campaign Optimisation</h2>
-                                    <p class="portfolio-site__case-subtitle">Built a repeatable webinar campaign engine with segmented journeys and performance-led iteration.</p>
+                                    <p class="portfolio-site__case-subtitle">Improving email marketing performance and webinar registrations without increasing ad spend.</p>
                                     <div class="portfolio-site__case-chips">
                                         <span class="portfolio-site__case-chip">Role: Marketing Strategy & Campaign Lead</span>
-                                        <span class="portfolio-site__case-chip">Focus: segmentation + lifecycle automation</span>
-                                        <span class="portfolio-site__case-chip">Delivery: multi-stage email workflows</span>
+                                        <span class="portfolio-site__case-chip">Metrics: CTR, registrations, funnel drop-off</span>
+                                        <span class="portfolio-site__case-chip">Problem-solving: mobile conversion gap</span>
                                     </div>
                                 </header>
-                                <section class="portfolio-site__case-section">
-                                    <h3>The Challenge</h3>
-                                    <p>Webinar performance was inconsistent with generic follow-up, weak segmentation, and limited visibility into user intent.</p>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Responsibilities</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>Campaign strategy and email journey design</li>
-                                        <li>Audience segmentation and optimisation cadence</li>
-                                        <li>Creative consistency, tracking, and reporting</li>
-                                    </ul>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Approach</h3>
-                                    <p>Introduced reusable registration-to-follow-up sequences with click and attendance-based branching, then iterated weekly on subject lines, timing, and CTA structure.</p>
-                                </section>
+                                <div class="portfolio-site__case-star">
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
+                                        <p>Open rates across several webinar campaigns remained strong, but click-through and registration rates were inconsistent, limiting overall lead generation performance.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
+                                        <p>I was responsible for identifying the cause of the conversion drop and improving webinar registrations without increasing advertising spend.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
+                                        <p>I analysed campaign performance using MailerLite, Google Analytics, UTM tracking, and Microsoft Clarity. I segmented audiences based on engagement behaviour and discovered that a large proportion of traffic was reaching the landing page on mobile devices but failing to progress.</p>
+                                        <p>I redesigned the landing page structure, improved mobile usability, simplified the call-to-action flow, and implemented A/B tests on email messaging and CTA placement. I also introduced behavioural segmentation for follow-up campaigns.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
+                                        <p>Registration conversion rates improved, engagement became more consistent across campaigns, and the business gained clearer visibility into where prospects were dropping out of the funnel. The improvements created a repeatable optimisation process that could be applied across future campaigns.</p>
+                                    </section>
+                                </div>
                                 <section class="portfolio-site__case-section">
                                     <h3>Tools & Technologies</h3>
-                                    <p>MailerLite, GA4, GTM, UTM tracking, HTML email development, CRM systems, Excel, Google Sheets.</p>
+                                    <p>MailerLite, GA4, GTM, UTM tracking, Microsoft Clarity, HTML email development, CRM systems, Excel, Google Sheets.</p>
                                 </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Results & Impact</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>More consistent webinar registration outcomes</li>
-                                        <li>Stronger visibility into engagement quality and intent</li>
-                                        <li>Lower manual setup through reusable campaign frameworks</li>
-                                    </ul>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--learned">
+                                    <h3>What I Learned</h3>
+                                    <p>Strong open rates can mask downstream failure — tracking the full journey from email click to registration exposed problems assumptions alone would have missed.</p>
                                 </section>
-                                <section class="portfolio-site__case-section">
+                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
                                     <h3>Visual Showcase</h3>
-                                    <div class="portfolio-site__media-grid">
-                                        <div class="portfolio-site__media-placeholder">Webinar campaign timeline</div>
-                                        <div class="portfolio-site__media-placeholder">Email sequence preview</div>
-                                        <div class="portfolio-site__media-placeholder">Performance dashboard</div>
+                                    <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
+
+                                    <div class="portfolio-site__media-subsection">
+                                        <h4>Email metrics — before optimisation</h4>
+                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/webinar-marketing/case-study-email-marketing-low-stats-1.png" alt="MailerLite campaign stats: 22.47% opened, 0.21% clicked" loading="lazy">
+                                                <figcaption>Campaign A — high opens, minimal clicks</figcaption>
+                                            </figure>
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/webinar-marketing/case-study-email-marketing-low-stats-2.png" alt="MailerLite campaign stats: 2.28% opened, 0.14% clicked" loading="lazy">
+                                                <figcaption>Campaign B — low engagement across the funnel</figcaption>
+                                            </figure>
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/webinar-marketing/case-study-email-marketing-low-stats-3.png" alt="MailerLite campaign stats: 1.1% opened, 0.09% clicked" loading="lazy">
+                                                <figcaption>Campaign C — click rate below 0.1%</figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+
+                                    <div class="portfolio-site__media-subsection">
+                                        <h4>Email metrics — after optimisation</h4>
+                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/webinar-marketing/case-study-email-marketing-high-stats-1.png" alt="MailerLite campaign stats after optimisation: 72.54% opened, 3.75% clicked" loading="lazy">
+                                                <figcaption>Campaign A — click rate improved to 3.75%</figcaption>
+                                            </figure>
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/webinar-marketing/case-study-email-marketing-high-stats-2.png" alt="MailerLite campaign stats after optimisation: 35.56% opened, 2.32% clicked" loading="lazy">
+                                                <figcaption>Campaign B — stronger opens and clicks</figcaption>
+                                            </figure>
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/webinar-marketing/case-study-email-marketing-high-stats-3.png" alt="MailerLite campaign stats after optimisation: 62.66% opened, 3.18% clicked" loading="lazy">
+                                                <figcaption>Campaign C — 3.18% click rate on 41k recipients</figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+
+                                    <div class="portfolio-site__media-subsection">
+                                        <h4>Email creative</h4>
+                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/webinar-marketing/case-study-email-template-design-webinars.png" alt="Webinar invitation email template for a Data career live session with headline, event details, and multiple CTAs" loading="lazy">
+                                                <figcaption>Webinar email — invitation layout with event details and CTA flow</figcaption>
+                                            </figure>
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/webinar-marketing/sales-email.png" alt="Promotional sales email layout with bundle offer and primary CTA" loading="lazy">
+                                                <figcaption>Sales email — offer-led layout and CTA hierarchy</figcaption>
+                                            </figure>
+                                        </div>
                                     </div>
                                 </section>
                                 <footer class="portfolio-site__case-footer">
@@ -337,33 +417,32 @@
                                         <span class="portfolio-site__case-chip">Delivery: trade lifecycle system</span>
                                     </div>
                                 </header>
-                                <section class="portfolio-site__case-section">
-                                    <h3>The Challenge</h3>
-                                    <p>Most existing platforms prioritised sales over trading, while reliable inventory sync and transparent settlement states remained difficult to achieve.</p>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Responsibilities</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>Product architecture and UX design</li>
-                                        <li>Database design and backend trade logic</li>
-                                        <li>Authentication, deployment, and operations planning</li>
-                                    </ul>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Approach</h3>
-                                    <p>Migrated from Supabase to a PostgreSQL and Prisma stack with Docker and Next.js, then implemented lifecycle, ownership, settlement, and notification systems with race-condition handling.</p>
-                                </section>
+                                <div class="portfolio-site__case-star">
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
+                                        <p>Most existing card platforms prioritised sales over trading, while reliable inventory sync and transparent settlement states remained difficult to achieve at scale.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
+                                        <p>As founder and lead developer, I was responsible for product architecture, trust-centric UX, database design, backend trade logic, and production deployment.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
+                                        <p>I migrated from Supabase to a PostgreSQL and Prisma stack with Docker and Next.js, then personally implemented lifecycle, ownership, settlement, and notification systems with race-condition handling.</p>
+                                        <p>I designed trade-matching flows, in-app messaging, binder collections, and profile systems so users could follow trade status end to end without ambiguity.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
+                                        <p>Established a scalable, production-ready platform foundation, reduced sync and persistence issues from the earlier architecture, and improved user trust through clearer trade status and confirmations.</p>
+                                    </section>
+                                </div>
                                 <section class="portfolio-site__case-section">
                                     <h3>Tools & Technologies</h3>
                                     <p>Next.js, React, TypeScript, PostgreSQL, Prisma ORM, Docker, Vercel, Auth.js, HTML, CSS, JavaScript.</p>
                                 </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Results & Impact</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>Established a scalable production-ready platform foundation</li>
-                                        <li>Reduced sync and persistence issues from earlier architecture</li>
-                                        <li>Improved trust through clearer trade status and confirmations</li>
-                                    </ul>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--learned">
+                                    <h3>What I Learned</h3>
+                                    <p>Trust in marketplaces is a product problem as much as a technical one — explicit state transitions and reliable data ownership matter more than feature breadth early on.</p>
                                 </section>
                                 <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
                                     <h3>Visual Showcase</h3>
@@ -421,47 +500,53 @@
                                 <header class="portfolio-site__case-hero">
                                     <p class="portfolio-site__case-kicker">Case Study 4</p>
                                     <h2 class="portfolio-site__case-title">Digital Operations & Cross-Department Systems Management</h2>
-                                    <p class="portfolio-site__case-subtitle">Led cross-functional digital and operational execution across marketing, systems, and training workflows.</p>
+                                    <p class="portfolio-site__case-subtitle">Taking ownership during business restructuring to protect revenue-critical digital capabilities.</p>
                                     <div class="portfolio-site__case-chips">
                                         <span class="portfolio-site__case-chip">Role: Digital Product & Operations Lead</span>
-                                        <span class="portfolio-site__case-chip">Focus: process clarity + execution speed</span>
-                                        <span class="portfolio-site__case-chip">Delivery: multi-team operational support</span>
+                                        <span class="portfolio-site__case-chip">Stakeholders: leadership, marketing, support</span>
+                                        <span class="portfolio-site__case-chip">Impact: resource allocation clarity</span>
                                     </div>
                                 </header>
-                                <section class="portfolio-site__case-section">
-                                    <h3>The Challenge</h3>
-                                    <p>Responsibilities were distributed across small teams, creating fragmented workflows, inconsistent systems, and high manual coordination overhead.</p>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Responsibilities</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>Website systems and campaign implementation</li>
-                                        <li>Operational coordination for training and webinars</li>
-                                        <li>Cross-team delivery support and process improvement</li>
-                                    </ul>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Approach</h3>
-                                    <p>Created reusable campaign structures, improved reporting visibility, and introduced clearer handover workflows between technical and non-technical teams.</p>
-                                </section>
+                                <div class="portfolio-site__case-star">
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
+                                        <p>The company entered a restructuring period due to financial pressures, requiring departments to reduce operational costs while maintaining service levels.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
+                                        <p>My responsibility was to identify which operational processes could be streamlined or automated while ensuring that key marketing, website, and digital product functions continued to support revenue generation.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
+                                        <p>I conducted a review of recurring operational tasks, identified lower-value administrative activities, and separated them from specialist technical responsibilities such as website development, CRM management, automation, email production, and digital product work.</p>
+                                        <p>I documented workflows, proposed outsourcing opportunities where appropriate, and developed a revised role structure focused on higher-impact activities directly connected to lead generation and customer experience.</p>
+                                        <p>In parallel, I implemented consistent tracking using Google Analytics, UTM parameters, email reporting, heatmaps, and CRM reporting — building processes that combined multiple data sources so decisions were based on performance, not assumptions.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
+                                        <p>The company gained a clearer understanding of which activities generated business value versus administrative overhead. This enabled more informed decision-making around resource allocation while preserving critical marketing and digital capabilities. Stakeholders also gained better visibility into marketing performance, enabling faster optimisation and more effective budget allocation.</p>
+                                    </section>
+                                </div>
                                 <section class="portfolio-site__case-section">
                                     <h3>Tools & Technologies</h3>
-                                    <p>WordPress, CRM systems, MailerLite, GA4, HTML, CSS, Excel, Google Sheets, webinar platforms, Stripe, API integrations.</p>
+                                    <p>WordPress, CRM systems, MailerLite, GA4, GTM, UTM tracking, Microsoft Clarity, HTML, CSS, Excel, Google Sheets, webinar platforms, Stripe, API integrations.</p>
                                 </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Results & Impact</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>Improved operational visibility and consistency</li>
-                                        <li>Reduced manual workload across repeated tasks</li>
-                                        <li>Increased speed and confidence of campaign deployment</li>
-                                    </ul>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--learned">
+                                    <h3>What I Learned</h3>
+                                    <p>During uncertainty, clarity beats volume — separating high-impact work from overhead helped leadership make defensible choices without sacrificing growth infrastructure.</p>
                                 </section>
-                                <section class="portfolio-site__case-section">
+                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
                                     <h3>Visual Showcase</h3>
-                                    <div class="portfolio-site__media-grid">
-                                        <div class="portfolio-site__media-placeholder">Process workflow map</div>
-                                        <div class="portfolio-site__media-placeholder">Coordination dashboard</div>
-                                        <div class="portfolio-site__media-placeholder">System integration overview</div>
+                                    <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
+                                    <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/operational-management/case-study-digital-ops-management-workflow-map.png" alt="Process workflow map showing how operational responsibilities were reviewed, categorised, and split between outsource or automate and retain and prioritise" loading="lazy">
+                                            <figcaption>Process workflow map — responsibility review and categorisation</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/operational-management/case-study-digital-ops-management-dashboard.png" alt="Coordination dashboard showing workload priorities, business impact ratings, and performance metrics for website traffic, email, leads, and conversion rate" loading="lazy">
+                                            <figcaption>Coordination dashboard — workload priorities and performance visibility</figcaption>
+                                        </figure>
                                     </div>
                                 </section>
                                 <footer class="portfolio-site__case-footer">
@@ -477,41 +562,40 @@
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
                                     <p class="portfolio-site__case-kicker">Case Study 5</p>
-                                    <h2 class="portfolio-site__case-title">Student Mock Exam Platform Redesign & System Modernisation</h2>
-                                    <p class="portfolio-site__case-subtitle">Redesigned an internal exam platform to improve usability, consistency, and long-term maintainability.</p>
+                                    <h2 class="portfolio-site__case-title">Student Training Portal & Platform Modernisation</h2>
+                                    <p class="portfolio-site__case-subtitle">Cross-functional leadership to replace legacy student processes with a scalable learning platform.</p>
                                     <div class="portfolio-site__case-chips">
                                         <span class="portfolio-site__case-chip">Role: Product Lead + Frontend Developer</span>
-                                        <span class="portfolio-site__case-chip">Focus: educational UX + responsive delivery</span>
-                                        <span class="portfolio-site__case-chip">Delivery: modernised student journey</span>
+                                        <span class="portfolio-site__case-chip">Stakeholders: students, trainers, support, management</span>
+                                        <span class="portfolio-site__case-chip">Scale: organisation-wide student experience</span>
                                     </div>
                                 </header>
-                                <section class="portfolio-site__case-section">
-                                    <h3>The Challenge</h3>
-                                    <p>The legacy system had fragmented interaction patterns, weak responsiveness, and structure that made content growth difficult to manage.</p>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Responsibilities</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>UX planning and interaction redesign</li>
-                                        <li>Frontend implementation and interface modernisation</li>
-                                        <li>Content structuring for future pathway expansion</li>
-                                    </ul>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Approach</h3>
-                                    <p>Introduced cleaner layout systems, stronger hierarchy, clearer progress visibility, and mobile-first question flow patterns to reduce revision friction.</p>
-                                </section>
+                                <div class="portfolio-site__case-star">
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
+                                        <p>The company relied on multiple disconnected systems and manual processes to manage student training progression.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
+                                        <p>I identified an opportunity to improve the student experience and reduce administrative workload through a modern learning platform — including mock exams, results, and structured revision content.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
+                                        <p>I led the planning and development of the platform, defining requirements across students, support teams, trainers, and management stakeholders.</p>
+                                        <p>I designed workflows, developed functionality, managed technical implementation, and modernised the exam experience with clearer navigation, mobile-first question flows, results breakdowns, and scalable content structure.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
+                                        <p>The organisation gained a scalable platform capable of supporting future growth while reducing dependency on legacy processes and improving the overall student experience.</p>
+                                    </section>
+                                </div>
                                 <section class="portfolio-site__case-section">
                                     <h3>Tools & Technologies</h3>
                                     <p>HTML, CSS, JavaScript, responsive design methods, UX design workflows, CMS and content systems.</p>
                                 </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Results & Impact</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>Significantly improved clarity and navigation quality</li>
-                                        <li>Stronger scalability for future content expansion</li>
-                                        <li>More consistent learner experience across devices</li>
-                                    </ul>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--learned">
+                                    <h3>What I Learned</h3>
+                                    <p>Platform success depended on aligning every stakeholder’s workflow upfront — student UX improvements only scaled once support and delivery teams could operate within the same system.</p>
                                 </section>
                                 <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
                                     <h3>Visual Showcase</h3>
@@ -604,33 +688,28 @@
                                         <span class="portfolio-site__case-chip">Delivery: scalable campaign assets</span>
                                     </div>
                                 </header>
-                                <section class="portfolio-site__case-section">
-                                    <h3>The Challenge</h3>
-                                    <p>The team needed consistent creative output that balanced speed, visual quality, and conversion performance across different campaign channels.</p>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Responsibilities</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>Campaign creative direction and production</li>
-                                        <li>Design optimisation for mobile-first ad placements</li>
-                                        <li>Brand consistency across social and landing assets</li>
-                                    </ul>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Approach</h3>
-                                    <p>Designed around attention hierarchy, CTA clarity, and message relevance, then iterated layout and headline structures to improve performance.</p>
-                                </section>
+                                <div class="portfolio-site__case-star">
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
+                                        <p>The team needed consistent creative output that balanced speed, visual quality, and conversion performance across webinar, paid social, and organic channels.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
+                                        <p>I was responsible for campaign creative direction, mobile-first design optimisation, and brand consistency across social and landing assets.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
+                                        <p>I designed around attention hierarchy, CTA clarity, and message relevance for cybersecurity, cloud, AI, and data campaigns, then iterated layout and headline structures based on placement performance.</p>
+                                        <p>I built reusable creative templates so the team could deploy assets faster without sacrificing quality.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
+                                        <p>Achieved higher consistency across paid and organic channels, faster deployment through reusable systems, and improved readability and engagement in mobile placements.</p>
+                                    </section>
+                                </div>
                                 <section class="portfolio-site__case-section">
                                     <h3>Tools & Technologies</h3>
                                     <p>Adobe Creative Suite, Canva, Figma, Photoshop, Illustrator, Meta Ads, LinkedIn campaign tooling.</p>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Results & Impact</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>Higher consistency across paid and organic channels</li>
-                                        <li>Built reusable creative systems for faster deployment</li>
-                                        <li>Improved readability and engagement in mobile placements</li>
-                                    </ul>
                                 </section>
                                 <section class="portfolio-site__case-section">
                                     <h3>Visual Showcase</h3>
@@ -661,33 +740,27 @@
                                         <span class="portfolio-site__case-chip">Delivery: print-ready branded assets</span>
                                     </div>
                                 </header>
-                                <section class="portfolio-site__case-section">
-                                    <h3>The Challenge</h3>
-                                    <p>Event environments required instant clarity and strong visibility while maintaining brand consistency across multiple audiences and print formats.</p>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Responsibilities</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>Large-format banner and signage design</li>
-                                        <li>Flyer, leaflet, and print collateral production</li>
-                                        <li>Print preparation, bleed setup, and supplier-ready exports</li>
-                                    </ul>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Approach</h3>
-                                    <p>Designed for distance readability with strict hierarchy, concise messaging, and repeatable visual structures suitable for fast-turnaround events.</p>
-                                </section>
+                                <div class="portfolio-site__case-star">
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
+                                        <p>Event environments required instant clarity and strong visibility while maintaining brand consistency across exhibitions, open days, and recruitment audiences.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
+                                        <p>I was responsible for large-format banner design, flyer and leaflet production, and supplier-ready print preparation under tight event deadlines.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
+                                        <p>I designed for distance readability with strict hierarchy, concise messaging, and repeatable visual structures. I handled bleed setup, export specifications, and production files for multiple print formats.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
+                                        <p>Improved consistency and professionalism of event materials, strengthened lead-generation support at exhibitions, and created reusable print design systems for future campaigns.</p>
+                                    </section>
+                                </div>
                                 <section class="portfolio-site__case-section">
                                     <h3>Tools & Technologies</h3>
                                     <p>Adobe Photoshop, Adobe Illustrator, Canva, print production workflows, typography and layout systems.</p>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Results & Impact</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>Improved consistency and professionalism of event materials</li>
-                                        <li>Strengthened lead-generation support at exhibitions</li>
-                                        <li>Created reusable print design systems for future campaigns</li>
-                                    </ul>
                                 </section>
                                 <section class="portfolio-site__case-section">
                                     <h3>Visual Showcase</h3>
@@ -718,33 +791,27 @@
                                         <span class="portfolio-site__case-chip">Delivery: logo, typography, and social concepts</span>
                                     </div>
                                 </header>
-                                <section class="portfolio-site__case-section">
-                                    <h3>The Challenge</h3>
-                                    <p>The brand needed to stand out in a saturated market while preserving adaptability across podcast artwork, social posts, and promotional formats.</p>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Responsibilities</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>Logo exploration and identity system design</li>
-                                        <li>Mood boarding, art direction, and visual language definition</li>
-                                        <li>Social concept development and implementation guidance</li>
-                                    </ul>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Approach</h3>
-                                    <p>Developed a dark, high-contrast visual system with recognisable type treatment and structured social templates for consistency and flexibility.</p>
-                                </section>
+                                <div class="portfolio-site__case-star">
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
+                                        <p>A new drum and bass podcast concept needed to stand out in a saturated market while remaining adaptable across podcast artwork, social posts, and promotional formats.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
+                                        <p>I was responsible for end-to-end brand identity, creative direction, and scalable social application guidance.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
+                                        <p>I led logo exploration, mood boarding, and visual language definition, then developed a dark, high-contrast system with recognisable type treatment and structured social templates.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
+                                        <p>Delivered a complete and scalable brand identity system, established a recognisable visual language for digital channels, and created reusable templates for ongoing content production.</p>
+                                    </section>
+                                </div>
                                 <section class="portfolio-site__case-section">
                                     <h3>Tools & Technologies</h3>
                                     <p>Adobe Illustrator, Adobe Photoshop, Figma, typography systems, layout design and social mock-up workflows.</p>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Results & Impact</h3>
-                                    <ul class="portfolio-site__case-list">
-                                        <li>Delivered a complete and scalable brand identity system</li>
-                                        <li>Established a recognisable visual language for digital channels</li>
-                                        <li>Created reusable templates for ongoing content production</li>
-                                    </ul>
                                 </section>
                                 <section class="portfolio-site__case-section">
                                     <h3>Visual Showcase</h3>
@@ -752,6 +819,278 @@
                                         <div class="portfolio-site__media-placeholder">Logo evolution concepts</div>
                                         <div class="portfolio-site__media-placeholder">Mood board and type direction</div>
                                         <div class="portfolio-site__media-placeholder">Social post mock-ups</div>
+                                    </div>
+                                </section>
+                                <footer class="portfolio-site__case-footer">
+                                    <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
+                                    <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-audiogrooves">Next case study</button>
+                                </footer>
+                            </article>
+                        </main>
+                    </div>
+
+                    <div class="portfolio-site__page" id="page-case-study-audiogrooves">
+                        <main class="portfolio-site__main">
+                            <article class="portfolio-site__case-study">
+                                <header class="portfolio-site__case-hero">
+                                    <p class="portfolio-site__case-kicker">Case Study 9</p>
+                                    <h2 class="portfolio-site__case-title">AudioGrooves Event Marketing, Creative Design & After-Party Content</h2>
+                                    <p class="portfolio-site__case-subtitle">Designed the label logo and supported advertising, marketing, and creative production for club nights and label events.</p>
+                                    <div class="portfolio-site__case-chips">
+                                        <span class="portfolio-site__case-chip">Role: Graphic Designer + Marketing & Creative Lead</span>
+                                        <span class="portfolio-site__case-chip">Client: AudioGrooves music label</span>
+                                        <span class="portfolio-site__case-chip">Delivery: logo, posters, social graphics, after-party films</span>
+                                    </div>
+                                </header>
+                                <div class="portfolio-site__case-star">
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
+                                        <p>AudioGrooves, an independent music label, needed consistent advertising and creative support to promote club nights, label showcases, and artist events — with limited in-house design capacity and tight turnaround between announcements and show dates.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
+                                        <p>I was responsible for designing the AudioGrooves label logo and helping run event advertising and marketing alongside end-to-end creative production: event posters, promotional graphics, and after-party recap films.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
+                                        <p>I designed the AudioGrooves logo and brand mark, establishing a recognisable visual identity that carried through posters, social assets, and event collateral.</p>
+                                        <p>I planned and executed paid and organic campaign workflows across social platforms, designing event posters and promotional graphics aligned to the label brand and each night's visual identity.</p>
+                                        <p>I produced after-party recap videos from event footage for post-show promotion and audience retention, and built reusable templates so recurring event formats could be turned around faster without losing quality.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
+                                        <p>Delivered a cohesive label identity from logo through to campaign creative, maintained consistent promotional output across multiple events, and extended reach beyond the night itself via after-party content.</p>
+                                    </section>
+                                </div>
+                                <section class="portfolio-site__case-section">
+                                    <h3>Tools & Technologies</h3>
+                                    <p>Adobe Photoshop, Adobe Illustrator, Adobe Premiere Pro, After Effects, Meta Ads, social campaign tooling, logo design, typography and layout systems.</p>
+                                </section>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase portfolio-site__case-section--showcase-bento">
+                                    <h3>Visual Showcase</h3>
+                                    <p class="portfolio-site__media-hint">Select any image to view it full size. Videos play inline with controls.</p>
+
+                                    <div class="portfolio-site__media-grid portfolio-site__media-grid--bento-2">
+                                        <h4 class="portfolio-site__media-bento-heading">Label logo</h4>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--dark-bg portfolio-site__media-figure--span-full">
+                                            <img src="assets/img/projects/audiogrooves/audio-grooves-logo-light.png" alt="AudioGrooves music label logo on a dark background" loading="lazy">
+                                            <figcaption>AudioGrooves logo — primary label mark for events and digital channels</figcaption>
+                                        </figure>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Event posters & flyers</h4>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/audiogrooves/grooves-on-the-decks-save-the-date-75-1st-release.png" alt="Grooves on the Decks save-the-date flyer, first release" loading="lazy">
+                                            <figcaption>Grooves on the Decks — save-the-date, first release</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/audiogrooves/grooves-on-the-decks-tickets-on-sale-sp1.png" alt="Grooves on the Decks tickets on sale promotional graphic" loading="lazy">
+                                            <figcaption>Grooves on the Decks — tickets on sale</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/audiogrooves/grooves-on-the-terrace-part-4-comp.jpg" alt="Grooves on the Terrace Part 4 event composite poster" loading="lazy">
+                                            <figcaption>Grooves on the Terrace Part 4 — composite poster</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/audiogrooves/grooves-on-the-terrace-part-4-shannon-popple.jpg" alt="Grooves on the Terrace Part 4 poster featuring Shannon Popple" loading="lazy">
+                                            <figcaption>Grooves on the Terrace Part 4 — artist-led poster</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/audiogrooves/junction-26-new.jpg" alt="Junction 26 event promotional poster" loading="lazy">
+                                            <figcaption>Junction 26 — event poster</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/audiogrooves/secondcity-1.jpg" alt="Secondcity event promotional poster" loading="lazy">
+                                            <figcaption>Secondcity — event poster</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-rows">
+                                            <img src="assets/img/projects/audiogrooves/93feeteast-lineup-full-release-a0-841x1189mm.jpg" alt="93 Feet East full lineup release poster" loading="lazy">
+                                            <figcaption>93 Feet East — full lineup release</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/audiogrooves/93feet-east-blackfriday-deal.jpg" alt="93 Feet East Black Friday promotional deal graphic" loading="lazy">
+                                            <figcaption>93 Feet East — Black Friday deal promo</figcaption>
+                                        </figure>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Social & promo graphics</h4>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/audiogrooves/audiogrooves-colours-hoxton.jpg" alt="AudioGrooves at Colours Hoxton promotional graphic" loading="lazy">
+                                            <figcaption>Colours Hoxton — event promo</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/audiogrooves/colours-hoxton-press-shot-funk-cartel-1080x1080-2.jpg" alt="Funk Cartel press shot social graphic for Colours Hoxton" loading="lazy">
+                                            <figcaption>Colours Hoxton — Funk Cartel press-shot social</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-full">
+                                            <img src="assets/img/projects/audiogrooves/boomtown-settimes.png" alt="Boomtown festival set times graphic for AudioGrooves artists" loading="lazy">
+                                            <figcaption>Boomtown — set times graphic</figcaption>
+                                        </figure>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Motion, animated flyers & after-party films</h4>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--video">
+                                            <video src="assets/img/projects/audiogrooves/animated-flyer.mp4" controls preload="metadata" playsinline></video>
+                                            <figcaption>Animated event flyer — motion promo for social</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--video">
+                                            <video src="assets/img/projects/audiogrooves/Final_story_time.mp4" controls preload="metadata" playsinline></video>
+                                            <figcaption>Instagram story — event countdown and promo</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--video portfolio-site__media-figure--span-full">
+                                            <video src="assets/img/projects/audiogrooves/audio-grooves-93-aftermovie.mp4" controls preload="metadata" playsinline></video>
+                                            <figcaption>93 Feet East 1st birthday — official after-party film</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--video">
+                                            <video src="assets/img/projects/audiogrooves/shoreditch-summer-day-party-aftermovie.mp4" controls preload="metadata" playsinline></video>
+                                            <figcaption>Shoreditch Summer Day Party — after-party recap</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--video">
+                                            <video src="assets/img/projects/audiogrooves/j26-truck-stop-secondcity-aftermovie.mp4" controls preload="metadata" playsinline></video>
+                                            <figcaption>Junction 26 Truck Stop w/ Secondcity — official aftermovie</figcaption>
+                                        </figure>
+                                    </div>
+                                </section>
+                                <footer class="portfolio-site__case-footer">
+                                    <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
+                                    <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-kengai-records">Next case study</button>
+                                </footer>
+                            </article>
+                        </main>
+                    </div>
+
+                    <div class="portfolio-site__page" id="page-case-study-kengai-records">
+                        <main class="portfolio-site__main">
+                            <article class="portfolio-site__case-study">
+                                <header class="portfolio-site__case-hero">
+                                    <p class="portfolio-site__case-kicker">Case Study 10</p>
+                                    <h2 class="portfolio-site__case-title">Kengai Records Label Release Art, Event Creative & Social Campaigns</h2>
+                                    <p class="portfolio-site__case-subtitle">Designed release artwork, event collateral, and connected Instagram carousel posts for an independent electronic music label.</p>
+                                    <div class="portfolio-site__case-chips">
+                                        <span class="portfolio-site__case-chip">Role: Graphic Designer + Creative Lead</span>
+                                        <span class="portfolio-site__case-chip">Client: Kengai Records music label</span>
+                                        <span class="portfolio-site__case-chip">Delivery: release art, event flyers, social carousels</span>
+                                    </div>
+                                </header>
+                                <div class="portfolio-site__case-star">
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
+                                        <p>Kengai Records, an independent electronic music label, needed consistent creative support for artist releases and club-night promotions — with artwork, social assets, and event flyers required on tight turnarounds between announcement and release or show dates.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
+                                        <p>I was responsible for designing label release artwork, event promotional materials, and social campaign graphics — including multi-slide Instagram connected posts that could carry longer release narratives across a single swipeable carousel.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
+                                        <p>I produced single and EP release artwork aligned to each artist's sonic identity and the Kengai visual language, from cover art through to promotional variants for streaming and social.</p>
+                                        <p>I designed event flyers, save-the-date graphics, and venue-led promotional assets for label nights and showcases.</p>
+                                        <p>I built connected Instagram carousel sequences — artboards designed to scroll as one continuous post — so release stories, line-ups, and event details could be communicated without cramming everything into a single frame.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
+                                        <p>Delivered a cohesive stream of release and event creative across multiple artists and nights, with reusable carousel formats that made longer promotional stories easier to publish and browse on social.</p>
+                                    </section>
+                                </div>
+                                <section class="portfolio-site__case-section">
+                                    <h3>Tools & Technologies</h3>
+                                    <p>Adobe Photoshop, Adobe Illustrator, typography and layout systems, social asset sizing, and Instagram carousel post workflows.</p>
+                                </section>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase portfolio-site__case-section--showcase-bento">
+                                    <h3>Visual Showcase</h3>
+                                    <p class="portfolio-site__media-hint">Swipe through the connected Instagram carousel below. Select any other image to view it full size.</p>
+
+                                    <div class="portfolio-site__media-grid portfolio-site__media-grid--bento-2">
+                                        <h4 class="portfolio-site__media-bento-heading">Instagram connected carousel</h4>
+                                        <div class="portfolio-site__insta-carousel portfolio-site__insta-carousel--span-full" data-media-carousel>
+                                            <p class="portfolio-site__insta-carousel-hint">Swipe or use the arrows to scroll through connected posts — designed as one continuous Instagram carousel.</p>
+                                            <div class="portfolio-site__insta-carousel-frame">
+                                                <button type="button" class="portfolio-site__insta-carousel-nav portfolio-site__insta-carousel-nav--prev" data-carousel-prev aria-label="Previous slide">‹</button>
+                                                <div class="portfolio-site__insta-carousel-viewport" data-carousel-viewport tabindex="0" aria-roledescription="carousel" aria-label="Kengai Records Instagram connected posts">
+                                                    <div class="portfolio-site__insta-carousel-track" data-carousel-track>
+                                                        <figure class="portfolio-site__insta-carousel-slide" data-carousel-slide>
+                                                            <img src="assets/img/projects/kengai-records/Artboard%201.jpg" alt="Kengai Records Instagram connected post, slide 1 of 6" loading="lazy">
+                                                        </figure>
+                                                        <figure class="portfolio-site__insta-carousel-slide" data-carousel-slide>
+                                                            <img src="assets/img/projects/kengai-records/Artboard%202.jpg" alt="Kengai Records Instagram connected post, slide 2 of 6" loading="lazy">
+                                                        </figure>
+                                                        <figure class="portfolio-site__insta-carousel-slide" data-carousel-slide>
+                                                            <img src="assets/img/projects/kengai-records/Artboard%203.jpg" alt="Kengai Records Instagram connected post, slide 3 of 6" loading="lazy">
+                                                        </figure>
+                                                        <figure class="portfolio-site__insta-carousel-slide" data-carousel-slide>
+                                                            <img src="assets/img/projects/kengai-records/Artboard%204.jpg" alt="Kengai Records Instagram connected post, slide 4 of 6" loading="lazy">
+                                                        </figure>
+                                                        <figure class="portfolio-site__insta-carousel-slide" data-carousel-slide>
+                                                            <img src="assets/img/projects/kengai-records/Artboard%205.jpg" alt="Kengai Records Instagram connected post, slide 5 of 6" loading="lazy">
+                                                        </figure>
+                                                        <figure class="portfolio-site__insta-carousel-slide" data-carousel-slide>
+                                                            <img src="assets/img/projects/kengai-records/Artboard%206.jpg" alt="Kengai Records Instagram connected post, slide 6 of 6" loading="lazy">
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="portfolio-site__insta-carousel-nav portfolio-site__insta-carousel-nav--next" data-carousel-next aria-label="Next slide">›</button>
+                                            </div>
+                                            <div class="portfolio-site__insta-carousel-footer">
+                                                <div class="portfolio-site__insta-carousel-dots" data-carousel-dots role="tablist" aria-label="Carousel slides"></div>
+                                                <p class="portfolio-site__insta-carousel-counter" data-carousel-counter aria-live="polite">1 / 6</p>
+                                            </div>
+                                            <p class="portfolio-site__insta-carousel-caption">Connected Instagram carousel — multi-slide release and event announcement sequence</p>
+                                        </div>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Label branding</h4>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--dark-bg">
+                                            <img src="assets/img/projects/kengai-records/bonsai-kengai.png" alt="Kengai Records bonsai tree logo mark on dark background" loading="lazy">
+                                            <figcaption>Kengai Records — primary bonsai logo mark</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--dark-bg">
+                                            <img src="assets/img/projects/kengai-records/bonsai-kengai-red.png" alt="Kengai Records red bonsai logo variant" loading="lazy">
+                                            <figcaption>Kengai Records — red logo variant for event and release campaigns</figcaption>
+                                        </figure>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Release artwork</h4>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/kengai-records/kengai-evergreen-rosso-artwork.jpg" alt="Evergreen Rosso single release artwork for Kengai Records" loading="lazy">
+                                            <figcaption>Evergreen Rosso — single release artwork</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/kengai-records/kengai-evergreen-rosso-release.png" alt="Evergreen Rosso release promotional graphic" loading="lazy">
+                                            <figcaption>Evergreen Rosso — release promo graphic</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/kengai-records/convoy-off-my-mind.png" alt="Convoy Off My Mind release artwork" loading="lazy">
+                                            <figcaption>Convoy — Off My Mind release artwork</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/kengai-records/subrix-go-or-stay.png" alt="Subrix Go Or Stay release artwork" loading="lazy">
+                                            <figcaption>Subrix — Go Or Stay release artwork</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/kengai-records/subrix-underground-ep.png" alt="Subrix Underground EP release artwork" loading="lazy">
+                                            <figcaption>Subrix — Underground EP artwork</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/kengai-records/sephia-trajectory.png" alt="Sephia Trajectory release artwork" loading="lazy">
+                                            <figcaption>Sephia — Trajectory release artwork</figcaption>
+                                        </figure>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Event flyers & social promos</h4>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/kengai-records/star-of-kings-flyer.jpg" alt="Star of Kings event flyer for Kengai Records night" loading="lazy">
+                                            <figcaption>Star of Kings — event flyer</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/kengai-records/house-kengai-purple.jpg" alt="House Kengai purple-themed event promotional graphic" loading="lazy">
+                                            <figcaption>House Kengai — event promo</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/kengai-records/vigital-space-station.jpg" alt="Vigital Space Station event promotional graphic" loading="lazy">
+                                            <figcaption>Vigital Space Station — event promo</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/kengai-records/save-the-date-morality.jpg" alt="Save the date graphic for Morality event" loading="lazy">
+                                            <figcaption>Morality — save-the-date graphic</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-full">
+                                            <img src="assets/img/projects/kengai-records/event-insta-post.jpg" alt="Kengai Records event Instagram post graphic" loading="lazy">
+                                            <figcaption>Event Instagram post — label night announcement</figcaption>
+                                        </figure>
                                     </div>
                                 </section>
                                 <footer class="portfolio-site__case-footer">

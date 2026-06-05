@@ -10,7 +10,7 @@
         <header class="projects__header">
             <h2>Case Studies</h2>
             <p class="projects__lead">
-                Eight projects across product, growth, engineering, operations, and creative delivery.
+                Ten projects written in Google-style STAR format (Situation, Task, Action, Result).
                 Select a case study to open the full write-up in the browser.
             </p>
         </header>
@@ -20,7 +20,7 @@
                 <span class="projects__tag">Digital Product + Growth</span>
                 <h3 class="projects__title">IT Training Route Decision Platform & Conversion Funnel</h3>
                 <p class="projects__meta">Digital Product & Growth Lead</p>
-                <p class="projects__desc">Conversion-focused route selection and webinar funnels for an IT training provider.</p>
+                <p class="projects__desc">STAR: pathway UX and conversion — clearer routes, better enquiries.</p>
                 <button type="button" class="projects__open-btn" data-open-case-study="case-study-it-training-route">Open case study</button>
             </article>
 
@@ -28,7 +28,7 @@
                 <span class="projects__tag">Marketing Systems</span>
                 <h3 class="projects__title">Webinar Marketing System & Email Campaign Optimisation</h3>
                 <p class="projects__meta">Marketing Strategy & Campaign Lead</p>
-                <p class="projects__desc">Repeatable webinar campaigns with segmented email journeys and performance iteration.</p>
+                <p class="projects__desc">STAR: fixed mobile funnel drop-off; improved registrations without extra spend.</p>
                 <button type="button" class="projects__open-btn" data-open-case-study="case-study-webinar-marketing">Open case study</button>
             </article>
 
@@ -44,15 +44,15 @@
                 <span class="projects__tag">Operations + Delivery</span>
                 <h3 class="projects__title">Digital Operations & Cross-Department Systems Management</h3>
                 <p class="projects__meta">Digital Product & Operations Lead</p>
-                <p class="projects__desc">Bridging technical implementation with marketing, training, and support operations.</p>
+                <p class="projects__desc">STAR: restructuring — streamlined ops while protecting revenue-critical digital work.</p>
                 <button type="button" class="projects__open-btn" data-open-case-study="case-study-digital-ops">Open case study</button>
             </article>
 
             <article class="projects__card">
                 <span class="projects__tag">Education Product</span>
-                <h3 class="projects__title">Student Mock Exam Platform Redesign & System Modernisation</h3>
+                <h3 class="projects__title">Student Training Portal & Platform Modernisation</h3>
                 <p class="projects__meta">Product Lead / UX / Frontend</p>
-                <p class="projects__desc">Modernised internal exam platform for usability, responsiveness, and content scalability.</p>
+                <p class="projects__desc">STAR: cross-functional leadership — scalable portal replacing legacy student processes.</p>
                 <button type="button" class="projects__open-btn" data-open-case-study="case-study-mock-exam">Open case study</button>
             </article>
 
@@ -78,6 +78,22 @@
                 <p class="projects__meta">Brand Designer / Creative Director</p>
                 <p class="projects__desc">Full visual identity and social direction for a drum & bass podcast concept.</p>
                 <button type="button" class="projects__open-btn" data-open-case-study="case-study-deep-dissonance">Open case study</button>
+            </article>
+
+            <article class="projects__card">
+                <span class="projects__tag">Music + Events</span>
+                <h3 class="projects__title">AudioGrooves Event Marketing, Creative Design & After-Party Content</h3>
+                <p class="projects__meta">Graphic Designer / Marketing & Creative Lead</p>
+                <p class="projects__desc">STAR: label logo, event advertising, posters, social graphics, and after-party films.</p>
+                <button type="button" class="projects__open-btn" data-open-case-study="case-study-audiogrooves">Open case study</button>
+            </article>
+
+            <article class="projects__card">
+                <span class="projects__tag">Music + Events</span>
+                <h3 class="projects__title">Kengai Records Label Release Art, Event Creative & Social Campaigns</h3>
+                <p class="projects__meta">Graphic Designer / Creative Lead</p>
+                <p class="projects__desc">STAR: release artwork, event flyers, and connected Instagram carousel posts for label campaigns.</p>
+                <button type="button" class="projects__open-btn" data-open-case-study="case-study-kengai-records">Open case study</button>
             </article>
         </div>
     </div>
