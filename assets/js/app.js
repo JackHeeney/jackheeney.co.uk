@@ -76,6 +76,7 @@ async function startDesktopApps() {
         await loadComponent('./assets/js/components/snake.js');
         await loadComponent('./assets/js/components/invaders.js');
         await loadComponent('./assets/js/components/clippy.js');
+        await loadComponent('./assets/js/components/browser-tour.js');
         await loadComponent('./assets/js/components/sticky-notes.js');
         await loadComponent('./assets/js/components/osrs-hiscores.js');
 
@@ -91,6 +92,9 @@ async function startDesktopApps() {
             SpaceInvaders.init();
         }
         Browser.init();
+        if (typeof BrowserTour !== 'undefined') {
+            BrowserTour.init();
+        }
         if (typeof OsrsHiscores !== 'undefined') {
             OsrsHiscores.init();
         }

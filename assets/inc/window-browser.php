@@ -1180,4 +1180,19 @@
             </div>
         </div>
     </div>
+
+    <button type="button" class="browser-tour__help" id="browser-tour-help" aria-label="How to use this browser" title="How to use this browser">i</button>
+
+    <div class="browser-tour browser-tour--hidden" id="browser-tour" aria-hidden="true">
+        <div class="browser-tour__ring browser-tour__ring--hidden" id="browser-tour-ring"></div>
+        <div class="browser-tour__popover" id="browser-tour-popover" role="dialog" aria-live="polite" aria-labelledby="browser-tour-message">
+            <button type="button" class="browser-tour__popover-close" aria-label="Close tour">×</button>
+            <p class="browser-tour__message" id="browser-tour-message"></p>
+            <div class="browser-tour__actions">
+                <button type="button" class="browser-tour__btn browser-tour__btn--skip">Skip tour</button>
+                <button type="button" class="browser-tour__btn browser-tour__btn--next browser-tour__btn--primary">Next</button>
+            </div>
+            <p class="browser-tour__step-indicator" id="browser-tour-step"></p>
+        </div>
+    </div>
 </div>
