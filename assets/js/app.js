@@ -883,7 +883,7 @@ const Desktop = (() => {
         });
 
         // expose if you want to trigger from elsewhere
-        window.DesktopApp = { openWindow, openPortfolioInBrowser, fitGameWindow };
+        window.DesktopApp = { openWindow, openPortfolioInBrowser, fitGameWindow, openPdfDocument };
     }
 
     return { init, openWindow };
@@ -1140,6 +1140,16 @@ const Browser = (() => {
 
         initMediaLightbox(browserWindow);
         initMediaCarousels(browserWindow);
+
+        browserWindow.addEventListener('click', (e) => {
+            const pdfBtn = e.target.closest('[data-pdf-url]');
+            if (!pdfBtn || !browserWindow.contains(pdfBtn)) return;
+
+            e.preventDefault();
+            if (window.DesktopApp && typeof window.DesktopApp.openPdfDocument === 'function') {
+                window.DesktopApp.openPdfDocument(pdfBtn.dataset.pdfUrl, pdfBtn.dataset.pdfName || 'Document');
+            }
+        });
 
         // Initialize to home page
         showInternalPage('home');

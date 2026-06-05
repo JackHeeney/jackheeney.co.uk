@@ -813,12 +813,63 @@
                                     <h3>Tools & Technologies</h3>
                                     <p>Adobe Illustrator, Adobe Photoshop, Figma, typography systems, layout design and social mock-up workflows.</p>
                                 </section>
-                                <section class="portfolio-site__case-section">
+                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase portfolio-site__case-section--showcase-bento">
                                     <h3>Visual Showcase</h3>
-                                    <div class="portfolio-site__media-grid">
-                                        <div class="portfolio-site__media-placeholder">Logo evolution concepts</div>
-                                        <div class="portfolio-site__media-placeholder">Mood board and type direction</div>
-                                        <div class="portfolio-site__media-placeholder">Social post mock-ups</div>
+                                    <p class="portfolio-site__media-hint">Select any image to view it full size.</p>
+
+                                    <div class="portfolio-site__media-grid portfolio-site__media-grid--bento-2">
+                                        <h4 class="portfolio-site__media-bento-heading">Brand direction mood board</h4>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-full">
+                                            <img src="assets/img/projects/dissonance-moodboard/moodboard-1.png" alt="Deep Dissonance brand direction mood board cover slide" loading="lazy">
+                                            <figcaption>Mood board cover — Jack Heeney × Deep Dissonance brand direction, 2024</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-full">
+                                            <img src="assets/img/projects/dissonance-moodboard/moodboard-2.png" alt="Deep Dissonance logo idea exploration showing mirrored D letterforms" loading="lazy">
+                                            <figcaption>Logo exploration — mirrored D letterforms and energetic-field wireframe concepts</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-full">
+                                            <img src="assets/img/projects/dissonance-moodboard/moodboard-3.png" alt="Deep Dissonance full mood board with colour palette, typography, and social mock-ups" loading="lazy">
+                                            <figcaption>Full mood board — colour palette, Source Sans 3 typography, and social post applications</figcaption>
+                                        </figure>
+                                        <p class="portfolio-site__media-pdf-action">
+                                            <button type="button" class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-pdf-url="assets/img/projects/dissonance-moodboard/dissonance-moodboard-direction-branding.pdf" data-pdf-name="Deep Dissonance Mood Board">Open full mood board PDF</button>
+                                        </p>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Logo mark</h4>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--dark-bg">
+                                            <img src="assets/img/projects/dissonance-moodboard/Asset%2032.jpg" alt="Deep Dissonance logo mark, white on dark grey app icon" loading="lazy">
+                                            <figcaption>Logo mark — white on dark grey app icon format</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--dark-bg">
+                                            <img src="assets/img/projects/dissonance-moodboard/Asset%2033.jpg" alt="Deep Dissonance logo mark, black on white reversed" loading="lazy">
+                                            <figcaption>Logo mark — black on white reversed</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--dark-bg">
+                                            <img src="assets/img/projects/dissonance-moodboard/Asset%2034.jpg" alt="Deep Dissonance logo mark, white on black" loading="lazy">
+                                            <figcaption>Logo mark — white on black</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--dark-bg">
+                                            <img src="assets/img/projects/dissonance-moodboard/Asset%2035.jpg" alt="Deep Dissonance logo mark, black on white squircle" loading="lazy">
+                                            <figcaption>Logo mark — black on white squircle</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-full">
+                                            <img src="assets/img/projects/dissonance-moodboard/Asset%2036.jpg" alt="Deep Dissonance logo mark grayscale value range" loading="lazy">
+                                            <figcaption>Logo mark — grayscale value range for flexible application</figcaption>
+                                        </figure>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Brand application</h4>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-full">
+                                            <img src="assets/img/projects/dissonance-moodboard/Asset%2037.jpg" alt="Deep Dissonance brand system showing logo lockups, colour palette, and typography" loading="lazy">
+                                            <figcaption>Brand system — logo lockups, colour palette, and typography direction</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-full">
+                                            <img src="assets/img/projects/dissonance-moodboard/Asset%2038.jpg" alt="Deep Dissonance Spotify artwork and social post mock-ups" loading="lazy">
+                                            <figcaption>Brand application — Spotify artwork and social post mock-ups</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-full">
+                                            <img src="assets/img/projects/dissonance-moodboard/Asset%2039.jpg" alt="Deep Dissonance Instagram post concepts with logo and campaign messaging" loading="lazy">
+                                            <figcaption>Brand application — Instagram post concepts with logo and campaign messaging</figcaption>
+                                        </figure>
                                     </div>
                                 </section>
                                 <footer class="portfolio-site__case-footer">

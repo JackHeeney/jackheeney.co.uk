@@ -2348,6 +2348,11 @@ body {
     margin-top: 0;
 }
 
+.portfolio-site__media-pdf-action {
+    grid-column: 1 / -1;
+    margin: 0 0 8px;
+}
+
 .portfolio-site__case-section--showcase-bento .portfolio-site__media-figure--span-full {
     grid-column: 1 / -1;
 }
