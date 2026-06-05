@@ -10,7 +10,7 @@
         <header class="projects__header">
             <h2>Case Studies</h2>
             <p class="projects__lead">
-                Ten projects written in Google-style STAR format (Situation, Task, Action, Result).
+                Nine projects written in Google-style STAR format (Situation, Task, Action, Result).
                 Select a case study to open the full write-up in the browser.
             </p>
         </header>
@@ -62,14 +62,6 @@
                 <p class="projects__meta">Creative Lead / Digital Designer</p>
                 <p class="projects__desc">Conversion-focused social and paid creative across cybersecurity, cloud, AI, and data campaigns.</p>
                 <button type="button" class="projects__open-btn" data-open-case-study="case-study-social-creative">Open case study</button>
-            </article>
-
-            <article class="projects__card">
-                <span class="projects__tag">Print + Event Design</span>
-                <h3 class="projects__title">Event Banner, Flyer & Exhibition Design</h3>
-                <p class="projects__meta">Creative Designer</p>
-                <p class="projects__desc">Large-format and print collateral for exhibitions, open days, and recruitment events.</p>
-                <button type="button" class="projects__open-btn" data-open-case-study="case-study-event-design">Open case study</button>
             </article>
 
             <article class="projects__card">

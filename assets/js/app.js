@@ -904,7 +904,6 @@ const Browser = (() => {
         'case-study-digital-ops',
         'case-study-mock-exam',
         'case-study-social-creative',
-        'case-study-event-design',
         'case-study-deep-dissonance',
         'case-study-audiogrooves',
         'case-study-kengai-records'

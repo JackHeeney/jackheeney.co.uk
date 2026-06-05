@@ -191,14 +191,6 @@
                                     </article>
 
                                     <article class="portfolio-site__case-card">
-                                        <div class="portfolio-site__case-card-tag">Print + Event Design</div>
-                                        <h3 class="portfolio-site__case-card-title">Event Banner, Flyer & Exhibition Design</h3>
-                                        <p class="portfolio-site__case-card-meta">Role: Creative Designer, Brand & Marketing Support</p>
-                                        <p class="portfolio-site__case-card-desc">Delivered high-impact print assets built for visibility, speed of comprehension, and consistent brand delivery.</p>
-                                        <button class="portfolio-site__case-card-btn" data-page="case-study-event-design">Open case study</button>
-                                    </article>
-
-                                    <article class="portfolio-site__case-card">
                                         <div class="portfolio-site__case-card-tag">Brand Identity</div>
                                         <h3 class="portfolio-site__case-card-title">Deep Dissonance Podcast Brand Identity & Creative Direction</h3>
                                         <p class="portfolio-site__case-card-meta">Role: Brand Designer & Creative Director</p>
@@ -721,57 +713,6 @@
                                 </section>
                                 <footer class="portfolio-site__case-footer">
                                     <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
-                                    <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-event-design">Next case study</button>
-                                </footer>
-                            </article>
-                        </main>
-                    </div>
-
-                    <div class="portfolio-site__page" id="page-case-study-event-design">
-                        <main class="portfolio-site__main">
-                            <article class="portfolio-site__case-study">
-                                <header class="portfolio-site__case-hero">
-                                    <p class="portfolio-site__case-kicker">Case Study 7</p>
-                                    <h2 class="portfolio-site__case-title">Event Banner, Flyer & Exhibition Design</h2>
-                                    <p class="portfolio-site__case-subtitle">Produced large-format and print collateral for exhibitions, open days, and training recruitment campaigns.</p>
-                                    <div class="portfolio-site__case-chips">
-                                        <span class="portfolio-site__case-chip">Role: Creative Designer</span>
-                                        <span class="portfolio-site__case-chip">Focus: high-visibility communication design</span>
-                                        <span class="portfolio-site__case-chip">Delivery: print-ready branded assets</span>
-                                    </div>
-                                </header>
-                                <div class="portfolio-site__case-star">
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
-                                        <p>Event environments required instant clarity and strong visibility while maintaining brand consistency across exhibitions, open days, and recruitment audiences.</p>
-                                    </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
-                                        <p>I was responsible for large-format banner design, flyer and leaflet production, and supplier-ready print preparation under tight event deadlines.</p>
-                                    </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
-                                        <p>I designed for distance readability with strict hierarchy, concise messaging, and repeatable visual structures. I handled bleed setup, export specifications, and production files for multiple print formats.</p>
-                                    </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
-                                        <p>Improved consistency and professionalism of event materials, strengthened lead-generation support at exhibitions, and created reusable print design systems for future campaigns.</p>
-                                    </section>
-                                </div>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Tools & Technologies</h3>
-                                    <p>Adobe Photoshop, Adobe Illustrator, Canva, print production workflows, typography and layout systems.</p>
-                                </section>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Visual Showcase</h3>
-                                    <div class="portfolio-site__media-grid">
-                                        <div class="portfolio-site__media-placeholder">Exhibition banner mock-up</div>
-                                        <div class="portfolio-site__media-placeholder">Flyer layout set</div>
-                                        <div class="portfolio-site__media-placeholder">Print-ready production files</div>
-                                    </div>
-                                </section>
-                                <footer class="portfolio-site__case-footer">
-                                    <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
                                     <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-deep-dissonance">Next case study</button>
                                 </footer>
                             </article>
@@ -782,7 +723,7 @@
                         <main class="portfolio-site__main">
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
-                                    <p class="portfolio-site__case-kicker">Case Study 8</p>
+                                    <p class="portfolio-site__case-kicker">Case Study 7</p>
                                     <h2 class="portfolio-site__case-title">Deep Dissonance Podcast Brand Identity & Creative Direction</h2>
                                     <p class="portfolio-site__case-subtitle">Created a complete visual identity and social direction for a drum and bass podcast concept.</p>
                                     <div class="portfolio-site__case-chips">
@@ -884,7 +825,7 @@
                         <main class="portfolio-site__main">
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
-                                    <p class="portfolio-site__case-kicker">Case Study 9</p>
+                                    <p class="portfolio-site__case-kicker">Case Study 8</p>
                                     <h2 class="portfolio-site__case-title">AudioGrooves Event Marketing, Creative Design & After-Party Content</h2>
                                     <p class="portfolio-site__case-subtitle">Designed the label logo and supported advertising, marketing, and creative production for club nights and label events.</p>
                                     <div class="portfolio-site__case-chips">
@@ -1011,7 +952,7 @@
                         <main class="portfolio-site__main">
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
-                                    <p class="portfolio-site__case-kicker">Case Study 10</p>
+                                    <p class="portfolio-site__case-kicker">Case Study 9</p>
                                     <h2 class="portfolio-site__case-title">Kengai Records Label Release Art, Event Creative & Social Campaigns</h2>
                                     <p class="portfolio-site__case-subtitle">Designed release artwork, event collateral, and connected Instagram carousel posts for an independent electronic music label.</p>
                                     <div class="portfolio-site__case-chips">
