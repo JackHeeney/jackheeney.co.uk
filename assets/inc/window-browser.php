@@ -111,12 +111,12 @@
                     <!-- Projects Page -->
                     <div class="portfolio-site__page" id="page-projects">
                         <main class="portfolio-site__main">
-                            <section class="portfolio-site__section portfolio-site__projects-intro">
+                            <!-- <section class="portfolio-site__section portfolio-site__projects-intro">
                                 <h2 class="portfolio-site__section-title">Projects</h2>
                                 <p class="portfolio-site__case-studies-lead">
                                     Case studies and live websites from product, growth, engineering, and creative work.
                                 </p>
-                            </section>
+                            </section> -->
 
                             <section class="portfolio-site__section portfolio-site__external-websites">
                                 <h3 class="portfolio-site__subsection-title">Live Websites</h3>
@@ -384,6 +384,16 @@
                                             <figure class="portfolio-site__media-figure">
                                                 <img src="assets/img/projects/webinar-marketing/sales-email.png" alt="Promotional sales email layout with bundle offer and primary CTA" loading="lazy">
                                                 <figcaption>Sales email — offer-led layout and CTA hierarchy</figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+
+                                    <div class="portfolio-site__media-subsection">
+                                        <h4>Funnel design</h4>
+                                        <div class="portfolio-site__media-grid">
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/webinar-marketing/mailer-funnels.png" alt="MailerLite automation workflow: trigger on route selector click, customer segment check, timed delays, and still-deciding nurture email" loading="lazy">
+                                                <figcaption>Behavioural nurture funnel — segmenting non-customers for follow-up after route selector engagement</figcaption>
                                             </figure>
                                         </div>
                                     </div>
