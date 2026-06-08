@@ -7,6 +7,7 @@ if (!function_exists('portfolio_get_project_images')) {
 }
 $documents = portfolio_get_documents();
 $images = portfolio_get_project_images();
+$imagesByFolder = portfolio_get_project_images_by_folder();
 ?>
 <div class="window window--hidden" id="window-files" style="left:280px;top:150px;width:700px;height:460px;">
     <div class="window__titlebar" data-app-drag>
@@ -74,7 +75,7 @@ $images = portfolio_get_project_images();
         <div class="files__view files__view--images">
             <div class="files__header">
                 <button class="files__back" data-files-back>Main</button>
-                <h3>My Images</h3>
+                <h3>My Images <span class="files__count">(<?php echo count($images); ?>)</span></h3>
             </div>
             <div class="files__table">
                 <div class="files__table-row files__table-row--head">
@@ -83,14 +84,22 @@ $images = portfolio_get_project_images();
                 <?php if (empty($images)) : ?>
                     <p class="docs-list__empty">No images in assets/img/projects yet.</p>
                 <?php else : ?>
-                    <?php foreach ($images as $image) : ?>
-                        <button
-                            class="files__table-row"
-                            data-image-url="<?php echo htmlspecialchars($image['url'], ENT_QUOTES, 'UTF-8'); ?>"
-                            data-image-name="<?php echo htmlspecialchars($image['name'], ENT_QUOTES, 'UTF-8'); ?>">
-                            <span><span class="files__icon">🖼️</span><?php echo htmlspecialchars($image['filename'], ENT_QUOTES, 'UTF-8'); ?></span>
-                            <span>Image File</span>
-                        </button>
+                    <?php $isFirstFolder = true; ?>
+                    <?php foreach ($imagesByFolder as $folder => $folderImages) : ?>
+                        <div class="files__table-folder<?php echo $isFirstFolder ? ' files__table-folder--first' : ''; ?>">
+                            <?php echo htmlspecialchars($folder, ENT_QUOTES, 'UTF-8'); ?>
+                            <span class="files__table-folder-count"><?php echo count($folderImages); ?></span>
+                        </div>
+                        <?php foreach ($folderImages as $image) : ?>
+                            <button
+                                class="files__table-row"
+                                data-image-url="<?php echo htmlspecialchars($image['url'], ENT_QUOTES, 'UTF-8'); ?>"
+                                data-image-name="<?php echo htmlspecialchars($image['name'], ENT_QUOTES, 'UTF-8'); ?>">
+                                <span><span class="files__icon">🖼️</span><?php echo htmlspecialchars(basename($image['filename']), ENT_QUOTES, 'UTF-8'); ?></span>
+                                <span>Image File</span>
+                            </button>
+                        <?php endforeach; ?>
+                        <?php $isFirstFolder = false; ?>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>

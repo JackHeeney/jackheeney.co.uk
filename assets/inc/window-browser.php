@@ -42,11 +42,10 @@
                             <div class="portfolio-site__hero-content">
                                 <div class="portfolio-site__hero-text">
                                     <div class="portfolio-site__hero-greeting">
-                                        Hi 👋🏻 I'm <span class="portfolio-site__hero-name-highlight">Jack Heeney</span>.
+                                        Hi 👋 I'm <span class="portfolio-site__hero-name-highlight">Jack Heeney</span>.
                                     </div>
                                     <div class="portfolio-site__hero-title">
-                                        A <span class="portfolio-site__hero-title-past">web developer, marketer, graphic designer,</span>
-                                        <span class="portfolio-site__hero-title-role">Product &amp; Growth Manager</span>
+                                        I build, launch and grow digital products.
                                     </div>
                                     <button class="portfolio-site__hero-button" data-page="contact">Contact</button>
                                 </div>
@@ -80,6 +79,7 @@
                                     <p>Digital Product, Growth &amp; UX professional with 8+ years of experience leading website platforms, user journeys, digital campaigns, and operational systems across education and technology-focused environments.</p>
                                     <p>Experienced in improving conversion, engagement, and usability through UX-led thinking, analytics, experimentation, and hands-on implementation. Strong background bridging product, marketing, design, and technical teams to deliver scalable digital experiences and business improvements.</p>
                                     <p>Technically hands-on with strong HTML/CSS and web implementation experience, supported by working knowledge of PHP, SQL, JavaScript, APIs, and React. Comfortable managing projects end-to-end, from discovery and UX planning through to launch, optimisation, and ongoing iteration.</p>
+                                    <p>Outside of work, I enjoy staying active through strength training, badminton, hiking, and mountain climbing. Having spent nearly 10 years playing rugby, I've always enjoyed competition, teamwork, and pushing myself to improve. I'm also a fan of competitive gaming, Pokémon collecting, and spending time with family and friends. Whether it's building digital products, climbing a mountain, or chasing a new personal best in the gym, I'm motivated by challenge, progression, and continuous improvement.</p>
                                 </div>
                             </section>
                         </main>
@@ -713,12 +713,128 @@
                                     <h3>Tools & Technologies</h3>
                                     <p>Adobe Creative Suite, Canva, Figma, Photoshop, Illustrator, Meta Ads, LinkedIn campaign tooling.</p>
                                 </section>
-                                <section class="portfolio-site__case-section">
+                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase portfolio-site__case-section--showcase-bento">
                                     <h3>Visual Showcase</h3>
-                                    <div class="portfolio-site__media-grid">
-                                        <div class="portfolio-site__media-placeholder">Social ad concept panel</div>
-                                        <div class="portfolio-site__media-placeholder">Creative test variants</div>
-                                        <div class="portfolio-site__media-placeholder">Campaign visual system</div>
+                                    <p class="portfolio-site__media-hint">Select any image to view it full size.</p>
+
+                                    <div class="portfolio-site__media-grid portfolio-site__media-grid--bento-2">
+                                        <h4 class="portfolio-site__media-bento-heading">Campaign visual system</h4>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-full">
+                                            <img src="assets/img/projects/social-creative/bento-grid-poster.png" alt="Bento grid poster showing a range of social campaign creative across cybersecurity, cloud, and data themes" loading="lazy">
+                                            <figcaption>Campaign overview — bento grid of paid social, webinar, and promotional creative</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/Artboard%201.png" alt="Social campaign creative artboard showing paid ad layout variants" loading="lazy">
+                                            <figcaption>Creative artboard — paid ad layout variants</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/Artboard%202.png" alt="Social campaign creative artboard showing headline and CTA structure tests" loading="lazy">
+                                            <figcaption>Creative artboard — headline and CTA structure tests</figcaption>
+                                        </figure>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Webinar & story creatives</h4>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/ticket-to-your-project-management-career-story.jpg" alt="Instagram story creative promoting a project management career webinar" loading="lazy">
+                                            <figcaption>Project management webinar — Instagram story creative</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/ticket-to-your-data-engineering-career-story.jpg" alt="Instagram story creative promoting a data engineering career webinar" loading="lazy">
+                                            <figcaption>Data engineering webinar — Instagram story creative</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/ticket-to-your-cyber-security-story-webinar.jpg" alt="Instagram story creative promoting a cyber security career webinar" loading="lazy">
+                                            <figcaption>Cyber security webinar — Instagram story creative</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/your-cloud-career-next-move-webinar-1080x1080-190526.png" alt="Square social graphic promoting a cloud career webinar with clear CTA" loading="lazy">
+                                            <figcaption>Cloud career webinar — square feed creative</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/two-infinity-teddy-invite.jpg" alt="Event invitation graphic for a Two Infinity Teddy promotional session" loading="lazy">
+                                            <figcaption>Two Infinity Teddy — event invitation graphic</figcaption>
+                                        </figure>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Cybersecurity paid social</h4>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/break-into-the-industry-cyber-security-ad-1080x1080px.jpg" alt="Paid social ad encouraging viewers to break into the cyber security industry" loading="lazy">
+                                            <figcaption>Break into cyber security — paid social ad</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/cyber-security-looking-for-new-career-anon-mask-new.jpg" alt="Cyber security career ad featuring an anonymous mask motif" loading="lazy">
+                                            <figcaption>New career in cyber security — anonymous mask creative</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/cyber-security-looking-for-a-new-career-anon-facebook.jpg" alt="Facebook-format cyber security career ad with anonymous mask branding" loading="lazy">
+                                            <figcaption>New career in cyber security — Facebook placement</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/getglitched-instagram-1080x1080-080426-female.png" alt="Get Glitched cyber security campaign Instagram ad with female talent" loading="lazy">
+                                            <figcaption>Get Glitched campaign — Instagram ad</figcaption>
+                                        </figure>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Infographics & career pathways</h4>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/robust-it-cybersecurity-infographic.png" alt="Robust IT cyber security career pathway infographic" loading="lazy">
+                                            <figcaption>Cyber security pathway — infographic (version 1)</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/robust-it-cybersecurity-infographic-2.png" alt="Robust IT cyber security career pathway infographic, alternate layout" loading="lazy">
+                                            <figcaption>Cyber security pathway — infographic (version 2)</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/data-specialist-roadmap-rocket.jpg" alt="Data specialist career roadmap infographic with rocket motif" loading="lazy">
+                                            <figcaption>Data specialist roadmap — infographic</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/aws-how-to-become-a-solution-architect.png" alt="AWS solution architect career pathway social graphic" loading="lazy">
+                                            <figcaption>AWS solution architect — career pathway creative</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-full">
+                                            <img src="assets/img/projects/social-creative/magazine-cover.jpg" alt="Magazine cover layout featuring IT training career messaging" loading="lazy">
+                                            <figcaption>Magazine cover — editorial-style career promotion</figcaption>
+                                        </figure>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Cloud & data career ads</h4>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/how-to-become-an-azure-cloud-engineer-1080x1080%20copy.jpg" alt="Paid social ad explaining how to become an Azure cloud engineer" loading="lazy">
+                                            <figcaption>Azure cloud engineer — how-to career ad</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/launch-your-cloud-career-1080x1080-190526.png" alt="Launch your cloud career paid social ad with bold headline and CTA" loading="lazy">
+                                            <figcaption>Launch your cloud career — paid social ad</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/next-steps-start-data-man-1080x1080-130526.png" alt="Data career next steps paid social ad featuring male talent" loading="lazy">
+                                            <figcaption>Data career next steps — paid social ad</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/from-last-month-to-this-month-woman-data-1080x1080-130526.png" alt="Data career progression paid social ad featuring female talent" loading="lazy">
+                                            <figcaption>Data career progression — month-on-month creative</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/you-could-earn-65k-data-1080x1080-280426.png" alt="Data career salary-led paid social ad highlighting earning potential" loading="lazy">
+                                            <figcaption>Data career salary hook — £65k earning potential ad</figcaption>
+                                        </figure>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Seasonal promotional campaigns</h4>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/blackfriday-offer-1.jpg" alt="Black Friday promotional offer social creative" loading="lazy">
+                                            <figcaption>Black Friday — promotional offer creative</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/social-creative/cyber-monday-ad-2021.jpg" alt="Cyber Monday promotional sale social ad from 2021" loading="lazy">
+                                            <figcaption>Cyber Monday — promotional sale ad</figcaption>
+                                        </figure>
+
+                                        <h4 class="portfolio-site__media-bento-heading">Print & out-of-home</h4>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-rows">
+                                            <img src="assets/img/projects/social-creative/1080x1920-digital-ad-harlow-no-qr-scan-bus-stop.jpg" alt="Vertical digital bus stop ad for Harlow with career training messaging" loading="lazy">
+                                            <figcaption>Harlow bus stop — vertical digital out-of-home ad</figcaption>
+                                        </figure>
+                                        <figure class="portfolio-site__media-figure portfolio-site__media-figure--span-rows">
+                                            <img src="assets/img/projects/social-creative/elcas-poster-steve.jpg" alt="ELCAS funding promotional poster featuring Steve" loading="lazy">
+                                            <figcaption>ELCAS funding — promotional poster</figcaption>
+                                        </figure>
                                     </div>
                                 </section>
                                 <footer class="portfolio-site__case-footer">
