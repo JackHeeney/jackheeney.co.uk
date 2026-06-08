@@ -1178,12 +1178,18 @@
             <div class="browser__external browser__external--hidden" id="browser-external">
                 <iframe class="browser__external-frame" id="browser-external-frame" title="External website preview" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+
+            <button type="button" class="browser-tour__help" id="browser-tour-help" aria-label="How to use this browser" title="How to use this browser">i</button>
         </div>
     </div>
 
-    <button type="button" class="browser-tour__help" id="browser-tour-help" aria-label="How to use this browser" title="How to use this browser">i</button>
-
     <div class="browser-tour browser-tour--hidden" id="browser-tour" aria-hidden="true">
+        <div class="browser-tour__scrim browser-tour__scrim--hidden" id="browser-tour-scrim">
+            <div class="browser-tour__shade browser-tour__shade--top" id="browser-tour-shade-top"></div>
+            <div class="browser-tour__shade browser-tour__shade--left" id="browser-tour-shade-left"></div>
+            <div class="browser-tour__shade browser-tour__shade--right" id="browser-tour-shade-right"></div>
+            <div class="browser-tour__shade browser-tour__shade--bottom" id="browser-tour-shade-bottom"></div>
+        </div>
         <div class="browser-tour__ring browser-tour__ring--hidden" id="browser-tour-ring"></div>
         <div class="browser-tour__popover" id="browser-tour-popover" role="dialog" aria-live="polite" aria-labelledby="browser-tour-message">
             <button type="button" class="browser-tour__popover-close" aria-label="Close tour">×</button>

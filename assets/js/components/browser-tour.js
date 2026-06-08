@@ -3,6 +3,7 @@
 const BrowserTour = (() => {
     const STORAGE_KEY = "portfolio-browser-tour-done";
     const OPEN_DELAY_MS = 500;
+    const COMPACT_BREAKPOINT = 768;
 
     const steps = [
         {
@@ -14,7 +15,7 @@ const BrowserTour = (() => {
         {
             id: "close",
             message:
-                "Click the red <strong>×</strong> at the top right to close this browser window.",
+                "Tap the red <strong>×</strong> at the top right to close this browser window.",
             target: ".window__btn--close"
         },
         {
@@ -33,7 +34,7 @@ const BrowserTour = (() => {
             id: "site-nav",
             message:
                 "Use the navigation links at the top of the site to jump between <strong>Home</strong>, <strong>About</strong>, <strong>Skills</strong>, <strong>Projects</strong>, and <strong>Contact</strong>.",
-            target: ".portfolio-site__top-nav"
+            target: ".portfolio-site__top-header"
         },
         {
             id: "help",
@@ -45,6 +46,8 @@ const BrowserTour = (() => {
 
     let browserWindow = null;
     let tourRoot = null;
+    let scrim = null;
+    let shades = {};
     let ring = null;
     let popover = null;
     let messageEl = null;
@@ -52,10 +55,12 @@ const BrowserTour = (() => {
     let nextBtn = null;
     let skipBtn = null;
     let helpBtn = null;
+    let browserContent = null;
     let stepIndex = 0;
     let active = false;
     let scheduledOpen = null;
     let firstOpenChecked = false;
+    let scrollLocked = false;
 
     function hasCompletedTour() {
         try {
@@ -81,80 +86,333 @@ const BrowserTour = (() => {
         );
     }
 
+    function isCompactTour() {
+        if (!browserWindow) return window.innerWidth <= COMPACT_BREAKPOINT;
+        return browserWindow.offsetWidth <= COMPACT_BREAKPOINT || window.innerWidth <= COMPACT_BREAKPOINT;
+    }
+
     function queryTarget(selector) {
         if (!selector || !browserWindow) return null;
         return browserWindow.querySelector(selector);
     }
 
-    function hideRing() {
-        if (!ring) return;
-        ring.classList.add("browser-tour__ring--hidden");
-        ring.style.width = "0";
-        ring.style.height = "0";
+    function lockBrowserScroll() {
+        if (!browserContent || scrollLocked) return;
+        browserContent.classList.add("browser__content--scroll-locked");
+        scrollLocked = true;
+    }
+
+    function unlockBrowserScroll() {
+        if (!browserContent || !scrollLocked) return;
+        browserContent.classList.remove("browser__content--scroll-locked");
+        scrollLocked = false;
+    }
+
+    function hideHighlight() {
+        if (ring) {
+            ring.classList.add("browser-tour__ring--hidden");
+            ring.style.width = "0";
+            ring.style.height = "0";
+        }
+        if (scrim) {
+            scrim.classList.add("browser-tour__scrim--hidden");
+        }
+        if (helpBtn) {
+            helpBtn.classList.remove("browser-tour__help--spotlight");
+        }
+    }
+
+    function ensureTargetVisible(target) {
+        if (!target || !browserWindow) return;
+
+        const content = browserWindow.querySelector("#browser-content");
+        if (!content) return;
+
+        if (target.closest("#browser-content")) {
+            const contentRect = content.getBoundingClientRect();
+            const targetRect = target.getBoundingClientRect();
+            const margin = 16;
+
+            if (targetRect.top < contentRect.top + margin) {
+                content.scrollTop += targetRect.top - contentRect.top - margin;
+            } else if (targetRect.bottom > contentRect.bottom - margin) {
+                content.scrollTop += targetRect.bottom - contentRect.bottom + margin;
+            }
+        }
+    }
+
+    function getTargetRect(target) {
+        const winRect = browserWindow.getBoundingClientRect();
+        const rect = target.getBoundingClientRect();
+        return {
+            top: rect.top - winRect.top,
+            left: rect.left - winRect.left,
+            right: rect.right - winRect.left,
+            bottom: rect.bottom - winRect.top,
+            width: rect.width,
+            height: rect.height,
+            centerX: (rect.left + rect.right) / 2 - winRect.left,
+            centerY: (rect.top + rect.bottom) / 2 - winRect.top
+        };
+    }
+
+    function resetPopoverStyles() {
+        if (!popover) return;
+        popover.style.left = "";
+        popover.style.right = "";
+        popover.style.top = "";
+        popover.style.bottom = "";
+        popover.style.width = "";
+        popover.style.transform = "";
+    }
+
+    function measurePopover(winWidth, hasTarget) {
+        const margin = isCompactTour() ? 10 : 12;
+        const maxW = Math.max(180, winWidth - margin * 2);
+
+        if (isCompactTour() && !hasTarget) {
+            popover.style.maxWidth = `${maxW}px`;
+            popover.style.width = `calc(100% - ${margin * 2}px)`;
+        } else {
+            popover.style.maxWidth = `${Math.min(300, maxW)}px`;
+            popover.style.width = "";
+        }
+
+        return {
+            width: popover.offsetWidth,
+            height: popover.offsetHeight
+        };
+    }
+
+    function rectsOverlap(a, b, gap) {
+        return !(
+            a.left + a.width + gap <= b.left ||
+            b.left + b.width + gap <= a.left ||
+            a.top + a.height + gap <= b.top ||
+            b.top + b.height + gap <= a.top
+        );
+    }
+
+    function fitsInWindow(pos, popW, popH, winW, winH, margin) {
+        return (
+            pos.left >= margin &&
+            pos.top >= margin &&
+            pos.left + popW <= winW - margin &&
+            pos.top + popH <= winH - margin
+        );
+    }
+
+    function buildPlacementOrder(rel, winH, stepId) {
+        if (stepId === "help") {
+            return ["above", "left", "right"];
+        }
+
+        const relativeY = rel.centerY / winH;
+        if (relativeY > 0.6) {
+            return ["above", "left", "right", "below"];
+        }
+        if (relativeY < 0.35) {
+            return ["below", "right", "left", "above"];
+        }
+        return ["below", "above", "right", "left"];
+    }
+
+    function computePlacement(placement, rel, popW, popH, gap, winW, winH, margin) {
+        let left;
+        let top;
+
+        switch (placement) {
+            case "above":
+                top = rel.top - popH - gap;
+                left = rel.centerX - popW / 2;
+                break;
+            case "below":
+                top = rel.bottom + gap;
+                left = rel.centerX - popW / 2;
+                break;
+            case "left":
+                left = rel.left - popW - gap;
+                top = rel.centerY - popH / 2;
+                break;
+            case "right":
+                left = rel.right + gap;
+                top = rel.centerY - popH / 2;
+                break;
+            default:
+                return null;
+        }
+
+        left = Math.max(margin, Math.min(left, winW - popW - margin));
+        top = Math.max(margin, Math.min(top, winH - popH - margin));
+        return { left, top, width: popW, height: popH };
+    }
+
+    function centerPopover(winW, winH, popW, popH, margin) {
+        const left = Math.max(margin, (winW - popW) / 2);
+        const top = Math.max(margin, (winH - popH) / 2);
+        popover.style.left = `${left}px`;
+        popover.style.top = `${top}px`;
+        popover.style.right = "auto";
+        popover.style.bottom = "auto";
+        popover.style.transform = "none";
+        return { left, top, width: popW, height: popH };
+    }
+
+    function applyPopoverPosition(pos) {
+        popover.style.left = `${pos.left}px`;
+        popover.style.top = `${pos.top}px`;
+        popover.style.right = "auto";
+        popover.style.bottom = "auto";
+        popover.style.transform = "none";
+    }
+
+    function positionPopover(target, stepId) {
+        if (!popover || !browserWindow) return null;
+
+        const winRect = browserWindow.getBoundingClientRect();
+        const winW = winRect.width;
+        const winH = winRect.height;
+        const margin = isCompactTour() ? 10 : 12;
+        const gap = isCompactTour() ? 10 : 12;
+
+        resetPopoverStyles();
+        const { width: popW, height: popH } = measurePopover(winW, Boolean(target));
+
+        if (!target) {
+            return centerPopover(winW, winH, popW, popH, margin);
+        }
+
+        if (stepId === "help" && isCompactTour()) {
+            const top = Math.max(margin, Math.min(winH * 0.22, winH - popH - relBottomReserve(winH)));
+            const left = Math.max(margin, (winW - popW) / 2);
+            applyPopoverPosition({ left, top, width: popW, height: popH });
+            return { left, top, width: popW, height: popH };
+        }
+
+        const rel = getTargetRect(target);
+        const targetBox = { left: rel.left, top: rel.top, width: rel.width, height: rel.height };
+        const placements = buildPlacementOrder(rel, winH, stepId);
+        let best = null;
+        let bestScore = Infinity;
+
+        for (const placement of placements) {
+            const pos = computePlacement(placement, rel, popW, popH, gap, winW, winH, margin);
+            if (!pos) continue;
+
+            const overlaps = rectsOverlap(pos, targetBox, gap);
+            const fits = fitsInWindow(pos, popW, popH, winW, winH, margin);
+            if (overlaps || !fits) continue;
+
+            const dist = Math.hypot(pos.left + popW / 2 - rel.centerX, pos.top + popH / 2 - rel.centerY);
+            if (dist < bestScore) {
+                bestScore = dist;
+                best = pos;
+            }
+        }
+
+        if (best) {
+            applyPopoverPosition(best);
+            return best;
+        }
+
+        // Fallback: centre so the message is always readable.
+        return centerPopover(winW, winH, popW, popH, margin);
+    }
+
+    function relBottomReserve(winH) {
+        return Math.max(72, winH * 0.14);
     }
 
     function positionRing(target) {
         if (!ring || !browserWindow) return;
 
         if (!target) {
-            hideRing();
+            ring.classList.add("browser-tour__ring--hidden");
             return;
         }
 
-        const winRect = browserWindow.getBoundingClientRect();
-        const rect = target.getBoundingClientRect();
-        const pad = 6;
+        const rel = getTargetRect(target);
+        const pad = isCompactTour() ? 4 : 6;
 
-        ring.style.top = `${rect.top - winRect.top - pad}px`;
-        ring.style.left = `${rect.left - winRect.left - pad}px`;
-        ring.style.width = `${rect.width + pad * 2}px`;
-        ring.style.height = `${rect.height + pad * 2}px`;
+        ring.style.top = `${rel.top - pad}px`;
+        ring.style.left = `${rel.left - pad}px`;
+        ring.style.width = `${rel.width + pad * 2}px`;
+        ring.style.height = `${rel.height + pad * 2}px`;
         ring.classList.remove("browser-tour__ring--hidden");
     }
 
-    function positionPopover(target) {
-        if (!popover || !browserWindow) return;
+    function positionScrim(target) {
+        if (!scrim || !browserWindow) return;
 
         const winRect = browserWindow.getBoundingClientRect();
-        const margin = 12;
-        const popRect = popover.getBoundingClientRect();
-        const maxWidth = Math.max(180, winRect.width - margin * 2);
-
-        popover.style.maxWidth = `${maxWidth}px`;
+        const width = winRect.width;
+        const height = winRect.height;
 
         if (!target) {
-            popover.style.left = "50%";
-            popover.style.top = "50%";
-            popover.style.right = "auto";
-            popover.style.bottom = "auto";
-            popover.style.transform = "translate(-50%, -50%)";
+            Object.values(shades).forEach((shade) => {
+                shade.style.top = "0";
+                shade.style.left = "0";
+                shade.style.width = "100%";
+                shade.style.height = "100%";
+            });
+            scrim.classList.remove("browser-tour__scrim--hidden");
             return;
         }
 
-        const rect = target.getBoundingClientRect();
-        let left = rect.left - winRect.left;
-        let top = rect.bottom - winRect.top + margin;
+        const rel = getTargetRect(target);
+        const pad = isCompactTour() ? 4 : 6;
+        const holeTop = Math.max(0, rel.top - pad);
+        const holeLeft = Math.max(0, rel.left - pad);
+        const holeRight = Math.min(width, rel.right + pad);
+        const holeBottom = Math.min(height, rel.bottom + pad);
+        const holeHeight = Math.max(0, holeBottom - holeTop);
 
-        if (top + popRect.height > winRect.height - margin) {
-            top = rect.top - winRect.top - popRect.height - margin;
+        shades.top.style.top = "0";
+        shades.top.style.left = "0";
+        shades.top.style.width = `${width}px`;
+        shades.top.style.height = `${holeTop}px`;
+
+        shades.left.style.top = `${holeTop}px`;
+        shades.left.style.left = "0";
+        shades.left.style.width = `${holeLeft}px`;
+        shades.left.style.height = `${holeHeight}px`;
+
+        shades.right.style.top = `${holeTop}px`;
+        shades.right.style.left = `${holeRight}px`;
+        shades.right.style.width = `${Math.max(0, width - holeRight)}px`;
+        shades.right.style.height = `${holeHeight}px`;
+
+        shades.bottom.style.top = `${holeBottom}px`;
+        shades.bottom.style.left = "0";
+        shades.bottom.style.width = `${width}px`;
+        shades.bottom.style.height = `${Math.max(0, height - holeBottom)}px`;
+
+        scrim.classList.remove("browser-tour__scrim--hidden");
+    }
+
+    function layoutStep(target, stepId) {
+        if (tourRoot) {
+            tourRoot.classList.toggle("browser-tour--welcome", stepId === "welcome");
+        }
+        if (helpBtn) {
+            helpBtn.classList.toggle("browser-tour__help--spotlight", stepId === "help");
         }
 
-        left = Math.max(margin, Math.min(left, winRect.width - popRect.width - margin));
-        top = Math.max(margin, Math.min(top, winRect.height - popRect.height - margin));
-
-        popover.style.left = `${left}px`;
-        popover.style.top = `${top}px`;
-        popover.style.right = "auto";
-        popover.style.bottom = "auto";
-        popover.style.transform = "none";
+        positionPopover(target, stepId);
+        positionRing(target);
+        positionScrim(target);
+        requestAnimationFrame(() => {
+            positionPopover(target, stepId);
+            positionRing(target);
+            positionScrim(target);
+        });
     }
 
     function refreshLayout() {
         if (!active) return;
         const step = steps[stepIndex];
         const target = step ? queryTarget(step.target) : null;
-        positionRing(target);
-        positionPopover(target);
+        layoutStep(target, step?.id);
     }
 
     function renderStep(index) {
@@ -169,24 +427,24 @@ const BrowserTour = (() => {
             nextBtn.textContent = index < steps.length - 1 ? "Next" : "Done";
         }
 
-        const target = queryTarget(step.target);
+        let target = queryTarget(step.target);
 
         if (step.id === "site-nav") {
-            const content = browserWindow.querySelector("#browser-content");
-            if (content) content.scrollTop = 0;
+            if (browserContent) browserContent.scrollTop = 0;
+            ensureTargetVisible(target);
         }
 
-        positionRing(target);
-        requestAnimationFrame(() => positionPopover(target));
+        layoutStep(target, step.id);
     }
 
     function endTour(markComplete) {
         active = false;
+        unlockBrowserScroll();
         if (tourRoot) {
             tourRoot.classList.add("browser-tour--hidden");
             tourRoot.setAttribute("aria-hidden", "true");
         }
-        hideRing();
+        hideHighlight();
         if (markComplete) {
             markTourComplete();
         }
@@ -196,6 +454,7 @@ const BrowserTour = (() => {
         if (!tourRoot || !isBrowserVisible()) return;
 
         active = true;
+        lockBrowserScroll();
         tourRoot.classList.remove("browser-tour--hidden");
         tourRoot.setAttribute("aria-hidden", "false");
         renderStep(Math.max(0, Math.min(index, steps.length - 1)));
@@ -206,12 +465,13 @@ const BrowserTour = (() => {
         firstOpenChecked = true;
 
         if (scheduledOpen) clearTimeout(scheduledOpen);
+        const delay = isCompactTour() ? OPEN_DELAY_MS + 350 : OPEN_DELAY_MS;
         scheduledOpen = setTimeout(() => {
             scheduledOpen = null;
             if (!hasCompletedTour() && isBrowserVisible()) {
                 startTour(0);
             }
-        }, OPEN_DELAY_MS);
+        }, delay);
     }
 
     function watchBrowserVisibility() {
@@ -232,13 +492,22 @@ const BrowserTour = (() => {
     function init() {
         browserWindow = document.getElementById("window-browser");
         tourRoot = document.getElementById("browser-tour");
+        scrim = document.getElementById("browser-tour-scrim");
         ring = document.getElementById("browser-tour-ring");
         popover = document.getElementById("browser-tour-popover");
         messageEl = document.getElementById("browser-tour-message");
         stepEl = document.getElementById("browser-tour-step");
         helpBtn = document.getElementById("browser-tour-help");
+        browserContent = document.getElementById("browser-content");
 
-        if (!browserWindow || !tourRoot || !popover || !messageEl) return;
+        shades = {
+            top: document.getElementById("browser-tour-shade-top"),
+            left: document.getElementById("browser-tour-shade-left"),
+            right: document.getElementById("browser-tour-shade-right"),
+            bottom: document.getElementById("browser-tour-shade-bottom")
+        };
+
+        if (!browserWindow || !tourRoot || !popover || !messageEl || !scrim) return;
 
         nextBtn = tourRoot.querySelector(".browser-tour__btn--next");
         skipBtn = tourRoot.querySelector(".browser-tour__btn--skip");
@@ -270,6 +539,11 @@ const BrowserTour = (() => {
 
         const resizeObserver = new ResizeObserver(() => refreshLayout());
         resizeObserver.observe(browserWindow);
+        if (popover) resizeObserver.observe(popover);
+
+        if (browserContent) {
+            browserContent.addEventListener("scroll", refreshLayout, { passive: true });
+        }
 
         watchBrowserVisibility();
 
