@@ -2,7 +2,7 @@
 
 const BrowserTour = (() => {
     const STORAGE_KEY = "portfolio-browser-tour-done";
-    const OPEN_DELAY_MS = 500;
+    const OPEN_DELAY_MS = 600;
     const COMPACT_BREAKPOINT = 768;
 
     const steps = [
@@ -59,7 +59,6 @@ const BrowserTour = (() => {
     let stepIndex = 0;
     let active = false;
     let scheduledOpen = null;
-    let firstOpenChecked = false;
     let scrollLocked = false;
 
     function hasCompletedTour() {
@@ -156,32 +155,25 @@ const BrowserTour = (() => {
         };
     }
 
-    function resetPopoverStyles() {
+    function clearPopoverInlinePosition() {
         if (!popover) return;
         popover.style.left = "";
         popover.style.right = "";
         popover.style.top = "";
         popover.style.bottom = "";
         popover.style.width = "";
+        popover.style.maxWidth = "";
         popover.style.transform = "";
     }
 
-    function measurePopover(winWidth, hasTarget) {
-        const margin = isCompactTour() ? 10 : 12;
-        const maxW = Math.max(180, winWidth - margin * 2);
+    function setLayoutMode(stepId) {
+        if (!tourRoot) return;
 
-        if (isCompactTour() && !hasTarget) {
-            popover.style.maxWidth = `${maxW}px`;
-            popover.style.width = `calc(100% - ${margin * 2}px)`;
-        } else {
-            popover.style.maxWidth = `${Math.min(300, maxW)}px`;
-            popover.style.width = "";
-        }
-
-        return {
-            width: popover.offsetWidth,
-            height: popover.offsetHeight
-        };
+        const compact = isCompactTour();
+        tourRoot.classList.toggle("browser-tour--welcome", stepId === "welcome");
+        tourRoot.classList.toggle("browser-tour--mobile", compact);
+        tourRoot.classList.toggle("browser-tour--centered", compact && stepId !== "help");
+        tourRoot.classList.toggle("browser-tour--top", compact && stepId === "help");
     }
 
     function rectsOverlap(a, b, gap) {
@@ -202,11 +194,7 @@ const BrowserTour = (() => {
         );
     }
 
-    function buildPlacementOrder(rel, winH, stepId) {
-        if (stepId === "help") {
-            return ["above", "left", "right"];
-        }
-
+    function buildPlacementOrder(rel, winH) {
         const relativeY = rel.centerY / winH;
         if (relativeY > 0.6) {
             return ["above", "left", "right", "below"];
@@ -247,80 +235,42 @@ const BrowserTour = (() => {
         return { left, top, width: popW, height: popH };
     }
 
-    function centerPopover(winW, winH, popW, popH, margin) {
-        const left = Math.max(margin, (winW - popW) / 2);
-        const top = Math.max(margin, (winH - popH) / 2);
-        popover.style.left = `${left}px`;
-        popover.style.top = `${top}px`;
-        popover.style.right = "auto";
-        popover.style.bottom = "auto";
-        popover.style.transform = "none";
-        return { left, top, width: popW, height: popH };
-    }
-
-    function applyPopoverPosition(pos) {
-        popover.style.left = `${pos.left}px`;
-        popover.style.top = `${pos.top}px`;
-        popover.style.right = "auto";
-        popover.style.bottom = "auto";
+    function centerPopoverDesktop(winW, winH, popW, popH, margin) {
+        popover.style.left = `${Math.max(margin, (winW - popW) / 2)}px`;
+        popover.style.top = `${Math.max(margin, (winH - popH) / 2)}px`;
         popover.style.transform = "none";
     }
 
-    function positionPopover(target, stepId) {
-        if (!popover || !browserWindow) return null;
+    function positionPopoverDesktop(target, winW, winH, margin, gap) {
+        popover.style.maxWidth = `${Math.max(180, winW - margin * 2)}px`;
+        popover.style.width = "";
 
-        const winRect = browserWindow.getBoundingClientRect();
-        const winW = winRect.width;
-        const winH = winRect.height;
-        const margin = isCompactTour() ? 10 : 12;
-        const gap = isCompactTour() ? 10 : 12;
-
-        resetPopoverStyles();
-        const { width: popW, height: popH } = measurePopover(winW, Boolean(target));
+        const popW = popover.offsetWidth;
+        const popH = popover.offsetHeight;
 
         if (!target) {
-            return centerPopover(winW, winH, popW, popH, margin);
-        }
-
-        if (stepId === "help" && isCompactTour()) {
-            const top = Math.max(margin, Math.min(winH * 0.22, winH - popH - relBottomReserve(winH)));
-            const left = Math.max(margin, (winW - popW) / 2);
-            applyPopoverPosition({ left, top, width: popW, height: popH });
-            return { left, top, width: popW, height: popH };
+            centerPopoverDesktop(winW, winH, popW, popH, margin);
+            return;
         }
 
         const rel = getTargetRect(target);
         const targetBox = { left: rel.left, top: rel.top, width: rel.width, height: rel.height };
-        const placements = buildPlacementOrder(rel, winH, stepId);
-        let best = null;
-        let bestScore = Infinity;
+        const placements = buildPlacementOrder(rel, winH);
 
         for (const placement of placements) {
             const pos = computePlacement(placement, rel, popW, popH, gap, winW, winH, margin);
             if (!pos) continue;
 
-            const overlaps = rectsOverlap(pos, targetBox, gap);
-            const fits = fitsInWindow(pos, popW, popH, winW, winH, margin);
-            if (overlaps || !fits) continue;
+            if (rectsOverlap(pos, targetBox, gap)) continue;
+            if (!fitsInWindow(pos, popW, popH, winW, winH, margin)) continue;
 
-            const dist = Math.hypot(pos.left + popW / 2 - rel.centerX, pos.top + popH / 2 - rel.centerY);
-            if (dist < bestScore) {
-                bestScore = dist;
-                best = pos;
-            }
+            popover.style.left = `${pos.left}px`;
+            popover.style.top = `${pos.top}px`;
+            popover.style.transform = "none";
+            return;
         }
 
-        if (best) {
-            applyPopoverPosition(best);
-            return best;
-        }
-
-        // Fallback: centre so the message is always readable.
-        return centerPopover(winW, winH, popW, popH, margin);
-    }
-
-    function relBottomReserve(winH) {
-        return Math.max(72, winH * 0.14);
+        centerPopoverDesktop(winW, winH, popW, popH, margin);
     }
 
     function positionRing(target) {
@@ -391,18 +341,28 @@ const BrowserTour = (() => {
     }
 
     function layoutStep(target, stepId) {
-        if (tourRoot) {
-            tourRoot.classList.toggle("browser-tour--welcome", stepId === "welcome");
-        }
+        setLayoutMode(stepId);
+
         if (helpBtn) {
             helpBtn.classList.toggle("browser-tour__help--spotlight", stepId === "help");
         }
 
-        positionPopover(target, stepId);
+        clearPopoverInlinePosition();
+
+        if (!isCompactTour() && popover && browserWindow) {
+            const winRect = browserWindow.getBoundingClientRect();
+            const margin = 12;
+            positionPopoverDesktop(target, winRect.width, winRect.height, margin, 12);
+        }
+
         positionRing(target);
         positionScrim(target);
+
         requestAnimationFrame(() => {
-            positionPopover(target, stepId);
+            if (!isCompactTour() && popover && browserWindow) {
+                const winRect = browserWindow.getBoundingClientRect();
+                positionPopoverDesktop(target, winRect.width, winRect.height, 12, 12);
+            }
             positionRing(target);
             positionScrim(target);
         });
@@ -442,8 +402,15 @@ const BrowserTour = (() => {
         unlockBrowserScroll();
         if (tourRoot) {
             tourRoot.classList.add("browser-tour--hidden");
+            tourRoot.classList.remove(
+                "browser-tour--welcome",
+                "browser-tour--mobile",
+                "browser-tour--centered",
+                "browser-tour--top"
+            );
             tourRoot.setAttribute("aria-hidden", "true");
         }
+        clearPopoverInlinePosition();
         hideHighlight();
         if (markComplete) {
             markTourComplete();
@@ -460,33 +427,17 @@ const BrowserTour = (() => {
         renderStep(Math.max(0, Math.min(index, steps.length - 1)));
     }
 
-    function scheduleFirstOpenTour() {
-        if (firstOpenChecked || hasCompletedTour() || !isBrowserVisible()) return;
-        firstOpenChecked = true;
+    function handleBrowserOpen() {
+        if (hasCompletedTour() || active) return;
 
         if (scheduledOpen) clearTimeout(scheduledOpen);
-        const delay = isCompactTour() ? OPEN_DELAY_MS + 350 : OPEN_DELAY_MS;
+
         scheduledOpen = setTimeout(() => {
             scheduledOpen = null;
-            if (!hasCompletedTour() && isBrowserVisible()) {
+            if (!hasCompletedTour() && isBrowserVisible() && !active) {
                 startTour(0);
             }
-        }, delay);
-    }
-
-    function watchBrowserVisibility() {
-        if (!browserWindow) return;
-
-        const observer = new MutationObserver(() => {
-            if (isBrowserVisible()) {
-                scheduleFirstOpenTour();
-            }
-        });
-
-        observer.observe(browserWindow, {
-            attributes: true,
-            attributeFilter: ["class"]
-        });
+        }, OPEN_DELAY_MS);
     }
 
     function init() {
@@ -545,8 +496,6 @@ const BrowserTour = (() => {
             browserContent.addEventListener("scroll", refreshLayout, { passive: true });
         }
 
-        watchBrowserVisibility();
-
         document.addEventListener("keydown", (e) => {
             if (e.key === "Escape" && active) {
                 endTour(true);
@@ -554,5 +503,7 @@ const BrowserTour = (() => {
         });
     }
 
-    return { init, startTour };
+    return { init, startTour, handleBrowserOpen };
 })();
+
+window.BrowserTour = BrowserTour;

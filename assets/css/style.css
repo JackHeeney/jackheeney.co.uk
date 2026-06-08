@@ -5127,7 +5127,7 @@ body {
 }
 
 .browser-tour__help--spotlight {
-    z-index: 206;
+    z-index: 220;
     box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.55), 0 4px 14px rgba(15, 23, 42, 0.28);
 }
 
@@ -5201,6 +5201,32 @@ body {
     max-height: calc(100% - 24px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+}
+
+/* Mobile / tablet: always centre the tour card (never pin to bottom) */
+.browser-tour.browser-tour--mobile.browser-tour--centered .browser-tour__popover {
+    left: 50%;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 24px);
+    max-width: 320px;
+}
+
+/* Final step: card at top so the i button stays visible at the bottom */
+.browser-tour.browser-tour--mobile.browser-tour--top .browser-tour__popover {
+    left: 50%;
+    top: 12px;
+    right: auto;
+    bottom: auto;
+    transform: translateX(-50%);
+    width: calc(100% - 24px);
+    max-width: 320px;
 }
 
 @keyframes browser-tour-pop-in {

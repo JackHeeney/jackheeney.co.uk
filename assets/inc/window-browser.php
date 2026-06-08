@@ -1178,8 +1178,6 @@
             <div class="browser__external browser__external--hidden" id="browser-external">
                 <iframe class="browser__external-frame" id="browser-external-frame" title="External website preview" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-
-            <button type="button" class="browser-tour__help" id="browser-tour-help" aria-label="How to use this browser" title="How to use this browser">i</button>
         </div>
     </div>
 
@@ -1201,4 +1199,6 @@
             <p class="browser-tour__step-indicator" id="browser-tour-step"></p>
         </div>
     </div>
+
+    <button type="button" class="browser-tour__help" id="browser-tour-help" aria-label="How to use this browser" title="How to use this browser">i</button>
 </div>

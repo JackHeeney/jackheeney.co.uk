@@ -605,6 +605,10 @@ const Desktop = (() => {
         if (id === "invaders" && wasHidden && window.SpaceInvadersApp && typeof window.SpaceInvadersApp.handleWindowOpen === "function") {
             window.SpaceInvadersApp.handleWindowOpen();
         }
+
+        if (id === "browser" && wasHidden && window.BrowserTour && typeof window.BrowserTour.handleBrowserOpen === "function") {
+            window.BrowserTour.handleBrowserOpen();
+        }
     }
 
     function titleForApp(id) {
