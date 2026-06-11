@@ -22,6 +22,7 @@ function portfolio_core_skills(): array
         'Google Analytics, Ahrefs, Clarity & Performance Tracking',
         'Adobe Creative Suite',
         'Creative Campaign Design',
-        'AI-Assisted Workflows & Intelligent Automation',
+        'ChatGPT, Claude, Gemini & Practical LLM Workflows',
+        'Hosting, DNS & Domain Management (IONOS, Hostinger)',
     ];
 }
