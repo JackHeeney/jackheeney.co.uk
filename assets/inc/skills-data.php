@@ -11,6 +11,8 @@ function portfolio_core_skills(): array
         'Digital Product Management',
         'UX/UI & Conversion Optimisation',
         'Growth & Funnel Optimisation',
+        'Content Strategy',
+        'Digital Marketing',
         'Landing Pages & Website Strategy',
         'Email Marketing & CRM Systems',
         'CRM & Marketing Automation',

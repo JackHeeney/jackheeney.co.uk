@@ -1,4 +1,4 @@
-<div class="window window--hidden" id="window-browser" style="left:200px;top:100px;width:900px;height:600px;">
+<div class="window window--hidden" id="window-browser" style="left:max(0px,calc(50% - 640px));top:max(0px,calc((100vh - 46px - 750px) / 2));width:1280px;height:750px;">
     <div class="window__titlebar" data-app-drag>
         <div class="window__title">Browser</div>
         <div class="window__controls">
@@ -26,46 +26,78 @@
                 <div class="portfolio-site">
                     <!-- Header Navigation -->
                     <header class="portfolio-site__top-header">
-                        <div class="portfolio-site__logo">Jack Heeney</div>
-                        <nav class="portfolio-site__top-nav">
-                            <a href="#home" class="portfolio-site__top-nav-link portfolio-site__top-nav-link--active" data-page="home">Home</a>
-                            <a href="#about" class="portfolio-site__top-nav-link" data-page="about">About</a>
-                            <a href="#skills" class="portfolio-site__top-nav-link" data-page="skills">Skills</a>
-                            <a href="#projects" class="portfolio-site__top-nav-link" data-page="projects">Projects</a>
-                            <a href="#contact" class="portfolio-site__top-nav-link" data-page="contact">Contact</a>
-                        </nav>
+                        <div class="portfolio-site__container portfolio-site__top-header-inner">
+                            <div class="portfolio-site__logo">Jack Heeney</div>
+                            <nav class="portfolio-site__top-nav">
+                                <a href="#home" class="portfolio-site__top-nav-link portfolio-site__top-nav-link--active" data-page="home">Home</a>
+                                <a href="#about" class="portfolio-site__top-nav-link" data-page="about">About</a>
+                                <a href="#skills" class="portfolio-site__top-nav-link" data-page="skills">Skills</a>
+                                <a href="#projects" class="portfolio-site__top-nav-link" data-page="projects">Projects</a>
+                                <a href="#contact" class="portfolio-site__top-nav-link" data-page="contact">Contact</a>
+                            </nav>
+                        </div>
                     </header>
 
                     <!-- Home Page -->
                     <div class="portfolio-site__page portfolio-site__page--active" id="page-home">
                         <div class="portfolio-site__hero">
-                            <div class="portfolio-site__hero-content">
-                                <div class="portfolio-site__hero-text">
-                                    <div class="portfolio-site__hero-greeting">
-                                        Hi 👋 I'm <span class="portfolio-site__hero-name-highlight">Jack Heeney</span>.
-                                    </div>
-                                    <div class="portfolio-site__hero-title">
-                                        I build, launch and grow digital products.
-                                    </div>
-                                    <button class="portfolio-site__hero-button" data-page="contact">Contact</button>
-                                </div>
-                                <div class="portfolio-site__hero-image">
-                                    <div class="portfolio-site__hero-blob"></div>
-                                    <div class="portfolio-site__hero-photo">
-                                        <div class="portfolio-site__hero-photo-placeholder">👤</div>
-                                    </div>
-                                </div>
-                            </div>
                             <?php
                             if (!function_exists('portfolio_social_icon_svg')) {
                                 require_once __DIR__ . '/social-icons.php';
                             }
                             ?>
-                            <div class="portfolio-site__social">
-                                <a href="<?php echo htmlspecialchars($linkedinUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer" class="portfolio-site__social-link" aria-label="LinkedIn"><?php echo portfolio_social_icon_svg('linkedin'); ?></a>
-                                <a href="<?php echo htmlspecialchars($facebookUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer" class="portfolio-site__social-link" aria-label="Facebook"><?php echo portfolio_social_icon_svg('facebook'); ?></a>
-                                <a href="<?php echo htmlspecialchars($instagramUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer" class="portfolio-site__social-link" aria-label="Instagram"><?php echo portfolio_social_icon_svg('instagram'); ?></a>
-                                <a href="<?php echo htmlspecialchars($githubUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer" class="portfolio-site__social-link" aria-label="GitHub"><?php echo portfolio_social_icon_svg('github'); ?></a>
+                            <div class="portfolio-site__container portfolio-site__hero-inner">
+                            <div class="portfolio-site__hero-hub">
+                                <div class="portfolio-site__hero-quadrant portfolio-site__hero-quadrant--tl">
+                                    <div class="portfolio-site__hero-greeting">
+                                        Hi 👋 I'm <span class="portfolio-site__hero-name-highlight">Jack Heeney</span>.
+                                    </div>
+                                    <div class="portfolio-site__hero-title">Digital Product &amp; Content Strategy</div>
+                                    <p class="portfolio-site__hero-tagline">I design, build and scale digital products that improve customer experience, solve business problems and drive measurable growth.</p>
+                                </div>
+
+                                <div class="portfolio-site__hero-center">
+                                    <div class="portfolio-site__hero-image">
+                                        <div class="portfolio-site__hero-blob"></div>
+                                        <div class="portfolio-site__hero-photo">
+                                            <div class="portfolio-site__hero-photo-placeholder">👤</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio-site__hero-quadrant portfolio-site__hero-quadrant--tr">
+                                    <div class="portfolio-site__hero-exp">
+                                        <span class="portfolio-site__hero-exp-value">8+</span>
+                                        <span class="portfolio-site__hero-exp-label">years' experience</span>
+                                    </div>
+                                    <div class="portfolio-site__hero-tags" aria-label="Focus areas">
+                                        <span class="portfolio-site__hero-tag">Product</span>
+                                        <span class="portfolio-site__hero-tag">UX</span>
+                                        <span class="portfolio-site__hero-tag">Growth</span>
+                                        <span class="portfolio-site__hero-tag">AI</span>
+                                        <span class="portfolio-site__hero-tag">Full-Stack Development</span>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio-site__hero-quadrant portfolio-site__hero-quadrant--bl">
+                                    <span class="portfolio-site__hero-social-label">Socials</span>
+                                    <div class="portfolio-site__social" aria-label="Social links">
+                                        <a href="<?php echo htmlspecialchars($linkedinUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer" class="portfolio-site__social-link" aria-label="LinkedIn"><?php echo portfolio_social_icon_svg('linkedin'); ?></a>
+                                        <a href="<?php echo htmlspecialchars($facebookUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer" class="portfolio-site__social-link" aria-label="Facebook"><?php echo portfolio_social_icon_svg('facebook'); ?></a>
+                                        <a href="<?php echo htmlspecialchars($instagramUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer" class="portfolio-site__social-link" aria-label="Instagram"><?php echo portfolio_social_icon_svg('instagram'); ?></a>
+                                        <a href="<?php echo htmlspecialchars($githubUrl, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer" class="portfolio-site__social-link" aria-label="GitHub"><?php echo portfolio_social_icon_svg('github'); ?></a>
+                                    </div>
+                                </div>
+
+                                <div class="portfolio-site__hero-quadrant portfolio-site__hero-quadrant--br">
+                                    <div class="portfolio-site__hero-actions">
+                                        <button type="button" class="portfolio-site__hero-button" data-page="projects">View Projects</button>
+                                        <?php if (!empty($cvDocument)) : ?>
+                                            <a href="<?php echo htmlspecialchars($cvDocument['url'], ENT_QUOTES, 'UTF-8'); ?>" class="portfolio-site__hero-button portfolio-site__hero-button--secondary" download="<?php echo htmlspecialchars($cvDocument['filename'], ENT_QUOTES, 'UTF-8'); ?>">Download CV</a>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>

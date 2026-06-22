@@ -460,12 +460,45 @@ const Desktop = (() => {
         }
     }
 
-    function fitBrowserWindow(win) {
+    const BROWSER_DEFAULT_WIDTH = 1280;
+    const BROWSER_DEFAULT_HEIGHT = 750;
+
+    function centreBrowserWindow(win) {
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        const taskbarHeight = getTaskbarHeight();
+        const maxWidth = viewportWidth - 40;
+        const maxHeight = viewportHeight - taskbarHeight - 40;
+
+        const width = Math.min(BROWSER_DEFAULT_WIDTH, maxWidth);
+        const height = Math.min(BROWSER_DEFAULT_HEIGHT, maxHeight);
+
+        win.style.width = `${width}px`;
+        win.style.height = `${height}px`;
+        win.style.left = `${Math.max(0, Math.round((viewportWidth - width) / 2))}px`;
+        win.style.top = `${Math.max(0, Math.round((viewportHeight - taskbarHeight - height) / 2))}px`;
+    }
+
+    function fitBrowserWindow(win, { resetDefault = false } = {}) {
         if (!win) return;
 
         const btnMax = win.querySelector(".window__btn--max");
-        if (!win.classList.contains("window--maximised") && btnMax) {
+
+        if (isMobileViewport()) {
+            if (!win.classList.contains("window--maximised") && btnMax) {
+                btnMax.click();
+            }
+            return;
+        }
+
+        if (win.classList.contains("window--maximised") && btnMax) {
             btnMax.click();
+        }
+
+        if (resetDefault) {
+            centreBrowserWindow(win);
+        } else {
+            constrainWindowToViewport(win);
         }
     }
 
@@ -537,7 +570,7 @@ const Desktop = (() => {
         if (id === "game" || id === "invaders") {
             fitGameWindow(win);
         } else if (id === "browser") {
-            fitBrowserWindow(win);
+            fitBrowserWindow(win, { resetDefault: wasHidden });
         } else {
             constrainWindowToViewport(win);
         }
@@ -1008,7 +1041,11 @@ const Browser = (() => {
             const content = document.getElementById('browser-content');
             if (content) {
                 content.scrollTop = 0;
-                content.classList.remove('browser__content--scroll-locked');
+                if (pageName === 'home') {
+                    content.classList.add('browser__content--scroll-locked');
+                } else {
+                    content.classList.remove('browser__content--scroll-locked');
+                }
                 delete content.dataset.scrollTop;
             }
 
