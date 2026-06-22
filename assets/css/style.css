@@ -1340,6 +1340,13 @@ body {
     font-size: 14px;
     line-height: 1.4;
     color: #111827;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skills-core-list li:hover {
+    transform: translateY(-10px);
+    border-color: #3b82f6;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
 }
 
 .skills-core-list li::before {
@@ -2866,6 +2873,13 @@ body {
     font-weight: 500;
     color: #212529;
     line-height: 1.4;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolio-site__core-skill:hover {
+    transform: translateY(-10px);
+    border-color: #3b82f6;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.12);
 }
 
 .portfolio-site__core-skill::before {
