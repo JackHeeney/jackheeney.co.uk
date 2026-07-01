@@ -19,15 +19,17 @@
                 <img src="assets/img/loading/snake-loading-image.jpeg" alt="Snake Game" />
             </div>
         </div>
-        <div class="snake__game-content" id="snake-game-content" style="display: none;">
+        <div class="snake__game-content" id="snake-game-content" style="display: none;" tabindex="0">
             <div class="snake__header">
                 <div>Score: <span id="snake-score">0</span></div>
                 <button class="snake__reset" id="snake-reset">⟳ Reset</button>
             </div>
-            <div class="snake__board" id="snake-board"></div>
+            <div class="snake__board-wrap">
+                <canvas id="snake-board" class="snake__board" aria-label="Snake game board"></canvas>
+            </div>
             <div class="snake__info" id="snake-info">
-                <div>Use arrow keys to move</div>
-                <div class="snake__sub">Don't hit the walls or yourself!</div>
+                <div class="snake__info-main">Use arrow keys to move</div>
+                <div class="snake__info-sub">Don't hit the walls or yourself!</div>
             </div>
             <div class="snake__mobile-controls" id="snake-mobile-controls">
                 <div class="snake__controls-row">

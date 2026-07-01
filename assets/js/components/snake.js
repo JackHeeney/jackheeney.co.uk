@@ -1,240 +1,215 @@
 /* ------------------------------ Snake ------------------------------ */
 
 const SnakeGame = (() => {
-    let gridSize = 20;
-    let boardEl, scoreEl, infoEl, resetBtn, gameWindow, loadingEl, gameContentEl, mobileControlsEl;
-    let cells = [];
-    let snake = [[5, 5]];
+    const GRID_SIZE = 20;
+    const STEP_MS = 150;
+    const MIN_CANVAS_SIZE = 120;
+    const MAX_INIT_RETRIES = 12;
+    const COLORS = {
+        board: "#020617",
+        head: "#4ade80",
+        body: "#16a34a",
+        food: "#ef4444"
+    };
+
+    let canvas, ctx, boardWrapEl, scoreEl, infoEl, infoMainEl, infoSubEl, resetBtn;
+    let gameWindow, loadingEl, gameContentEl, mobileControlsEl;
+    let snake = [[10, 10]];
     let direction = "RIGHT";
-    let food = [10, 10];
+    let queuedDirection = "RIGHT";
+    let food = [5, 5];
     let score = 0;
     let gameOver = false;
+    let isPlaying = false;
     let timer = null;
     let isLoading = false;
-    let isFullScreen = false;
+    let lastInfoState = "";
+    let lastCanvasSize = 0;
+    let openDebounceTimer = null;
 
     function isMobile() {
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
-            (window.innerWidth <= 768);
+            window.innerWidth <= 768;
     }
 
-    function showLoadingAnimation() {
-        if (isLoading) return;
-        isLoading = true;
+    function isSnakeWindowActive() {
+        if (!gameWindow || gameWindow.classList.contains("window--hidden")) return false;
 
-        const loadingProgress = document.getElementById("snake-loading-progress");
-        const loadingContent = document.getElementById("snake-loading-content");
-        const loadingImage = document.getElementById("snake-loading-image");
-        if (!loadingProgress || !loadingEl || !gameContentEl || !loadingContent || !loadingImage) return;
+        const snakeZ = parseInt(gameWindow.style.zIndex, 10) || 0;
+        let maxZ = 0;
 
-        // Reset progress bar and show loading content
-        loadingProgress.style.width = "0%";
-        loadingContent.style.display = "block";
-        loadingImage.style.display = "none";
+        document.querySelectorAll(".window:not(.window--hidden)").forEach((win) => {
+            const z = parseInt(win.style.zIndex, 10) || 0;
+            if (z > maxZ) maxZ = z;
+        });
 
-        loadingEl.style.display = "flex";
-        gameContentEl.style.display = "none";
-
-        let progress = 0;
-        const interval = setInterval(() => {
-            progress += Math.random() * 15 + 5;
-            if (progress >= 100) {
-                progress = 100;
-                clearInterval(interval);
-                // Hide progress bar content and show image
-                loadingContent.style.display = "none";
-                loadingImage.style.display = "flex";
-
-                // Show image briefly (1.5 seconds), then show game
-                setTimeout(() => {
-                    if (loadingEl && gameContentEl) {
-                        loadingEl.style.display = "none";
-                        gameContentEl.style.display = "block";
-
-                        // Recalculate grid size after game content is shown
-                        setTimeout(() => {
-                            if (boardEl) {
-                                // Force a reflow to ensure dimensions are updated
-                                boardEl.offsetHeight;
-                                gridSize = calculateGridSize();
-                                initBoard();
-                                updateBoard();
-                            }
-                        }, 100);
-                    }
-                    isLoading = false;
-                }, 1500);
-            }
-            if (loadingProgress) {
-                loadingProgress.style.width = `${progress}%`;
-            }
-        }, 100);
+        return snakeZ >= maxZ;
     }
 
-    function goFullScreen() {
-        if (isFullScreen) return;
-
-        gameWindow = document.getElementById("window-game");
-        if (!gameWindow) return;
-
-        // Store original state
-        const originalState = {
-            left: gameWindow.style.left,
-            top: gameWindow.style.top,
-            width: gameWindow.style.width,
-            height: gameWindow.style.height
-        };
-        gameWindow.dataset.originalState = JSON.stringify(originalState);
-
-        // Maximize to full screen
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-        const taskbarHeight = 46;
-
-        // Set full screen dimensions
-        gameWindow.style.left = "0px";
-        gameWindow.style.top = "0px";
-        gameWindow.style.width = `${viewportWidth}px`;
-        gameWindow.style.height = `${viewportHeight - taskbarHeight}px`;
-        gameWindow.classList.add("window--maximised");
-
-        // Force a reflow to ensure styles are applied
-        gameWindow.offsetHeight;
-
-        // Recalculate grid after fullscreen
-        setTimeout(() => {
-            if (boardEl) {
-                boardEl.offsetHeight;
-                gridSize = calculateGridSize();
-                initBoard();
-                updateBoard();
-            }
-        }, 100);
-
-        isFullScreen = true;
+    function isGameContentVisible() {
+        return gameContentEl && getComputedStyle(gameContentEl).display !== "none";
     }
 
-    function calculateGridSize() {
-        if (!boardEl) return 20;
+    function updateMobileControlsVisibility() {
+        const body = gameWindow?.querySelector(".window__body.snake");
+        if (!body) return;
 
-        // Get the actual board dimensions (including padding)
-        const boardRect = boardEl.getBoundingClientRect();
-        const padding = 20; // Padding from CSS (10px on each side)
-        const gap = 1; // Gap between cells from CSS
-        const minCellSize = 8; // Minimum cell size for very small windows
-        const maxCellSize = 20; // Maximum cell size for very large windows
-
-        // Calculate available space
-        const availableWidth = boardRect.width - padding;
-        const availableHeight = boardRect.height - padding;
-
-        if (availableWidth <= 0 || availableHeight <= 0) return 20;
-
-        // Calculate how many cells can fit based on minimum cell size
-        const cols = Math.floor((availableWidth + gap) / (minCellSize + gap));
-        const rows = Math.floor((availableHeight + gap) / (minCellSize + gap));
-
-        // Use the smaller dimension to keep it square and ensure all cells fit
-        const calculatedSize = Math.min(cols, rows);
-
-        // Ensure minimum size and reasonable maximum
-        return Math.max(10, Math.min(calculatedSize, 100)) || 20;
+        body.classList.toggle("snake--touch", isMobile());
+        lastInfoState = "";
+        updateInfoText();
     }
 
-    function calculateCellSize() {
-        if (!boardEl) return 15;
+    function measureBoardSize() {
+        if (!boardWrapEl) return 0;
 
-        const boardRect = boardEl.getBoundingClientRect();
-        const padding = 20;
-        const gap = 1;
+        boardWrapEl.offsetHeight;
 
-        const availableWidth = boardRect.width - padding;
-        const availableHeight = boardRect.height - padding;
+        let width = boardWrapEl.clientWidth;
+        let height = boardWrapEl.clientHeight;
 
-        if (availableWidth <= 0 || availableHeight <= 0) return 15;
-
-        // Calculate cell size based on grid size and available space
-        // Formula: (availableSize + gap) / gridSize - gap
-        const cellWidth = (availableWidth + gap) / gridSize - gap;
-        const cellHeight = (availableHeight + gap) / gridSize - gap;
-
-        // Use the smaller dimension to ensure cells fit
-        return Math.max(8, Math.min(cellWidth, cellHeight, 20));
-    }
-
-    function initBoard() {
-        if (!boardEl) return;
-
-        // Calculate grid size based on actual board dimensions
-        gridSize = calculateGridSize();
-        const cellSize = calculateCellSize();
-
-        // Update CSS grid to match calculated size with flexible cell sizing
-        boardEl.style.gridTemplateColumns = `repeat(${gridSize}, ${cellSize}px)`;
-        boardEl.style.gridAutoRows = `${cellSize}px`;
-
-        boardEl.innerHTML = "";
-        cells = [];
-        for (let y = 0; y < gridSize; y++) {
-            for (let x = 0; x < gridSize; x++) {
-                const cell = document.createElement("div");
-                cell.className = "snake__cell";
-                cell.dataset.x = x;
-                cell.dataset.y = y;
-                boardEl.appendChild(cell);
-                cells.push(cell);
-            }
+        if (width <= 0 || height <= 0) {
+            const rect = boardWrapEl.getBoundingClientRect();
+            width = Math.max(width, rect.width);
+            height = Math.max(height, rect.height);
         }
 
-        // Reset snake and food to valid positions
-        const startPos = Math.floor(gridSize / 2);
-        snake = [[startPos, startPos]];
-        food = randomFood();
+        return Math.floor(Math.min(width, height));
     }
 
-    function cellAt(x, y) {
-        return cells.find(c => Number(c.dataset.x) === x && Number(c.dataset.y) === y);
+    function initCanvas() {
+        if (!canvas || !boardWrapEl) return false;
+
+        const size = measureBoardSize();
+        if (size < MIN_CANVAS_SIZE) return false;
+
+        if (size !== lastCanvasSize) {
+            lastCanvasSize = size;
+            canvas.width = size;
+            canvas.height = size;
+            canvas.style.width = `${size}px`;
+            canvas.style.height = `${size}px`;
+        }
+
+        draw();
+        return true;
+    }
+
+    function ensureCanvasReady(attempt, onReady) {
+        if (initCanvas()) {
+            onReady?.();
+            return;
+        }
+
+        if (attempt >= MAX_INIT_RETRIES) {
+            const fallback = Math.max(
+                MIN_CANVAS_SIZE,
+                Math.floor(Math.min(window.innerWidth, window.innerHeight) * 0.45)
+            );
+            lastCanvasSize = fallback;
+            canvas.width = fallback;
+            canvas.height = fallback;
+            canvas.style.width = `${fallback}px`;
+            canvas.style.height = `${fallback}px`;
+            draw();
+            onReady?.();
+            return;
+        }
+
+        requestAnimationFrame(() => ensureCanvasReady(attempt + 1, onReady));
+    }
+
+    function cellSize() {
+        if (!canvas || !canvas.width) return 0;
+        return canvas.width / GRID_SIZE;
+    }
+
+    function resetGameState() {
+        const startPos = Math.floor(GRID_SIZE / 2);
+        snake = [[startPos, startPos]];
+        direction = "RIGHT";
+        queuedDirection = "RIGHT";
+        food = randomFood();
+        score = 0;
+        gameOver = false;
+        lastInfoState = "";
     }
 
     function randomFood() {
-        let newFood;
+        let nextFood;
         do {
-            newFood = [
-                Math.floor(Math.random() * gridSize),
-                Math.floor(Math.random() * gridSize)
+            nextFood = [
+                Math.floor(Math.random() * GRID_SIZE),
+                Math.floor(Math.random() * GRID_SIZE)
             ];
-        } while (snake.some(([x, y]) => x === newFood[0] && y === newFood[1]));
-        return newFood;
+        } while (snake.some(([x, y]) => x === nextFood[0] && y === nextFood[1]));
+        return nextFood;
+    }
+
+    function drawCell(x, y, color, round = false) {
+        const size = cellSize();
+        if (size <= 0) return;
+
+        const gap = 1;
+        const inset = gap / 2;
+        const px = x * size + inset;
+        const py = y * size + inset;
+        const side = Math.max(1, size - gap);
+
+        ctx.fillStyle = color;
+        if (round) {
+            ctx.beginPath();
+            ctx.arc(px + side / 2, py + side / 2, side / 2, 0, Math.PI * 2);
+            ctx.fill();
+            return;
+        }
+
+        ctx.fillRect(px, py, side, side);
+    }
+
+    function draw() {
+        if (!ctx || !canvas || canvas.width <= 0) return;
+
+        ctx.fillStyle = COLORS.board;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        drawCell(food[0], food[1], COLORS.food, true);
+
+        snake.forEach(([x, y], index) => {
+            drawCell(x, y, index === 0 ? COLORS.head : COLORS.body);
+        });
+    }
+
+    function updateInfoText() {
+        if (!infoMainEl || !infoSubEl) return;
+
+        const infoState = `${gameOver ? "over" : "playing"}-${isMobile() ? "mobile" : "desktop"}`;
+        if (infoState === lastInfoState) return;
+        lastInfoState = infoState;
+
+        const controlHint = isMobile() ? "Use the buttons below" : "Use arrow keys";
+
+        infoMainEl.textContent = gameOver ? "Game Over!" : `${controlHint} to move`;
+        infoMainEl.classList.toggle("snake__info-main--danger", gameOver);
+        infoSubEl.textContent = gameOver ? `${controlHint} to play again` : "Don't hit the walls or yourself!";
     }
 
     function updateBoard() {
-        cells.forEach(c => c.className = "snake__cell");
+        if (scoreEl) scoreEl.textContent = score;
+        updateInfoText();
+        draw();
+    }
 
-        snake.forEach(([x, y], i) => {
-            const c = cellAt(x, y);
-            if (!c) return;
-            if (i === 0) c.classList.add("snake__cell--head");
-            else c.classList.add("snake__cell--body");
-        });
-
-        const foodCell = cellAt(food[0], food[1]);
-        if (foodCell) foodCell.classList.add("snake__cell--food");
-
-        scoreEl.textContent = score;
-
-        if (gameOver) {
-            const controlHint = isMobile() ? "Tap the buttons below" : "Use arrow keys";
-            infoEl.innerHTML = `<div class="snake__info-main snake__info-main--danger">Game Over!</div>
-                                <div class="snake__info-sub">${controlHint} to play again</div>`;
-        } else {
-            const controlHint = isMobile() ? "Use the buttons below" : "Use arrow keys";
-            infoEl.innerHTML = `<div class="snake__info-main">${controlHint} to move</div>
-                                <div class="snake__info-sub">Don't hit the walls or yourself!</div>`;
-        }
+    function commitDirection(newDirection) {
+        if (newDirection === "UP" && queuedDirection !== "DOWN") queuedDirection = "UP";
+        if (newDirection === "DOWN" && queuedDirection !== "UP") queuedDirection = "DOWN";
+        if (newDirection === "LEFT" && queuedDirection !== "RIGHT") queuedDirection = "LEFT";
+        if (newDirection === "RIGHT" && queuedDirection !== "LEFT") queuedDirection = "RIGHT";
     }
 
     function step() {
-        if (gameOver) return;
+        if (!isPlaying || gameOver) return;
+
+        direction = queuedDirection;
 
         const head = snake[0].slice();
         if (direction === "UP") head[1] -= 1;
@@ -242,14 +217,12 @@ const SnakeGame = (() => {
         if (direction === "LEFT") head[0] -= 1;
         if (direction === "RIGHT") head[0] += 1;
 
-        // wall
-        if (head[0] < 0 || head[0] >= gridSize || head[1] < 0 || head[1] >= gridSize) {
+        if (head[0] < 0 || head[0] >= GRID_SIZE || head[1] < 0 || head[1] >= GRID_SIZE) {
             gameOver = true;
             updateBoard();
             return;
         }
 
-        // self (check against body only, excluding current head)
         if (snake.slice(1).some(([x, y]) => x === head[0] && y === head[1])) {
             gameOver = true;
             updateBoard();
@@ -269,32 +242,81 @@ const SnakeGame = (() => {
     }
 
     function reset() {
-        // Recalculate grid size in case window was resized
-        if (boardEl) {
-            boardEl.offsetHeight; // Force reflow
-        }
-        gridSize = calculateGridSize();
-        const startPos = Math.floor(gridSize / 2);
-        snake = [[startPos, startPos]];
-        direction = "RIGHT";
-        food = randomFood();
-        score = 0;
-        gameOver = false;
-        initBoard(); // Reinitialize board to update grid
+        resetGameState();
+        lastCanvasSize = 0;
+        initCanvas();
         updateBoard();
     }
 
+    function startPlaying() {
+        ensureCanvasReady(0, () => {
+            isPlaying = true;
+            resetGameState();
+            updateBoard();
+            gameContentEl?.focus({ preventScroll: true });
+        });
+    }
+
     function changeDirection(newDirection) {
+        if (!isPlaying && !gameOver) return;
+
         if (gameOver) {
             reset();
+            commitDirection(newDirection);
             return;
         }
 
-        // Prevent reversing into itself
-        if (newDirection === "UP" && direction !== "DOWN") direction = "UP";
-        if (newDirection === "DOWN" && direction !== "UP") direction = "DOWN";
-        if (newDirection === "LEFT" && direction !== "RIGHT") direction = "LEFT";
-        if (newDirection === "RIGHT" && direction !== "LEFT") direction = "RIGHT";
+        commitDirection(newDirection);
+    }
+
+    function finishLoading() {
+        if (!loadingEl || !gameContentEl) return;
+
+        loadingEl.style.display = "none";
+        gameContentEl.style.display = "flex";
+        updateMobileControlsVisibility();
+
+        requestAnimationFrame(() => {
+            lastCanvasSize = 0;
+            startPlaying();
+        });
+    }
+
+    function showLoadingAnimation() {
+        if (isLoading) return;
+        isLoading = true;
+        isPlaying = false;
+
+        const loadingProgress = document.getElementById("snake-loading-progress");
+        const loadingContent = document.getElementById("snake-loading-content");
+        const loadingImage = document.getElementById("snake-loading-image");
+        if (!loadingProgress || !loadingEl || !gameContentEl || !loadingContent || !loadingImage) {
+            isLoading = false;
+            return;
+        }
+
+        loadingProgress.style.width = "0%";
+        loadingContent.style.display = "block";
+        loadingImage.style.display = "none";
+        loadingEl.style.display = "flex";
+        gameContentEl.style.display = "none";
+
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += Math.random() * 15 + 5;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+                loadingContent.style.display = "none";
+                loadingImage.style.display = "flex";
+
+                setTimeout(() => {
+                    finishLoading();
+                    isLoading = false;
+                }, 1500);
+            }
+            loadingProgress.style.width = `${progress}%`;
+        }, 100);
     }
 
     function handleWindowOpen() {
@@ -303,141 +325,128 @@ const SnakeGame = (() => {
         }
         if (!gameWindow || gameWindow.classList.contains("window--hidden")) return;
 
-        // Don't go full screen - keep window at reasonable size
-        // if (!isFullScreen) {
-        //     goFullScreen();
-        // }
+        if (window.DesktopApp && typeof window.DesktopApp.fitGameWindow === "function") {
+            window.DesktopApp.fitGameWindow(gameWindow);
+        }
 
-        // Give the window a moment to render before showing loading animation
-        setTimeout(() => {
+        updateMobileControlsVisibility();
+
+        clearTimeout(openDebounceTimer);
+        openDebounceTimer = setTimeout(() => {
             if (!isLoading) {
                 showLoadingAnimation();
             }
         }, 120);
     }
 
-    // Expose handleWindowOpen early so Desktop can use it
+    function handleArrowKey(e) {
+        if (!e.key.startsWith("Arrow")) return;
+        if (!isSnakeWindowActive()) return;
+
+        e.preventDefault();
+
+        if (e.key === "ArrowUp") changeDirection("UP");
+        if (e.key === "ArrowDown") changeDirection("DOWN");
+        if (e.key === "ArrowLeft") changeDirection("LEFT");
+        if (e.key === "ArrowRight") changeDirection("RIGHT");
+    }
+
     window.SnakeGameApp = window.SnakeGameApp || {};
     window.SnakeGameApp.handleWindowOpen = handleWindowOpen;
 
     function init() {
-        boardEl = document.getElementById("snake-board");
-        if (!boardEl) return;
+        canvas = document.getElementById("snake-board");
+        if (!canvas) return;
 
+        ctx = canvas.getContext("2d");
+        boardWrapEl = canvas.closest(".snake__board-wrap");
         scoreEl = document.getElementById("snake-score");
         infoEl = document.getElementById("snake-info");
+        infoMainEl = infoEl?.querySelector(".snake__info-main");
+        infoSubEl = infoEl?.querySelector(".snake__info-sub");
         resetBtn = document.getElementById("snake-reset");
         loadingEl = document.getElementById("snake-loading");
         gameContentEl = document.getElementById("snake-game-content");
         mobileControlsEl = document.getElementById("snake-mobile-controls");
         gameWindow = document.getElementById("window-game");
 
-        // Initialize loading screen - make sure it's visible when window opens
-        if (loadingEl) {
-            loadingEl.style.display = "flex";
-        }
-        if (gameContentEl) {
-            gameContentEl.style.display = "none";
-        }
+        if (loadingEl) loadingEl.style.display = "flex";
+        if (gameContentEl) gameContentEl.style.display = "none";
 
-        // Show/hide mobile controls based on device
-        if (mobileControlsEl) {
-            if (isMobile()) {
-                mobileControlsEl.style.display = "flex";
-            } else {
-                mobileControlsEl.style.display = "none";
-            }
-        }
+        updateMobileControlsVisibility();
 
-        // Watch for window opening/closing
         if (gameWindow) {
             const observer = new MutationObserver((mutations) => {
                 mutations.forEach((mutation) => {
-                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                        const isHidden = gameWindow.classList.contains("window--hidden");
-                        if (isHidden) {
-                            // Reset full screen state when window is closed
-                            isFullScreen = false;
+                    if (mutation.type === "attributes" && mutation.attributeName === "class") {
+                        if (gameWindow.classList.contains("window--hidden")) {
+                            isPlaying = false;
                         } else {
-                            // Window opened - handle it
                             handleWindowOpen();
                         }
                     }
                 });
             });
 
-            observer.observe(gameWindow, { attributes: true, attributeFilter: ['class'] });
+            observer.observe(gameWindow, { attributes: true, attributeFilter: ["class"] });
 
-            // Also check initial state
-            if (!gameWindow.classList.contains("window--hidden") && !isFullScreen) {
+            if (!gameWindow.classList.contains("window--hidden")) {
                 handleWindowOpen();
             }
+
+            gameWindow.addEventListener("mousedown", () => {
+                gameContentEl?.focus({ preventScroll: true });
+            });
         }
 
-        initBoard();
-        updateBoard();
+        document.addEventListener("keydown", handleArrowKey);
 
-        // Desktop keyboard controls
-        document.addEventListener("keydown", e => {
-            if (gameWindow && gameWindow.classList.contains("window--hidden")) return;
-            if (e.key === "ArrowUp") changeDirection("UP");
-            if (e.key === "ArrowDown") changeDirection("DOWN");
-            if (e.key === "ArrowLeft") changeDirection("LEFT");
-            if (e.key === "ArrowRight") changeDirection("RIGHT");
-        });
-
-        // Mobile touch controls
         if (mobileControlsEl) {
-            mobileControlsEl.querySelectorAll(".snake__control-btn").forEach(btn => {
+            mobileControlsEl.querySelectorAll(".snake__control-btn").forEach((btn) => {
+                const triggerDirectionChange = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    changeDirection(btn.dataset.direction);
+                };
+
+                btn.addEventListener("touchstart", triggerDirectionChange, { passive: false });
+                btn.addEventListener("pointerdown", triggerDirectionChange);
                 btn.addEventListener("click", (e) => {
                     e.preventDefault();
-                    const dir = btn.dataset.direction;
-                    changeDirection(dir);
-                });
-
-                // Prevent default touch behaviour
-                btn.addEventListener("touchstart", (e) => {
-                    e.preventDefault();
-                    const dir = btn.dataset.direction;
-                    changeDirection(dir);
                 });
             });
         }
 
-        resetBtn.addEventListener("click", reset);
+        resetBtn?.addEventListener("click", reset);
 
-        // Handle window resize to recalculate grid
         let resizeTimeout;
         const handleResize = () => {
-            if (!boardEl || gameWindow?.classList.contains("window--hidden")) return;
+            if (!canvas || gameWindow?.classList.contains("window--hidden")) return;
+            if (!isGameContentVisible()) return;
+
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                // Force a reflow to ensure dimensions are updated
-                if (boardEl) {
-                    boardEl.offsetHeight;
-                }
-                const newGridSize = calculateGridSize();
-                // Always reinitialize board on resize to update cell sizes
-                if (newGridSize !== gridSize || !gameOver) {
-                    gridSize = newGridSize;
-                    initBoard();
-                    updateBoard();
+                const prevSize = lastCanvasSize;
+                initCanvas();
+                if (lastCanvasSize !== prevSize && isPlaying) {
+                    draw();
                 }
             }, 150);
         };
 
         window.addEventListener("resize", handleResize);
 
-        // Also observe the game window for size changes (handles manual resizing)
-        if (gameWindow) {
-            const resizeObserver = new ResizeObserver(() => {
-                handleResize();
-            });
-            resizeObserver.observe(gameWindow);
-            resizeObserver.observe(boardEl);
+        if (boardWrapEl) {
+            const resizeObserver = new ResizeObserver(handleResize);
+            resizeObserver.observe(boardWrapEl);
         }
 
-        timer = setInterval(step, 150);
+        if (gameContentEl) {
+            const contentObserver = new ResizeObserver(handleResize);
+            contentObserver.observe(gameContentEl);
+        }
+
+        timer = setInterval(step, STEP_MS);
     }
 
     return { init };
