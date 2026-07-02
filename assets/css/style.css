@@ -2594,17 +2594,6 @@ a.portfolio-site__hero-button {
     margin: 0 0 8px;
 }
 
-.portfolio-site__media-pdf-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 12px;
-}
-
-.portfolio-site__media-subsection .portfolio-site__media-hint {
-    margin-bottom: 0;
-}
-
 .portfolio-site__case-section--showcase-bento .portfolio-site__media-figure--span-full {
     grid-column: 1 / -1;
 }

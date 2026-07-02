@@ -378,18 +378,7 @@
                                 </section>
                                 <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
                                     <h3>Visual Showcase</h3>
-                                    <p class="portfolio-site__media-hint">Open a MailerLite report below, or select any screenshot to view it full size.</p>
-
-                                    <div class="portfolio-site__media-subsection">
-                                        <h4>MailerLite custom reports</h4>
-                                        <p class="portfolio-site__media-hint">Exported analytics covering deliverability, engagement, and segment performance (Jul 2025 – Jul 2026).</p>
-                                        <div class="portfolio-site__media-pdf-list">
-                                            <button type="button" class="portfolio-site__case-nav-btn" data-pdf-url="assets/img/projects/webinar-marketing/mailerlite-report-delivery-rate.pdf" data-pdf-name="MailerLite delivery rate report">Delivery rate</button>
-                                            <button type="button" class="portfolio-site__case-nav-btn" data-pdf-url="assets/img/projects/webinar-marketing/mailerlite-report-spam-complaints.pdf" data-pdf-name="MailerLite spam complaints report">Spam complaints</button>
-                                            <button type="button" class="portfolio-site__case-nav-btn" data-pdf-url="assets/img/projects/webinar-marketing/mailerlite-report-ctor-by-segment.pdf" data-pdf-name="MailerLite CTOR by segment report">CTOR by segment</button>
-                                            <button type="button" class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-pdf-url="assets/img/projects/webinar-marketing/mailerlite-report-total-clicks-by-segment.pdf" data-pdf-name="MailerLite total clicks by segment report">Total clicks by segment</button>
-                                        </div>
-                                    </div>
+                                    <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
 
                                     <div class="portfolio-site__media-subsection">
                                         <h4>Email metrics — before optimisation</h4>
