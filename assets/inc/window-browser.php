@@ -185,10 +185,10 @@
                                     </article>
 
                                     <article class="portfolio-site__case-card">
-                                        <div class="portfolio-site__case-card-tag">Marketing Systems</div>
-                                        <h3 class="portfolio-site__case-card-title">Webinar Marketing System & Email Campaign Optimisation</h3>
-                                        <p class="portfolio-site__case-card-meta">Role: Marketing Strategy & Campaign Lead</p>
-                                        <p class="portfolio-site__case-card-desc">STAR: diagnosed mobile funnel drop-off and improved webinar registrations without extra ad spend.</p>
+                                        <div class="portfolio-site__case-card-tag">Product + UX</div>
+                                        <h3 class="portfolio-site__case-card-title">Customer Journey Optimisation</h3>
+                                        <p class="portfolio-site__case-card-meta">Product & UX Lead</p>
+                                        <p class="portfolio-site__case-card-desc">Behavioural analytics across email, landing pages, webinars and CRM to improve segmentation and funnel visibility.</p>
                                         <button class="portfolio-site__case-card-btn" data-page="case-study-webinar-marketing">Open case study</button>
                                     </article>
 
@@ -341,105 +341,405 @@
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
                                     <p class="portfolio-site__case-kicker">Case Study 2</p>
-                                    <h2 class="portfolio-site__case-title">Webinar Marketing System & Email Campaign Optimisation</h2>
-                                    <p class="portfolio-site__case-subtitle">Improving email marketing performance and webinar registrations without increasing ad spend.</p>
+                                    <h2 class="portfolio-site__case-title">Customer Journey Optimisation Through Behavioural Analytics</h2>
+                                    <p class="portfolio-site__case-subtitle">Improving how prospective learners moved from email engagement to webinar registration, attendance and sales follow-up.</p>
                                     <div class="portfolio-site__case-chips">
-                                        <span class="portfolio-site__case-chip">Role: Marketing Strategy & Campaign Lead</span>
-                                        <span class="portfolio-site__case-chip">Metrics: CTR, registrations, funnel drop-off</span>
-                                        <span class="portfolio-site__case-chip">Problem-solving: mobile conversion gap</span>
+                                        <span class="portfolio-site__case-chip">Product Thinking</span>
+                                        <span class="portfolio-site__case-chip">UX Research</span>
+                                        <span class="portfolio-site__case-chip">Email Segmentation</span>
+                                        <span class="portfolio-site__case-chip">Behavioural Analytics</span>
+                                        <span class="portfolio-site__case-chip">Funnel Optimisation</span>
+                                        <span class="portfolio-site__case-chip">MailerLite</span>
+                                        <span class="portfolio-site__case-chip">Zoom Webinars</span>
+                                        <span class="portfolio-site__case-chip">CRM Journey Mapping</span>
+                                        <span class="portfolio-site__case-chip">UTM Tracking</span>
                                     </div>
+                                    <p class="portfolio-site__case-intro">I approached this project as a customer journey optimisation challenge rather than a standalone email marketing task. The goal was to understand how prospective learners moved from first campaign touchpoint through landing pages, webinar registration, attendance and CRM follow-up, then use that insight to improve segmentation, messaging and user experience across the funnel.</p>
                                 </header>
-                                <div class="portfolio-site__case-star">
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
-                                        <p>Open rates across several webinar campaigns remained strong, but click-through and registration rates were inconsistent, limiting overall lead generation performance.</p>
+
+                                <div class="portfolio-site__case-body">
+                                    <section class="portfolio-site__case-section">
+                                        <h3>The Opportunity</h3>
+                                        <p>Campaign activity was generating engagement, but the full journey was difficult to understand. Email performance, webinar registration, attendance and CRM outcomes sat across separate tools, making it harder to see where users dropped off, which audiences were most engaged and which follow-up journeys were most relevant.</p>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Email engagement alone did not explain customer intent.</li>
+                                            <li>Different audiences needed more relevant messaging.</li>
+                                            <li>Webinar registrations and attendance needed to be understood as part of the wider journey.</li>
+                                            <li>Data existed across multiple systems rather than one connected reporting layer.</li>
+                                            <li>Better segmentation could improve the relevance of information being sent.</li>
+                                        </ul>
                                     </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
-                                        <p>I was responsible for identifying the cause of the conversion drop and improving webinar registrations without increasing advertising spend.</p>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Mapping the Customer Journey</h3>
+                                        <div class="portfolio-site__journey-flow">
+                                            <div class="portfolio-site__journey-row">
+                                                <article class="portfolio-site__journey-card">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">1</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Marketing Email</h4>
+                                                    <p class="portfolio-site__journey-question">Was the message relevant to this audience?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">2</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Landing Page</h4>
+                                                    <p class="portfolio-site__journey-question">Did the page answer the user's questions quickly?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6"/><path d="M22 11h-6"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">3</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Webinar Registration</h4>
+                                                    <p class="portfolio-site__journey-question">Was the next step obvious and low friction?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">4</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Reminder Journey</h4>
+                                                    <p class="portfolio-site__journey-question">Did the user receive useful information before attending?</p>
+                                                </article>
+                                            </div>
+                                            <div class="portfolio-site__journey-connector" aria-hidden="true">
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+                                            </div>
+                                            <div class="portfolio-site__journey-row portfolio-site__journey-row--snake">
+                                                <article class="portfolio-site__journey-card" style="--mobile-order: 11">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">8</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Customer Decision</h4>
+                                                    <p class="portfolio-site__journey-question">Was the user supported with the right next step?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h portfolio-site__journey-arrow--left" style="--mobile-order: 10" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card" style="--mobile-order: 9">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">7</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Sales Conversation</h4>
+                                                    <p class="portfolio-site__journey-question">Could the team understand previous intent?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h portfolio-site__journey-arrow--left" style="--mobile-order: 8" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card" style="--mobile-order: 7">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">6</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">CRM / FLG Follow-up</h4>
+                                                    <p class="portfolio-site__journey-question">Was the lead source and journey visible?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h portfolio-site__journey-arrow--left" style="--mobile-order: 6" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card" style="--mobile-order: 5">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">5</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Live Webinar</h4>
+                                                    <p class="portfolio-site__journey-question">Did the session build trust and explain the route clearly?</p>
+                                                </article>
+                                            </div>
+                                        </div>
                                     </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
-                                        <p>I analysed campaign performance using MailerLite, Google Analytics, UTM tracking, and Microsoft Clarity. I segmented audiences based on engagement behaviour and discovered that a large proportion of traffic was reaching the landing page on mobile devices but failing to progress.</p>
-                                        <p>I redesigned the landing page structure, improved mobile usability, simplified the call-to-action flow, and implemented A/B tests on email messaging and CTA placement. I also introduced behavioural segmentation for follow-up campaigns.</p>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Research &amp; Behavioural Insight</h3>
+                                        <p>I reviewed campaign performance, landing page behaviour, UTM-tagged journeys, webinar registration data and available CRM information to understand where engagement was strong and where the journey became unclear.</p>
+                                        <div class="portfolio-site__insight-grid">
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Opens vs intent</h4>
+                                                <p>Opens showed awareness, but not necessarily intent.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Clicks &amp; CTOR</h4>
+                                                <p>Clicks and CTOR were stronger indicators of message relevance.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Landing page friction</h4>
+                                                <p>Landing page behaviour helped expose friction, especially on mobile.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Webinar attendance</h4>
+                                                <p>Webinar attendance created a stronger signal of buying intent.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card portfolio-site__insight-card--span">
+                                                <h4>Attribution gaps</h4>
+                                                <p>CRM attribution was limited because email, webinar and sales data were not fully connected.</p>
+                                            </article>
+                                        </div>
                                     </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
-                                        <p>Registration conversion rates improved, engagement became more consistent across campaigns, and the business gained clearer visibility into where prospects were dropping out of the funnel. The improvements created a repeatable optimisation process that could be applied across future campaigns.</p>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Problems Identified</h3>
+                                        <div class="portfolio-site__problem-grid">
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Generic communication</h4>
+                                                <p>Large audiences could receive similar messages even when their interests, intent level or previous behaviour differed.</p>
+                                            </article>
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Journey drop-off</h4>
+                                                <p>Users could engage with an email but fail to progress through the landing page or registration journey.</p>
+                                            </article>
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Limited attribution visibility</h4>
+                                                <p>MailerLite, Zoom and CRM data were useful individually, but they did not provide a single end-to-end view of the customer journey.</p>
+                                            </article>
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Follow-up relevance</h4>
+                                                <p>Without clearer segmentation, follow-up communication risked being less relevant to where the user actually was in their decision-making process.</p>
+                                            </article>
+                                        </div>
                                     </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>What I Changed</h3>
+                                        <div class="portfolio-site__decision-list">
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Segmentation</h4>
+                                                <p>I grouped users based on engagement behaviour, campaign interaction and intent signals so future emails could be more relevant.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Messaging</h4>
+                                                <p>I adjusted email content and CTAs to focus on user questions, trust-building and clearer next steps rather than generic promotion.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Landing page experience</h4>
+                                                <p>I reviewed landing page behaviour and improved page structure, CTA placement, mobile usability and clarity around the webinar journey.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Tracking</h4>
+                                                <p>I used UTM-tagged links to understand which emails, CTAs and audience segments were driving visits and registrations.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Reporting</h4>
+                                                <p>I reviewed MailerLite, Zoom and CRM data to understand how users moved across the journey and where the business lacked a complete view.</p>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Measuring Customer Behaviour</h3>
+                                        <p>The visuals below are self-made, anonymised summaries designed for portfolio presentation. They represent the types of behavioural and campaign signals I monitored without exposing internal reports or confidential data.</p>
+                                        <div class="portfolio-site__metrics-grid">
+                                            <article class="portfolio-site__metric-card">
+                                                <span class="portfolio-site__metric-value">99%+</span>
+                                                <span class="portfolio-site__metric-label">delivery rate maintained</span>
+                                            </article>
+                                            <article class="portfolio-site__metric-card">
+                                                <span class="portfolio-site__metric-value">~20%</span>
+                                                <span class="portfolio-site__metric-label">typical CTOR across core campaign groups</span>
+                                            </article>
+                                            <article class="portfolio-site__metric-card">
+                                                <span class="portfolio-site__metric-value">&lt;0.05%</span>
+                                                <span class="portfolio-site__metric-label">typical spam complaint rate</span>
+                                            </article>
+                                            <article class="portfolio-site__metric-card">
+                                                <span class="portfolio-site__metric-value">280k+</span>
+                                                <span class="portfolio-site__metric-label">peak weekly delivered volume</span>
+                                            </article>
+                                        </div>
+                                        <?php /* Portfolio-safe representative data, not raw company export data. */ ?>
+                                        <div class="portfolio-site__chart-grid">
+                                            <figure class="portfolio-site__chart-card">
+                                                <figcaption>Delivered volume trend</figcaption>
+                                                <svg class="portfolio-site__chart" viewBox="0 0 320 140" role="img" aria-label="Anonymised bar chart showing delivered email volume trending upward with a peak above 280 thousand per week">
+                                                    <line x1="36" y1="110" x2="300" y2="110" stroke="#cbd5e1" stroke-width="1"/>
+                                                    <line x1="36" y1="20" x2="36" y2="110" stroke="#cbd5e1" stroke-width="1"/>
+                                                    <rect x="48" y="72" width="24" height="38" rx="3" fill="#93c5fd"/>
+                                                    <rect x="80" y="58" width="24" height="52" rx="3" fill="#93c5fd"/>
+                                                    <rect x="112" y="48" width="24" height="62" rx="3" fill="#93c5fd"/>
+                                                    <rect x="144" y="32" width="24" height="78" rx="3" fill="#2563eb"/>
+                                                    <rect x="176" y="38" width="24" height="72" rx="3" fill="#93c5fd"/>
+                                                    <rect x="208" y="28" width="24" height="82" rx="3" fill="#2563eb"/>
+                                                    <rect x="240" y="35" width="24" height="75" rx="3" fill="#93c5fd"/>
+                                                    <rect x="272" y="42" width="24" height="68" rx="3" fill="#93c5fd"/>
+                                                    <text x="60" y="126" font-size="9" fill="#64748b" text-anchor="middle">W1</text>
+                                                    <text x="92" y="126" font-size="9" fill="#64748b" text-anchor="middle">W2</text>
+                                                    <text x="124" y="126" font-size="9" fill="#64748b" text-anchor="middle">W3</text>
+                                                    <text x="156" y="126" font-size="9" fill="#64748b" text-anchor="middle">W4</text>
+                                                    <text x="188" y="126" font-size="9" fill="#64748b" text-anchor="middle">W5</text>
+                                                    <text x="220" y="126" font-size="9" fill="#64748b" text-anchor="middle">W6</text>
+                                                    <text x="252" y="126" font-size="9" fill="#64748b" text-anchor="middle">W7</text>
+                                                    <text x="284" y="126" font-size="9" fill="#64748b" text-anchor="middle">W8</text>
+                                                    <text x="8" y="34" font-size="8" fill="#64748b">280k</text>
+                                                    <text x="8" y="72" font-size="8" fill="#64748b">200k</text>
+                                                    <text x="8" y="110" font-size="8" fill="#64748b">120k</text>
+                                                </svg>
+                                            </figure>
+                                            <figure class="portfolio-site__chart-card">
+                                                <figcaption>Delivery rate stability</figcaption>
+                                                <svg class="portfolio-site__chart" viewBox="0 0 320 140" role="img" aria-label="Anonymised line chart showing delivery rate holding steady above 99 percent">
+                                                    <line x1="36" y1="110" x2="300" y2="110" stroke="#cbd5e1" stroke-width="1"/>
+                                                    <line x1="36" y1="20" x2="36" y2="110" stroke="#cbd5e1" stroke-width="1"/>
+                                                    <line x1="36" y1="45" x2="300" y2="45" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4 4"/>
+                                                    <polyline points="48,42 80,40 112,43 144,39 176,41 208,38 240,40 272,39" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <circle cx="48" cy="42" r="3" fill="#2563eb"/>
+                                                    <circle cx="144" cy="39" r="3" fill="#2563eb"/>
+                                                    <circle cx="208" cy="38" r="3" fill="#2563eb"/>
+                                                    <circle cx="272" cy="39" r="3" fill="#2563eb"/>
+                                                    <text x="8" y="48" font-size="8" fill="#64748b">99.6%</text>
+                                                    <text x="8" y="80" font-size="8" fill="#64748b">99.3%</text>
+                                                    <text x="8" y="112" font-size="8" fill="#64748b">99.0%</text>
+                                                    <text x="156" y="126" font-size="9" fill="#64748b" text-anchor="middle">8-week period</text>
+                                                </svg>
+                                            </figure>
+                                            <figure class="portfolio-site__chart-card">
+                                                <figcaption>CTOR by campaign group</figcaption>
+                                                <svg class="portfolio-site__chart" viewBox="0 0 320 140" role="img" aria-label="Anonymised horizontal bar chart showing click-to-open rates around 20 percent for core campaign groups">
+                                                    <text x="8" y="38" font-size="9" fill="#334155">Core webinars</text>
+                                                    <rect x="110" y="28" width="160" height="14" rx="3" fill="#2563eb"/>
+                                                    <text x="276" y="38" font-size="9" fill="#64748b">20%</text>
+                                                    <text x="8" y="62" font-size="9" fill="#334155">Nurture</text>
+                                                    <rect x="110" y="52" width="144" height="14" rx="3" fill="#93c5fd"/>
+                                                    <text x="276" y="62" font-size="9" fill="#64748b">18%</text>
+                                                    <text x="8" y="86" font-size="9" fill="#334155">Re-engagement</text>
+                                                    <rect x="110" y="76" width="176" height="14" rx="3" fill="#2563eb"/>
+                                                    <text x="276" y="86" font-size="9" fill="#64748b">22%</text>
+                                                    <text x="8" y="110" font-size="9" fill="#334155">Sales follow-up</text>
+                                                    <rect x="110" y="100" width="120" height="14" rx="3" fill="#93c5fd"/>
+                                                    <text x="276" y="110" font-size="9" fill="#64748b">15%</text>
+                                                </svg>
+                                            </figure>
+                                            <figure class="portfolio-site__chart-card">
+                                                <figcaption>Spam complaint rate</figcaption>
+                                                <svg class="portfolio-site__chart" viewBox="0 0 320 140" role="img" aria-label="Anonymised bar chart showing spam complaint rates below 0.05 percent">
+                                                    <line x1="36" y1="110" x2="300" y2="110" stroke="#cbd5e1" stroke-width="1"/>
+                                                    <line x1="36" y1="20" x2="36" y2="110" stroke="#cbd5e1" stroke-width="1"/>
+                                                    <rect x="56" y="98" width="22" height="12" rx="2" fill="#93c5fd"/>
+                                                    <rect x="92" y="96" width="22" height="14" rx="2" fill="#93c5fd"/>
+                                                    <rect x="128" y="94" width="22" height="16" rx="2" fill="#93c5fd"/>
+                                                    <rect x="164" y="97" width="22" height="13" rx="2" fill="#93c5fd"/>
+                                                    <rect x="200" y="95" width="22" height="15" rx="2" fill="#93c5fd"/>
+                                                    <rect x="236" y="96" width="22" height="14" rx="2" fill="#93c5fd"/>
+                                                    <rect x="272" y="98" width="22" height="12" rx="2" fill="#93c5fd"/>
+                                                    <text x="8" y="50" font-size="8" fill="#64748b">0.05%</text>
+                                                    <text x="8" y="80" font-size="8" fill="#64748b">0.03%</text>
+                                                    <text x="8" y="110" font-size="8" fill="#64748b">0.01%</text>
+                                                    <text x="164" y="126" font-size="9" fill="#64748b" text-anchor="middle">Weekly sends</text>
+                                                </svg>
+                                            </figure>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Benchmarking Performance</h3>
+                                        <p>To make the metrics meaningful, I compared the anonymised campaign indicators against common email marketing benchmark ranges.</p>
+                                        <div class="portfolio-site__benchmark-grid">
+                                            <article class="portfolio-site__benchmark-card">
+                                                <div class="portfolio-site__benchmark-card-head">
+                                                    <span class="portfolio-site__benchmark-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3H10l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></span>
+                                                    <div class="portfolio-site__benchmark-card-titles">
+                                                        <h4 class="portfolio-site__benchmark-metric">Delivery rate</h4>
+                                                        <span class="portfolio-site__benchmark-value">99%+</span>
+                                                    </div>
+                                                </div>
+                                                <div class="portfolio-site__benchmark-range">
+                                                    <span class="portfolio-site__benchmark-range-label">Common benchmark</span>
+                                                    <span class="portfolio-site__benchmark-range-text">95%+ often considered strong</span>
+                                                </div>
+                                                <p class="portfolio-site__benchmark-insight"><span class="portfolio-site__benchmark-insight-icon" aria-hidden="true">✓</span> Sender reputation was protected</p>
+                                            </article>
+                                            <article class="portfolio-site__benchmark-card">
+                                                <div class="portfolio-site__benchmark-card-head">
+                                                    <span class="portfolio-site__benchmark-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 15l-2 5L9 9l11 4-5 2z"/><path d="M22 22 2 2"/></svg></span>
+                                                    <div class="portfolio-site__benchmark-card-titles">
+                                                        <h4 class="portfolio-site__benchmark-metric">CTOR</h4>
+                                                        <span class="portfolio-site__benchmark-value">~20%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="portfolio-site__benchmark-range">
+                                                    <span class="portfolio-site__benchmark-range-label">Common benchmark</span>
+                                                    <span class="portfolio-site__benchmark-range-text">10–25% commonly seen across marketing campaigns</span>
+                                                </div>
+                                                <p class="portfolio-site__benchmark-insight"><span class="portfolio-site__benchmark-insight-icon" aria-hidden="true">✓</span> Openers were engaging with the content</p>
+                                            </article>
+                                            <article class="portfolio-site__benchmark-card">
+                                                <div class="portfolio-site__benchmark-card-head">
+                                                    <span class="portfolio-site__benchmark-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                                                    <div class="portfolio-site__benchmark-card-titles">
+                                                        <h4 class="portfolio-site__benchmark-metric">Spam complaints</h4>
+                                                        <span class="portfolio-site__benchmark-value">&lt;0.05%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="portfolio-site__benchmark-range">
+                                                    <span class="portfolio-site__benchmark-range-label">Common benchmark</span>
+                                                    <span class="portfolio-site__benchmark-range-text">Under 0.1% generally considered healthy</span>
+                                                </div>
+                                                <p class="portfolio-site__benchmark-insight"><span class="portfolio-site__benchmark-insight-icon" aria-hidden="true">✓</span> List quality and relevance were maintained</p>
+                                            </article>
+                                            <article class="portfolio-site__benchmark-card">
+                                                <div class="portfolio-site__benchmark-card-head">
+                                                    <span class="portfolio-site__benchmark-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span>
+                                                    <div class="portfolio-site__benchmark-card-titles">
+                                                        <h4 class="portfolio-site__benchmark-metric">CTR</h4>
+                                                        <span class="portfolio-site__benchmark-value portfolio-site__benchmark-value">1-3%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="portfolio-site__benchmark-range">
+                                                    <span class="portfolio-site__benchmark-range-label">Common benchmark</span>
+                                                    <span class="portfolio-site__benchmark-range-text">2–5% often considered a good range</span>
+                                                </div>
+                                                <p class="portfolio-site__benchmark-insight"><span class="portfolio-site__benchmark-insight-icon" aria-hidden="true">✓</span> Click rate needed to be interpreted by audience warmth and intent</p>
+                                            </article>
+                                        </div>
+                                        <p class="portfolio-site__benchmark-note">Benchmarks are indicative and vary by industry, list quality, audience intent and campaign type.</p>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>The Bigger Product Insight</h3>
+                                        <p>The most important discovery was that the journey could not be fully understood from one system. Email engagement, webinar attendance, CRM activity and commercial outcomes existed across separate tools. This made it difficult to answer product and marketing questions such as which audience converted best, which webinar journeys created the strongest intent, and where follow-up should be prioritised.</p>
+                                        <aside class="portfolio-site__callout">
+                                            <p>This revealed an opportunity for a unified <strong>Marketing Intelligence Dashboard</strong> that could connect MailerLite, Zoom and CRM data into one view of the customer journey.</p>
+                                        </aside>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Outcome</h3>
+                                        <p>The project improved the way campaign performance was understood. Instead of treating emails as isolated sends, the work reframed email activity as part of a wider product journey involving segmentation, behavioural signals, landing page UX, webinar attendance and CRM follow-up.</p>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Improved understanding of user behaviour across the webinar journey.</li>
+                                            <li>Created more structured segmentation for campaign planning.</li>
+                                            <li>Used engagement data to make follow-up communication more relevant.</li>
+                                            <li>Maintained strong deliverability and low complaint rates during high-volume campaign activity.</li>
+                                            <li>Identified a larger reporting gap that led to the concept for a Marketing Intelligence Dashboard.</li>
+                                        </ul>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--learned">
+                                        <h3>What I'd Do Next</h3>
+                                        <p>If continuing this project, I would prioritise a connected reporting layer that combines email engagement, webinar behaviour, CRM progression and revenue outcomes. This would make it easier to understand the complete customer journey and support better product, marketing and sales decisions.</p>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Build a unified attribution dashboard.</li>
+                                            <li>Track journey stages from email click to webinar attendance and CRM outcome.</li>
+                                            <li>Segment audiences by intent level and course interest.</li>
+                                            <li>Create automated follow-up journeys based on behaviour.</li>
+                                            <li>Use dashboard insights to guide future landing page and campaign experiments.</li>
+                                        </ul>
+                                    </section>
+
+                                    <?php /* Related project: Marketing Intelligence Dashboard — route pending (case-study-marketing-intelligence-dashboard)
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Related Project</h3>
+                                        <article class="portfolio-site__related-card">
+                                            <h4>Marketing Intelligence Dashboard</h4>
+                                            <p>This customer journey work exposed a larger reporting opportunity: a dashboard that connects campaign engagement, webinar attendance and CRM outcomes into a single marketing intelligence layer.</p>
+                                            <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-marketing-intelligence-dashboard">View Dashboard Project</button>
+                                        </article>
+                                    </section>
+                                    */ ?>
                                 </div>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Tools & Technologies</h3>
-                                    <p>MailerLite, GA4, GTM, UTM tracking, Microsoft Clarity, HTML email development, CRM systems, Excel, Google Sheets.</p>
-                                </section>
-                                <section class="portfolio-site__case-section portfolio-site__case-section--learned">
-                                    <h3>What I Learned</h3>
-                                    <p>Strong open rates can mask downstream failure — tracking the full journey from email click to registration exposed problems assumptions alone would have missed.</p>
-                                </section>
-                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
-                                    <h3>Visual Showcase</h3>
-                                    <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
 
-                                    <div class="portfolio-site__media-subsection">
-                                        <h4>Email metrics — before optimisation</h4>
-                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/webinar-marketing/case-study-email-marketing-low-stats-1.png" alt="MailerLite campaign stats: 22.47% opened, 0.21% clicked" loading="lazy">
-                                                <figcaption>Campaign A — high opens, minimal clicks</figcaption>
-                                            </figure>
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/webinar-marketing/case-study-email-marketing-low-stats-2.png" alt="MailerLite campaign stats: 2.28% opened, 0.14% clicked" loading="lazy">
-                                                <figcaption>Campaign B — low engagement across the funnel</figcaption>
-                                            </figure>
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/webinar-marketing/case-study-email-marketing-low-stats-3.png" alt="MailerLite campaign stats: 1.1% opened, 0.09% clicked" loading="lazy">
-                                                <figcaption>Campaign C — click rate below 0.1%</figcaption>
-                                            </figure>
-                                        </div>
-                                    </div>
-
-                                    <div class="portfolio-site__media-subsection">
-                                        <h4>Email metrics — after optimisation</h4>
-                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/webinar-marketing/case-study-email-marketing-high-stats-1.png" alt="MailerLite campaign stats after optimisation: 72.54% opened, 3.75% clicked" loading="lazy">
-                                                <figcaption>Campaign A — click rate improved to 3.75%</figcaption>
-                                            </figure>
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/webinar-marketing/case-study-email-marketing-high-stats-2.png" alt="MailerLite campaign stats after optimisation: 35.56% opened, 2.32% clicked" loading="lazy">
-                                                <figcaption>Campaign B — stronger opens and clicks</figcaption>
-                                            </figure>
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/webinar-marketing/case-study-email-marketing-high-stats-3.png" alt="MailerLite campaign stats after optimisation: 62.66% opened, 3.18% clicked" loading="lazy">
-                                                <figcaption>Campaign C — 3.18% click rate on 41k recipients</figcaption>
-                                            </figure>
-                                        </div>
-                                    </div>
-
-                                    <div class="portfolio-site__media-subsection">
-                                        <h4>Email creative</h4>
-                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/webinar-marketing/case-study-email-template-design-webinars.png" alt="Webinar invitation email template for a Data career live session with headline, event details, and multiple CTAs" loading="lazy">
-                                                <figcaption>Webinar email — invitation layout with event details and CTA flow</figcaption>
-                                            </figure>
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/webinar-marketing/sales-email.png" alt="Promotional sales email layout with bundle offer and primary CTA" loading="lazy">
-                                                <figcaption>Sales email — offer-led layout and CTA hierarchy</figcaption>
-                                            </figure>
-                                        </div>
-                                    </div>
-
-                                    <div class="portfolio-site__media-subsection">
-                                        <h4>Funnel design</h4>
-                                        <div class="portfolio-site__media-grid">
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/webinar-marketing/mailer-funnels.png" alt="MailerLite automation workflow: trigger on route selector click, customer segment check, timed delays, and still-deciding nurture email" loading="lazy">
-                                                <figcaption>Behavioural nurture funnel — segmenting non-customers for follow-up after route selector engagement</figcaption>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </section>
                                 <footer class="portfolio-site__case-footer">
                                     <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
                                     <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-bindertrader">Next case study</button>

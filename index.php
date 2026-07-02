@@ -6,6 +6,7 @@ $linkedinUrl   = "https://www.linkedin.com/in/jack-heeney/";
 $githubUrl     = "https://github.com/JackHeeney";
 $facebookUrl   = "https://www.facebook.com/heeneyog";
 $instagramUrl  = "https://www.instagram.com/heeneyog/";
+$siteDescription = "Explore Jack Heeney Portfolio - a desktop-style showcase of product, digital, and technical work.";
 
 require_once __DIR__ . '/assets/inc/docs-helper.php';
 $recentDocuments = portfolio_get_recent_documents(3);
@@ -16,6 +17,17 @@ foreach (portfolio_get_documents() as $doc) {
         break;
     }
 }
+
+$scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$requestUri = $_SERVER['REQUEST_URI'] ?? '/';
+$requestPath = strtok($requestUri, '?');
+if ($requestPath === false || $requestPath === '') {
+    $requestPath = '/';
+}
+
+$pageUrl = $scheme . '://' . $host . $requestPath;
+$socialImageUrl = $scheme . '://' . $host . '/assets/img/social-media-image.png';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +35,19 @@ foreach (portfolio_get_documents() as $doc) {
 <head>
     <meta charset="UTF-8">
     <title><?php echo $yourName; ?> – Desktop Portfolio</title>
+    <meta name="description" content="<?php echo htmlspecialchars($siteDescription, ENT_QUOTES, 'UTF-8'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<?php echo htmlspecialchars($yourName, ENT_QUOTES, 'UTF-8'); ?> Portfolio">
+    <meta property="og:description" content="<?php echo htmlspecialchars($siteDescription, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="og:url" content="<?php echo htmlspecialchars($pageUrl, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="og:image" content="<?php echo htmlspecialchars($socialImageUrl, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="og:image:alt" content="Jack Heeney Portfolio social preview image">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="<?php echo htmlspecialchars($yourName, ENT_QUOTES, 'UTF-8'); ?> Portfolio">
+    <meta property="twitter:description" content="<?php echo htmlspecialchars($siteDescription, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="twitter:image" content="<?php echo htmlspecialchars($socialImageUrl, ENT_QUOTES, 'UTF-8'); ?>">
+    <link rel="canonical" href="<?php echo htmlspecialchars($pageUrl, ENT_QUOTES, 'UTF-8'); ?>">
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>

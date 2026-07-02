@@ -2994,6 +2994,429 @@ a.portfolio-site__hero-button {
     background: #1d4ed8;
 }
 
+/* UX / Product case study components */
+.portfolio-site__case-intro {
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #334155;
+}
+
+.portfolio-site__case-body {
+    margin-bottom: 6px;
+}
+
+.portfolio-site__journey-flow {
+    margin-top: 16px;
+    padding: 18px 16px;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+.portfolio-site__journey-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+}
+
+.portfolio-site__journey-card {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: 1px solid #dbe5f0;
+    border-radius: 12px;
+    padding: 12px 10px 11px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.portfolio-site__journey-card:hover {
+    border-color: #93c5fd;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.1);
+    transform: translateY(-1px);
+}
+
+.portfolio-site__journey-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.portfolio-site__journey-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
+    border: 1px solid #bfdbfe;
+    color: #2563eb;
+    flex-shrink: 0;
+}
+
+.portfolio-site__journey-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.portfolio-site__journey-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.portfolio-site__journey-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 6px;
+    line-height: 1.35;
+}
+
+.portfolio-site__journey-question {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #64748b;
+    margin: 0;
+    font-style: italic;
+}
+
+.portfolio-site__journey-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #60a5fa;
+}
+
+.portfolio-site__journey-arrow svg {
+    width: 20px;
+    height: 20px;
+}
+
+.portfolio-site__journey-arrow--h {
+    width: 26px;
+}
+
+.portfolio-site__journey-arrow--v svg {
+    width: 22px;
+    height: 22px;
+}
+
+.portfolio-site__journey-connector {
+    display: flex;
+    justify-content: flex-end;
+    padding: 4px calc((100% - 78px) / 8) 4px 0;
+}
+
+.portfolio-site__journey-connector .portfolio-site__journey-arrow--v {
+    width: 34px;
+    height: 28px;
+    border-radius: 8px;
+    background: #f1f5f9;
+}
+
+.portfolio-site__insight-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.portfolio-site__insight-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.portfolio-site__insight-card--span {
+    grid-column: 1 / -1;
+}
+
+.portfolio-site__insight-card h4,
+.portfolio-site__problem-card h4,
+.portfolio-site__decision-item h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e40af;
+    margin: 0 0 6px;
+}
+
+.portfolio-site__insight-card p,
+.portfolio-site__problem-card p,
+.portfolio-site__decision-item p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #334155;
+    margin: 0;
+}
+
+.portfolio-site__problem-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.portfolio-site__problem-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 3px solid #f59e0b;
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.portfolio-site__decision-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.portfolio-site__decision-item {
+    padding: 14px 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.portfolio-site__metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin: 16px 0 18px;
+}
+
+.portfolio-site__metric-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(180deg, #f8fbff 0%, #eef6ff 100%);
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 16px 10px;
+}
+
+.portfolio-site__metric-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e40af;
+    line-height: 1.2;
+    margin-bottom: 6px;
+}
+
+.portfolio-site__metric-label {
+    font-size: 11px;
+    line-height: 1.45;
+    color: #475569;
+    font-weight: 600;
+}
+
+.portfolio-site__chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.portfolio-site__chart-card {
+    margin: 0;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px 12px 8px;
+}
+
+.portfolio-site__chart-card figcaption {
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.portfolio-site__chart {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.portfolio-site__benchmark-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.portfolio-site__benchmark-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.portfolio-site__benchmark-card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.portfolio-site__benchmark-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
+    border: 1px solid #bfdbfe;
+    color: #2563eb;
+    flex-shrink: 0;
+}
+
+.portfolio-site__benchmark-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.portfolio-site__benchmark-card-titles {
+    min-width: 0;
+}
+
+.portfolio-site__benchmark-metric {
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 4px;
+}
+
+.portfolio-site__benchmark-value {
+    display: block;
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e40af;
+    line-height: 1.2;
+}
+
+.portfolio-site__benchmark-value--muted {
+    font-size: 16px;
+    font-weight: 700;
+    color: #334155;
+}
+
+.portfolio-site__benchmark-range {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 10px 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.portfolio-site__benchmark-range-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+}
+
+.portfolio-site__benchmark-range-text {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #475569;
+}
+
+.portfolio-site__benchmark-insight {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #334155;
+}
+
+.portfolio-site__benchmark-insight-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: #dcfce7;
+    color: #15803d;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.portfolio-site__benchmark-note {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.portfolio-site__callout {
+    margin-top: 14px;
+    padding: 16px 18px;
+    background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
+    border: 1px solid #93c5fd;
+    border-radius: 10px;
+}
+
+.portfolio-site__callout p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #1e3a8a;
+}
+
+.portfolio-site__related-card {
+    margin-top: 14px;
+    padding: 18px 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.portfolio-site__related-card h4 {
+    font-size: 16px;
+    color: #0f172a;
+    margin: 0 0 8px;
+}
+
+.portfolio-site__related-card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #334155;
+    margin: 0 0 14px;
+}
+
 /* Contact Page */
 .portfolio-site__contact-content {
     font-size: 16px;
@@ -3473,6 +3896,106 @@ a.portfolio-site__hero-button {
 
 .portfolio-site--mobile .portfolio-site__case-nav-btn {
     width: 100%;
+}
+
+.portfolio-site--tablet .portfolio-site__journey-row:not(.portfolio-site__journey-row--snake) {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.portfolio-site--tablet .portfolio-site__journey-row:not(.portfolio-site__journey-row--snake) .portfolio-site__journey-card {
+    flex: 1 1 calc(50% - 40px);
+    min-width: 140px;
+}
+
+.portfolio-site--tablet .portfolio-site__journey-row:not(.portfolio-site__journey-row--snake) .portfolio-site__journey-arrow--h {
+    display: none;
+}
+
+.portfolio-site--tablet .portfolio-site__journey-row--snake {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.portfolio-site--tablet .portfolio-site__journey-row--snake .portfolio-site__journey-card {
+    flex: 1 1 calc(50% - 40px);
+    min-width: 140px;
+}
+
+.portfolio-site--tablet .portfolio-site__journey-row--snake .portfolio-site__journey-arrow--h {
+    display: none;
+}
+
+.portfolio-site--tablet .portfolio-site__journey-connector {
+    justify-content: center;
+    padding: 6px 0;
+}
+
+.portfolio-site--mobile .portfolio-site__journey-flow {
+    padding: 14px 12px;
+}
+
+.portfolio-site--mobile .portfolio-site__journey-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+}
+
+.portfolio-site--mobile .portfolio-site__journey-row--snake > * {
+    order: var(--mobile-order, 0);
+}
+
+.portfolio-site--mobile .portfolio-site__journey-row--snake .portfolio-site__journey-arrow--left {
+    transform: rotate(90deg);
+}
+
+.portfolio-site--mobile .portfolio-site__journey-card {
+    flex: none;
+    width: 100%;
+}
+
+.portfolio-site--mobile .portfolio-site__journey-row:not(.portfolio-site__journey-row--snake) .portfolio-site__journey-arrow--h {
+    width: 100%;
+    height: 28px;
+    transform: rotate(90deg);
+}
+
+.portfolio-site--mobile .portfolio-site__journey-connector {
+    justify-content: center;
+    padding: 2px 0;
+}
+
+.portfolio-site--mobile .portfolio-site__journey-title {
+    font-size: 13px;
+}
+
+.portfolio-site--mobile .portfolio-site__journey-question {
+    font-size: 12px;
+}
+
+.portfolio-site--tablet .portfolio-site__benchmark-grid,
+.portfolio-site--mobile .portfolio-site__benchmark-grid {
+    grid-template-columns: 1fr;
+}
+
+.portfolio-site--tablet .portfolio-site__metrics-grid,
+.portfolio-site--mobile .portfolio-site__metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.portfolio-site--mobile .portfolio-site__metrics-grid {
+    grid-template-columns: 1fr;
+}
+
+.portfolio-site--tablet .portfolio-site__insight-grid,
+.portfolio-site--mobile .portfolio-site__insight-grid,
+.portfolio-site--tablet .portfolio-site__problem-grid,
+.portfolio-site--mobile .portfolio-site__problem-grid,
+.portfolio-site--tablet .portfolio-site__chart-grid,
+.portfolio-site--mobile .portfolio-site__chart-grid {
+    grid-template-columns: 1fr;
 }
 
 .portfolio-site--mobile .portfolio-site__case-section--showcase .portfolio-site__media-grid--compare {

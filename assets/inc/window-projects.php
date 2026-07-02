@@ -25,10 +25,10 @@
             </article>
 
             <article class="projects__card">
-                <span class="projects__tag">Marketing Systems</span>
-                <h3 class="projects__title">Webinar Marketing System & Email Campaign Optimisation</h3>
-                <p class="projects__meta">Marketing Strategy & Campaign Lead</p>
-                <p class="projects__desc">STAR: fixed mobile funnel drop-off; improved registrations without extra spend.</p>
+                <span class="projects__tag">Product + UX</span>
+                <h3 class="projects__title">Customer Journey Optimisation</h3>
+                <p class="projects__meta">Product & UX Lead</p>
+                <p class="projects__desc">Behavioural analytics across email, landing pages, webinars and CRM to improve segmentation and funnel visibility.</p>
                 <button type="button" class="projects__open-btn" data-open-case-study="case-study-webinar-marketing">Open case study</button>
             </article>
 
