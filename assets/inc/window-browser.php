@@ -156,13 +156,16 @@
                                 <h3 class="portfolio-site__subsection-title">Live Websites</h3>
                                 <p class="portfolio-site__external-websites-copy">Websites and landing pages I have worked on — open in the browser to explore:</p>
                                 <div class="portfolio-site__external-websites-list">
+                                    <a href="https://www.robustittraining.com/" class="portfolio-site__external-link" data-external-url="https://www.robustittraining.com/">robustittraining.com</a>
+                                    <a href="https://www.skills-nest.com/" class="portfolio-site__external-link" data-external-url="https://www.skills-nest.com/">skills-nest.com</a>
+                                    <a href="https://getglitchedcouk.vercel.app/" class="portfolio-site__external-link" data-external-url="https://getglitchedcouk.vercel.app/">getglitched.co.uk</a>
+                                    <a href="https://bindertrader.vercel.app/" class="portfolio-site__external-link" data-external-url="https://bindertrader.vercel.app/">bindertrader.vercel.app</a>
+                                    <a href="https://creatureprints3d.vercel.app/" class="portfolio-site__external-link" data-external-url="https://creatureprints3d.vercel.app/">creatureprints3d.vercel.app</a>
+                                    <a href="https://squirrelsbrox.vercel.app/" class="portfolio-site__external-link" data-external-url="https://squirrelsbrox.vercel.app/">squirrelsbrox.vercel.app</a>
                                     <a href="https://azure-webinar.com/" class="portfolio-site__external-link" data-external-url="https://azure-webinar.com/">azure-webinar.com</a>
                                     <a href="https://cyber-webinar.com/" class="portfolio-site__external-link" data-external-url="https://cyber-webinar.com/">cyber-webinar.com</a>
                                     <a href="https://data-webinar.org/" class="portfolio-site__external-link" data-external-url="https://data-webinar.org/">data-webinar.org</a>
                                     <a href="https://ai-webinar.co.uk/" class="portfolio-site__external-link" data-external-url="https://ai-webinar.co.uk/">ai-webinar.co.uk</a>
-                                    <a href="https://www.robustittraining.com/" class="portfolio-site__external-link" data-external-url="https://www.robustittraining.com/">robustittraining.com</a>
-                                    <a href="https://www.getglitched.co.uk/" class="portfolio-site__external-link" data-external-url="https://www.getglitched.co.uk/">getglitched.co.uk</a>
-                                    <a href="https://bindertrader.vercel.app/" class="portfolio-site__external-link" data-external-url="https://bindertrader.vercel.app/">bindertrader.vercel.app</a>
                                 </div>
                             </section>
 
@@ -174,13 +177,14 @@
                                 </p>
                             </section>
 
-                            <section class="portfolio-site__section">
+                            <section class="portfolio-site__section portfolio-site__case-studies-group">
+                                <h4 class="portfolio-site__case-studies-group-title">Work</h4>
                                 <div class="portfolio-site__case-studies-grid">
                                     <article class="portfolio-site__case-card">
                                         <div class="portfolio-site__case-card-tag">Digital Product + Growth</div>
-                                        <h3 class="portfolio-site__case-card-title">IT Training Route Decision Platform & Conversion Funnel</h3>
-                                        <p class="portfolio-site__case-card-meta">Role: Digital Product & Growth Lead</p>
-                                        <p class="portfolio-site__case-card-desc">STAR: clarified Cloud, Cyber, Data, and AI pathways to reduce confusion and improve enquiry quality.</p>
+                                        <h3 class="portfolio-site__case-card-title">IT Training Route Platform</h3>
+                                        <p class="portfolio-site__case-card-meta">Digital Product & Growth Lead</p>
+                                        <p class="portfolio-site__case-card-desc">Decision-support UX across Cloud, Cyber, Data and AI pathways to reduce ambiguity and improve enquiry quality.</p>
                                         <button class="portfolio-site__case-card-btn" data-page="case-study-it-training-route">Open case study</button>
                                     </article>
 
@@ -193,14 +197,6 @@
                                     </article>
 
                                     <article class="portfolio-site__case-card">
-                                        <div class="portfolio-site__case-card-tag">Product Architecture</div>
-                                        <h3 class="portfolio-site__case-card-title">BinderTrader Platform Architecture & Product Development</h3>
-                                        <p class="portfolio-site__case-card-meta">Role: Founder, Product Designer, Full-Stack Developer</p>
-                                        <p class="portfolio-site__case-card-desc">Designed a trade-first card platform with robust lifecycle logic, scalable backend systems, and trust-first UX.</p>
-                                        <button class="portfolio-site__case-card-btn" data-page="case-study-bindertrader">Open case study</button>
-                                    </article>
-
-                                    <article class="portfolio-site__case-card">
                                         <div class="portfolio-site__case-card-tag">Operations + Delivery</div>
                                         <h3 class="portfolio-site__case-card-title">Digital Operations & Cross-Department Systems Management</h3>
                                         <p class="portfolio-site__case-card-meta">Role: Digital Product & Operations Lead</p>
@@ -210,10 +206,18 @@
 
                                     <article class="portfolio-site__case-card">
                                         <div class="portfolio-site__case-card-tag">Education Product</div>
-                                        <h3 class="portfolio-site__case-card-title">Student Training Portal & Platform Modernisation</h3>
-                                        <p class="portfolio-site__case-card-meta">Role: Product Lead, UX Designer, Frontend Developer</p>
-                                        <p class="portfolio-site__case-card-desc">STAR: led cross-functional delivery of a scalable student platform replacing legacy manual processes.</p>
+                                        <h3 class="portfolio-site__case-card-title">Student Training Platform UX</h3>
+                                        <p class="portfolio-site__case-card-meta">Product Lead, UX Designer & Frontend Developer</p>
+                                        <p class="portfolio-site__case-card-desc">Modernised the mock exam, results and revision journey to help students progress with clearer feedback and less manual support.</p>
                                         <button class="portfolio-site__case-card-btn" data-page="case-study-mock-exam">Open case study</button>
+                                    </article>
+
+                                    <article class="portfolio-site__case-card">
+                                        <div class="portfolio-site__case-card-tag">Education + Frontend</div>
+                                        <h3 class="portfolio-site__case-card-title">SkillsNest Learning Platform Website</h3>
+                                        <p class="portfolio-site__case-card-meta">Web Designer &amp; Frontend Developer</p>
+                                        <p class="portfolio-site__case-card-desc">Responsive course and subscription website connecting learners with training, practice exams and a dedicated student portal.</p>
+                                        <button class="portfolio-site__case-card-btn" data-page="case-study-skills-nest">Open case study</button>
                                     </article>
 
                                     <article class="portfolio-site__case-card">
@@ -222,6 +226,27 @@
                                         <p class="portfolio-site__case-card-meta">Role: Creative Lead & Digital Designer</p>
                                         <p class="portfolio-site__case-card-desc">Produced conversion-focused social assets across webinar, paid, and organic campaign streams.</p>
                                         <button class="portfolio-site__case-card-btn" data-page="case-study-social-creative">Open case study</button>
+                                    </article>
+                                </div>
+                            </section>
+
+                            <section class="portfolio-site__section portfolio-site__case-studies-group">
+                                <h4 class="portfolio-site__case-studies-group-title">Friends &amp; Side Projects</h4>
+                                <div class="portfolio-site__case-studies-grid">
+                                    <article class="portfolio-site__case-card">
+                                        <div class="portfolio-site__case-card-tag">Web Design + CMS</div>
+                                        <h3 class="portfolio-site__case-card-title">Squirrels Nursery Website &amp; Admin Portal</h3>
+                                        <p class="portfolio-site__case-card-meta">Role: Product Designer &amp; Full-Stack Developer</p>
+                                        <p class="portfolio-site__case-card-desc">Redesigned an existing nursery website around clearer parent journeys and built a secure admin portal for fast, independent content updates.</p>
+                                        <button class="portfolio-site__case-card-btn" data-page="case-study-squirrels-nursery">Open case study</button>
+                                    </article>
+
+                                    <article class="portfolio-site__case-card">
+                                        <div class="portfolio-site__case-card-tag">E-commerce + Frontend</div>
+                                        <h3 class="portfolio-site__case-card-title">Creature Print 3D Stripe Storefront</h3>
+                                        <p class="portfolio-site__case-card-meta">Role: Product Designer &amp; Full-Stack Developer</p>
+                                        <p class="portfolio-site__case-card-desc">Designed and built an owned storefront for a friend's established Etsy shop, creating a path to Stripe checkout and lower marketplace fees.</p>
+                                        <button class="portfolio-site__case-card-btn" data-page="case-study-creature-print-3d">Open case study</button>
                                     </article>
 
                                     <article class="portfolio-site__case-card">
@@ -247,6 +272,19 @@
                                         <p class="portfolio-site__case-card-desc">STAR: release artwork, event flyers, and connected Instagram carousel posts for label campaigns.</p>
                                         <button class="portfolio-site__case-card-btn" data-page="case-study-kengai-records">Open case study</button>
                                     </article>
+                                </div>
+                            </section>
+
+                            <section class="portfolio-site__section portfolio-site__case-studies-group">
+                                <h4 class="portfolio-site__case-studies-group-title">Personal Projects</h4>
+                                <div class="portfolio-site__case-studies-grid">
+                                    <article class="portfolio-site__case-card">
+                                        <div class="portfolio-site__case-card-tag">Product Architecture</div>
+                                        <h3 class="portfolio-site__case-card-title">BinderTrader Platform Architecture & Product Development</h3>
+                                        <p class="portfolio-site__case-card-meta">Role: Founder, Product Designer, Full-Stack Developer</p>
+                                        <p class="portfolio-site__case-card-desc">Designed a trade-first card platform with robust lifecycle logic, scalable backend systems, and trust-first UX.</p>
+                                        <button class="portfolio-site__case-card-btn" data-page="case-study-bindertrader">Open case study</button>
+                                    </article>
 
                                     <article class="portfolio-site__case-card">
                                         <div class="portfolio-site__case-card-tag">Portfolio + Frontend</div>
@@ -265,69 +303,287 @@
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
                                     <p class="portfolio-site__case-kicker">Case Study 1</p>
-                                    <h2 class="portfolio-site__case-title">IT Training Route Decision Platform & Conversion Funnel</h2>
-                                    <p class="portfolio-site__case-subtitle">Product and UX improvement across Cloud, Cyber, Data, and AI training pathways.</p>
+                                    <h2 class="portfolio-site__case-title">Designing an IT Training Route Decision Platform</h2>
+                                    <p class="portfolio-site__case-subtitle">Improving the route-selection journey across Cloud, Cyber, Data and AI pathways by helping prospective students compare options, understand outcomes and enquire with more confidence.</p>
                                     <div class="portfolio-site__case-chips">
-                                        <span class="portfolio-site__case-chip">Role: Digital Product & Growth Lead</span>
-                                        <span class="portfolio-site__case-chip">Stakeholders: sales, marketing, content, development</span>
-                                        <span class="portfolio-site__case-chip">Scale: full ad-to-enquiry journey</span>
+                                        <span class="portfolio-site__case-chip">Product Management</span>
+                                        <span class="portfolio-site__case-chip">UX Design</span>
+                                        <span class="portfolio-site__case-chip">Student Journey Mapping</span>
+                                        <span class="portfolio-site__case-chip">Conversion Funnel</span>
+                                        <span class="portfolio-site__case-chip">Route Decision Platform</span>
+                                        <span class="portfolio-site__case-chip">Behavioural UX</span>
+                                        <span class="portfolio-site__case-chip">Campaign Alignment</span>
+                                        <span class="portfolio-site__case-chip">Frontend Development</span>
+                                        <span class="portfolio-site__case-chip">Growth Strategy</span>
                                     </div>
+                                    <p class="portfolio-site__case-intro">I approached this project as a decision-support and conversion funnel challenge. Prospective students were interested in IT training, but many struggled to understand which pathway matched their goals. The aim was to reduce ambiguity, improve confidence and create a clearer journey from campaign click through to enquiry.</p>
                                 </header>
-                                <div class="portfolio-site__case-star">
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
-                                        <p>Prospective students were struggling to understand the differences between Cloud, Cyber, Data, and AI training pathways, leading to confusion and lower conversion rates.</p>
+
+                                <div class="portfolio-site__case-body">
+                                    <section class="portfolio-site__case-section">
+                                        <h3>The Opportunity</h3>
+                                        <p>The existing journey introduced several training options but did not give users enough support when comparing Cloud, Cyber, Data and AI pathways. This created friction at a key decision point, where users needed reassurance, route clarity and outcome-focused guidance before making an enquiry.</p>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Users needed clearer guidance on which pathway suited their goals.</li>
+                                            <li>Course options needed to be easier to compare.</li>
+                                            <li>Marketing campaigns needed a stronger landing journey.</li>
+                                            <li>Sales needed better-quality enquiries from users with clearer intent.</li>
+                                            <li>The route-selection experience needed to scale across future campaigns.</li>
+                                        </ul>
                                     </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
-                                        <p>I was responsible for improving the user journey and helping visitors identify the most suitable pathway.</p>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Who the Experience Needed to Support</h3>
+                                        <div class="portfolio-site__insight-grid">
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Prospective Students</h4>
+                                                <p>Needed a simple way to compare routes, understand career outcomes and choose a starting point without feeling overwhelmed.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Sales Team</h4>
+                                                <p>Needed enquiries from users who had already started thinking about their goals and preferred training route.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Marketing Team</h4>
+                                                <p>Needed a landing journey that connected email, paid ads, route messaging and enquiry forms.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Business</h4>
+                                                <p>Needed a scalable funnel that could support multiple training pathways without creating disconnected landing pages.</p>
+                                            </article>
+                                        </div>
                                     </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
-                                        <p>I redesigned the information architecture, created clearer pathway positioning, simplified navigation, and introduced comparison content focused on outcomes, certifications, and career opportunities.</p>
-                                        <p>I worked across content, UX design, development, and marketing functions to ensure a consistent experience from advertisement through to enquiry.</p>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Mapping the Route Decision Journey</h3>
+                                        <div class="portfolio-site__journey-flow">
+                                            <div class="portfolio-site__journey-row">
+                                                <article class="portfolio-site__journey-card">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">1</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Campaign Click</h4>
+                                                    <p class="portfolio-site__journey-question">Does the user understand what problem this page solves?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">2</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Route Awareness</h4>
+                                                    <p class="portfolio-site__journey-question">Can the user quickly see the main training routes available?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">3</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Pathway Comparison</h4>
+                                                    <p class="portfolio-site__journey-question">Can the user compare Cloud, Cyber, Data and AI in a simple way?</p>
+                                                </article>
+                                            </div>
+                                            <div class="portfolio-site__journey-connector portfolio-site__journey-connector--third" aria-hidden="true">
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+                                            </div>
+                                            <div class="portfolio-site__journey-row portfolio-site__journey-row--snake">
+                                                <article class="portfolio-site__journey-card" style="--mobile-order: 9">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">6</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Sales Follow-Up</h4>
+                                                    <p class="portfolio-site__journey-question">Does the enquiry give the team enough context to have a better conversation?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h portfolio-site__journey-arrow--left" style="--mobile-order: 8" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card" style="--mobile-order: 7">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22 11 13 2 9l20-7z"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">5</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Enquiry Intent</h4>
+                                                    <p class="portfolio-site__journey-question">Is the user confident enough to take the next step?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h portfolio-site__journey-arrow--left" style="--mobile-order: 6" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card" style="--mobile-order: 5">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">4</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Decision Support</h4>
+                                                    <p class="portfolio-site__journey-question">Does the content help the user choose the best route?</p>
+                                                </article>
+                                            </div>
+                                        </div>
                                     </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
-                                        <p>Users were able to navigate the pathways more easily, reducing confusion and improving the quality of enquiries received by the sales team.</p>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Product Discovery &amp; UX Thinking</h3>
+                                        <p>I reviewed how users moved from campaign traffic into the training route page and identified that the biggest issue was not just visual design. It was decision confidence. Users needed clearer information architecture, stronger comparison content and more reassuring calls to action before they were ready to enquire.</p>
+                                        <div class="portfolio-site__insight-grid">
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Pathway clarity</h4>
+                                                <p>Users needed to understand the difference between pathways quickly.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Decision fatigue</h4>
+                                                <p>The page needed to reduce decision fatigue.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Helpful CTAs</h4>
+                                                <p>CTAs needed to feel helpful, not overly sales-led.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Campaign continuity</h4>
+                                                <p>Campaign messaging and landing page content needed to feel connected.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Sales context</h4>
+                                                <p>The sales team benefited from users arriving with clearer route intent.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Reusable funnel</h4>
+                                                <p>The funnel needed a reusable structure for future training campaigns.</p>
+                                            </article>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Problems Identified</h3>
+                                        <div class="portfolio-site__problem-grid">
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Too much ambiguity</h4>
+                                                <p>Users were shown several IT training options but not enough guidance on how to choose between them.</p>
+                                            </article>
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Weak comparison journey</h4>
+                                                <p>The experience needed clearer differences between pathways, certifications, outcomes and career routes.</p>
+                                            </article>
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Low-confidence enquiries</h4>
+                                                <p>Users could enquire before fully understanding the best route, creating extra explanation work for the sales team.</p>
+                                            </article>
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Disconnected campaign flow</h4>
+                                                <p>Email, ads, landing pages and enquiry forms needed to feel like one joined-up journey.</p>
+                                            </article>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Product &amp; UX Decisions</h3>
+                                        <p>I redesigned the route-selection experience around clarity, comparison and guided decision-making. The objective was not just to improve the layout, but to help users understand what each pathway meant and what action to take next.</p>
+                                        <div class="portfolio-site__decision-list">
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Clearer pathway positioning</h4>
+                                                <p>Each route was reframed around learner goals, career outcomes and certification direction.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Comparison-led content</h4>
+                                                <p>The page helped users compare routes side by side instead of forcing them to interpret separate course pages.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Decision-focused CTAs</h4>
+                                                <p>Calls to action were positioned around helping users choose a route, rather than immediately pushing a generic enquiry.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Joined-up funnel thinking</h4>
+                                                <p>The journey connected ads, email campaigns, route selection, enquiry and sales follow-up into one clearer flow.</p>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>The Solution</h3>
+                                        <p>The redesigned experience created a clearer route decision platform that helped prospective students understand their options, compare pathways and enquire with more confidence.</p>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Reworked the information architecture around student decision-making.</li>
+                                            <li>Improved pathway messaging across Cloud, Cyber, Data and AI routes.</li>
+                                            <li>Created comparison-led content to reduce confusion.</li>
+                                            <li>Connected landing page UX with campaign and enquiry journeys.</li>
+                                            <li>Designed a more scalable structure for future pathway campaigns.</li>
+                                            <li>Improved the page flow from first click to enquiry.</li>
+                                        </ul>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Product Impact</h3>
+                                        <div class="portfolio-site__insight-grid">
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Clearer student decision-making</h4>
+                                                <p>Users had a simpler way to understand which pathway best matched their goals.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Better enquiry quality</h4>
+                                                <p>The sales team received enquiries from users with stronger route awareness and clearer intent.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Improved campaign alignment</h4>
+                                                <p>The route page created a stronger bridge between paid ads, email campaigns and enquiry forms.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Scalable funnel foundation</h4>
+                                                <p>The structure could be reused across multiple campaigns and future training pathways.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card portfolio-site__insight-card--span">
+                                                <h4>Reduced ambiguity</h4>
+                                                <p>The experience helped answer key questions earlier in the journey before users reached the enquiry stage.</p>
+                                            </article>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Tools &amp; Technologies</h3>
+                                        <p>GA4, GTM, MailerLite, Ahrefs, Hotjar, Microsoft Clarity, HTML, CSS, JavaScript, WordPress.</p>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--learned">
+                                        <h3>What I Learned</h3>
+                                        <p>The biggest lesson was that conversion problems are often decision problems. Users did not just need a better-looking page — they needed clearer context, comparison and reassurance before taking action. Improving the journey meant aligning UX, content, campaign messaging and sales follow-up around the same user decision.</p>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Route clarity matters before conversion.</li>
+                                            <li>Comparison-led content can reduce hesitation.</li>
+                                            <li>CTAs work better when they match the user's stage of confidence.</li>
+                                            <li>Campaign journeys need continuity from advert or email through to enquiry.</li>
+                                            <li>Product thinking can improve both user experience and internal sales conversations.</li>
+                                        </ul>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>What I'd Do Next</h3>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Add route-selection analytics to track which pathways users compare most.</li>
+                                            <li>Track CTA clicks by route, traffic source and user intent.</li>
+                                            <li>Create personalised follow-up emails based on selected route.</li>
+                                            <li>Add a guided quiz to recommend Cloud, Cyber, Data or AI pathways.</li>
+                                            <li>Measure enquiry quality by route source and campaign type.</li>
+                                            <li>Add heatmap analysis to identify where users hesitate or drop off.</li>
+                                        </ul>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
+                                        <h3>Visual Showcase</h3>
+                                        <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
+
+                                        <div class="portfolio-site__media-subsection">
+                                            <h4>Before &amp; After: Landing Page Experience</h4>
+                                            <p>The previous page introduced the training offer, but the redesigned version focused more directly on helping users choose the right route.</p>
+                                            <div class="portfolio-site__media-grid portfolio-site__media-grid--compare">
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/route-selector/route-selector-case-study-old-landing.png" alt="Previous IT training landing page before route decision redesign" loading="lazy">
+                                                    <figcaption>Previous landing page</figcaption>
+                                                </figure>
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/route-selector/route-selector-case-study-updated-landing.png" alt="Redesigned IT training landing page with clearer pathway positioning" loading="lazy">
+                                                    <figcaption>Redesigned route decision landing page</figcaption>
+                                                </figure>
+                                            </div>
+                                        </div>
                                     </section>
                                 </div>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Tools & Technologies</h3>
-                                    <p>GA4, GTM, MailerLite, Ahrefs, Hotjar, Microsoft Clarity, HTML, CSS, JavaScript, WordPress.</p>
-                                </section>
-                                <section class="portfolio-site__case-section portfolio-site__case-section--learned">
-                                    <h3>What I Learned</h3>
-                                    <p>Conversion gains came from resolving ambiguity early — comparison-led content and cross-functional alignment mattered as much as layout changes.</p>
-                                </section>
-                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
-                                    <h3>Visual Showcase</h3>
-                                    <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
 
-                                    <div class="portfolio-site__media-subsection">
-                                        <h4>Training landing pages</h4>
-                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--compare">
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/route-selector/route-selector-case-study-old-landing.png" alt="Previous IT training landing page before route decision redesign" loading="lazy">
-                                                <figcaption>Previous landing page</figcaption>
-                                            </figure>
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/route-selector/route-selector-case-study-updated-landing.png" alt="Redesigned IT training landing page with clearer pathway positioning" loading="lazy">
-                                                <figcaption>Redesigned landing page</figcaption>
-                                            </figure>
-                                        </div>
-                                    </div>
-
-                                    <div class="portfolio-site__media-subsection">
-                                        <h4>Route decision funnel</h4>
-                                        <div class="portfolio-site__media-grid">
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/route-selector/route-selector-case-study-funnel.png" alt="IT training route decision funnel guiding visitors from pathway choice to enquiry" loading="lazy">
-                                                <figcaption>Pathway decision and enquiry funnel</figcaption>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </section>
                                 <footer class="portfolio-site__case-footer">
                                     <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
                                     <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-webinar-marketing">Next case study</button>
@@ -742,6 +998,333 @@
 
                                 <footer class="portfolio-site__case-footer">
                                     <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
+                                    <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-digital-ops">Next case study</button>
+                                </footer>
+                            </article>
+                        </main>
+                    </div>
+
+                    <div class="portfolio-site__page" id="page-case-study-skills-nest">
+                        <main class="portfolio-site__main">
+                            <article class="portfolio-site__case-study">
+                                <header class="portfolio-site__case-hero">
+                                    <p class="portfolio-site__case-kicker">Work Project</p>
+                                    <h2 class="portfolio-site__case-title">SkillsNest Learning Platform Website</h2>
+                                    <p class="portfolio-site__case-subtitle">A responsive education-commerce experience that brings course discovery, certification practice, subscription pricing and student access into one clear journey.</p>
+                                    <div class="portfolio-site__case-chips">
+                                        <span class="portfolio-site__case-chip">Role: Web Designer + Frontend Developer</span>
+                                        <span class="portfolio-site__case-chip">Focus: education + subscriptions</span>
+                                        <span class="portfolio-site__case-chip">Delivery: responsive light + dark UI</span>
+                                    </div>
+                                </header>
+                                <div class="portfolio-site__case-star">
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
+                                        <p>SkillsNest needed a public-facing home for a broad training catalogue spanning professional soft skills, IT courses and certification practice exams, with a clear route into its separate learning portal.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
+                                        <p>Create a coherent, responsive website that could communicate the breadth of the library, explain the subscription model, establish learner trust and guide visitors toward courses, pricing or student login.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
+                                        <p>Designed a modular page system around oversized gradient typography, structured course cards, practice-exam features, learner testimonials, subscription steps, pricing comparisons and FAQs. Light and dark themes preserve the same visual language while supporting different viewing preferences.</p>
+                                        <p>Built connected homepage, catalogue, pricing and individual-course experiences, using reusable content patterns and prominent calls to action to keep course exploration and subscription decisions easy to follow.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
+                                        <p>Delivered a live, content-rich learning website that presents courses and practice exams in a consistent brand system, makes plan differences easy to compare and connects prospective and existing students to the right next step.</p>
+                                    </section>
+                                </div>
+                                <section class="portfolio-site__case-section">
+                                    <h3>Key Experience Features</h3>
+                                    <ul class="portfolio-site__case-list">
+                                        <li>Filterable course catalogue and detailed individual-course pages.</li>
+                                        <li>Practice-exam showcase and subscription plan comparisons.</li>
+                                        <li>Social proof, FAQs and a simple three-step subscription journey.</li>
+                                        <li>Responsive light and dark themes with a consistent gradient-led identity.</li>
+                                        <li>Direct routes to course exploration, pricing, affiliates and student login.</li>
+                                    </ul>
+                                    <p><a href="https://www.skills-nest.com/" class="portfolio-site__external-link" data-external-url="https://www.skills-nest.com/">Explore the live SkillsNest website</a></p>
+                                </section>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--learned">
+                                    <h3>What I Learned</h3>
+                                    <p>A large learning catalogue needs more than strong visuals: visitors need repeated orientation points that clarify what is available, how access works and whether an individual course or library subscription is the right next step.</p>
+                                </section>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
+                                    <h3>Visual Showcase</h3>
+                                    <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
+                                    <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
+                                        <?php
+                                        $skillsNestScreens = [
+                                            ['01.png', 'Homepage hero in dark mode', 'SkillsNest homepage hero, navigation and scrolling course catalogue in dark mode'],
+                                            ['02.png', 'Learning statistics and partners', 'SkillsNest partner logos and learning platform statistics'],
+                                            ['03.png', 'Learning portal preview', 'Gradient-framed preview of the SkillsNest student learning portal'],
+                                            ['04.png', 'Featured practice exams', 'Featured certification practice exam cards'],
+                                            ['05.png', 'Student testimonials', 'SkillsNest student testimonial wall'],
+                                            ['06.png', 'Subscription process', 'Three-step SkillsNest subscription process'],
+                                            ['07.png', 'Homepage pricing', 'SkillsNest Mock, Course and Full Library subscription cards'],
+                                            ['08.png', 'FAQs and trial call to action', 'SkillsNest FAQ accordion, portal video and free-trial call to action'],
+                                            ['09.png', 'Soft skills course page', 'Ten Soft Skills You Need course page hero'],
+                                            ['10.png', 'Course inclusions', 'Course statistics covering video, case studies, modules, resources and certificate'],
+                                            ['11.png', 'Course curriculum', 'Locked module list for the soft skills course'],
+                                            ['12.png', 'Course pricing options', 'Subscription pricing options on an individual course page'],
+                                            ['13.png', 'Homepage in light mode', 'SkillsNest homepage hero and course ticker in light mode'],
+                                            ['14.png', 'Course catalogue', 'SkillsNest filterable course catalogue in light mode'],
+                                            ['15.png', 'Plans and pricing page', 'SkillsNest plans and pricing page in light mode'],
+                                        ];
+                                        foreach ($skillsNestScreens as [$file, $caption, $alt]) :
+                                        ?>
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/skills-nest/<?php echo htmlspecialchars($file, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($alt, ENT_QUOTES, 'UTF-8'); ?>" loading="lazy">
+                                                <figcaption><?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?></figcaption>
+                                            </figure>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </section>
+                                <footer class="portfolio-site__case-footer">
+                                    <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
+                                    <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-squirrels-nursery">Next case study</button>
+                                </footer>
+                            </article>
+                        </main>
+                    </div>
+
+                    <div class="portfolio-site__page" id="page-case-study-squirrels-nursery">
+                        <main class="portfolio-site__main">
+                            <article class="portfolio-site__case-study">
+                                <header class="portfolio-site__case-hero">
+                                    <p class="portfolio-site__case-kicker">Friends &amp; Side Project</p>
+                                    <h2 class="portfolio-site__case-title">Squirrels Nursery Website &amp; Admin Portal</h2>
+                                    <p class="portfolio-site__case-subtitle">A complete redesign of an existing nursery website, pairing a professional, child-friendly public experience with a secure content platform the nursery team can update themselves.</p>
+                                    <div class="portfolio-site__case-chips">
+                                        <span class="portfolio-site__case-chip">Role: Product Designer + Full-Stack Developer</span>
+                                        <span class="portfolio-site__case-chip">Focus: information architecture + content operations</span>
+                                        <span class="portfolio-site__case-chip">Delivery: responsive website + secure CMS</span>
+                                    </div>
+                                </header>
+                                <div class="portfolio-site__case-star">
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
+                                        <p>The nursery's existing website made important information difficult for parents to find, and its forms were causing problems. Routine updates also depended on another person, so publishing time-sensitive information could be slow.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
+                                        <p>Redesign the full public experience to feel professional, clean, child-friendly and visibly high quality, while giving the nursery team direct control over the information families rely on.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
+                                        <p>I rebuilt the information architecture around the questions and actions parents need most: learning and care, fees, menus, nursery guidance, visits and applications. I created clear desktop and mobile navigation, focused calls to action and purpose-built contact and application forms.</p>
+                                        <p>I also designed and developed a secure admin portal where authorised staff can publish alerts, maintain the rotating food menu, write formatted news posts and knowledge-base guides, upload accessible gallery images, schedule content and manage publishing workflows.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
+                                        <p>Delivered a responsive, high-quality digital presence that makes nursery information easier to discover and gives staff a much faster route from an operational update to published parent-facing content. The same system now connects alerts, menus, news, guides and gallery content across the admin and public website.</p>
+                                    </section>
+                                </div>
+                                <section class="portfolio-site__case-section">
+                                    <h3>Tools &amp; Technologies</h3>
+                                    <p>Next.js, React, TypeScript, Supabase, PostgreSQL, secure authentication, role-based content management, rich-text editing, responsive UX, accessible form design, image management, SEO and Vercel.</p>
+                                    <p><a href="https://squirrelsbrox.vercel.app/" class="portfolio-site__external-link" data-external-url="https://squirrelsbrox.vercel.app/">Explore the live Squirrels Nursery website</a></p>
+                                </section>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
+                                    <h3>Client Handover</h3>
+                                    <p>After completing the build, I created a 12-page owner presentation to explain what the new website can do, show how admin updates appear to families, outline publishing roles and safeguards, and leave the nursery with a practical monthly maintenance routine.</p>
+                                    <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
+                                        <figure class="portfolio-site__media-figure">
+                                            <img src="assets/img/projects/squirrels-nursery/owner-handover-presentation-cover.jpg" alt="Cover of the Squirrels Nursery website owner handover presentation" loading="lazy">
+                                            <figcaption>Website owner presentation — created for the client after delivery</figcaption>
+                                        </figure>
+                                        <p class="portfolio-site__media-pdf-action">
+                                            <button type="button" class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-pdf-url="assets/img/projects/squirrels-nursery/owner-handover-presentation.pdf" data-pdf-name="Squirrels Nursery Website Owner Presentation">Open the client handover PDF</button>
+                                        </p>
+                                    </div>
+                                </section>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--learned">
+                                    <h3>What I Learned</h3>
+                                    <p>A successful redesign has to improve the organisation behind the website as well as the pages visitors see. Giving staff safe, structured publishing tools means clearer information for parents and less delay whenever the nursery needs to communicate.</p>
+                                </section>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
+                                    <h3>Visual Showcase</h3>
+                                    <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
+
+                                    <div class="portfolio-site__media-subsection">
+                                        <h4>Secure content management</h4>
+                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
+                                            <?php
+                                            $squirrelsAdminScreens = [
+                                                ['01.png', 'Admin dashboard', 'Squirrels Nursery secure admin dashboard with publishing shortcuts and recent content'],
+                                                ['02.png', 'Publishing an alert', 'Admin form for creating and scheduling an important nursery alert'],
+                                                ['04.png', 'Food menu management', 'Admin interface for maintaining the nursery three-week food menu and allergens'],
+                                                ['06.png', 'Rich news editor', 'Rich text editor for writing, formatting and scheduling nursery news'],
+                                                ['08.png', 'Knowledge-base management', 'Published parent guides managed from the secure knowledge base'],
+                                                ['09.png', 'Creating a parent guide', 'Admin editor for a searchable parent knowledge-base guide'],
+                                                ['12.png', 'Accessible gallery upload', 'Gallery upload form with alternative text, caption, credit and publishing controls'],
+                                            ];
+                                            foreach ($squirrelsAdminScreens as [$file, $caption, $alt]) :
+                                            ?>
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/squirrels-nursery/<?php echo htmlspecialchars($file, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($alt, ENT_QUOTES, 'UTF-8'); ?>" loading="lazy">
+                                                    <figcaption><?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?></figcaption>
+                                                </figure>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="portfolio-site__media-subsection">
+                                        <h4>Connected parent-facing content</h4>
+                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
+                                            <?php
+                                            $squirrelsContentScreens = [
+                                                ['03.png', 'Live alert on the homepage', 'Nursery homepage displaying a newly published important alert'],
+                                                ['05.png', 'Three-week food menu', 'Parent-facing food menu with daily meals and listed allergens'],
+                                                ['07.png', 'Published news story', 'Formatted nursery news story published from the admin editor'],
+                                                ['10.png', 'Searchable knowledge hub', 'Parent knowledge hub with categories, search and practical nursery guides'],
+                                                ['11.png', 'Permanent parent guidance', 'Detailed fees and funded childcare guide with sharing and print tools'],
+                                                ['13.png', 'Nursery gallery', 'Public nursery gallery displaying an uploaded image with caption and credit'],
+                                            ];
+                                            foreach ($squirrelsContentScreens as [$file, $caption, $alt]) :
+                                            ?>
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/squirrels-nursery/<?php echo htmlspecialchars($file, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($alt, ENT_QUOTES, 'UTF-8'); ?>" loading="lazy">
+                                                    <figcaption><?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?></figcaption>
+                                                </figure>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="portfolio-site__media-subsection">
+                                        <h4>Before and after the redesign</h4>
+                                        <p class="portfolio-site__media-hint">The original homepage used a narrow, visually busy layout with fragmented content and competing navigation. The rebuild creates a clearer hierarchy around the information and actions parents need most.</p>
+                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--compare">
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/squirrels-nursery/before-homepage.png" alt="Original Squirrels Nursery homepage before the redesign, with a narrow multi-coloured layout and dense navigation" loading="lazy">
+                                                <figcaption>Before — original nursery homepage</figcaption>
+                                            </figure>
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/squirrels-nursery/14.png" alt="Redesigned Squirrels Nursery homepage with a clear hero, parent journeys and high-quality responsive visual system" loading="lazy">
+                                                <figcaption>After — redesigned homepage</figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+
+                                    <div class="portfolio-site__media-subsection">
+                                        <h4>High-quality public experience</h4>
+                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
+                                            <?php
+                                            $squirrelsPublicScreens = [
+                                                ['15.png', 'About the nursery', 'About page describing the nursery, Ofsted result and areas of focus'],
+                                                ['16.png', 'Learning and care', 'Learning and care landing page with structured routes into key information'],
+                                                ['17.png', 'News and menus', 'Nursery news landing page with latest story and food-menu route'],
+                                                ['19.png', 'Contact journey', 'Contact page with easy-to-find details and a structured enquiry form'],
+                                                ['20.png', 'Application journey', 'Online nursery application form for child, parent and preferred-hours details'],
+                                            ];
+                                            foreach ($squirrelsPublicScreens as [$file, $caption, $alt]) :
+                                            ?>
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/squirrels-nursery/<?php echo htmlspecialchars($file, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($alt, ENT_QUOTES, 'UTF-8'); ?>" loading="lazy">
+                                                    <figcaption><?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?></figcaption>
+                                                </figure>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="portfolio-site__media-subsection">
+                                        <h4>Responsive mobile design</h4>
+                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--compare">
+                                            <figure class="portfolio-site__media-figure portfolio-site__media-figure--mobile">
+                                                <img src="assets/img/projects/squirrels-nursery/21.png" alt="Responsive Squirrels Nursery homepage on a mobile screen" loading="lazy">
+                                                <figcaption>Mobile homepage</figcaption>
+                                            </figure>
+                                            <figure class="portfolio-site__media-figure portfolio-site__media-figure--mobile">
+                                                <img src="assets/img/projects/squirrels-nursery/22.png" alt="Mobile navigation drawer with grouped nursery information" loading="lazy">
+                                                <figcaption>Mobile navigation</figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </section>
+                                <footer class="portfolio-site__case-footer">
+                                    <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
+                                    <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-creature-print-3d">Next case study</button>
+                                </footer>
+                            </article>
+                        </main>
+                    </div>
+
+                    <div class="portfolio-site__page" id="page-case-study-creature-print-3d">
+                        <main class="portfolio-site__main">
+                            <article class="portfolio-site__case-study">
+                                <header class="portfolio-site__case-hero">
+                                    <p class="portfolio-site__case-kicker">Case Study 9</p>
+                                    <h2 class="portfolio-site__case-title">Creature Print 3D Stripe Storefront</h2>
+                                    <p class="portfolio-site__case-subtitle">Designed and built an immersive, independent e-commerce experience for a friend's established Etsy store, giving the business a path toward an owned Stripe storefront with lower marketplace fees.</p>
+                                    <div class="portfolio-site__case-chips">
+                                        <span class="portfolio-site__case-chip">Role: Product Designer + Full-Stack Developer</span>
+                                        <span class="portfolio-site__case-chip">Project: friend + side project</span>
+                                        <span class="portfolio-site__case-chip">Focus: brand, e-commerce, Stripe</span>
+                                    </div>
+                                </header>
+                                <div class="portfolio-site__case-star">
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
+                                        <p>A friend's Creature Print 3D business had built an audience and strong review history on Etsy, but marketplace fees and platform dependence limited how much control the store had over its customer experience and future growth.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
+                                        <p>As a side project, I set out to turn the store's reptile-keeping expertise and 3D-printed products into a distinctive owned website that could support direct Stripe payments without losing the trust, product discovery, or personality established on Etsy.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
+                                        <p>I designed a highly visual brand experience around real habitats, keeper knowledge, and product-in-use photography. The site combines cinematic storytelling, responsive product discovery, category and animal filters, customer proof, and detailed craft messaging.</p>
+                                        <p>I built the storefront as a modern responsive web app, created reusable product and navigation patterns, and developed the Stripe-ready commerce flow so the business can move toward direct ownership of checkout and customer relationships.</p>
+                                    </section>
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
+                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
+                                        <p>Delivered a polished live storefront that gives Creature Print 3D an independent home beyond Etsy, communicates the specialist value behind the products, and establishes the foundation for direct Stripe sales with fewer marketplace costs.</p>
+                                    </section>
+                                </div>
+                                <section class="portfolio-site__case-section">
+                                    <h3>Tools &amp; Technologies</h3>
+                                    <p>Next.js, React, TypeScript, responsive CSS, Stripe Checkout, product catalogue architecture, Vercel, UX design, visual direction, and e-commerce content strategy.</p>
+                                    <p><a href="https://creatureprints3d.vercel.app/" class="portfolio-site__external-link" data-external-url="https://creatureprints3d.vercel.app/">Explore the live Creature Print 3D website</a></p>
+                                </section>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--learned">
+                                    <h3>What I Learned</h3>
+                                    <p>Moving a marketplace business toward its own storefront is not just a checkout migration. The independent site has to replace Etsy's built-in discovery and trust signals with stronger product storytelling, proof, navigation, and brand confidence.</p>
+                                </section>
+                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
+                                    <h3>Visual Showcase</h3>
+                                    <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
+                                    <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
+                                        <?php
+                                        $creaturePrintScreens = [
+                                            ['01.png', 'Homepage hero', 'Creature Print 3D homepage with immersive habitat photography and collection call to action'],
+                                            ['02.png', 'Keeper-led story', 'Homepage section explaining that products are designed by experienced animal keepers'],
+                                            ['03.png', 'Animal care meets 3D design', 'Brand story connecting animal care with 3D product design'],
+                                            ['04.png', 'Real-habitat product testing', 'Product testing message shown alongside a mushroom tortoise hide'],
+                                            ['05.png', 'Collection transition', 'Homepage transition into the creature favourites product collection'],
+                                            ['06.png', 'Featured product storytelling', 'Cinematic featured section for the mushroom tortoise hide'],
+                                            ['07.png', 'Customer review', 'Large-format verified Etsy customer review'],
+                                            ['08.png', 'Newsletter and footer', 'Collection call to action, keeper notes signup and footer'],
+                                            ['09.png', 'Our Craft hero', 'Our Craft page hero showing the 3D printing workshop and habitat setting'],
+                                            ['10.png', 'Keeper-first process', 'Our Craft process section pairing keeper knowledge with product design'],
+                                            ['11.png', 'Packaging story', 'Packaging section explaining thoughtful fulfilment choices'],
+                                            ['12.png', 'Reviews overview', 'Reviews page with Etsy rating, review count and order proof'],
+                                            ['13.png', 'Review card', 'Customer review card and store performance figures'],
+                                            ['14.png', 'Responsive review layout', 'Wide review presentation on the dark green brand canvas'],
+                                            ['15.png', 'Product catalogue', 'Filterable product catalogue with animal categories, search, sorting and price control'],
+                                        ];
+                                        foreach ($creaturePrintScreens as [$file, $caption, $alt]) :
+                                        ?>
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/creature-print-3d/<?php echo htmlspecialchars($file, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($alt, ENT_QUOTES, 'UTF-8'); ?>" loading="lazy">
+                                                <figcaption><?php echo htmlspecialchars($caption, ENT_QUOTES, 'UTF-8'); ?></figcaption>
+                                            </figure>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </section>
+                                <footer class="portfolio-site__case-footer">
+                                    <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
                                     <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-bindertrader">Next case study</button>
                                 </footer>
                             </article>
@@ -752,7 +1335,7 @@
                         <main class="portfolio-site__main">
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
-                                    <p class="portfolio-site__case-kicker">Case Study 3</p>
+                                    <p class="portfolio-site__case-kicker">Case Study 10</p>
                                     <h2 class="portfolio-site__case-title">BinderTrader Platform Architecture & Product Development</h2>
                                     <p class="portfolio-site__case-subtitle">Designed and built a trade-first platform concept for transparent, community-driven card exchanges.</p>
                                     <div class="portfolio-site__case-chips">
@@ -832,7 +1415,7 @@
                                 </section>
                                 <footer class="portfolio-site__case-footer">
                                     <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
-                                    <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-digital-ops">Next case study</button>
+                                    <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-desktop-portfolio">Next case study</button>
                                 </footer>
                             </article>
                         </main>
@@ -842,57 +1425,280 @@
                         <main class="portfolio-site__main">
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
-                                    <p class="portfolio-site__case-kicker">Case Study 4</p>
-                                    <h2 class="portfolio-site__case-title">Digital Operations & Cross-Department Systems Management</h2>
-                                    <p class="portfolio-site__case-subtitle">Taking ownership during business restructuring to protect revenue-critical digital capabilities.</p>
+                                    <p class="portfolio-site__case-kicker">Case Study 3</p>
+                                    <h2 class="portfolio-site__case-title">Operational Systems Mapping &amp; Digital Capability Protection</h2>
+                                    <p class="portfolio-site__case-subtitle">Mapping cross-department workflows to separate routine operational overhead from specialist digital work linked to marketing, CRM, UX, automation and revenue-supporting systems.</p>
                                     <div class="portfolio-site__case-chips">
-                                        <span class="portfolio-site__case-chip">Role: Digital Product & Operations Lead</span>
-                                        <span class="portfolio-site__case-chip">Stakeholders: leadership, marketing, support</span>
-                                        <span class="portfolio-site__case-chip">Impact: resource allocation clarity</span>
+                                        <span class="portfolio-site__case-chip">Product Operations</span>
+                                        <span class="portfolio-site__case-chip">Systems Mapping</span>
+                                        <span class="portfolio-site__case-chip">Workflow Design</span>
+                                        <span class="portfolio-site__case-chip">Digital Capability</span>
+                                        <span class="portfolio-site__case-chip">Stakeholder Alignment</span>
+                                        <span class="portfolio-site__case-chip">Resource Prioritisation</span>
+                                        <span class="portfolio-site__case-chip">CRM &amp; Automation</span>
+                                        <span class="portfolio-site__case-chip">Marketing Operations</span>
+                                        <span class="portfolio-site__case-chip">Business Continuity</span>
                                     </div>
+                                    <p class="portfolio-site__case-intro">I approached this project as a product operations and systems-mapping challenge. During a period of business restructuring, the key issue was not simply reducing workload — it was understanding which activities were routine overhead, which were specialist digital capabilities, and which systems directly supported lead generation, customer experience and operational continuity.</p>
                                 </header>
-                                <div class="portfolio-site__case-star">
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
-                                        <p>The company entered a restructuring period due to financial pressures, requiring departments to reduce operational costs while maintaining service levels.</p>
+
+                                <div class="portfolio-site__case-body">
+                                    <section class="portfolio-site__case-section">
+                                        <h3>The Opportunity</h3>
+                                        <p>The business needed clearer visibility of where time and effort were being spent across website updates, CRM activity, email campaigns, webinar support, reporting, automation, admin and support requests. Without a structured view of these responsibilities, it was difficult to make confident decisions about what could be automated, outsourced, reduced or retained internally.</p>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Recurring responsibilities needed to be mapped and categorised.</li>
+                                            <li>Routine admin needed separating from specialist digital work.</li>
+                                            <li>Leadership needed clearer visibility of business-critical digital capabilities.</li>
+                                            <li>Marketing, CRM and website work needed protecting from being treated as general admin.</li>
+                                            <li>The business needed a repeatable way to prioritise work based on impact.</li>
+                                        </ul>
                                     </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
-                                        <p>My responsibility was to identify which operational processes could be streamlined or automated while ensuring that key marketing, website, and digital product functions continued to support revenue generation.</p>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Who the System Needed to Support</h3>
+                                        <div class="portfolio-site__insight-grid">
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Leadership</h4>
+                                                <p>Needed a clearer view of which activities created operational value, supported revenue or created avoidable overhead.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Marketing</h4>
+                                                <p>Needed continued support for campaigns, landing pages, email production, analytics and optimisation.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Support Team</h4>
+                                                <p>Needed clearer boundaries between student/admin support tasks and specialist digital/product responsibilities.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Sales</h4>
+                                                <p>Needed marketing and CRM systems to keep supporting lead generation, follow-up visibility and conversion activity.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card portfolio-site__insight-card--span">
+                                                <h4>Business Operations</h4>
+                                                <p>Needed a practical way to decide what should be retained, automated, outsourced or deprioritised.</p>
+                                            </article>
+                                        </div>
                                     </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
-                                        <p>I conducted a review of recurring operational tasks, identified lower-value administrative activities, and separated them from specialist technical responsibilities such as website development, CRM management, automation, email production, and digital product work.</p>
-                                        <p>I documented workflows, proposed outsourcing opportunities where appropriate, and developed a revised role structure focused on higher-impact activities directly connected to lead generation and customer experience.</p>
-                                        <p>In parallel, I implemented consistent tracking using Google Analytics, UTM parameters, email reporting, heatmaps, and CRM reporting — building processes that combined multiple data sources so decisions were based on performance, not assumptions.</p>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Workflow Discovery</h3>
+                                        <p>I reviewed recurring activities across departments and grouped them by business value, complexity, repeatability and dependency risk. The aim was to make invisible work visible, so decisions could be based on operational impact rather than assumptions.</p>
+                                        <div class="portfolio-site__insight-grid">
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Automation candidates</h4>
+                                                <p>Some tasks were routine and repeatable enough to automate or outsource.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Specialist capability</h4>
+                                                <p>Some responsibilities required specialist knowledge of website, CRM, UX or campaign systems.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Cross-department gaps</h4>
+                                                <p>Several workflows crossed departments and lacked a single clear owner.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Connected reporting</h4>
+                                                <p>Reporting needed to combine multiple systems rather than relying on isolated metrics.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Undervalued digital work</h4>
+                                                <p>High-impact digital work risked being undervalued when grouped with general admin.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Clearer prioritisation</h4>
+                                                <p>Better categorisation made prioritisation easier during resource constraints.</p>
+                                            </article>
+                                        </div>
                                     </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
-                                        <p>The company gained a clearer understanding of which activities generated business value versus administrative overhead. This enabled more informed decision-making around resource allocation while preserving critical marketing and digital capabilities. Stakeholders also gained better visibility into marketing performance, enabling faster optimisation and more effective budget allocation.</p>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Problems Identified</h3>
+                                        <div class="portfolio-site__problem-grid">
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Invisible operational work</h4>
+                                                <p>Many recurring responsibilities were happening in the background, making it difficult for stakeholders to understand the full workload.</p>
+                                            </article>
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Specialist work treated like admin</h4>
+                                                <p>Website development, CRM management, email systems, analytics and automation could be misunderstood as simple support tasks rather than specialist digital capabilities.</p>
+                                            </article>
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Unclear prioritisation</h4>
+                                                <p>Without a shared framework, urgent low-value requests could compete with higher-impact work linked to campaigns, conversion and customer experience.</p>
+                                            </article>
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Disconnected reporting</h4>
+                                                <p>Performance visibility depended on combining website analytics, email reporting, CRM activity, heatmaps and campaign data.</p>
+                                            </article>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Process Workflow Map</h3>
+                                        <div class="portfolio-site__process-map" aria-label="Process workflow map showing how operational responsibilities were categorised">
+                                            <div class="portfolio-site__process-flow">
+                                                <div class="portfolio-site__process-step portfolio-site__process-step--primary">
+                                                    <span class="portfolio-site__process-step-label">Operational Activities Review</span>
+                                                </div>
+                                                <span class="portfolio-site__process-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+                                                <div class="portfolio-site__process-step">
+                                                    <span class="portfolio-site__process-step-label">All Responsibilities</span>
+                                                </div>
+                                                <span class="portfolio-site__process-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+                                                <div class="portfolio-site__process-step portfolio-site__process-step--decision">
+                                                    <span class="portfolio-site__process-step-label">Categorisation Process</span>
+                                                </div>
+                                            </div>
+                                            <span class="portfolio-site__process-arrow portfolio-site__process-arrow--split" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+                                            <div class="portfolio-site__process-branches">
+                                                <div class="portfolio-site__process-branch">
+                                                    <div class="portfolio-site__process-step portfolio-site__process-step--admin">
+                                                        <span class="portfolio-site__process-step-label">Admin / Routine Tasks</span>
+                                                    </div>
+                                                    <span class="portfolio-site__process-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+                                                    <div class="portfolio-site__process-step portfolio-site__process-step--admin portfolio-site__process-step--outcome">
+                                                        <span class="portfolio-site__process-step-label">Outsource or Automate</span>
+                                                    </div>
+                                                </div>
+                                                <div class="portfolio-site__process-branch">
+                                                    <div class="portfolio-site__process-step portfolio-site__process-step--specialist">
+                                                        <span class="portfolio-site__process-step-label">Specialist / Revenue-Supporting Tasks</span>
+                                                    </div>
+                                                    <span class="portfolio-site__process-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+                                                    <div class="portfolio-site__process-step portfolio-site__process-step--specialist portfolio-site__process-step--outcome">
+                                                        <span class="portfolio-site__process-step-label">Retain &amp; Prioritise</span>
+                                                        <span class="portfolio-site__process-step-detail">Website &bull; CRM &bull; UX &bull; Email &bull; Automation</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Product &amp; Operations Decisions</h3>
+                                        <p>I created a clearer operating model by separating task types and identifying where specialist digital capabilities should be protected, where routine activity could be simplified, and where reporting could support better decision-making.</p>
+                                        <div class="portfolio-site__decision-list">
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Categorised responsibilities</h4>
+                                                <p>Grouped work into admin, support, marketing, CRM, website, automation, reporting and product-related activity.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Separated specialist capability</h4>
+                                                <p>Distinguished technical and growth-related work from routine operational tasks.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Prioritised revenue-supporting systems</h4>
+                                                <p>Protected activity connected to lead generation, CRM visibility, website performance, campaign production and customer experience.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Identified automation opportunities</h4>
+                                                <p>Highlighted repeatable processes that could be simplified, outsourced or automated.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Improved reporting visibility</h4>
+                                                <p>Connected analytics, email, CRM and campaign data so stakeholders could see performance more clearly.</p>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>The Solution</h3>
+                                        <p>The output was a clearer cross-department operating view that helped separate low-value operational overhead from specialist digital activity. This created a stronger foundation for resource planning, workload prioritisation and business continuity.</p>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Mapped recurring responsibilities across departments.</li>
+                                            <li>Categorised activity by business impact and repeatability.</li>
+                                            <li>Identified tasks suitable for automation or outsourcing.</li>
+                                            <li>Protected specialist work linked to website, CRM, UX, email and automation.</li>
+                                            <li>Created clearer visibility for leadership and stakeholders.</li>
+                                            <li>Supported better prioritisation during operational change.</li>
+                                        </ul>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Product Impact</h3>
+                                        <div class="portfolio-site__insight-grid">
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Workload clarity</h4>
+                                                <p>Made recurring responsibilities easier to understand, group and prioritise.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Better resource decisions</h4>
+                                                <p>Created a clearer distinction between routine tasks and specialist digital capability.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Business continuity</h4>
+                                                <p>Helped protect website, CRM, marketing and automation work during operational change.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Performance visibility</h4>
+                                                <p>Improved the way stakeholders could view campaign, website and CRM performance.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card portfolio-site__insight-card--span">
+                                                <h4>Scalable operating model</h4>
+                                                <p>Created a repeatable approach for reviewing future responsibilities and workflow changes.</p>
+                                            </article>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Systems &amp; Tools</h3>
+                                        <p>I worked across multiple digital systems to connect operational activity with performance visibility and day-to-day delivery.</p>
+                                        <div class="portfolio-site__case-chips">
+                                            <span class="portfolio-site__case-chip">WordPress</span>
+                                            <span class="portfolio-site__case-chip">CRM systems</span>
+                                            <span class="portfolio-site__case-chip">MailerLite</span>
+                                            <span class="portfolio-site__case-chip">GA4</span>
+                                            <span class="portfolio-site__case-chip">GTM</span>
+                                            <span class="portfolio-site__case-chip">UTM tracking</span>
+                                            <span class="portfolio-site__case-chip">Microsoft Clarity</span>
+                                            <span class="portfolio-site__case-chip">HTML</span>
+                                            <span class="portfolio-site__case-chip">CSS</span>
+                                            <span class="portfolio-site__case-chip">Excel</span>
+                                            <span class="portfolio-site__case-chip">Google Sheets</span>
+                                            <span class="portfolio-site__case-chip">Webinar platforms</span>
+                                            <span class="portfolio-site__case-chip">Stripe</span>
+                                            <span class="portfolio-site__case-chip">API integrations</span>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--learned">
+                                        <h3>What I Learned</h3>
+                                        <p>The biggest lesson was that operational clarity is a product problem as much as a management problem. When responsibilities are not clearly mapped, specialist work can be undervalued and high-impact systems can be treated as routine admin. A simple workflow model helped make hidden dependencies visible and supported better decision-making.</p>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Invisible work needs to be mapped before it can be prioritised.</li>
+                                            <li>Specialist digital capability should not be grouped with routine admin.</li>
+                                            <li>Workflow clarity supports better stakeholder alignment.</li>
+                                            <li>Reporting matters most when it connects multiple systems.</li>
+                                            <li>Resource planning improves when work is categorised by impact, not just volume.</li>
+                                        </ul>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>What I'd Do Next</h3>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Build a live prioritisation dashboard for recurring requests.</li>
+                                            <li>Add scoring for business impact, urgency, effort and dependency risk.</li>
+                                            <li>Track time spent by workflow category.</li>
+                                            <li>Create SLA-style rules for support, marketing and technical requests.</li>
+                                            <li>Add automation triggers for repeatable admin tasks.</li>
+                                            <li>Improve reporting across CRM, email, website and campaign performance.</li>
+                                        </ul>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
+                                        <h3>Operational Visibility Dashboard</h3>
+                                        <p>The dashboard concept brought workload priorities, business impact ratings and performance visibility into one place. The aim was to help stakeholders understand which systems supported lead generation, campaign performance and customer experience.</p>
+                                        <p class="portfolio-site__media-hint">Select the screenshot to view it full size.</p>
+                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
+                                            <figure class="portfolio-site__media-figure">
+                                                <img src="assets/img/projects/operational-management/case-study-digital-ops-management-dashboard.png" alt="Coordination dashboard showing workload priorities, business impact ratings, and performance metrics for website traffic, email, leads, and conversion rate" loading="lazy">
+                                                <figcaption>Coordination dashboard — workload priorities and performance visibility</figcaption>
+                                            </figure>
+                                        </div>
                                     </section>
                                 </div>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Tools & Technologies</h3>
-                                    <p>WordPress, CRM systems, MailerLite, GA4, GTM, UTM tracking, Microsoft Clarity, HTML, CSS, Excel, Google Sheets, webinar platforms, Stripe, API integrations.</p>
-                                </section>
-                                <section class="portfolio-site__case-section portfolio-site__case-section--learned">
-                                    <h3>What I Learned</h3>
-                                    <p>During uncertainty, clarity beats volume — separating high-impact work from overhead helped leadership make defensible choices without sacrificing growth infrastructure.</p>
-                                </section>
-                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
-                                    <h3>Visual Showcase</h3>
-                                    <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
-                                    <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
-                                        <figure class="portfolio-site__media-figure">
-                                            <img src="assets/img/projects/operational-management/case-study-digital-ops-management-workflow-map.png" alt="Process workflow map showing how operational responsibilities were reviewed, categorised, and split between outsource or automate and retain and prioritise" loading="lazy">
-                                            <figcaption>Process workflow map — responsibility review and categorisation</figcaption>
-                                        </figure>
-                                        <figure class="portfolio-site__media-figure">
-                                            <img src="assets/img/projects/operational-management/case-study-digital-ops-management-dashboard.png" alt="Coordination dashboard showing workload priorities, business impact ratings, and performance metrics for website traffic, email, leads, and conversion rate" loading="lazy">
-                                            <figcaption>Coordination dashboard — workload priorities and performance visibility</figcaption>
-                                        </figure>
-                                    </div>
-                                </section>
+
                                 <footer class="portfolio-site__case-footer">
                                     <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
                                     <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-mock-exam">Next case study</button>
@@ -905,112 +1711,392 @@
                         <main class="portfolio-site__main">
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
-                                    <p class="portfolio-site__case-kicker">Case Study 5</p>
-                                    <h2 class="portfolio-site__case-title">Student Training Portal & Platform Modernisation</h2>
-                                    <p class="portfolio-site__case-subtitle">Cross-functional leadership to replace legacy student processes with a scalable learning platform.</p>
+                                    <p class="portfolio-site__case-kicker">Case Study 4</p>
+                                    <h2 class="portfolio-site__case-title">Modernising the Student Training Journey Through Platform UX</h2>
+                                    <p class="portfolio-site__case-subtitle">Redesigning the mock exam, revision and results experience to help students progress through training with clearer feedback, better navigation and less dependency on manual support.</p>
                                     <div class="portfolio-site__case-chips">
-                                        <span class="portfolio-site__case-chip">Role: Product Lead + Frontend Developer</span>
-                                        <span class="portfolio-site__case-chip">Stakeholders: students, trainers, support, management</span>
-                                        <span class="portfolio-site__case-chip">Scale: organisation-wide student experience</span>
+                                        <span class="portfolio-site__case-chip">Product Management</span>
+                                        <span class="portfolio-site__case-chip">UX Design</span>
+                                        <span class="portfolio-site__case-chip">Learning Platform</span>
+                                        <span class="portfolio-site__case-chip">Student Journey Mapping</span>
+                                        <span class="portfolio-site__case-chip">Mock Exam UX</span>
+                                        <span class="portfolio-site__case-chip">Feedback Loops</span>
+                                        <span class="portfolio-site__case-chip">Frontend Development</span>
+                                        <span class="portfolio-site__case-chip">Stakeholder Discovery</span>
+                                        <span class="portfolio-site__case-chip">Scalable Systems</span>
                                     </div>
+                                    <p class="portfolio-site__case-intro">I approached this project as a student journey and platform modernisation challenge. The goal was to improve how learners moved through training, practice exams, revision, feedback and next-step guidance, while also reducing the operational burden on support teams, trainers and management.</p>
                                 </header>
-                                <div class="portfolio-site__case-star">
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">S</span> Situation</h3>
-                                        <p>The company relied on multiple disconnected systems and manual processes to manage student training progression.</p>
+
+                                <div class="portfolio-site__case-body">
+                                    <section class="portfolio-site__case-section">
+                                        <h3>The Opportunity</h3>
+                                        <p>The existing student training experience depended on disconnected tools, manual processes and unclear progression points. Students needed a clearer way to practise, review mistakes and understand their readiness, while internal teams needed a more scalable way to support learners without repeatedly explaining the same next steps manually.</p>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Students needed clearer visibility of their progress and exam readiness.</li>
+                                            <li>Mock exam feedback needed to be easier to understand and act on.</li>
+                                            <li>Support teams needed fewer repetitive progression queries.</li>
+                                            <li>Trainers and management needed a more consistent view of the student journey.</li>
+                                            <li>The platform needed to support future growth without adding more manual admin.</li>
+                                        </ul>
                                     </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">T</span> Task</h3>
-                                        <p>I identified an opportunity to improve the student experience and reduce administrative workload through a modern learning platform — including mock exams, results, and structured revision content.</p>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Who the Platform Needed to Support</h3>
+                                        <div class="portfolio-site__insight-grid">
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Students</h4>
+                                                <p>Needed a clear, low-friction way to practise exams, review mistakes and understand what to revise next.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Support Team</h4>
+                                                <p>Needed quicker access to student progress, results and common blockers so they could guide learners more efficiently.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Trainers</h4>
+                                                <p>Needed students to arrive better prepared, with clearer revision history and fewer gaps caused by poor navigation or unclear feedback.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Management</h4>
+                                                <p>Needed a scalable system that reduced dependency on informal knowledge, manual tracking and disconnected legacy processes.</p>
+                                            </article>
+                                        </div>
                                     </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">A</span> Action</h3>
-                                        <p>I led the planning and development of the platform, defining requirements across students, support teams, trainers, and management stakeholders.</p>
-                                        <p>I designed workflows, developed functionality, managed technical implementation, and modernised the exam experience with clearer navigation, mobile-first question flows, results breakdowns, and scalable content structure.</p>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Mapping the Student Training Journey</h3>
+                                        <div class="portfolio-site__journey-flow">
+                                            <div class="portfolio-site__journey-row">
+                                                <article class="portfolio-site__journey-card">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6"/><path d="M22 11h-6"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">1</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Enrolment</h4>
+                                                    <p class="portfolio-site__journey-question">Does the student understand where to start?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">2</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Course Content</h4>
+                                                    <p class="portfolio-site__journey-question">Can the student access the right learning material easily?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 11h6"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">3</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Practice / Mock Exams</h4>
+                                                    <p class="portfolio-site__journey-question">Is the exam experience clear, focused and easy to navigate?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">4</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Results Review</h4>
+                                                    <p class="portfolio-site__journey-question">Can the student understand what went wrong?</p>
+                                                </article>
+                                            </div>
+                                            <div class="portfolio-site__journey-connector" aria-hidden="true">
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+                                            </div>
+                                            <div class="portfolio-site__journey-row portfolio-site__journey-row--snake">
+                                                <article class="portfolio-site__journey-card" style="--mobile-order: 11">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">8</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Certification Progression</h4>
+                                                    <p class="portfolio-site__journey-question">Does the next step feel clear after passing readiness checks?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h portfolio-site__journey-arrow--left" style="--mobile-order: 10" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card" style="--mobile-order: 9">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">7</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Exam Readiness</h4>
+                                                    <p class="portfolio-site__journey-question">Is the student confident they are ready for the real exam?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h portfolio-site__journey-arrow--left" style="--mobile-order: 8" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card" style="--mobile-order: 7">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">6</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Retake / Improve Score</h4>
+                                                    <p class="portfolio-site__journey-question">Can the student see progress over multiple attempts?</p>
+                                                </article>
+                                                <span class="portfolio-site__journey-arrow portfolio-site__journey-arrow--h portfolio-site__journey-arrow--left" style="--mobile-order: 6" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span>
+                                                <article class="portfolio-site__journey-card" style="--mobile-order: 5">
+                                                    <div class="portfolio-site__journey-card-head">
+                                                        <span class="portfolio-site__journey-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+                                                        <span class="portfolio-site__journey-num">5</span>
+                                                    </div>
+                                                    <h4 class="portfolio-site__journey-title">Targeted Revision</h4>
+                                                    <p class="portfolio-site__journey-question">Does the platform guide the student towards what to revise next?</p>
+                                                </article>
+                                            </div>
+                                        </div>
                                     </section>
-                                    <section class="portfolio-site__case-section portfolio-site__case-section--star">
-                                        <h3 class="portfolio-site__case-star-heading"><span class="portfolio-site__case-star-letter">R</span> Result</h3>
-                                        <p>The organisation gained a scalable platform capable of supporting future growth while reducing dependency on legacy processes and improving the overall student experience.</p>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Product Discovery &amp; Feedback</h3>
+                                        <p>I gathered product requirements by observing how students, trainers and support staff interacted with the existing process. The biggest issues were not just visual design problems — they were journey problems. Students needed clearer feedback loops, support teams needed better visibility, and the business needed a platform that could scale without relying on manual explanation.</p>
+                                        <div class="portfolio-site__insight-grid">
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Post-exam guidance</h4>
+                                                <p>Students needed better guidance after completing a mock exam.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Beyond pass/fail</h4>
+                                                <p>Results needed to show more than a pass/fail percentage.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Mistake clarity</h4>
+                                                <p>Question review needed to make mistakes easier to understand.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Support visibility</h4>
+                                                <p>Support staff needed consistent data to answer student queries.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Trainer insight</h4>
+                                                <p>Trainers needed a cleaner view of where learners were struggling.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Scalable structure</h4>
+                                                <p>The platform needed a scalable content structure for future courses.</p>
+                                            </article>
+                                        </div>
                                     </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Problems Identified</h3>
+                                        <div class="portfolio-site__problem-grid">
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Unclear student progression</h4>
+                                                <p>Students could complete training activity without always knowing what to do next or whether they were ready to move forward.</p>
+                                            </article>
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Weak feedback loop</h4>
+                                                <p>Mock exam results gave useful information, but the experience needed to make mistakes, topic gaps and revision priorities easier to understand.</p>
+                                            </article>
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Manual support dependency</h4>
+                                                <p>Support teams had to answer repeated questions that the platform could solve through clearer UX, better progress visibility and structured guidance.</p>
+                                            </article>
+                                            <article class="portfolio-site__problem-card">
+                                                <h4>Limited scalability</h4>
+                                                <p>As more courses, mocks and content were added, the platform needed a cleaner structure that could grow without becoming harder to manage.</p>
+                                            </article>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Wireframing the Improved Experience</h3>
+                                        <p>Before building the new experience, I mapped the key screens and user flows around what students needed to understand at each stage: where they were, what they had completed, what they got wrong, and what action they should take next.</p>
+                                        <div class="portfolio-site__decision-list">
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Quiz layout</h4>
+                                                <p>I simplified the quiz interface so students could focus on the question, navigate between questions, and review progress without unnecessary friction.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Question navigation</h4>
+                                                <p>I added clearer question states and navigation patterns so students could move through longer mock exams with more confidence.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Results summary</h4>
+                                                <p>I redesigned the results view to make performance easier to understand at a glance, including score, correct answers, incorrect answers and unanswered questions.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Per-question breakdown</h4>
+                                                <p>I introduced a clearer review structure so students could see which answers were correct or incorrect and use that feedback for targeted revision.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Dark mode</h4>
+                                                <p>I explored dark mode layouts to improve comfort and accessibility for longer study sessions.</p>
+                                            </div>
+                                            <div class="portfolio-site__decision-item">
+                                                <h4>Structured case study content</h4>
+                                                <p>I introduced clearer case study layouts to support scenario-based learning and revision.</p>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>The Solution</h3>
+                                        <p>The redesigned experience brought mock exams, results, review flows and revision content into a more consistent platform journey. The focus was not only on making the screens look better, but on helping students understand what happened, what it meant, and what they should do next.</p>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Redesigned quiz interface with cleaner layout and navigation.</li>
+                                            <li>Improved results dashboard with clearer performance summary.</li>
+                                            <li>Added per-question review to support targeted revision.</li>
+                                            <li>Improved content structure for case studies and scenario-based learning.</li>
+                                            <li>Designed layouts that could support multiple courses and future content.</li>
+                                            <li>Reduced reliance on manual explanation by making the next steps clearer inside the platform.</li>
+                                        </ul>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
+                                        <h3>Visual Showcase</h3>
+                                        <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
+
+                                        <div class="portfolio-site__media-subsection">
+                                            <h4>Before &amp; After: Quiz Experience</h4>
+                                            <p>The previous quiz experience was functional but did not clearly support longer exam navigation or revision behaviour. The redesigned experience focused on question clarity, progress visibility and easier review.</p>
+                                            <div class="portfolio-site__media-grid portfolio-site__media-grid--compare">
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/student-mocks/screenshot-old-quiz-layout.png" alt="Previous mock exam quiz layout" loading="lazy">
+                                                    <figcaption>Previous quiz layout</figcaption>
+                                                </figure>
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/student-mocks/screenshot-new-quiz-layout.png" alt="Redesigned mock exam quiz layout" loading="lazy">
+                                                    <figcaption>Redesigned quiz layout</figcaption>
+                                                </figure>
+                                            </div>
+                                            <div class="portfolio-site__media-grid">
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/student-mocks/screenshot-new-quiz-review-features.png" alt="In-quiz review and navigation features" loading="lazy">
+                                                    <figcaption>In-quiz review and navigation</figcaption>
+                                                </figure>
+                                            </div>
+                                        </div>
+
+                                        <div class="portfolio-site__media-subsection">
+                                            <h4>Before &amp; After: Results &amp; Feedback</h4>
+                                            <p>The results experience was redesigned to turn exam completion into a feedback loop. Instead of simply showing a result, the new layout helped students understand performance, identify mistakes and decide what to revise next.</p>
+                                            <div class="portfolio-site__media-grid portfolio-site__media-grid--compare">
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/student-mocks/screenshot-old-results-layout.png" alt="Previous mock exam results summary" loading="lazy">
+                                                    <figcaption>Previous results summary</figcaption>
+                                                </figure>
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/student-mocks/screenshot-new-results-layout.png" alt="Redesigned mock exam results summary" loading="lazy">
+                                                    <figcaption>Redesigned results summary</figcaption>
+                                                </figure>
+                                            </div>
+                                            <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/student-mocks/screenshot-new-results-questions-layout.png" alt="Per-question results breakdown" loading="lazy">
+                                                    <figcaption>Per-question results breakdown</figcaption>
+                                                </figure>
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/student-mocks/screenshot-new-results-layout-dark-mode.png" alt="Results summary in dark mode" loading="lazy">
+                                                    <figcaption>Results summary (dark mode)</figcaption>
+                                                </figure>
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/student-mocks/screenshot-new-results-questions-layout-dark-mode.png" alt="Question breakdown in dark mode" loading="lazy">
+                                                    <figcaption>Question breakdown (dark mode)</figcaption>
+                                                </figure>
+                                            </div>
+                                        </div>
+
+                                        <div class="portfolio-site__media-subsection">
+                                            <h4>Structured Learning Content</h4>
+                                            <p>Scenario-based case study content was structured to support deeper learning and help students apply knowledge in a more realistic context.</p>
+                                            <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/student-mocks/screenshot-new-case-studies-1.png" alt="Case study listing layout" loading="lazy">
+                                                    <figcaption>Case study listing</figcaption>
+                                                </figure>
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/student-mocks/screenshot-new-case-studies--2.png" alt="Case study detail layout" loading="lazy">
+                                                    <figcaption>Case study detail view</figcaption>
+                                                </figure>
+                                                <figure class="portfolio-site__media-figure">
+                                                    <img src="assets/img/projects/student-mocks/screenshot-new-case-studies-3.png" alt="Case study content structure" loading="lazy">
+                                                    <figcaption>Structured case study content</figcaption>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Product Impact</h3>
+                                        <div class="portfolio-site__insight-grid">
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Student experience</h4>
+                                                <p>Clearer exam navigation, results feedback and revision guidance helped students understand what to do next.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Support efficiency</h4>
+                                                <p>Better visibility and clearer self-service guidance reduced the need for repeated manual explanations.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Platform scalability</h4>
+                                                <p>The improved structure created a foundation for adding more courses, mock exams and content types.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card">
+                                                <h4>Learning feedback loop</h4>
+                                                <p>Results became more actionable by connecting scores, incorrect answers and review behaviour.</p>
+                                            </article>
+                                            <article class="portfolio-site__insight-card portfolio-site__insight-card--span">
+                                                <h4>Operational consistency</h4>
+                                                <p>A shared platform experience helped align students, trainers, support and management around the same journey.</p>
+                                            </article>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Build &amp; Implementation</h3>
+                                        <p>I worked across product planning, UX design and frontend implementation, turning platform requirements into usable screens and scalable interface patterns. The build required balancing student-facing UX with internal operational needs, ensuring that the platform could support multiple stakeholders rather than solving for one screen in isolation.</p>
+                                        <div class="portfolio-site__case-chips">
+                                            <span class="portfolio-site__case-chip">HTML</span>
+                                            <span class="portfolio-site__case-chip">CSS</span>
+                                            <span class="portfolio-site__case-chip">JavaScript</span>
+                                            <span class="portfolio-site__case-chip">Responsive design</span>
+                                            <span class="portfolio-site__case-chip">CMS / content structure</span>
+                                            <span class="portfolio-site__case-chip">UX workflows</span>
+                                            <span class="portfolio-site__case-chip">Mock exam logic</span>
+                                            <span class="portfolio-site__case-chip">Results breakdown interface</span>
+                                            <span class="portfolio-site__case-chip">Mobile-first layout</span>
+                                            <span class="portfolio-site__case-chip">Dark mode exploration</span>
+                                        </div>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section portfolio-site__case-section--learned">
+                                        <h3>What I Learned</h3>
+                                        <p>The biggest lesson was that platform modernisation is not just about replacing old screens. It requires understanding how every stakeholder moves through the system. Student UX improvements only become truly valuable when they also support trainers, support staff and management workflows.</p>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Clear feedback loops are essential in learning products.</li>
+                                            <li>Results pages should guide action, not just report scores.</li>
+                                            <li>Support teams benefit when product UX answers repeat questions.</li>
+                                            <li>Scalable content structure matters as much as visual design.</li>
+                                            <li>Platform UX needs to consider both front-stage student experience and back-stage operational workflows.</li>
+                                        </ul>
+                                    </section>
+
+                                    <section class="portfolio-site__case-section">
+                                        <h3>What I'd Do Next</h3>
+                                        <p>If continuing the project, I would focus on deeper learning analytics and personalised progression journeys, helping students understand not only what they scored but how their performance changed over time.</p>
+                                        <ul class="portfolio-site__case-list">
+                                            <li>Add student progress dashboards across multiple attempts.</li>
+                                            <li>Track topic-level weakness and recommend revision paths.</li>
+                                            <li>Add trainer dashboards for cohort-level performance trends.</li>
+                                            <li>Add automated readiness indicators for exam voucher release.</li>
+                                            <li>Improve accessibility testing across quiz and results screens.</li>
+                                            <li>Add analytics to understand where students abandon exams or revision flows.</li>
+                                        </ul>
+                                    </section>
+
+                                    <?php /* Related project: Learning Platform / LMS Rebuild — route pending
+                                    <section class="portfolio-site__case-section">
+                                        <h3>Related Project</h3>
+                                        <article class="portfolio-site__related-card">
+                                            <h4>Learning Platform / LMS Rebuild</h4>
+                                            <p>This platform modernisation work connects to my wider product focus on turning disconnected workflows into clearer, measurable digital journeys.</p>
+                                            <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-lms-rebuild">View Project</button>
+                                        </article>
+                                    </section>
+                                    */ ?>
                                 </div>
-                                <section class="portfolio-site__case-section">
-                                    <h3>Tools & Technologies</h3>
-                                    <p>HTML, CSS, JavaScript, responsive design methods, UX design workflows, CMS and content systems.</p>
-                                </section>
-                                <section class="portfolio-site__case-section portfolio-site__case-section--learned">
-                                    <h3>What I Learned</h3>
-                                    <p>Platform success depended on aligning every stakeholder’s workflow upfront — student UX improvements only scaled once support and delivery teams could operate within the same system.</p>
-                                </section>
-                                <section class="portfolio-site__case-section portfolio-site__case-section--showcase">
-                                    <h3>Visual Showcase</h3>
-                                    <p class="portfolio-site__media-hint">Select any screenshot to view it full size.</p>
 
-                                    <div class="portfolio-site__media-subsection">
-                                        <h4>Quiz experience</h4>
-                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--compare">
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/student-mocks/screenshot-old-quiz-layout.png" alt="Previous mock exam quiz layout" loading="lazy">
-                                                <figcaption>Previous quiz layout</figcaption>
-                                            </figure>
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/student-mocks/screenshot-new-quiz-layout.png" alt="Redesigned mock exam quiz layout" loading="lazy">
-                                                <figcaption>Redesigned quiz layout</figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-site__media-grid">
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/student-mocks/screenshot-new-quiz-review-features.png" alt="In-quiz review and navigation features" loading="lazy">
-                                                <figcaption>In-quiz review and navigation</figcaption>
-                                            </figure>
-                                        </div>
-                                    </div>
-
-                                    <div class="portfolio-site__media-subsection">
-                                        <h4>Results and feedback</h4>
-                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--compare">
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/student-mocks/screenshot-old-results-layout.png" alt="Previous mock exam results summary" loading="lazy">
-                                                <figcaption>Previous results summary</figcaption>
-                                            </figure>
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/student-mocks/screenshot-new-results-layout.png" alt="Redesigned mock exam results summary" loading="lazy">
-                                                <figcaption>Redesigned results summary</figcaption>
-                                            </figure>
-                                        </div>
-                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/student-mocks/screenshot-new-results-questions-layout.png" alt="Per-question results breakdown" loading="lazy">
-                                                <figcaption>Per-question results breakdown</figcaption>
-                                            </figure>
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/student-mocks/screenshot-new-results-layout-dark-mode.png" alt="Results summary in dark mode" loading="lazy">
-                                                <figcaption>Results summary (dark mode)</figcaption>
-                                            </figure>
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/student-mocks/screenshot-new-results-questions-layout-dark-mode.png" alt="Question breakdown in dark mode" loading="lazy">
-                                                <figcaption>Question breakdown (dark mode)</figcaption>
-                                            </figure>
-                                        </div>
-                                    </div>
-
-                                    <div class="portfolio-site__media-subsection">
-                                        <h4>Case study content</h4>
-                                        <div class="portfolio-site__media-grid portfolio-site__media-grid--stacked">
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/student-mocks/screenshot-new-case-studies-1.png" alt="Case study listing layout" loading="lazy">
-                                                <figcaption>Case study listing</figcaption>
-                                            </figure>
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/student-mocks/screenshot-new-case-studies--2.png" alt="Case study detail layout" loading="lazy">
-                                                <figcaption>Case study detail view</figcaption>
-                                            </figure>
-                                            <figure class="portfolio-site__media-figure">
-                                                <img src="assets/img/projects/student-mocks/screenshot-new-case-studies-3.png" alt="Case study content structure" loading="lazy">
-                                                <figcaption>Structured case study content</figcaption>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </section>
                                 <footer class="portfolio-site__case-footer">
                                     <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
                                     <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-social-creative">Next case study</button>
@@ -1023,7 +2109,7 @@
                         <main class="portfolio-site__main">
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
-                                    <p class="portfolio-site__case-kicker">Case Study 6</p>
+                                    <p class="portfolio-site__case-kicker">Case Study 5</p>
                                     <h2 class="portfolio-site__case-title">Social Media Campaign Creative & Performance Design</h2>
                                     <p class="portfolio-site__case-subtitle">Delivered high-performing digital creative for webinar, paid social, and promotional campaign outputs.</p>
                                     <div class="portfolio-site__case-chips">
@@ -1191,7 +2277,7 @@
                         <main class="portfolio-site__main">
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
-                                    <p class="portfolio-site__case-kicker">Case Study 7</p>
+                                    <p class="portfolio-site__case-kicker">Case Study 6</p>
                                     <h2 class="portfolio-site__case-title">Deep Dissonance Podcast Brand Identity & Creative Direction</h2>
                                     <p class="portfolio-site__case-subtitle">Created a complete visual identity and social direction for a drum and bass podcast concept.</p>
                                     <div class="portfolio-site__case-chips">
@@ -1293,7 +2379,7 @@
                         <main class="portfolio-site__main">
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
-                                    <p class="portfolio-site__case-kicker">Case Study 8</p>
+                                    <p class="portfolio-site__case-kicker">Case Study 7</p>
                                     <h2 class="portfolio-site__case-title">AudioGrooves Event Marketing, Creative Design & After-Party Content</h2>
                                     <p class="portfolio-site__case-subtitle">Designed the label logo and supported advertising, marketing, and creative production for club nights and label events.</p>
                                     <div class="portfolio-site__case-chips">
@@ -1420,7 +2506,7 @@
                         <main class="portfolio-site__main">
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
-                                    <p class="portfolio-site__case-kicker">Case Study 9</p>
+                                    <p class="portfolio-site__case-kicker">Case Study 8</p>
                                     <h2 class="portfolio-site__case-title">Kengai Records Label Release Art, Event Creative & Social Campaigns</h2>
                                     <p class="portfolio-site__case-subtitle">Designed release artwork, event collateral, and connected Instagram carousel posts for an independent electronic music label.</p>
                                     <div class="portfolio-site__case-chips">
@@ -1555,7 +2641,7 @@
                                 </section>
                                 <footer class="portfolio-site__case-footer">
                                     <button class="portfolio-site__case-nav-btn" data-page="projects">Back to all case studies</button>
-                                    <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-desktop-portfolio">Next case study</button>
+                                    <button class="portfolio-site__case-nav-btn portfolio-site__case-nav-btn--primary" data-page="case-study-creature-print-3d">Next case study</button>
                                 </footer>
                             </article>
                         </main>
@@ -1565,7 +2651,7 @@
                         <main class="portfolio-site__main">
                             <article class="portfolio-site__case-study">
                                 <header class="portfolio-site__case-hero">
-                                    <p class="portfolio-site__case-kicker">Case Study 10</p>
+                                    <p class="portfolio-site__case-kicker">Case Study 11</p>
                                     <h2 class="portfolio-site__case-title">Desktop Portfolio Website & Interactive UX Experience</h2>
                                     <p class="portfolio-site__case-subtitle">Designed and built a nostalgic Windows-style desktop portfolio that demonstrates product thinking, frontend craft, and recruiter-friendly case study storytelling.</p>
                                     <div class="portfolio-site__case-chips">
@@ -1741,8 +2827,8 @@
 
             <div class="portfolio-site__lightbox" id="portfolio-site-lightbox" aria-hidden="true">
                 <button type="button" class="portfolio-site__lightbox-backdrop" data-lightbox-close aria-label="Close enlarged image"></button>
+                <button type="button" class="portfolio-site__lightbox-close" data-lightbox-close aria-label="Close">×</button>
                 <div class="portfolio-site__lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="portfolio-site-lightbox-caption">
-                    <button type="button" class="portfolio-site__lightbox-close" data-lightbox-close aria-label="Close">×</button>
                     <div class="portfolio-site__lightbox-stage">
                         <button type="button" class="portfolio-site__lightbox-nav portfolio-site__lightbox-nav--prev" id="portfolio-site-lightbox-prev" aria-label="Previous image" hidden>‹</button>
                         <img class="portfolio-site__lightbox-img" id="portfolio-site-lightbox-img" alt="">

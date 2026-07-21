@@ -96,7 +96,11 @@ function portfolio_get_documents(): array
 
 function portfolio_document_url(string $filename): string
 {
-    return './assets/docs/' . rawurlencode($filename);
+    $url = './assets/docs/' . rawurlencode($filename);
+    $path = dirname(__DIR__) . '/docs/' . $filename;
+    $version = is_file($path) ? filemtime($path) : false;
+
+    return $version === false ? $url : $url . '?v=' . $version;
 }
 
 /**

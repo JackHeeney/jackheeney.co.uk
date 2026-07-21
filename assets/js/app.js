@@ -145,7 +145,7 @@ const Desktop = (() => {
         "data-webinar": "https://data-webinar.org/",
         "ai-webinar": "https://ai-webinar.co.uk/",
         "robustittraining": "https://www.robustittraining.com/",
-        "getglitched": "https://www.getglitched.co.uk/",
+        "getglitched": "https://getglitchedcouk.vercel.app/",
         "bindertrader-live": "https://bindertrader.vercel.app/"
     };
     /** Desktop apps that open a portfolio page inside the browser window */
@@ -941,13 +941,16 @@ const Browser = (() => {
     const caseStudyPages = new Set([
         'case-study-it-training-route',
         'case-study-webinar-marketing',
-        'case-study-bindertrader',
         'case-study-digital-ops',
         'case-study-mock-exam',
         'case-study-social-creative',
+        'case-study-skills-nest',
+        'case-study-squirrels-nursery',
         'case-study-deep-dissonance',
         'case-study-audiogrooves',
         'case-study-kengai-records',
+        'case-study-creature-print-3d',
+        'case-study-bindertrader',
         'case-study-desktop-portfolio'
     ]);
 
@@ -1403,10 +1406,20 @@ const Browser = (() => {
         }
 
         function setLightboxImageMaxHeight() {
-            const stageHeight = browserStage?.clientHeight || browserContent?.clientHeight || 0;
-            if (!stageHeight) return;
-            const maxImageHeight = Math.max(200, stageHeight - 120);
+            const lightboxHeight = lightbox.clientHeight || browserStage?.clientHeight || browserContent?.clientHeight || 0;
+            const lightboxWidth = lightbox.clientWidth || browserStage?.clientWidth || 0;
+            if (!lightboxHeight) return;
+
+            const isMobile = browserWindow.classList.contains('browser-window--mobile');
+            const chromeOffset = isMobile ? 56 : 88;
+            const maxImageHeight = Math.max(200, lightboxHeight - chromeOffset);
             lightboxImg.style.maxHeight = `${maxImageHeight}px`;
+
+            if (isMobile && lightboxWidth) {
+                lightboxImg.style.maxWidth = `${lightboxWidth - 16}px`;
+            } else {
+                lightboxImg.style.maxWidth = '';
+            }
         }
 
         function getGalleryItems(section) {
@@ -1479,6 +1492,7 @@ const Browser = (() => {
             lightbox.classList.remove('portfolio-site__lightbox--open');
             lightboxImg.removeAttribute('src');
             lightboxImg.style.maxHeight = '';
+            lightboxImg.style.maxWidth = '';
             lightboxImg.alt = '';
             lightboxCaption.textContent = '';
             galleryItems = [];
@@ -1561,6 +1575,13 @@ const Browser = (() => {
                 stepGallery(1);
             }
         });
+
+        const lightboxResizeObserver = new ResizeObserver(() => {
+            if (!lightbox.classList.contains('portfolio-site__lightbox--open')) return;
+            setLightboxImageMaxHeight();
+        });
+        lightboxResizeObserver.observe(lightbox);
+        if (browserStage) lightboxResizeObserver.observe(browserStage);
 
         updateGalleryNav();
     }
